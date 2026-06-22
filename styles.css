@@ -1,3 +1,15 @@
+.head_banner {
+    position: sticky;           /* Modern and recommended */
+    top: 0;                     /* Sticks to the very top */
+    left: 0;
+    right: 0;
+    background-color: #333;     /* Change to your preferred color */
+    color: white;
+    padding: 15px 20px;
+    z-index: 1000;              /* Makes sure it stays above other content */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional nice shadow */
+}
+
 h4, li {
     padding: 0px;
     margin: 0px;
