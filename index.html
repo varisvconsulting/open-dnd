@@ -1,12 +1,86 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Website</title>
-    </head>
-    <body>
-        <h1>Hello from GitHub Pages! 🚀</h1>
-       
-    </body>
+<html>
+<head>
+    <title>Page Title</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="">
+    <aside>
+        testing 123
+    </aside>
+    <div class="spell_tab_buttons">
+        <button data-group="all" class="active tab_button category">all</button>
+        <button data-group="arcane" class="tab_button category">arcane</button>
+        <button data-group="oath" class="tab_button category">oath</button>
+        <button data-group="mystic" class="tab_button category">mystic</button>
+        <button data-group="occult" class="tab_button category">occult</button>
+    <!-- etc. -->
+    </div>
+
+    <div class="spell_tab_buttons">
+        <button data-group="0" class="tab_button level active">all</button>
+        <button data-group="0" class="tab_button level">cantrips</button>
+        <button data-group="1" class="tab_button level">1</button>
+        <button data-group="2" class="tab_button level">2</button>
+        <button data-group="3" class="tab_button level">3</button>
+        <button data-group="4" class="tab_button level">4</button>
+        <button data-group="5" class="tab_button level">5</button>
+        <button data-group="6" class="tab_button level">6</button>
+    <!-- etc. -->
+    </div>
+    
+
+    <div id="spell-list" class="spell-list">Loading weapons...</div>
+</div>
+
+<script src="spell_fetch.js"></script>
+
+<script>
+
+    var selector_class = "all";
+    var selector_lvl = "all";
+
+    document.addEventListener('DOMContentLoaded', async() => {
+        try {
+            console.log("DOMContentLoaded")
+            const data = await initialSetup();
+        } catch(e) {
+            console.log(e);
+        }
+    });
+
+    document.querySelectorAll('.spell_tab_buttons .category').forEach(btn => {
+        btn.addEventListener('click', () => {
+            // retain active for css
+            document.querySelectorAll('.spell_tab_buttons .category').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selector_class = btn.textContent;
+            var c = fillSpellCards(selector_class,selector_lvl);
+            console.log("selector pressed");
+            
+        });
+    });
+
+    document.querySelectorAll('.spell_tab_buttons .level').forEach(btn => {
+        btn.addEventListener('click', () => {
+            // retain active for css
+            document.querySelectorAll('.spell_tab_buttons .level').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            var lvl = "0";
+            if (btn.textContent == "cantrips") {selector_lvl = 0}
+            else {
+                selector_lvl = btn.textContent;
+            }
+            var c = fillSpellCards(selector_class,selector_lvl);
+            console.log("selector pressed");
+            
+        });
+    });
+</script>
+
+<!-- <script src="wpn_fetch.js"></script> -->
+
+</body>
 </html>
