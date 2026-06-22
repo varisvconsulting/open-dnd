@@ -68,10 +68,11 @@ h4, li {
 .spell-header {
     position:sticky;
     display: flex;
-    top: 0;
+    top: 139;
     /* justify-content: space-between; */
     align-items: baseline;
     color: #e9d69a;
+    background-color: #333; 
     border-bottom: 1px dotted #555;
     padding-bottom: 0.0rem; 
     margin-bottom: 0.0rem;
