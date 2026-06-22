@@ -34,17 +34,24 @@
     <div id="spell-list" class="spell-list">Loading weapons...</div>
 </div>
 
+<div>
+    <div id="race_list" class="race_list">loading player races...</div>
+</div>
+
 <script src="spells.js"></script>
+<script src="player_races.js"></script>
 
 <script>
 
     var selector_class = "all";
     var selector_lvl = "all";
 
+
     document.addEventListener('DOMContentLoaded', async() => {
         try {
             console.log("DOMContentLoaded")
             const data = await initialSetup();
+            const data2 = await loadPlayerRacesCSV();
         } catch(e) {
             console.log(e);
         }
