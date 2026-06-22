@@ -57,3 +57,8 @@ async function populatePlayerRaces() {
             `;
     }
 }
+
+async function InitialRaceSetup() {
+    var a = loadPlayerRacesCSV()
+    populatePlayerRaces()
+}
