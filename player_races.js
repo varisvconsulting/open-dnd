@@ -1,4 +1,4 @@
-var player_races = Map.new();
+var player_races = {};
 
 async function loadPlayerRacesCSV() {
     const csvUrl= `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv?&gid=0`;
@@ -21,7 +21,7 @@ async function loadPlayerRacesCSV() {
             
             _c +=1;
                 if (_c <= 1) { continue; } //cus the first few tabs arent part of the stuff
-            player_races[name] = Map.new()
+            player_races[name] = {};
             player_races[name]["name"]=name;
             player_races[name]["description"]=description;
             player_races[name]["attribute_bonus"]=attribute_bonus;
