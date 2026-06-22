@@ -1,11 +1,11 @@
 var player_races = Map.new();
 
 async function loadPlayerRacesCSV() {
-    //const csvUrl= `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv?&gid=0`;
-    const csvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
-            `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=1936715235&_v=${Date.now()}`
-        );
-    const list = document.getElementById('spell-list');
+    const csvUrl= `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv?&gid=0`;
+    // const csvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
+    //         `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=1936715235&_v=${Date.now()}`
+    //     );
+    const list = document.getElementById('race_list');
     list.textContent = 'Loading…';
     try {
         const text = await fetch(csvUrl, {caches: 'no-store'}).then(r => r.text());
