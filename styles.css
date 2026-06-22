@@ -1,0 +1,261 @@
+h4, li {
+    padding: 0px;
+    margin: 0px;
+}
+
+.spell_tab_buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.spell_tab_buttons .tab_button {
+    background-color: #477765;
+    border: none;
+    color: white;
+    padding: 10px 14px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 13px;
+    margin: 0.5px 0.5px;
+    cursor: pointer;
+    float: left;
+}
+
+.spell_tab_buttons .active{
+  background-color: #b8860b !important;
+}
+
+.spell-list {
+  display: grid;
+  grid-template-columns: 1fr;                /* 1 column on mobile */
+  gap: 0px;                               /* vertical spacing between weapons */
+  background-color: #444;
+}
+
+@media (min-width: 768px) {
+  .spell-list {
+    grid-template-columns: repeat(2, 1fr);   /* 2 columns on tablet */
+  }
+}
+
+@media (min-width: 1200px) {
+  .spell-list {
+    grid-template-columns: repeat(3, 1fr);   /* 3 columns on desktop if you want tighter packing */
+  }
+}
+
+.spell-card {
+    /* background-color: #174753 ; */
+    background-color: rgb(42, 42, 46);
+    padding: 5px;
+    border: 1px solid #e9d69a; 
+    border-radius: 6px;
+}
+
+.spell-header {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: baseline;
+  color: #e9d69a;
+  border-bottom: 1px dotted #555;
+  padding-bottom: 0.0rem; 
+  margin-bottom: 0.0rem;
+}
+
+.spell-header h3 {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+
+/* Misc properties – small, subtle */
+.spell-effect {
+  font-size: 0.85rem;
+  color: #ece5d0;
+  margin-top: 0rem;
+  border-bottom: 1px solid #444;
+  padding: 0.6rem;
+}
+
+.spell-mechanics p{
+  margin: 0px;
+  padding: 0px;
+  padding: 0px;
+  font-size: 80%;
+  color: #b4ae98;
+}
+
+.spell-header .spell-type {
+  color: gray;
+  margin-left: 5px;
+}
+
+.spell_tab_buttons .level {
+  padding: 10px 20px;
+}
+
+.weapon_tab_buttons {
+    display: flex;
+    flex-wrap: wrap; 
+}
+
+.weapon_tab_buttons .tab_button {
+    background-color: #477765;
+    border: none;
+    color: white;
+    padding: 14px 14px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 13px;
+    margin: 0.5px 0.5px;
+    cursor: pointer;
+    float: left;
+}
+
+.weapon_tab_buttons .category{
+    background-color: #96aaa3;
+}
+
+.weapon_tab_buttons .active {
+    background-color: #c147cc;
+}
+
+.weapon_card {
+    background-color: gray;
+    padding: 5px;
+}
+
+.weapon_card .damage {
+    background-color: azure;
+}
+
+.weapon_card .property_box {
+    background-color: lightblue;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;  
+}
+
+.property {
+    float: left;
+    min-width: 100px;
+    max-width: 300px;
+    /* border-style: outset; */
+}
+
+ul.property_list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* weapon card */
+/* Overall container – responsive grid of rows/blocks */
+.weapons-list {
+  display: grid;
+  grid-template-columns: 1fr;                /* 1 column on mobile */
+  gap: 0px;                               /* vertical spacing between weapons */
+  background-color: #444;
+}
+
+@media (min-width: 768px) {
+  .weapons-list {
+    grid-template-columns: repeat(2, 1fr);   /* 2 columns on tablet */
+  }
+}
+
+@media (min-width: 1200px) {
+  .weapons-list {
+    grid-template-columns: repeat(3, 1fr);   /* 3 columns on desktop if you want tighter packing */
+  }
+}
+
+/* Each weapon "card" / row */
+.weapon-row {
+  background: #2a2a2e;                       /* dark fantasy bg; or parchment #f9f5e9 */
+  border: 1px solid #5c4033;                 /* subtle wood/iron border */
+  border-radius: 6px;
+  padding: 0.9rem 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  color: #e0e0e0;
+  font-family: 'Georgia', serif;             /* readable fantasy feel */
+}
+
+/* Top line: name + damage */
+.weapon-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #555;
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.weapon-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #ffd700;                            /* gold for name highlight */
+}
+
+.damage {
+  font-weight: bold;
+  color: #ff6347;                            /* tomato red for damage */
+  font-size: 1.1rem;
+}
+
+.versatile {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
+/* Misc properties – small, subtle */
+.misc-props {
+  font-size: 0.85rem;
+  color: #bbb;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-bottom: 0.2rem;
+  border-bottom: 1px dashed #444;
+  padding-bottom: 0.6rem;
+}
+
+/* Four-column grid for maneuvers */
+.maneuvers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);     /* one column per category */
+  gap: 0.8rem;                               /* horizontal gaps */
+}
+
+.column {
+  font-size: 0.9rem;
+}
+
+.column h4 {
+  margin: 0 0 0.3rem;
+  font-size: 0.95rem;
+  color: #b8860b;                            /* darker gold for headers */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.column li {
+  margin-bottom: 0.2rem;
+  line-height: 1.3;
+}
+
+/* Optional: if lists get long, allow wrapping or ellipsis */
+.column li {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
