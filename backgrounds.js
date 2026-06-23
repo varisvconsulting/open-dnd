@@ -49,7 +49,6 @@ async function populateBackgrounds() {
                 <div class="entry-property"><b>proficiencies</b>: ${value["proficiencies"]}</div>
                 <br>
                 <div class="entry-property">${BackgroundNotationToHtml(value["description"])}</div>
-                <p>${value["description"]}<p>
                 
             </div>
             `;
