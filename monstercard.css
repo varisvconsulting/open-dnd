@@ -1,0 +1,66 @@
+.monster-card {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 1rem;
+  /* max-width: 400px; Compact size */
+  font-family: 'Arial', sans-serif;
+  margin: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.monster-header {
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.monster-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.meta {
+  font-size: 0.875rem;
+  color: #aaa;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3-column for ability scores */
+  gap: 0.25rem;
+  font-family: monospace; /* For stat alignment */
+  margin-bottom: 1rem;
+}
+
+.stat {
+  background-color: #282828;
+  padding: 0.25rem;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.abilities h3, .actions h3, .upgrades h3 {
+  font-size: 1rem;
+  margin: 0.5rem 0 0.25rem;
+  color: #ffd700; /* Subtle highlight like your yellow crit text */
+}
+
+/* ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+} */
+
+li {
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+}
+
+footer {
+  border-top: 1px solid #444;
+  padding-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #bbb;
+}
