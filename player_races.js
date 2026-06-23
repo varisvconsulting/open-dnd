@@ -34,7 +34,7 @@ async function loadPlayerRacesCSV() {
 }
 
 async function populatePlayerRaces() {
-    const list = Document.getElementById("race_list")
+    const list = document.getElementById("race_list")
     list.replaceChildren()
     for (const r of player_races.keys()) {
         var item_card = document.createElement('div');
