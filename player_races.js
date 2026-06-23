@@ -58,13 +58,37 @@ async function populatePlayerRaces() {
                 <div class="entry-property">size: ${value["size"]}</div>
                 <div class="entry-property">attribute bonus: ${value["attribute_bonus"]}</div>
                 <div class="entry-property">speed: ${value["speed"]}</div>
-                <div class="entry-property">traits: ${genRaceTraitList(value["traits"])}</div>
+                <div class="entry-property">traits: ${PlayerRaceTraitNotationToHtml(value["traits"])}</div>
                 <p>${value["description"]}<p>
                 
             </div>
             `;
         list.appendChild(item_card);
     }
+}
+
+
+function PlayerRaceTraitNotationToHtml(text) {
+    var output = "";
+    for (i in text) {
+        var c = text[i];
+        if (c == "|") {
+            output += "<br>";
+        }
+        else if (c == "["){
+            output += "<ul><li>";
+        }
+        else if (c == ";"){
+            output += "</li><li>";
+        }
+        else if (c == "]"){
+            output += "</li></ul>";
+        }
+        else {
+            output += c;
+        }
+    }
+    return output;
 }
 
 function genRaceTraitList(t) {
