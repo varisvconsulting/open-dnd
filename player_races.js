@@ -36,24 +36,17 @@ async function loadPlayerRacesCSV() {
 async function populatePlayerRaces() {
     const list = document.getElementById("race_list")
     list.replaceChildren()
-    var keys = Object.keys(player_races);
+    // var keys = Object.keys(player_races);
     for (const [key, value] of Object.entries(player_races)) {
         var item_card = document.createElement('div');
         var item_data = value
         
-        item_card.dataset.group = magic_class;
+        // item_card.dataset.group = magic_class;
         item_card.classList = ["spell-card"];
 
         item_card.innerHTML = `
             <div class="spell-header">
-                <h3>${escapeHtml(capitalize(spell_name))} </h3>
-                <span class="spell-type"><i> - level ${spell_lvl}, ${escapeHtml(spell_type)}</i></span>
-            </div>
-            <div class="spell-mechanics">
-                size: ${r["size"]}
-                description: ${r["dscription"]}
-                attributes: ${r["attribute_bonus"]}
-                speed: ${r["speed"]}
+                <h3>${escapeHtml(capitalize(item_data["name"]))} </h3>
             </div>
             `;
     }
