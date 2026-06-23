@@ -40,7 +40,7 @@ async function populatePlayerRaces() {
     for (const [key, value] of Object.entries(player_races)) {
         var item_card = document.createElement('div');
         var item_data = value
-        
+        console.log("populating entry... " + key)
         // item_card.dataset.group = magic_class;
         item_card.classList = ["spell-card"];
 
