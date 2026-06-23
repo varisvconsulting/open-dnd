@@ -13,6 +13,7 @@ async function loadPlayerRacesCSV() {
         var _c = 0
         for (const row of rows) {
             var [name='',
+                 types='',
                  description='',
                  attribute_bonus='',
                  size='',
@@ -23,6 +24,7 @@ async function loadPlayerRacesCSV() {
                 if (_c <= 1) { continue; } //cus the first few tabs arent part of the stuff
             player_races[name] = {};
             player_races[name]["name"]=name;
+            player_races[name]["types"]=types
             player_races[name]["description"]=description;
             player_races[name]["attribute_bonus"]=attribute_bonus;
             player_races[name]["speed"]=speed;
