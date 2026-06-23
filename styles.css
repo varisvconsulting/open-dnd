@@ -15,12 +15,12 @@ h4, li {
     margin: 0px;
 }
 
-.header_tab {
+.head_banner {
   display: flex;
   flex-wrap: wrap;
 }
 
-.header_tab .tab_button {
+.head_banner .tab_button {
     background-color: #b1d3c6;
     border: none;
     color: rgb(20, 20, 20);
@@ -34,7 +34,7 @@ h4, li {
     float: left;
 }
 
-.header_tab .active{
+.head_banner .active{
   background-color: #1a1a1a !important;
   color: rgb(182, 218, 201);
 }
