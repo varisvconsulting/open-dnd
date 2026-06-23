@@ -27,6 +27,7 @@ async function loadPlayerRacesCSV() {
             player_races[name]["types"]=types
             player_races[name]["description"]=description;
             player_races[name]["attribute_bonus"]=attribute_bonus;
+            player_races[name]["size"]=size;
             player_races[name]["speed"]=speed;
         }
     } catch (e) {
@@ -53,7 +54,7 @@ async function populatePlayerRaces() {
             <div class="race_desc_box">
                 <div class="entry-property">type: ${value["types"]}</div>
                 <div class="entry-property">size: ${value["size"]}</div>
-                <div class="entry-property">attribute bonus: ${value["attribute bonus"]}</div>
+                <div class="entry-property">attribute bonus: ${value["attribute_bonus"]}</div>
                 <div class="entry-property">speed: ${value["speed"]}</div>
                 <p>${value["description"]}<p>
                 
