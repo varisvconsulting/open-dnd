@@ -298,3 +298,7 @@ ul.property_list {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.race_resc_box {
+    color: rgb(221, 208, 208)
+}
