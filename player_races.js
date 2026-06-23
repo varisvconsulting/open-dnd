@@ -51,8 +51,8 @@ async function populatePlayerRaces() {
                 <h3>${escapeHtml(capitalize(item_data["name"]))} </h3>
             </div>
             <div class="race_desc_box">
-                <div class="entry-property">type: - </div>
-                <div class="entry-property">size: - </div>
+                <div class="entry-property">type: ${value["types"]}</div>
+                <div class="entry-property">size: ${value["size"]}</div>
                 <div class="entry-property">attribute bonus: ${value["attribute bonus"]}</div>
                 <div class="entry-property">speed: ${value["speed"]}</div>
                 <p>${value["description"]}<p>
