@@ -60,6 +60,6 @@ async function populatePlayerRaces() {
 }
 
 async function initialRaceSetup() {
-    var a = await loadPlayerRacesCSV()
-    populatePlayerRaces()
+    var a = await loadPlayerRacesCSV();
+    var b = await populatePlayerRaces();
 }
