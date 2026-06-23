@@ -92,7 +92,7 @@ h4, li {
 .spell-header {
     position:sticky;
     display: flex;
-    top: 122px;
+    top: 140px;
     /* justify-content: space-between; */
     align-items: baseline;
     color: #e9d69a;
