@@ -58,7 +58,7 @@ async function populatePlayerRaces() {
                 <div class="entry-property">size: ${value["size"]}</div>
                 <div class="entry-property">attribute bonus: ${value["attribute_bonus"]}</div>
                 <div class="entry-property">speed: ${value["speed"]}</div>
-                <div class="entry-property">traits: ${value["traits"]}</div>
+                <div class="entry-property">traits: ${genRaceTraitList(value["traits"])}</div>
                 <p>${value["description"]}<p>
                 
             </div>
