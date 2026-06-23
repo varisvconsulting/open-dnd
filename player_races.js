@@ -37,9 +37,9 @@ async function populatePlayerRaces() {
     const list = document.getElementById("race_list")
     list.replaceChildren()
     var keys = Object.keys(player_races);
-    for (const r of player_races) {
+    for ((key, value) of player_races) {
         var item_card = document.createElement('div');
-        var item_data = player_races[r["name"]]
+        var item_data = value
         
         item_card.dataset.group = magic_class;
         item_card.classList = ["spell-card"];
