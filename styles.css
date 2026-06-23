@@ -15,6 +15,30 @@ h4, li {
     margin: 0px;
 }
 
+.header_tab {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header_tab .tab_button {
+    background-color: #b1d3c6;
+    border: none;
+    color: rgb(20, 20, 20);
+    padding: 10px 14px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 13px;
+    margin: 0.5px 0.5px;
+    cursor: pointer;
+    float: left;
+}
+
+.header_tab .active{
+  background-color: #1a1a1a !important;
+  color: rgb(182, 218, 201);
+}
+
 .spell_tab_buttons {
   display: flex;
   flex-wrap: wrap;
