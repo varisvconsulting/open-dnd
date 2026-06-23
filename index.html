@@ -41,10 +41,17 @@
     <div id="spell-list" class="spell-list">[spell menu]</div>
 </div>
 
+<div class="large_main_menu large_main_menu_backgrounds">
+    <div id="background_list" class="background_list">[background menu]</div>
+</div>
+
 <div class="large_main_menu large_main_menu_player_races">
     <div id="race_list" class="race_list">[player race menu]</div>
 </div>
 
+
+
+<script src="backgrounds.js"></script>
 <script src="spells.js"></script>
 <script src="player_races.js"></script>
 
@@ -59,6 +66,7 @@
             console.log("DOMContentLoaded")
             const data = await initialSpellSetup();
             const data2 = await initialRaceSetup();
+            const data3 = await initialBackgroundSetup();
         } catch(e) {
             console.log(e);
         }
@@ -112,6 +120,7 @@
                     setVisibleByClass('.large_main_menu_spells')
                     break;
                 case 'backgrounds':
+                    setVisibleByClass('.large_main_menu_backgrounds')
                     break;
             }
         })

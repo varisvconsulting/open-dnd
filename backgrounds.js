@@ -1,7 +1,7 @@
-var player_races = {};
+var backgrounds = {};
 
-async function loadPlayerRacesCSV() {
-    const csvUrl= `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=1936715235`;
+async function loadBackgroundsCSV() {
+    const csvUrl= `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=782758810`;
     // const csvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
     //         `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=1936715235&_v=${Date.now()}`
     //     );
@@ -13,24 +13,16 @@ async function loadPlayerRacesCSV() {
         var _c = 0
         for (const row of rows) {
             var [name='',
-                 types='',
+                 proficiencies='',
                  description='',
-                 attribute_bonus='',
-                 size='',
-                 speed='',
-                 traits=''
                 ] = row;
             
             _c +=1;
                 if (_c <= 1) { continue; } //cus the first few tabs arent part of the stuff
-            player_races[name] = {};
-            player_races[name]["name"]=name;
-            player_races[name]["types"]=types
-            player_races[name]["description"]=description;
-            player_races[name]["attribute_bonus"]=attribute_bonus;
-            player_races[name]["size"]=size;
-            player_races[name]["speed"]=speed;
-            player_races[name]["traits"]=traits;
+            backgrounds[name] = {};
+            backgrounds[name]["name"]=name;
+            backgrounds[name]["proficiencies"]=proficiencies
+            backgrounds[name]["description"]=description;
         }
     } catch (e) {
         list.textContent = 'Sorry—could not load data.';
@@ -38,11 +30,11 @@ async function loadPlayerRacesCSV() {
     }
 }
 
-async function populatePlayerRaces() {
-    const list = document.getElementById("race_list")
+async function populateBackgrounds() {
+    const list = document.getElementById("backgrounds")
     list.replaceChildren()
     // var keys = Object.keys(player_races);
-    for (const [key, value] of Object.entries(player_races)) {
+    for (const [key, value] of Object.entries(backgrounds)) {
         var item_card = document.createElement('div');
         var item_data = value
         console.log("populating entry... " + key)
@@ -54,12 +46,8 @@ async function populatePlayerRaces() {
                 <h3>${escapeHtml(capitalize(item_data["name"]))} </h3>
             </div>
             <div class="race_desc_box">
-                <div class="entry-property"><b>type</b>: ${value["types"]}</div>
-                <div class="entry-property"><b>size</b>: ${value["size"]}</div>
-                <div class="entry-property"><b>attribute bonus</b>: ${value["attribute_bonus"]}</div>
-                <div class="entry-property"><b>speed</b>: ${value["speed"]}</div>
-                <br>
-                <div class="entry-property">${PlayerRaceTraitNotationToHtml(value["traits"])}</div>
+                <div class="entry-property"><b>proficiencies</b>: ${value["proficiencies"]}</div>
+                <div class="entry-property">${BackgroundNotationToHtml(value["description"])}</div>
                 <p>${value["description"]}<p>
                 
             </div>
@@ -69,7 +57,7 @@ async function populatePlayerRaces() {
 }
 
 
-function PlayerRaceTraitNotationToHtml(text) {
+function BackgroundNotationToHtml(text) {
     var output = "";
     for (i in text) {
         var c = text[i];
@@ -92,7 +80,7 @@ function PlayerRaceTraitNotationToHtml(text) {
     return output;
 }
 
-async function initialRaceSetup() {
-    var a = await loadPlayerRacesCSV();
-    var b = await populatePlayerRaces();
+async function initialBackgroundSetup() {
+    var a = await loadBackgroundsCSV();
+    var b = await populateBackgrounds();
 }
