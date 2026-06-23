@@ -67,6 +67,15 @@ async function populatePlayerRaces() {
     }
 }
 
+function genRaceTraitList(t) {
+    var all_traits = t.split("|");
+    var rez_text = "<ul>";
+    for (i of all_traits){
+        rez_text += `<li>${i}</li>`;
+    }
+    rez_text += "</ul>";
+}
+
 async function initialRaceSetup() {
     var a = await loadPlayerRacesCSV();
     var b = await populatePlayerRaces();
