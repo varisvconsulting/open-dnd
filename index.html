@@ -118,15 +118,13 @@
     });
 
     function clearMenus(){
-        document.querySelectorAll('.large_main_menu').forEach(mnu =>{
-            mnu.style.visibility = "hidden"
-        });
+        setVisibleByClass('.large_main_menu', false);
     }
 
     function setVisibleByClass(c_str, visible = true){
         document.querySelectorAll(c_str).forEach(ob => {
             if (visible) {
-                ob.style.display = "block"
+                ob.style.display = "inline"
             } else {
                 ob.style.display = "none"
             }
