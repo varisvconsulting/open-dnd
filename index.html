@@ -12,7 +12,7 @@
         <button data_group="playable_races" class="tab_button">playable races</button>
         <button data_group="classes" class="tab_button">classes</button>
         <button data_group="feats" class="tab_button">feats</button>
-        <button data_group="spells" class="tab_button">items</button>
+        <button data_group="items" class="tab_button">items</button>
         <button data_group="spells" class="tab_button">spells</button>
     </div>
     <div class="spell_tab_buttons">
@@ -90,6 +90,28 @@
             console.log("selector pressed");
             
         });
+    });
+
+    document.querySelectorAll('.header_tab .tab_button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.header_tab .tab_button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active')
+            var selected = btn.textContent;
+            switch(selected) {
+                case 'backgrounds':
+                    break;
+                case 'playable races':
+                    break;
+                case 'classes':
+                    break;
+                case 'feats':
+                    break;
+                case 'spells':
+                    break;
+                case 'backgrounds':
+                    break;
+            }
+        })
     });
 </script>
 
