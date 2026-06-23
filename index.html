@@ -37,12 +37,12 @@
     </div>
 </div>
     
-<div style="visibility:invisible">
-    <div id="spell-list" class="spell-list">Loading weapons...</div>
+<div class="large_main_menu large_main_menu_spells">
+    <div id="spell-list" class="spell-list">[spell menu]</div>
 </div>
 
-<div>
-    <div id="race_list" class="race_list">loading player races...</div>
+<div class="large_main_menu large_main_menu_player_races">
+    <div id="race_list" class="race_list">[player race menu]</div>
 </div>
 
 <script src="spells.js"></script>
@@ -96,23 +96,42 @@
         btn.addEventListener('click', () => {
             document.querySelectorAll('.header_tab .tab_button').forEach(b => b.classList.remove('active'));
             btn.classList.add('active')
+            clearMenus()
             var selected = btn.textContent;
             switch(selected) {
                 case 'backgrounds':
                     break;
                 case 'playable races':
+                    setVisibleByClass('.large_main_menu_player_races')
                     break;
                 case 'classes':
                     break;
                 case 'feats':
                     break;
                 case 'spells':
+                    setVisibleByClass('.large_main_menu_spells')
                     break;
                 case 'backgrounds':
                     break;
             }
         })
     });
+
+    function clearMenus(){
+        document.querySelectorAll('.large_main_menu').forEach(mnu =>{
+            mnu.style.visibility = "hidden"
+        });
+    }
+
+    function setVisibleByClass(c_str, visible = true){
+        document.querySelectorAll(c_str).forEach(ob => {
+            if (visible) {
+                ob.style.visibility = "visible"
+            } else {
+                ob.style.visibility = "hidden"
+            }
+        });
+    }
 </script>
 
 <!-- <script src="wpn_fetch.js"></script> -->
