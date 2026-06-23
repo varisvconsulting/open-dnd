@@ -69,6 +69,8 @@ async function populatePlayerRaces() {
 
 function genRaceTraitList(t) {
     var all_traits = t.split("|");
+    if (all_traits[0]=='[') {all_traits=all_traits.substring(1,all_traits.length-1)}
+    if (all_traits[all_traits.length-1]==']') {all_traits=all_traits.substring(0,all_traits.length-1)}
     var rez_text = "<ul>";
     for (i of all_traits){
         rez_text += `<li>${i}</li>`;
