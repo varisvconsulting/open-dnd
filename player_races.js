@@ -49,7 +49,7 @@ async function populatePlayerRaces() {
                 <h3>${escapeHtml(capitalize(item_data["name"]))} </h3>
             </div>
             `;
-        list.appendChild(item_card)
+        list.appendChild(item_card);
     }
 }
 
