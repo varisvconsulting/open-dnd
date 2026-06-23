@@ -121,7 +121,7 @@ function constructCreatureCard(name){
             ` : ''}
         </div>
         `;
-        console.log(rez);
+        // console.log(rez);
         return rez;
     }
     console.log("failed to find referenced creature - " + name);
