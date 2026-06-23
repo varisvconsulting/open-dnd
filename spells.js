@@ -34,7 +34,7 @@ async function loadCreatureCsv(){
         var text = await fetch(csvUrl, {caches: 'no-store'}).then(r => r.text());
         var rows = await parseCSV(text);
         var _c = 0
-        console.log("total spells - " + rows.length);
+        // console.log("total spells - " + rows.length);
         for (const row of rows) {
             var [name='', meta='', cr='', ac='',block='', hp='',speed='',str='',dex='',con='',int='',wis='',cha='',traits='',properties='',actions=''] = row;
             _c +=1;
@@ -173,7 +173,7 @@ function fillSpellCards(selector_class,selector_lvl) {
             
             ${creatures? creatureCardData : "" }
             `;
-        console.log("adding from " + selector_class + " - " + selector_lvl + ": " + spell_name + " - " + creatures);
+        // console.log("adding from " + selector_class + " - " + selector_lvl + ": " + spell_name + " - " + creatures);
         list.appendChild(item_card)
     }
 }
@@ -217,7 +217,7 @@ async function parseCSV(text) {
                 }
             }
         }
-        console.log(row_data);
+        // console.log(row_data);
         output.push(row_data);
     }
     return output;
