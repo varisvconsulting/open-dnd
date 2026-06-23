@@ -107,7 +107,8 @@
             clearMenus()
             var selected = btn.textContent;
             switch(selected) {
-                case 'backgrounds':
+                 case 'backgrounds':
+                    setVisibleByClass('.large_main_menu_backgrounds')
                     break;
                 case 'playable races':
                     setVisibleByClass('.large_main_menu_player_races')
@@ -118,9 +119,6 @@
                     break;
                 case 'spells':
                     setVisibleByClass('.large_main_menu_spells')
-                    break;
-                case 'backgrounds':
-                    setVisibleByClass('.large_main_menu_backgrounds')
                     break;
             }
         })
