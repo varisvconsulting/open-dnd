@@ -299,6 +299,6 @@ ul.property_list {
   text-overflow: ellipsis;
 }
 
-.race_desc_box .entry-property{
+.race_desc_box {
     color: #e0e0e0;
 }

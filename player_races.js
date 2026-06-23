@@ -17,7 +17,8 @@ async function loadPlayerRacesCSV() {
                  description='',
                  attribute_bonus='',
                  size='',
-                 speed=''
+                 speed='',
+                 traits=''
                 ] = row;
             
             _c +=1;
@@ -29,6 +30,7 @@ async function loadPlayerRacesCSV() {
             player_races[name]["attribute_bonus"]=attribute_bonus;
             player_races[name]["size"]=size;
             player_races[name]["speed"]=speed;
+            player_races[name]["traits"]=traits;
         }
     } catch (e) {
         list.textContent = 'Sorry—could not load data.';
@@ -56,6 +58,7 @@ async function populatePlayerRaces() {
                 <div class="entry-property">size: ${value["size"]}</div>
                 <div class="entry-property">attribute bonus: ${value["attribute_bonus"]}</div>
                 <div class="entry-property">speed: ${value["speed"]}</div>
+                <div class="entry-property">traits: ${value["traits"]}</div>
                 <p>${value["description"]}<p>
                 
             </div>
