@@ -74,6 +74,7 @@ function genRaceTraitList(t) {
         rez_text += `<li>${i}</li>`;
     }
     rez_text += "</ul>";
+    return rez_text
 }
 
 async function initialRaceSetup() {
