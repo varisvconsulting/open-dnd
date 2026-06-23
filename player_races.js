@@ -37,7 +37,7 @@ async function populatePlayerRaces() {
     const list = document.getElementById("race_list")
     list.replaceChildren()
     var keys = Object.keys(player_races);
-    for ((key, value) of player_races) {
+    for (const [key, value] of Object.entries(player_races)) {
         var item_card = document.createElement('div');
         var item_data = value
         
