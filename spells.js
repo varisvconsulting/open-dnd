@@ -260,7 +260,7 @@ function getCleanCommasString(text) {
     return rez;
 }
 
-async function initialSetup() {
+async function initialSpellSetup() {
     var a = await loadSpellCsv();
     var b = await loadCreatureCsv();
     var c = await fillSpellCards("all","all");

@@ -57,7 +57,7 @@
     document.addEventListener('DOMContentLoaded', async() => {
         try {
             console.log("DOMContentLoaded")
-            const data = await initialSetup();
+            const data = await initialSpellSetup();
             const data2 = await initialRaceSetup();
         } catch(e) {
             console.log(e);
@@ -126,9 +126,9 @@
     function setVisibleByClass(c_str, visible = true){
         document.querySelectorAll(c_str).forEach(ob => {
             if (visible) {
-                ob.style.visibility = "visible"
+                ob.style.display = "block"
             } else {
-                ob.style.visibility = "hidden"
+                ob.style.visibility = "none"
             }
         });
     }
