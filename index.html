@@ -119,6 +119,7 @@
                     break;
                 case 'spells':
                     setVisibleByClass('.large_main_menu_spells')
+                    setVisibleByClass('.spell_tab_buttons', true)
                     break;
             }
         })
@@ -126,6 +127,7 @@
 
     function clearMenus(){
         setVisibleByClass('.large_main_menu', false);
+        setVisibleByClass('.spell_tab_buttons', false)
     }
 
     function setVisibleByClass(c_str, visible = true){
