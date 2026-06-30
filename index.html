@@ -119,7 +119,7 @@
                     break;
                 case 'spells':
                     setVisibleByClass('.large_main_menu_spells')
-                    setVisibleByClass('.spell_tab_buttons', true)
+                    setVisibleByClass('.spell_tab_buttons', true, "block")
                     break;
             }
         })
@@ -130,14 +130,23 @@
         setVisibleByClass('.spell_tab_buttons', false)
     }
 
-    function setVisibleByClass(c_str, visible = true){
+    function setVisibleByClass(c_str, visible = true, override=""){
         document.querySelectorAll(c_str).forEach(ob => {
             if (visible) {
-                ob.style.display = "inline"
+                if (isEmptyValue(override)) {
+                    ob.style.display = "inline"
+                } else {
+                    ob.style.display = string(override)
+                }
             } else {
                 ob.style.display = "none"
             }
         });
+    }
+
+    function isEmptyValue(value) {
+        if (value === null || value === undefined) return true;
+        return String(value).trim() === "";
     }
 </script>
 
