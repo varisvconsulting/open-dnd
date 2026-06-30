@@ -131,6 +131,9 @@
                     break;
                 case 'feats':
                     break;
+                case 'items':
+                    setVisibleByClass(".large_main_menu_weapons");
+                    setVisibleByClass(".weapon_tab_buttons", "flex")
                 case 'spells':
                     setVisibleByClass('.large_main_menu_spells')
                     setVisibleByClass('.spell_tab_buttons', true, "flex")
@@ -142,6 +145,7 @@
     function clearMenus(){
         setVisibleByClass('.large_main_menu', false);
         setVisibleByClass('.spell_tab_buttons', false);
+        setVisibleByClass('.weapon_tab_buttons', false);
     }
 
     function setVisibleByClass(c_str, visible = true, override = ""){
