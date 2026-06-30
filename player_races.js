@@ -18,7 +18,8 @@ async function loadPlayerRacesCSV() {
                  attribute_bonus='',
                  size='',
                  speed='',
-                 traits=''
+                 traits='',
+                 proficiencies=''
                 ] = row;
             
             _c +=1;
@@ -31,6 +32,7 @@ async function loadPlayerRacesCSV() {
             player_races[name]["size"]=size;
             player_races[name]["speed"]=speed;
             player_races[name]["traits"]=traits;
+            player_races[name]["proficiencies"]=proficiencies
         }
     } catch (e) {
         list.textContent = 'Sorry—could not load data.';
