@@ -21,7 +21,7 @@ async function loadBackgroundsCSV() {
             if (_c <= 1) { continue; } //cus the first few tabs arent part of the stuff
             backgrounds[name] = {};
             backgrounds[name]["name"]=name;
-            backgrounds[name]["proficiencies"]=proficiencies
+            backgrounds[name]["proficiencies"]=proficiencies;
             backgrounds[name]["description"]=description;
         }
     } catch (e) {
