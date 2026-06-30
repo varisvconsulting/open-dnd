@@ -46,6 +46,10 @@
 </div>
 
 <div class="large_main_menu large_main_menu_player_races">
+    <div id="weapons_list" class="weapons_list">[weapon menu]</div>
+</div>
+
+<div class="large_main_menu large_main_menu_player_races">
     <div id="race_list" class="race_list">[player race menu]</div>
 </div>
 
@@ -54,6 +58,7 @@
 <script src="backgrounds.js"></script>
 <script src="spells.js"></script>
 <script src="player_races.js"></script>
+<script src="weapons.js"></script>
 
 <script>
 
@@ -67,6 +72,7 @@
             const data = initialSpellSetup();
             const data2 = initialRaceSetup();
             const data3 = initialBackgroundSetup();
+            const data4 = initialWeaponsSetup();
         } catch(e) {
             console.log(e);
         }
