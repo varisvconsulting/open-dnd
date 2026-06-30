@@ -141,7 +141,7 @@
 
     function clearMenus(){
         setVisibleByClass('.large_main_menu', false);
-        setVisibleByClass('.spell_tab_buttons', false)
+        setVisibleByClass('.spell_tab_buttons', false);
     }
 
     function setVisibleByClass(c_str, visible = true, override = ""){
@@ -150,7 +150,7 @@
                 if (isEmptyValue(override)) {
                     ob.style.display = "inline"
                 } else {
-                    ob.style.display = string(override)
+                    ob.style.display = String(override)
                 }
             } else {
                 ob.style.display = "none"
