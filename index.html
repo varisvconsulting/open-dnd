@@ -35,6 +35,12 @@
         <button data-group="6" class="tab_button level">6</button>
     <!-- etc. -->
     </div>
+
+    <div class="weapon_tab_buttons">
+        <button data-group="0" class="tab_button level active">weapons</button>
+        <button data-group="0" class="tab_button level">consumables</button>
+    <!-- etc. -->
+    </div>
 </div>
     
 <div class="large_main_menu large_main_menu_spells">
@@ -45,7 +51,7 @@
     <div id="background_list" class="background_list">[background menu]</div>
 </div>
 
-<div class="large_main_menu large_main_menu_player_races">
+<div class="large_main_menu large_main_menu_weapons">
     <div id="weapons_list" class="weapons_list">[weapon menu]</div>
 </div>
 
@@ -136,7 +142,7 @@
         setVisibleByClass('.spell_tab_buttons', false)
     }
 
-    function setVisibleByClass(c_str, visible = true, override=""){
+    function setVisibleByClass(c_str, visible = true, override = ""){
         document.querySelectorAll(c_str).forEach(ob => {
             if (visible) {
                 if (isEmptyValue(override)) {
@@ -152,6 +158,7 @@
 
     function isEmptyValue(value) {
         if (value === null || value === undefined) return true;
+        console.log(string(value).trim() === "");
         return String(value).trim() === "";
     }
 </script>
