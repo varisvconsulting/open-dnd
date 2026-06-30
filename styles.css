@@ -102,6 +102,19 @@ h4, li {
     margin-bottom: 0.0rem;
 }
 
+.player-race-header {
+    position:sticky;
+    display: flex;
+    top: 0;
+    /* justify-content: space-between; */
+    align-items: baseline;
+    color: #e9d69a;
+    background-color: #333; 
+    border-bottom: 1px dotted #444;
+    padding-bottom: 0.0rem; 
+    margin-bottom: 0.0rem;
+}
+
 .spell-header h3 {
   margin-bottom: 5px;
   margin-top: 5px;
