@@ -52,14 +52,14 @@ async function populatePlayerRaces() {
         item_card.classList = ["spell-card"];
 
         item_card.innerHTML = `
-            <div class="spell-header">
+            <div class="player_race_header">
                 <h3>${escapeHtml(capitalize(item_data["name"]))} </h3>
             </div>
             <div class="race_desc_box">
                 <div class="entry-property"><b>type</b>: ${value["types"]}</div>
                 <div class="entry-property"><b>size</b>: ${value["size"]}</div>
                 <div class="entry-property"><b>attribute bonus</b>: ${value["attribute_bonus"]}</div>
-                <div class="entry-property"><b>proficiencies: ${value["proficiencies"]}</div>
+                <div class="entry-property"><b>proficiencies</b>: ${value["proficiencies"]}</div>
                 <div class="entry-property"><b>speed</b>: ${value["speed"]}</div>
                 <br>
                 <div class="entry-property">${PlayerRaceTraitNotationToHtml(value["traits"])}</div>
