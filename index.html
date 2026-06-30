@@ -86,18 +86,6 @@
         }
     });
 
-    document.querySelectorAll('.spell_tab_buttons .category').forEach(btn => {
-        btn.addEventListener('click', () => {
-            // retain active for css
-            document.querySelectorAll('.spell_tab_buttons .category').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            selector_class = btn.textContent;
-            var c = fillSpellCards(selector_class,selector_lvl);
-            console.log("selector pressed");
-            
-        });
-    });
-
     document.querySelectorAll('.spell_tab_buttons .level').forEach(btn => {
         btn.addEventListener('click', () => {
             // retain active for css
