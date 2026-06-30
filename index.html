@@ -86,6 +86,18 @@
         }
     });
 
+    document.querySelectorAll('.spell_tab_buttons .category').forEach(btn => {
+        btn.addEventListener('click', () => {
+            // retain active for css
+            document.querySelectorAll('.spell_tab_buttons .category').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selector_class = btn.textContent;
+            var c = fillSpellCards(selector_class,selector_lvl);
+            console.log("selector pressed");
+            
+        });
+    });
+
     document.querySelectorAll('.spell_tab_buttons .level').forEach(btn => {
         btn.addEventListener('click', () => {
             // retain active for css
@@ -110,10 +122,10 @@
             var selected = btn.textContent;
             switch(selected) {
                  case 'backgrounds':
-                    setVisibleByClass('.large_main_menu_backgrounds')
+                    setVisibleByClass('.large_main_menu_backgrounds', true)
                     break;
                 case 'playable races':
-                    setVisibleByClass('.large_main_menu_player_races')
+                    setVisibleByClass('.large_main_menu_player_races', true)
                     break;
                 case 'classes':
                     break;
