@@ -52,7 +52,7 @@ async function populatePlayerRaces() {
         item_card.classList = ["spell-card"];
 
         item_card.innerHTML = `
-            <div class="player_race_header">
+            <div class="player-race-header">
                 <h3>${escapeHtml(capitalize(item_data["name"]))} </h3>
             </div>
             <div class="race_desc_box">
