@@ -93,6 +93,7 @@ h4, li {
     position:sticky;
     display: flex;
     top: 140px;
+    background-color: #174753;
     /* justify-content: space-between; */
     align-items: baseline;
     color: #e9d69a;
@@ -104,7 +105,8 @@ h4, li {
 .player-race-header {
     position:sticky;
     display: flex;
-    top: 0;
+    top: 60px;
+    background-color: #174753;
     /* justify-content: space-between; */
     align-items: baseline;
     color: #e9d69a;
