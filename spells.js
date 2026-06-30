@@ -4,13 +4,13 @@ var creature_data = []
 
 async function loadSpellCsv() {
     //const csvUrl= `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv?&gid=0`;
-    const csvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
+    const SpellCsvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
             `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=7929475&_v=${Date.now()}`
         );
     const list = document.getElementById('spell-list');
     list.textContent = 'Loading…';
     try {
-        const text = await fetch(csvUrl, {caches: 'no-store'}).then(r => r.text());
+        const text = await fetch(SpellCsvUrl, {caches: 'no-store'}).then(r => r.text());
         const rows = await parseCSV(text);
         var _c = 0
         for (const row of rows) {
@@ -27,7 +27,7 @@ async function loadSpellCsv() {
 }
 
 async function loadCreatureCsv(){
-    const csvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
+    const CreatureCsvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
             `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=421278889&_v=${Date.now()}`
         );
     try {

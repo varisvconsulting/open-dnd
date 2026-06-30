@@ -13,7 +13,7 @@ var weapon_data = []
 
 async function loadWeaponsCsv() {
         //const csvUrl= `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv?&gid=0`;
-        const csvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
+        const WeaponCsvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
              `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=0&_v=${Date.now()}`
            );
         console.log('https://corsproxy.io/?' + encodeURIComponent(
@@ -24,7 +24,7 @@ async function loadWeaponsCsv() {
     
     //Core type	weapon group	name	damage	general properties	misc properties	attack maneuvers	tactical maneuvers	crit properties	strategy
         try {
-            const text = await fetch(csvUrl, {caches: 'no-store'}).then(r => r.text());
+            const text = await fetch(WeaponCsvUrl, {caches: 'no-store'}).then(r => r.text());
             parseCSV(text);
             const rows = await parseCSV(text);
             var _c = 0
@@ -121,7 +121,7 @@ function escapeHtml(unsafe) {
     return unsafe.replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[m]);
 }
 
-async function parseCSV(text) {
+async function parseWeaponCSV(text) {
     var rows = text.split(/\r?\n/);
     var output = []
     for (const row of rows) {
