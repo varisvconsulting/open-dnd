@@ -19,7 +19,7 @@ async function loadWeaponsCsv() {
         console.log('https://corsproxy.io/?' + encodeURIComponent(
              `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=0&_v=${Date.now()}`
            ));
-        const list = document.getElementById('weapons-list');
+        const list = document.getElementById('weapons_list');
         list.textContent = 'Loading…';
     
     //Core type	weapon group	name	damage	general properties	misc properties	attack maneuvers	tactical maneuvers	crit properties	strategy
@@ -66,7 +66,7 @@ async function loadWeaponsCsv() {
     }
 
 function fillWeaponCards(GroupOrCategory) {
-    const list = document.getElementById('weapons-list');
+    const list = document.getElementById('weapons_list');
     list.replaceChildren();
     console.log("populating - " + GroupOrCategory);
     for (const i of weapon_data) {
