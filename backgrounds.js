@@ -18,7 +18,7 @@ async function loadBackgroundsCSV() {
                 ] = row;
             
             _c +=1;
-                if (_c <= 1) { continue; } //cus the first few tabs arent part of the stuff
+            if (_c <= 1) { continue; } //cus the first few tabs arent part of the stuff
             backgrounds[name] = {};
             backgrounds[name]["name"]=name;
             backgrounds[name]["proficiencies"]=proficiencies
@@ -36,8 +36,9 @@ async function populateBackgrounds() {
     // var keys = Object.keys(player_races);
     for (const [key, value] of Object.entries(backgrounds)) {
         var item_card = document.createElement('div');
-        var item_data = value
-        console.log("populating entry... " + key)
+        var item_data = value;
+        console.log("populating entry... " + key);
+        console.log(value);
         // item_card.dataset.group = magic_class;
         item_card.classList = ["spell-card"];
 
@@ -49,8 +50,6 @@ async function populateBackgrounds() {
                 <div class="entry-property"><b>proficiencies</b>: ${value["proficiencies"]}</div>
                 <br>
                 <div class="entry-property">${BackgroundNotationToHtml(value["description"])}</div>
-                <p>${value["description"]}<p>
-                
             </div>
             `;
         list.appendChild(item_card);

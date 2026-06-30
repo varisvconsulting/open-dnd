@@ -16,13 +16,13 @@ async function loadSpellCsv() {
         for (const row of rows) {
             var [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='',duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = row;
             _c +=1;
-                if (_c <= 1) { continue; } //cus the first few tabs arent part of the stuff
+            if (_c <= 1) { continue; } //cus the first few tabs arent part of the stuff
 
             spell_data.push([magic_class, spell_lvl, spell_name, spell_type, spell_casting, spell_components, range, duration, effect_text, higher_level, passive, upgrades,creatures]);    
         }
     } catch (e) {
         list.textContent = 'Sorry—could not load data.';
-        console.log(e)
+        console.log(e);
     }
 }
 
