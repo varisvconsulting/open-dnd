@@ -73,6 +73,10 @@ h4, li {
   .spell-list {
     grid-template-columns: repeat(2, 1fr);   /* 2 columns on tablet */
   }
+  
+  .tab_button {
+    font-size: 16px;
+  }
 
   body {
     font-size: 16px;
@@ -82,6 +86,10 @@ h4, li {
 @media (min-width: 1200px) {
   .spell-list {
     grid-template-columns: repeat(3, 1fr);   /* 3 columns on desktop if you want tighter packing */
+  }
+
+  .tab_button {
+    font-size: 14px;
   }
 }
 
