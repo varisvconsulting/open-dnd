@@ -115,6 +115,19 @@ h4, li {
     margin-bottom: 0.0rem;
 }
 
+.background-header {
+    position:sticky;
+    display: flex;
+    top: 60px;
+    background-color: #174753;
+    /* justify-content: space-between; */
+    align-items: baseline;
+    color: #e9d69a;
+    border-bottom: 1px dotted #444;
+    padding-bottom: 0.0rem; 
+    margin-bottom: 0.0rem;
+}
+
 .spell-header h3 {
   margin-bottom: 5px;
   margin-top: 5px;

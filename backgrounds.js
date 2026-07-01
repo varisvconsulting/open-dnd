@@ -43,7 +43,7 @@ async function populateBackgrounds() {
         item_card.classList = ["spell-card"];
 
         item_card.innerHTML = `
-            <div class="spell-header">
+            <div class="background-header">
                 <h3>${escapeHtml(capitalize(item_data["name"]))} </h3>
             </div>
             <div class="race_desc_box">
