@@ -73,6 +73,10 @@ h4, li {
   .spell-list {
     grid-template-columns: repeat(2, 1fr);   /* 2 columns on tablet */
   }
+
+  body {
+    font-size: 16px;
+  }
 }
 
 @media (min-width: 1200px) {
