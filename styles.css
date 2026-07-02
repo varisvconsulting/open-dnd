@@ -177,6 +177,11 @@ h4, li {
     flex-wrap: wrap; 
 }
 
+.item_tab_buttons {
+    display: flex;
+    flex-wrap: wrap; 
+}
+
 .weapon_tab_buttons .tab_button {
     background-color: #477765;
     border: none;
