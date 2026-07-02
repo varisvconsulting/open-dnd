@@ -170,6 +170,16 @@ async function initialWeaponsSetup() {
             // retain active for css
             document.querySelectorAll('.weapon_tab_buttons .tab_button').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+
+            let _cat = btn.textContent;
+            if (_cat === 'wt_simple') {
+                setVisibleByClass('.wt_simple', true, 'flex');
+                setVisibleByClass('.wt_martial', false);
+            } else if (_cat == 'martial') {
+                setVisibleByClass('.wt_simple', false);
+                setVisibleByClass('.wt_martial', true, 'flex');
+            } 
+
             var c = fillWeaponCards(btn.textContent);
             
         });
