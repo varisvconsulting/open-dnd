@@ -37,7 +37,7 @@
     <!-- etc. -->
     </div>
 
-    <div class="weapon_tab_buttons" style="display: none;">
+    <div class="item_tab_buttons" style="display: none;">
         <button data-group="0" class="tab_button items-section-header active">weapons</button>
         <button data-group="0" class="tab_button items-section-header">armor</button>
         <button data-group="0" class="tab_button items-section-header">shields</button>
@@ -157,6 +157,7 @@
                     break;
                 case 'items':
                     setVisibleByClass(".large_main_menu_weapons", true)
+                    setVisibleByClass(".item_tab_buttons", true, "flex")
                     setVisibleByClass(".weapon_tab_buttons", true, "flex")
                     break;
                 case 'spells':
@@ -170,6 +171,7 @@
     function clearMenus(){
         setVisibleByClass('.large_main_menu', false);
         setVisibleByClass('.spell_tab_buttons', false);
+        setVisibleByClass('.item_tab_buttons', false);
         setVisibleByClass('.weapon_tab_buttons', false);
     }
 
