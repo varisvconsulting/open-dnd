@@ -172,10 +172,10 @@ async function initialWeaponsSetup() {
             btn.classList.add('active');
 
             let _cat = btn.textContent;
-            if (_cat === 'wt_simple') {
+            if (_cat.localeCompare('wt_simple')) {
                 setVisibleByClass('.wt_simple', true, 'flex');
                 setVisibleByClass('.wt_martial', false);
-            } else if (_cat == 'wt_martial') {
+            } else if (_cat.localeCompare('wt_martial')) {
                 setVisibleByClass('.wt_simple', false);
                 setVisibleByClass('.wt_martial', true, 'flex');
             } 
