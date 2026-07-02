@@ -175,7 +175,7 @@ async function initialWeaponsSetup() {
             if (_cat === 'wt_simple') {
                 setVisibleByClass('.wt_simple', true, 'flex');
                 setVisibleByClass('.wt_martial', false);
-            } else if (_cat == 'martial') {
+            } else if (_cat == 'wt_martial') {
                 setVisibleByClass('.wt_simple', false);
                 setVisibleByClass('.wt_martial', true, 'flex');
             } 
