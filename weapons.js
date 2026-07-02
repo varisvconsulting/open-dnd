@@ -165,34 +165,14 @@ async function initialWeaponsSetup() {
     var a = await loadWeaponsCsv();
     var b = await fillWeaponCards("all");
 
-    document.querySelectorAll('.header_tab .weapon_tab_button').forEach(btn => {
+    document.querySelectorAll('.weapon_tab_buttons .tab_button').forEach(btn => {
         btn.addEventListener('click', () => {
-            document.querySelectorAll('.header_tab .tab_button').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active')
-            clearMenus()
-            var selected = btn.textContent;
-            switch(selected) {
-                 case 'backgrounds':
-                    setVisibleByClass('.large_main_menu_backgrounds', true)
-                    break;
-                case 'playable races':
-                    setVisibleByClass('.large_main_menu_player_races', true)
-                    break;
-                case 'classes':
-                    break;
-                case 'feats':
-                    break;
-                case 'items':
-                    setVisibleByClass(".large_main_menu_weapons", true)
-                    setVisibleByClass(".item_tab_buttons", true, "flex")
-                    setVisibleByClass(".weapon_tab_buttons", true, "flex")
-                    break;
-                case 'spells':
-                    setVisibleByClass('.large_main_menu_spells')
-                    setVisibleByClass('.spell_tab_buttons', true, "flex")
-                    break;
-            }
-        })
+            // retain active for css
+            document.querySelectorAll('.weapon_tab_buttons .tab_button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            var c = fillWeaponCards(btn.textContent);
+            
+        });
     });
 
     console.log(a," ",b);
