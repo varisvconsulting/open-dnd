@@ -192,6 +192,21 @@ h4, li {
     float: left;
 }
 
+.item_tab_buttons .tab_button {
+    background-color: #477765;
+    border: none;
+    color: white;
+    padding: 10px 14px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 13px;
+    margin: 0.5px 0.5px;
+    padding: 3px;
+    cursor: pointer;
+    float: left;
+}
+
 .item_tab_buttons {
     display: flex;
     flex-wrap: wrap; 
