@@ -19,7 +19,7 @@ async function loadWeaponsCsv() {
         console.log('https://corsproxy.io/?' + encodeURIComponent(
              `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=0&_v=${Date.now()}`
            ));
-        const list = document.getElementById('weapons_list');
+        const list = document.getElementById('weapons-list');
         list.textContent = 'Loading…';
     
     //Core type	weapon group	name	damage	general properties	misc properties	attack maneuvers	tactical maneuvers	crit properties	strategy
@@ -66,7 +66,7 @@ async function loadWeaponsCsv() {
     }
 
 function fillWeaponCards(GroupOrCategory) {
-    const list = document.getElementById('weapons_list');
+    const list = document.getElementById('weapons-list');
     list.replaceChildren();
     console.log("populating - " + GroupOrCategory);
     for (const i of weapon_data) {
@@ -164,6 +164,36 @@ function getCleanCommasString(text) {
 async function initialWeaponsSetup() {
     var a = await loadWeaponsCsv();
     var b = await fillWeaponCards("all");
+
+    document.querySelectorAll('.header_tab .weapon_tab_button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.header_tab .tab_button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active')
+            clearMenus()
+            var selected = btn.textContent;
+            switch(selected) {
+                 case 'backgrounds':
+                    setVisibleByClass('.large_main_menu_backgrounds', true)
+                    break;
+                case 'playable races':
+                    setVisibleByClass('.large_main_menu_player_races', true)
+                    break;
+                case 'classes':
+                    break;
+                case 'feats':
+                    break;
+                case 'items':
+                    setVisibleByClass(".large_main_menu_weapons", true)
+                    setVisibleByClass(".item_tab_buttons", true, "flex")
+                    setVisibleByClass(".weapon_tab_buttons", true, "flex")
+                    break;
+                case 'spells':
+                    setVisibleByClass('.large_main_menu_spells')
+                    setVisibleByClass('.spell_tab_buttons', true, "flex")
+                    break;
+            }
+        })
+    });
 
     console.log(a," ",b);
 }

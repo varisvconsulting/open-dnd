@@ -5,7 +5,7 @@ async function loadBackgroundsCSV() {
     // const csvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
     //         `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=1936715235&_v=${Date.now()}`
     //     );
-    const list = document.getElementById('background_list');
+    const list = document.getElementById('background-list');
     list.textContent = 'Loading…';
     try {
         const text = await fetch(BackgroundCsvUrl, {caches: 'no-store'}).then(r => r.text());
@@ -31,7 +31,7 @@ async function loadBackgroundsCSV() {
 }
 
 async function populateBackgrounds() {
-    const list = document.getElementById("background_list")
+    const list = document.getElementById("background-list")
     list.replaceChildren()
     // var keys = Object.keys(player_races);
     for (const [key, value] of Object.entries(backgrounds)) {

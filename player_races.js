@@ -5,7 +5,7 @@ async function loadPlayerRacesCSV() {
     // const csvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
     //         `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=1936715235&_v=${Date.now()}`
     //     );
-    const list = document.getElementById('race_list');
+    const list = document.getElementById('race-list');
     list.textContent = 'Loading…';
     try {
         const text = await fetch(PRCsvUrl, {caches: 'no-store'}).then(r => r.text());
@@ -41,7 +41,7 @@ async function loadPlayerRacesCSV() {
 }
 
 async function populatePlayerRaces() {
-    const list = document.getElementById("race_list")
+    const list = document.getElementById("race-list")
     list.replaceChildren()
     // var keys = Object.keys(player_races);
     for (const [key, value] of Object.entries(player_races)) {
