@@ -189,6 +189,7 @@ async function initialWeaponsSetup() {
 
             var c = fillWeaponCards(btn.textContent);
             
+            
         });
     });
 
