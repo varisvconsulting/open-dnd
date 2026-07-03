@@ -187,7 +187,6 @@ h4, li {
     /* display: inline-block; */
     font-size: 13px;
     margin: 0.5px 0.5px;
-    padding: 3px;
     cursor: pointer;
     float: left;
 }
@@ -202,7 +201,6 @@ h4, li {
     /* display: inline-block; */
     font-size: 13px;
     margin: 0.5px 0.5px;
-    padding: 3px;
     cursor: pointer;
     float: left;
 }
