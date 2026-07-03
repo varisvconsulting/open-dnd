@@ -173,11 +173,11 @@ async function initialWeaponsSetup() {
 
             let _cat = btn.textContent;
             if (_cat.localeCompare('simple')) {
-                setVisibleByClass('.wt_simple', true, 'inline-block');
+                setVisibleByClass('.wt_simple', true, 'flex');
                 setVisibleByClass('.wt_martial', false);
             } else if (_cat.localeCompare('martial')) {
                 setVisibleByClass('.wt_simple', false);
-                setVisibleByClass('.wt_martial', true, 'inline-block');
+                setVisibleByClass('.wt_martial', true, 'flex');
             } 
 
             var c = fillWeaponCards(btn.textContent);
