@@ -208,6 +208,7 @@ h4, li {
 .item_tab_buttons {
     display: flex;
     flex-wrap: wrap; 
+    padding: 10px;
 }
 
 .weapon_tab_buttons .tab_button {
