@@ -175,10 +175,14 @@ async function initialWeaponsSetup() {
             if (_cat.localeCompare('all')){
                 setVisibleByClass('.wt_simple', true, 'flex');
                 setVisibleByClass('.wt_martial', true, 'flex');
-            } else if (_cat.localeCompare('simple')) {
+            }
+            
+            if (_cat.localeCompare('simple')) {
                 setVisibleByClass('.wt_simple', true, 'flex');
                 setVisibleByClass('.wt_martial', false);
-            } else if (_cat.localeCompare('martial')) {
+            }
+            
+            if (_cat.localeCompare('martial')) {
                 setVisibleByClass('.wt_simple', false);
                 setVisibleByClass('.wt_martial', true, 'flex');
             } 
