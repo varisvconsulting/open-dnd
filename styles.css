@@ -208,7 +208,7 @@ h4, li {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    width: auto;
+    width: 100%;
 }
 
 .item_tab_buttons .tab_button {
