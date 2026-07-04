@@ -141,6 +141,7 @@ function fillSpellButtonList(){
         <b>${spell_name}</b>
         <span>${spell_lvl}, ${magic_class}, ${spell_type}</span>
         `;
+        list.appendChild(entry);
     }
 }
 
