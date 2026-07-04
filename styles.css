@@ -192,6 +192,12 @@ h4, li {
     float: left;
 }
 
+.large_main_menu_spells {
+    display:grid;
+    grid-template-columns:360px minmax(0,1fr);
+    gap:22px
+}
+
 .item_tab_buttons .tab_button {
     background-color: #477765;
     border: none;
