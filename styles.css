@@ -198,6 +198,18 @@ h4, li {
     gap:22px
 }
 
+.entry-list button {
+    border: 1px solid transparent;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .06);
+    color: #fff;
+    text-align: left;
+    padding: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
 .item_tab_buttons .tab_button {
     background-color: #477765;
     border: none;
