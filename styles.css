@@ -18,6 +18,7 @@ h4, li {
 .header_tab {
   display: flex;
   flex-wrap: wrap;
+  border-radius:999px;
 }
 
 .header_tab .tab_button {
@@ -208,7 +209,6 @@ h4, li {
 .item_tab_buttons {
     display: flex;
     flex-wrap: wrap; 
-    padding: 10px;
 }
 
 .weapon_tab_buttons .tab_button {
