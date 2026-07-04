@@ -201,8 +201,8 @@ h4, li {
 .spell-entry-list button {
     border: 1px solid transparent;
     border-radius: 16px;
-    background: rgba(255, 255, 255, .06);
-    color: #fff;
+    /* background: rgba(255, 255, 255, .06);
+    color: #fff; */
     text-align: left;
     padding: 13px;
     display: flex;
