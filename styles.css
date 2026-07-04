@@ -198,7 +198,7 @@ h4, li {
     gap:22px
 }
 
-.entry-list button {
+.spell-entry-list button {
     border: 1px solid transparent;
     border-radius: 16px;
     background: rgba(255, 255, 255, .06);
