@@ -212,8 +212,12 @@ h4, li {
     width: 100%;
 }
 
-.spell-entry-list {
-    height: calc(100vh - 60px);
+.entry-list{
+    display:grid;
+    gap:8px;
+    max-height:68vh;
+    overflow:auto;
+    padding-right:4px
 }
 
 .list-panel{
