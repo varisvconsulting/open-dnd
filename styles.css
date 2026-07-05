@@ -206,6 +206,14 @@ h4, li {
     gap:22px
 }
 
+.spell-entry-list{
+    display:grid;
+    gap:8px;
+    max-height:68vh;
+    overflow:auto;
+    padding-right:4px
+}
+
 .spell-entry-list button {
     border: 1px solid transparent;
     border-radius: 16px;
@@ -217,14 +225,6 @@ h4, li {
     flex-direction: column;
     gap: 5px;
     width: 100%;
-}
-
-.entry-list{
-    display:grid;
-    gap:8px;
-    max-height:68vh;
-    overflow:auto;
-    padding-right:4px
 }
 
 .list-panel{
