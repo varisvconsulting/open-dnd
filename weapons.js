@@ -8,6 +8,7 @@ const SHEET_GID      = '1';                         // ← tab number, usually 1
 // const url = 'https://corsproxy.io/?' + encodeURIComponent(
 //              'https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=0'
 //            );
+//
 
 var weapon_data = []
 
@@ -189,7 +190,7 @@ async function initialWeaponsSetup() {
 
             var c = fillWeaponCards(btn.textContent);
             
-            
+
         });
     });
 
