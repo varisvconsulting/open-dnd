@@ -216,6 +216,15 @@ h4, li {
     height: calc(100vh - 60px);
 }
 
+.list-panel{
+    .list-panel{
+    padding:18px;
+    align-self:start;
+    position:sticky;
+    top:18px
+}
+}
+
 .item_tab_buttons .tab_button {
     background-color: #477765;
     border: none;
