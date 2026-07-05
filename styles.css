@@ -104,7 +104,7 @@ h4, li {
 }
 
 .spell-header {
-    position:sticky;
+    /* position:sticky; */
     display: flex;
     top: 140px;
     background-color: rgb(42, 42, 46);
