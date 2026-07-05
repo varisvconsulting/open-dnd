@@ -150,7 +150,7 @@ function fillSpellCards(selector_class,selector_lvl) {
     if (list === null) {return}
     list.replaceChildren();
     fillSpellButtonList();
-    
+
     for (const i of spell_data) {
         var [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = i
         
@@ -274,6 +274,25 @@ function getCleanCommasString(text) {
         }
     }
     return rez;
+}
+
+function setSpellsLayout(layout_t){
+    if (layout_t === "grid"){
+        setVisibleByClass("spell-list", false);
+    }
+
+    if (layout_t === "list"){
+        setVisibleByClass("spell-list", true, "grid");
+    }
+}
+
+function bindSpellButtons(){
+    document.querySelector("#spell-opt-btn-grid").forEach((btn) => btn.addEventListener('click', () => {
+        setSpellsLayout("grid")
+        }));
+    document.querySelector("#spell-opt-btn-grid").forEach((btn) => btn.addEventListener('click', () => {
+        setSpellsLayout("list")
+        }));
 }
 
 async function initialSpellSetup() {
