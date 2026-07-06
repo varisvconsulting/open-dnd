@@ -150,15 +150,21 @@ function constructCreatureCard(name){
     return "";
 }
 
-function fillSpellButtonList(){
+function fillSpellButtonList(type="all", lvl="all"){
     const list = document.getElementById('spell_tab_list');
     list.replaceChildren();
 
     for (const i of spell_data) {
         let [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = i
+
+        if (!((magic_class.includes(selector_class)) || (selector_class == "all"))) { console.log("ignoring button for class ", spell_name); continue;}
+        if (!((spell_lvl.includes(selector_lvl)) || (selector_lvl == "all"))) { console.log("ignoring button for wrong lvl ", spell_name); continue;}
+
         let entry = document.createElement('button');
         entry.classList.add('entry');
         entry.dataset.name = spell_name
+        item_card.dataset.spell_lvl = spell_lvl;
+        item_card.dataset.magic_class = magic_class;
         entry.innerHTML = `
             <b>${spell_name}</b>
             <span>${spell_lvl}, ${magic_class}, ${spell_type}</span>
@@ -186,6 +192,7 @@ function fillSpellCards(selector_class,selector_lvl) {
         
         var item_card = document.createElement('div');
         item_card.dataset.group = magic_class;
+        item_card.dataset.spell_lvl = spell_lvl;
         item_card.classList = ["spell-card"];
 
         var creatureCardData = "";
@@ -222,6 +229,11 @@ function fillSpellCards(selector_class,selector_lvl) {
         // console.log("adding from " + selector_class + " - " + selector_lvl + ": " + spell_name + " - " + creatures);
         list.appendChild(item_card)
     }
+
+    fillSpellButtonList(magic_class,selector_class);
+    // buttons = document.querySelectorAll("#spell_tab_list button").forEach(b => {
+        
+    // });
 }
 
 function fillSpellListMainCard(s_name) {
