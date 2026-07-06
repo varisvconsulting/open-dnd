@@ -166,8 +166,10 @@ function fillSpellButtonList(){
         list.appendChild(entry);
         entry.addEventListener('click', (e) => {
             // retain active for css
-           fillSpellListMainCard(e.dataset.name);
-           console.log("clicked ", e.dataset.name);
+            
+            fillSpellListMainCard(e.currentTarget.dataset.name);
+            console.log("clicked ", e.currentTarget.dataset.name);
+            console.log("clicked ", this.dataset.name);
             
         });
     }
