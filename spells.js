@@ -288,12 +288,8 @@ function setSpellsLayout(layout_t){
 }
 
 function bindSpellButtons(){
-    document.querySelector("#spell-opt-btn-grid").forEach((btn) => btn.addEventListener('click', () => {
-        setSpellsLayout("grid")
-        }));
-    document.querySelector("#spell-opt-btn-grid").forEach((btn) => btn.addEventListener('click', () => {
-        setSpellsLayout("list")
-        }));
+    document.querySelector("#spell-opt-btn-grid")?.addEventListener('click', () => {setSpellsLayout("grid")});
+    document.querySelector("#spell-opt-btn-list")?.addEventListener('click', () => {setSpellsLayout("list")});
 }
 
 async function initialSpellSetup() {
