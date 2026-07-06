@@ -185,7 +185,7 @@ function fillSpellCards(selector_class,selector_lvl) {
     const list = document.getElementById('spell-grid');
     if (list === null) {return}
     list.replaceChildren();
-    fillSpellButtonList();
+    // fillSpellButtonList();
 
     for (const i of spell_data) {
         var [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = i
