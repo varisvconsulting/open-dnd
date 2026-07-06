@@ -162,14 +162,13 @@ function fillSpellButtonList(){
             <b>${spell_name}</b>
             <span>${spell_lvl}, ${magic_class}, ${spell_type}</span>
         `;
+        list.appendChild(entry);
         entry.addEventListener('click', () => {
             // retain active for css
            fillSpellListMainCard(`${spell_name}`);
            console.log("clicked " + `${spell_name}`);
             
         });
-        list.appendChild(entry);
-        
     }
 }
 
