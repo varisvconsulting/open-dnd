@@ -151,7 +151,7 @@ function constructCreatureCard(name){
 }
 
 function fillSpellButtonList(){
-    const list = document.getElementById('spell_tab_list_card');
+    const list = document.getElementById('spell_tab_list');
     list.replaceChildren();
 
     for (const i of spell_data) {
