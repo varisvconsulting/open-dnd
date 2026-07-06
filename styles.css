@@ -71,7 +71,7 @@ h4, li {
   background-color: #b8860b !important;
 }
 
-.spell-list {
+.spell-grid {
   display: grid;
   grid-template-columns: 1fr;                /* 1 column on mobile */
   gap: 0px;                               /* vertical spacing between weapons */
@@ -79,7 +79,7 @@ h4, li {
 }
 
 @media (min-width: 768px) {
-  .spell-list {
+  .spell-grid {
     grid-template-columns: repeat(2, 1fr);   /* 2 columns on tablet */
   }
   
@@ -93,7 +93,7 @@ h4, li {
 }
 
 @media (min-width: 1200px) {
-  .spell-list {
+  .spell-grid {
     grid-template-columns: repeat(3, 1fr);   /* 3 columns on desktop if you want tighter packing */
   }
 
@@ -101,7 +101,6 @@ h4, li {
     font-size: 14px;
   }
 }
-
 
 .spell-card {
     /* background-color: #174753 ; */
