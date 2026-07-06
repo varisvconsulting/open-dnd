@@ -200,10 +200,17 @@ h4, li {
     float: left;
 }
 
+.spell_tab_large_list{
+     width: 100%;
+    display:grid;
+    grid-template-columns:360px minmax(0,1fr);
+    gap:22px;
+}
+
 .spell_tab_large_grid {
     width: 100%;
     display:grid;
-    grid-template-columns:360px minmax(0,1fr);
+    grid-template-columns:minmax(0,1fr);
     gap:22px
 }
 
