@@ -159,10 +159,17 @@ function fillSpellButtonList(){
         var entry = document.createElement('button');
         entry.classList = ['entry'];
         entry.innerHTML = `
-        <b>${spell_name}</b>
-        <span>${spell_lvl}, ${magic_class}, ${spell_type}</span>
+            <b>${spell_name}</b>
+            <span>${spell_lvl}, ${magic_class}, ${spell_type}</span>
         `;
+        entry.addEventListener('click', () => {
+            // retain active for css
+           fillSpellListMainCard(`${spell_name}`);
+           console.log("clicked " + `${spell_name}`);
+            
+        });
         list.appendChild(entry);
+        
     }
 }
 
@@ -212,6 +219,42 @@ function fillSpellCards(selector_class,selector_lvl) {
             `;
         // console.log("adding from " + selector_class + " - " + selector_lvl + ": " + spell_name + " - " + creatures);
         list.appendChild(item_card)
+    }
+}
+
+function fillSpellListMainCard(s_name) {
+    if (isEmptyValue(s_name)) {
+        // todo
+    } else {
+        var target = null;
+        for (const i of spell_data) {
+            var [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = i
+            if (spell_name === s_name) {
+                const holder = document.getElementById("spell_tab_list_card")
+                var item_card = document.createElement('div')
+                item_card.innerHTML = `
+                    <div class="spell-header">
+                        <h3>${escapeHtml(capitalize(spell_name))} </h3>
+                        <span class="spell-type"><i> - level ${spell_lvl}, ${escapeHtml(spell_type)}</i></span>
+                    </div>
+                    <div class="spell-mechanics">
+                        ${spell_casting ? `<p>Casting: <i>${spell_casting}</i></p>` : ``}
+                        ${spell_components ? `<p>Components: <i>${spell_components}</i></p>` : ``}
+                        ${range ? `<p>Range: <i>${range}</i></p>` : ``}
+                        ${duration ? `<p>Duration: <i>${duration}</i></p>` : ``}
+                    </div>
+                    <div class="spell-effect">
+                        <p><b>Effect:</b> ${makeNotationToHtml(effect_text)}</p>
+                        ${higher_level ? `<p><b>Upcast:</b> ${makeNotationToHtml(higher_level)}</p>` : ''}
+                        ${passive ? `<p><b>Passive:</b> ${makeNotationToHtml(passive)}</p>` : ''}
+                        ${upgrades ? `<p><b>Upgrades:</b> ${makeNotationToHtml(upgrades)}</p>` : ''}
+                    </div>
+                    ${creatures? creatureCardData : "" }
+                `;
+                holder.appendChild(item_card);
+                return;
+            }
+        }
     }
 }
 
