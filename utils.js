@@ -8,7 +8,7 @@ async function loadCsvRows(subsheet_id, use_corsproxy = true) {
         url = CORSPROXY_ULR + url;
     }
     
-    const text = await fetch(SpellCsvUrl, {caches: 'no-store'}).then(r => r.text());
+    const text = await fetch(url, {caches: 'no-store'}).then(r => r.text());
     const rows = await parseCSV(text);
     return rows;
 }
