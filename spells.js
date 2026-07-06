@@ -167,7 +167,7 @@ function fillSpellButtonList(){
 }
 
 function fillSpellCards(selector_class,selector_lvl) {
-    const list = document.getElementById('spell-list');
+    const list = document.getElementById('spell-grid');
     if (list === null) {return}
     list.replaceChildren();
     fillSpellButtonList();
