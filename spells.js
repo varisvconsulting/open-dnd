@@ -300,11 +300,11 @@ function getCleanCommasString(text) {
 function setSpellsLayout(layout_t){
     console.log("grid/list btns pressed");
     if (layout_t === "grid"){
-        setVisibleByClass("spell-list", true, "grid");
+        setVisibleByClass("spell_tab_large_grid", true, "grid");
     }
 
     if (layout_t === "list"){
-        setVisibleByClass("spell-list", false);
+        setVisibleByClass("spell_tab_large_grid", false);
     }
 }
 
