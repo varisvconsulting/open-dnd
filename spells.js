@@ -278,6 +278,7 @@ function getCleanCommasString(text) {
 
 function setSpellsLayout(layout_t){
     console.log("grid/list btns pressed");
+    console.log(layout_t);
     if (layout_t === "grid"){
         setVisibleByClass("spell-list", false);
     }
