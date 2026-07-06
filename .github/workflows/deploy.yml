@@ -9,7 +9,7 @@ on:
 permissions:
   contents: read
   pages: write
-  id-token: write     # ← This is what the error is complaining about
+  id-token: write    
 
 concurrency:
   group: "pages"
@@ -33,7 +33,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'               # Root of your repo
+          path: '.'
 
       - name: Deploy to GitHub Pages
         id: deployment
