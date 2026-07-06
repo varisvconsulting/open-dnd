@@ -32,7 +32,7 @@ async function loadSpellCsv() {
     list.textContent = 'Loading…';
 
     try {
-        const rows = loadCsvRows('7929475');
+        const rows = await loadCsvRows('7929475');
         var _c = 0
         for (const row of rows) {
             var [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='',duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = row;
