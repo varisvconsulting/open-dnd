@@ -191,12 +191,15 @@ test
         document.querySelectorAll(c_str).forEach(ob => {
             if (visible) {
                 if (isEmptyValue(override)) {
-                    ob.style.display = "inline"
+                    ob.style.display = "inline";
+                    
                 } else {
-                    ob.style.display = String(override)
+                    ob.style.display = String(override);
                 }
+                console.log("made visible");
             } else {
                 ob.style.display = "none"
+                console.log("made invisible");
             }
         });
     }
