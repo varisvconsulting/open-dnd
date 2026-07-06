@@ -155,18 +155,19 @@ function fillSpellButtonList(){
     list.replaceChildren();
 
     for (const i of spell_data) {
-        var [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = i
-        var entry = document.createElement('button');
-        entry.classList = ['entry'];
+        let [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = i
+        let entry = document.createElement('button');
+        entry.classList.add('entry');
+        entry.dataset.name = spell_name
         entry.innerHTML = `
             <b>${spell_name}</b>
             <span>${spell_lvl}, ${magic_class}, ${spell_type}</span>
         `;
         list.appendChild(entry);
-        entry.addEventListener('click', () => {
+        entry.addEventListener('click', (e) => {
             // retain active for css
-           fillSpellListMainCard(`${spell_name}`);
-           console.log("clicked " + `${spell_name}`);
+           fillSpellListMainCard(e.dataset.name);
+           console.log("clicked ", e.dataset.name);
             
         });
     }
