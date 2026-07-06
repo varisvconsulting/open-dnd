@@ -151,7 +151,7 @@ function constructCreatureCard(name){
 }
 
 function fillSpellButtonList(){
-    const list = document.getElementById('spell-entry-list');
+    const list = document.getElementById('spell_tab_list_card');
     list.replaceChildren();
 
     for (const i of spell_data) {
@@ -164,12 +164,12 @@ function fillSpellButtonList(){
             <span>${spell_lvl}, ${magic_class}, ${spell_type}</span>
         `;
         list.appendChild(entry);
-        // entry.addEventListener('click', (e) => {
-        //     // retain active for css
-        //    fillSpellListMainCard(e.dataset.name);
-        //    console.log("clicked ", e.dataset.name);
+        entry.addEventListener('click', (e) => {
+            // retain active for css
+           fillSpellListMainCard(e.dataset.name);
+           console.log("clicked ", e.dataset.name);
             
-        // });
+        });
     }
 }
 
