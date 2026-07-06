@@ -308,7 +308,7 @@ function setSpellsLayout(layout_t){
     if (layout_t === "list"){
         // setVisibleByClass(".spell_tab_large_grid", false);
         setVisibleByClass(".spell_tab_large_list", true, "grid");
-        setVisibleByClass(".spell_tab_large__grid", false);
+        setVisibleByClass(".spell_tab_large_grid", false);
     }
 }
 
