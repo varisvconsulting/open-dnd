@@ -277,6 +277,7 @@ function getCleanCommasString(text) {
 }
 
 function setSpellsLayout(layout_t){
+    console.log("grid/list btns pressed");
     if (layout_t === "grid"){
         setVisibleByClass("spell-list", false);
     }
@@ -299,4 +300,5 @@ async function initialSpellSetup() {
     var a = await loadSpellCsv();
     var b = await loadCreatureCsv();
     var c = await fillSpellCards("all","all");
+    bindSpellButtons();
 }
