@@ -303,12 +303,16 @@ function setSpellsLayout(layout_t){
         // setVisibleByClass(".spell_tab_large_grid", true, "grid");
         setVisibleByClass(".spell_tab_large_list", false)
         setVisibleByClass(".spell_tab_large_grid", true, "grid");
+        document.querySelector("#spell-opt-btn-list")?.classList.remove('active')
+        document.querySelector("#spell-opt-btn-grid")?.classList.add('active')
     }
 
     if (layout_t === "list"){
         // setVisibleByClass(".spell_tab_large_grid", false);
         setVisibleByClass(".spell_tab_large_list", true, "grid");
         setVisibleByClass(".spell_tab_large_grid", false);
+        document.querySelector("#spell-opt-btn-list")?.classList.add('active')
+        document.querySelector("#spell-opt-btn-grid")?.classList.remove('active')
     }
 }
 
