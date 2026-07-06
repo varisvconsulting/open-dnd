@@ -217,7 +217,7 @@ h4, li {
     grid-template-columns:minmax(0,1fr);
 }
 
-.spell-entry-list{
+.spell_tab_list{
     display:grid;
     gap:8px;
     max-height:68vh;
@@ -225,7 +225,7 @@ h4, li {
     padding-right:4px
 }
 
-.spell-entry-list button {
+.spell_tab_list button {
     border: 1px solid transparent;
     border-radius: 16px;
     /* background: rgba(255, 255, 255, .06);
