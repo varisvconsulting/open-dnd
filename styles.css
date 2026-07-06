@@ -201,6 +201,7 @@ h4, li {
 }
 
 .spell_tab_large_grid {
+    width: 100%;
     display:grid;
     grid-template-columns:360px minmax(0,1fr);
     gap:22px
