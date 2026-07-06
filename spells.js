@@ -163,8 +163,8 @@ function fillSpellButtonList(type="all", lvl="all"){
         let entry = document.createElement('button');
         entry.classList.add('entry');
         entry.dataset.name = spell_name
-        item_card.dataset.spell_lvl = spell_lvl;
-        item_card.dataset.magic_class = magic_class;
+        entry.dataset.spell_lvl = spell_lvl;
+        entry.dataset.magic_class = magic_class;
         entry.innerHTML = `
             <b>${spell_name}</b>
             <span>${spell_lvl}, ${magic_class}, ${spell_type}</span>
