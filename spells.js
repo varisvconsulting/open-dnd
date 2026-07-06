@@ -2,7 +2,7 @@ var spell_data = []
 var creature_data = []
 
 
-async function loadSpellCsv() {
+async function loadSpellCsvOld() {
     //const csvUrl= `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv?&gid=0`;
     const SpellCsvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
             `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=7929475&_v=${Date.now()}`
@@ -12,6 +12,27 @@ async function loadSpellCsv() {
     try {
         const text = await fetch(SpellCsvUrl, {caches: 'no-store'}).then(r => r.text());
         const rows = await parseCSV(text);
+        var _c = 0
+        for (const row of rows) {
+            var [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='',duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = row;
+            _c +=1;
+            if (_c <= 1) { continue; } //cus the first few tabs arent part of the stuff
+
+            spell_data.push([magic_class, spell_lvl, spell_name, spell_type, spell_casting, spell_components, range, duration, effect_text, higher_level, passive, upgrades,creatures]);    
+        }
+    } catch (e) {
+        list.textContent = 'Sorry—could not load data.';
+        console.log(e);
+    }
+}
+
+async function loadSpellCsv() {
+    
+    const list = document.getElementById('spell-list');
+    list.textContent = 'Loading…';
+
+    try {
+        const rows = loadCsvRows('7929475');
         var _c = 0
         for (const row of rows) {
             var [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='',duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = row;
@@ -280,11 +301,11 @@ function setSpellsLayout(layout_t){
     console.log("grid/list btns pressed");
     console.log(layout_t);
     if (layout_t === "grid"){
-        setVisibleByClass("spell-list", false);
+        setVisibleByClass("spell-list", true, "grid");
     }
 
     if (layout_t === "list"){
-        setVisibleByClass("spell-list", true, "grid");
+        setVisibleByClass("spell-list", false);
     }
 }
 
