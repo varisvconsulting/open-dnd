@@ -211,7 +211,6 @@ h4, li {
     width: 100%;
     display:grid;
     grid-template-columns:minmax(0,1fr);
-    gap:22px
 }
 
 .spell-entry-list{
