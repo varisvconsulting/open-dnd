@@ -229,8 +229,9 @@ function fillSpellListMainCard(s_name) {
         for (const i of spell_data) {
             var [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = i
             if (spell_name === s_name) {
-                const holder = document.getElementById("spell_tab_list_card")
-                var item_card = document.createElement('div')
+                const holder = document.getElementById("spell_tab_list_card");
+                holder.replaceChildren();
+                var item_card = document.createElement('div');
                 item_card.innerHTML = `
                     <div class="spell-header">
                         <h3>${escapeHtml(capitalize(spell_name))} </h3>
