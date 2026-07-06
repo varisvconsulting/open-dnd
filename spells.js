@@ -28,7 +28,7 @@ async function loadSpellCsvOld() {
 
 async function loadSpellCsv() {
     
-    const list = document.getElementById('spell-list');
+    const list = document.getElementById('spell-grid');
     list.textContent = 'Loading…';
 
     try {
