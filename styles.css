@@ -347,6 +347,7 @@ ul.property_list {
     .spell_tab_large_list {
         grid-template-columns: 100% 100%;   /* Two full-width panels */
         transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+        overflow: visible;  
     }
 
     .list-panel,
@@ -356,7 +357,7 @@ ul.property_list {
 
     /* When details are open, slide the whole container left */
     .spell_tab_large_list.details-open {
-        transform: translateX(-50%);
+        transform: translateX(-100%);
     }
 
     /* Make details panel nice on mobile */
