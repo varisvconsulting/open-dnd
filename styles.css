@@ -61,21 +61,6 @@ h4, li {
     border-radius:999px;
 }
 
-.spell_tab_buttons .tab_button {
-    background-color: #b1d3c6;
-    border: none;
-    color: rgb(58, 54, 54);
-    padding: 3px 5px;
-    text-align: center;
-    text-decoration: none;
-    /* display: inline-block; */
-    font-size: 13px;
-    margin: 0.5px 0.5px;
-    cursor: pointer;
-    float: left;
-    border-radius:7px;
-}
-
 .spell_tab_buttons .active{
   background-color: #b8860b !important;
 }
@@ -200,7 +185,7 @@ h4, li {
     background-color: #477765;
     border: none;
     color: white;
-    padding: 10px 14px;
+    padding: 4px 8px;
     text-align: center;
     text-decoration: none;
     /* display: inline-block; */
