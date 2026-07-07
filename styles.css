@@ -212,7 +212,7 @@ h4, li {
 
 .spell_tab_list{
     display:grid;
-    gap:8px;
+    gap:3px;
     max-height:68vh;
     overflow:auto;
     padding-right:4px
