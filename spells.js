@@ -52,7 +52,7 @@ async function loadCreatureCsv(){
             `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=421278889&_v=${Date.now()}`
         );
     try {
-        var text = await fetch(csvUrl, {caches: 'no-store'}).then(r => r.text());
+        var text = await fetch(CreatureCsvUrl, {caches: 'no-store'}).then(r => r.text());
         var rows = await parseCSV(text);
         var _c = 0
         console.log("total creatures - " + rows.length);
