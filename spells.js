@@ -271,6 +271,13 @@ function fillSpellListMainCard(s_name) {
                 const holder = document.getElementById("spell_tab_list_card");
                 holder.replaceChildren();
                 var item_card = document.createElement('div');
+                var creatureCardData = "";
+                if (creatures){
+                    var cr = creatures.split(";");
+                    for (c of cr){
+                        creatureCardData += constructCreatureCard(c);
+                    }
+                }
                 item_card.innerHTML = `
                     <div class="spell-header">
                         <h3>${escapeHtml(capitalize(spell_name))} </h3>
