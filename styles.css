@@ -379,11 +379,16 @@ ul.property_list {
     margin-bottom: 15px;
     font-size: 1rem;
     cursor: pointer;
+    display: none
 }
 
 @media (max-width: 1023px) {
     .list-panel {
         position: static; /* no need for sticky on mobile in this layout */
+    }
+
+    .mobile-back-btn {
+        display: inline-block;
     }
 }
 
