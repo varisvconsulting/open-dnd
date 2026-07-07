@@ -175,7 +175,6 @@ function fillSpellButtonList(type="all", lvl="all"){
             
             fillSpellListMainCard(e.currentTarget.dataset.name);
             console.log("clicked ", e.currentTarget.dataset.name);
-            console.log("clicked ", this.dataset.name);
             
         });
     }

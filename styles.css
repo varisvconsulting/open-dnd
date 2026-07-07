@@ -361,7 +361,7 @@ ul.property_list {
 
     /* Make details panel nice on mobile */
     #spell_tab_list_card {
-        background: rgb(42, 42, 46);
+        background: rgb(242, 242, 243);
         padding: 15px;
         border-radius: 8px;
         box-shadow: 0 4px 20px rgba(0,0,0,0.6);
