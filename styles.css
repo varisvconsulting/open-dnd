@@ -234,7 +234,7 @@ h4, li {
 
 .spell_tab_list button {
     border: 1px solid transparent;
-    border-radius: 16px;
+    border-radius: 8px;
     /* background: rgba(255, 255, 255, .06);
     color: #fff; */
     text-align: left;
