@@ -256,6 +256,7 @@ h4, li {
     margin: 0.5px 0.5px;
     cursor: pointer;
     float: left;
+    border-radius:9px;
 }
 
 .item_tab_buttons {
@@ -275,7 +276,7 @@ h4, li {
     margin: 0.5px 0.5px;
     cursor: pointer;
     float: left;
-    border-radius:999px;
+    border-radius:9px;
 }
 
 .weapon_tab_buttons .category{
