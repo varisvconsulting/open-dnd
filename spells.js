@@ -314,7 +314,6 @@ function fillSpellListMainCard(s_name) {
                     `;
                     cardHolder.prepend(backBtn);
                 }
-                initMobileSpellDetails();
                 return;
             }
         }
