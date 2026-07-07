@@ -236,6 +236,43 @@ function fillSpellCards(selector_class,selector_lvl) {
     // });
 }
 
+function initMobileSpellDetails() {
+	const container = document.querySelector('.spell_tab_large_list');
+	if (!container) return;
+
+	// Click on spell list items
+	document.addEventListener('click', function(e) {
+		const entry = e.target.closest('.entry'); // your spell buttons
+		if (entry) {
+			fillSpellListMainCard(entry.dataset.name);
+			container.classList.add('details-open');
+		}
+	});
+
+	// Back button (we'll add it dynamically)
+	document.addEventListener('click', function(e) {
+		if (e.target.classList.contains('mobile-back-btn')) {
+			container.classList.remove('details-open');
+		}
+	});
+
+	// Swipe right to go back
+	let touchStartX = 0;
+	container.addEventListener('touchstart', e => {
+		touchStartX = e.changedTouches[0].screenX;
+	}, false);
+
+	container.addEventListener('touchend', e => {
+		const touchEndX = e.changedTouches[0].screenX;
+		const diff = touchStartX - touchEndX;
+
+		if (diff < -80 && container.classList.contains('details-open')) {
+			// Swiped right
+			container.classList.remove('details-open');
+		}
+	}, false);
+}
+
 function fillSpellListMainCard(s_name) {
     if (isEmptyValue(s_name)) {
         // todo
@@ -267,6 +304,31 @@ function fillSpellListMainCard(s_name) {
                     ${creatures? creatureCardData : "" }
                 `;
                 holder.appendChild(item_card);
+
+                const cardHolder = document.getElementById("spell_tab_list_card");
+                if (!cardHolder) return;
+
+                // Add back button for mobile
+                if (window.innerWidth <= 1023) {
+                    let backBtn = cardHolder.querySelector('.mobile-back-btn');
+                    if (!backBtn) {
+                        backBtn = document.createElement('button');
+                        backBtn.className = 'mobile-back-btn';
+                        backBtn.innerHTML = '← Back to List';
+                        backBtn.style.cssText = `
+                            background: #477765;
+                            color: white;
+                            border: none;
+                            padding: 10px 16px;
+                            border-radius: 999px;
+                            margin-bottom: 15px;
+                            font-size: 1rem;
+                            cursor: pointer;
+                        `;
+                        cardHolder.prepend(backBtn);
+                    }
+                }
+
                 return;
             }
         }
@@ -383,5 +445,6 @@ async function initialSpellSetup() {
     var a = await loadSpellCsv();
     var b = await loadCreatureCsv();
     var c = await fillSpellCards("all","all");
+    initMobileSpellDetails();
     bindSpellButtons();
 }

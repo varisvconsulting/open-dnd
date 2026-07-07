@@ -203,11 +203,12 @@ h4, li {
     float: left;
 }
 
-.spell_tab_large_list{
-     width: 100%;
-    display:grid;
-    grid-template-columns:360px minmax(0,1fr);
-    gap:22px;
+.spell_tab_large_list {
+    width: 100%;
+    display: grid;
+    gap: 22px;
+    position: relative;
+    overflow: hidden;           /* Important for sliding */
 }
 
 .spell_tab_large_grid {
@@ -332,9 +333,39 @@ ul.property_list {
 }
 
 @media (min-width: 1200px) {
-  .weapons-list {
-    grid-template-columns: repeat(3, 1fr);   /* 3 columns on desktop if you want tighter packing */
-  }
+    .weapons-list {
+        grid-template-columns: repeat(3, 1fr);   /* 3 columns on desktop if you want tighter packing */
+    }
+
+    .spell_tab_large_list {
+        grid-template-columns: 360px minmax(0, 1fr);
+    }
+}
+
+/* Mobile - stacked with slide */
+@media (max-width: 1023px) {
+    .spell_tab_large_list {
+        grid-template-columns: 100% 100%;   /* Two full-width panels */
+        transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+
+    .list-panel,
+    #spell_tab_list_card {
+        min-width: 100%;
+    }
+
+    /* When details are open, slide the whole container left */
+    .spell_tab_large_list.details-open {
+        transform: translateX(-100%);
+    }
+
+    /* Make details panel nice on mobile */
+    #spell_tab_list_card {
+        background: rgb(42, 42, 46);
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    }
 }
 
 /* Each weapon "card" / row */
