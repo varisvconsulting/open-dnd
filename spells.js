@@ -55,7 +55,7 @@ async function loadCreatureCsv(){
         var text = await fetch(csvUrl, {caches: 'no-store'}).then(r => r.text());
         var rows = await parseCSV(text);
         var _c = 0
-        // console.log("total spells - " + rows.length);
+        console.log("total creatures - " + rows.length);
         for (const row of rows) {
             var [name='', meta='', cr='', ac='',block='', hp='',speed='',str='',dex='',con='',int='',wis='',cha='',traits='',properties='',actions=''] = row;
             _c +=1;
@@ -73,7 +73,7 @@ async function loadCreatureCsv(){
                                     "con": con,
                                     "int": int,
                                     "wis": wis,
-                                    "cha":cha,
+                                    "cha": cha,
                                     "traits": traits,
                                     "properties": properties,
                                     "actions": actions};    
