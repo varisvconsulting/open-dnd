@@ -120,7 +120,7 @@ h4, li {
 .player-race-header {
     position:sticky;
     display: flex;
-    top: 60px;
+    top: 56px;
     background-color: rgb(42, 42, 46);
     /* justify-content: space-between; */
     align-items: baseline;
@@ -133,7 +133,7 @@ h4, li {
 .background-header {
     position:sticky;
     display: flex;
-    top: 60px;
+    top: 56px;
     background-color: rgb(42, 42, 46);
     /* justify-content: space-between; */
     align-items: baseline;
