@@ -41,6 +41,14 @@ async function loadSpellCsv() {
 
             spell_data.push([magic_class, spell_lvl, spell_name, spell_type, spell_casting, spell_components, range, duration, effect_text, higher_level, passive, upgrades,creatures]);    
         }
+        spells = spells.sort((a, b) => {
+            // First sort by level
+            if (a.level !== b.level) {
+                return a.level - b.level;
+            }
+            // If level is same, sort by name
+            return a.name.localeCompare(b.name);
+        });
     } catch (e) {
         list.textContent = 'Sorry—could not load data.';
         console.log(e);
