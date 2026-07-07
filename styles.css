@@ -65,7 +65,7 @@ h4, li {
     background-color: #b1d3c6;
     border: none;
     color: rgb(58, 54, 54);
-    padding: 8px 12px;
+    padding: 6px 8px;
     text-align: center;
     text-decoration: none;
     /* display: inline-block; */
@@ -73,7 +73,7 @@ h4, li {
     margin: 0.5px 0.5px;
     cursor: pointer;
     float: left;
-    border-radius:999px;
+    border-radius:7px;
 }
 
 .spell_tab_buttons .active{
