@@ -245,7 +245,7 @@ h4, li {
 }
 
 .item_tab_buttons .tab_button {
-    background-color: #477765;
+    background-color: rgb(177, 211, 198);
     border: none;
     color: white;
     padding: 10px 14px;
