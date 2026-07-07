@@ -185,7 +185,7 @@ h4, li {
     background-color: #477765;
     border: none;
     color: white;
-    padding: 4px 8px;
+    padding: 5px 8px;
     text-align: center;
     text-decoration: none;
     /* display: inline-block; */
@@ -193,6 +193,7 @@ h4, li {
     margin: 0.5px 0.5px;
     cursor: pointer;
     float: left;
+    border-radius: 8px
 }
 
 .spell_tab_large_list {
