@@ -41,13 +41,13 @@ async function loadSpellCsv() {
 
             spell_data.push([magic_class, spell_lvl, spell_name, spell_type, spell_casting, spell_components, range, duration, effect_text, higher_level, passive, upgrades,creatures]);    
         }
-        spells = spells.sort((a, b) => {
+        spell_data = spell_data.sort((a, b) => {
             // First sort by level
-            if (a.level !== b.level) {
-                return a.level - b.level;
+            if (a[1] !== b[1]) {
+                return a[1] - b[1];
             }
             // If level is same, sort by name
-            return a.name.localeCompare(b.name);
+            return a[2].localeCompare(b[2]);
         });
     } catch (e) {
         list.textContent = 'Sorry—could not load data.';
@@ -447,4 +447,5 @@ async function initialSpellSetup() {
     var c = await fillSpellCards("all","all");
     initMobileSpellDetails();
     bindSpellButtons();
+    fillSpellListMainCard(spell_data[0][2]); //#corresponds to name. gotta clean it up;
 }
