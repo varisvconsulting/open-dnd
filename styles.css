@@ -347,7 +347,8 @@ ul.property_list {
     .spell_tab_large_list {
         grid-template-columns: 100% 100%;   /* Two full-width panels */
         transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
-        overflow: visible;  
+        overflow: visible;
+        gap: 0;
     }
 
     .list-panel,
