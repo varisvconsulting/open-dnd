@@ -349,11 +349,16 @@ ul.property_list {
         transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
         overflow: visible;
         gap: 0;
+        padding: 0;
     }
 
     .list-panel,
     #spell_tab_list_card {
-        min-width: 100%;
+        width: 100% !important;
+        min-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;       /* or small padding if you want */
+        box-sizing: border-box;
     }
 
     /* When details are open, slide the whole container left */
