@@ -501,7 +501,7 @@ function bindSpellButtons(){
             console.log("selector pressed");
             spell_selector_class = btn.textContent
             document.querySelectorAll('.spell_tab_buttons .category').forEach(button => {
-                if ((button.textContent.trim() === spell_selector_lvl) || ((button.textContent == "cantrips") && (spell_selector_lvl == "0"))) {
+                if (button.textContent.trim() === spell_selector_class) {
                     button.classList.add('active');
                 } else {
                     button.classList.remove('active');
