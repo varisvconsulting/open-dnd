@@ -145,8 +145,8 @@ function fillSpellButtonList(type="all", lvl="all"){
     for (const i of spell_data) {
         let [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = i
 
-        if (!((magic_class.includes(selector_class)) || (selector_class == "all"))) { /*console.log("ignoring button for class ", spell_name);*/ continue;}
-        if (!((spell_lvl.includes(selector_lvl)) || (selector_lvl == "all"))) { /*console.log("ignoring button for wrong lvl ", spell_name);*/ continue;}
+        if (!((magic_class.includes(spell_selector_class)) || (spell_selector_class == "all"))) { /*console.log("ignoring button for class ", spell_name);*/ continue;}
+        if (!((spell_lvl.includes(spell_selector_lvl)) || (spell_selector_lvl == "all"))) { /*console.log("ignoring button for wrong lvl ", spell_name);*/ continue;}
 
         if (spellSearch != "") {
             let matchesSearch = false;
@@ -181,6 +181,36 @@ function fillSpellButtonList(type="all", lvl="all"){
             
         });
     }
+
+}
+
+function updateSpellCards(){
+    for (const i of spell_data) {
+        [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures='',spell_card=null] = i;
+        if (spell_card){
+            if (!((magic_class.includes(spell_selector_class)) || (spell_selector_class == "all"))) { continue;}
+            if (!((spell_lvl.includes(spell_selector_lvl)) || (spell_selector_lvl == "all"))) { continue;}
+
+            const spellSearch = document.getElementById('spell-search-input').value;
+            if (spellSearch != "") {
+                let matchesSearch = false;
+                for (val of i){
+                    if (String(val).toLowerCase().trim().includes(spellSearch.toLowerCase().trim())){
+                        matchesSearch = true;
+                        // console.log("match found at ", spell_name, " at ", val);
+                        break;
+                    }
+                }
+
+                if (!matchesSearch) { 
+                    spell_card.style.display = "none";
+                    continue; 
+                }
+            }
+            spell_card.style.display = "block";
+
+        }
+    }
 }
 
 function fillSpellCards(selector_class = "",selector_lvl = "") {
@@ -199,16 +229,18 @@ function fillSpellCards(selector_class = "",selector_lvl = "") {
         item_card.dataset.spell_lvl = spell_lvl;
         item_card.classList = ["spell-card"];
 
-        var creatureCardData = "";
-        if (creatures){
-            var cr = creatures.split(";");
-            for (c of cr){
-                creatureCardData += constructCreatureCard(c);
-            }
-        }
+        i.push(item_card);
+
+        // var creatureCardData = "";
+        // if (creatures){
+        //     var cr = creatures.split(";");
+        //     for (c of cr){
+        //         creatureCardData += constructCreatureCard(c);
+        //     }
+        // }
         
-        if (!((magic_class.includes(selector_class)) || (selector_class == "all"))) { continue;}
-        if (!((spell_lvl.includes(selector_lvl)) || (selector_lvl == "all"))) { continue;}
+        // if (!((magic_class.includes(selector_class)) || (selector_class == "all"))) { continue;}
+        // if (!((spell_lvl.includes(selector_lvl)) || (selector_lvl == "all"))) { continue;}
         
         const spellSearch = document.getElementById('spell-search-input').value;
         if (spellSearch != "") {
@@ -492,14 +524,13 @@ function setSpellsLayout(layout_t){
 function bindSpellButtons(){
     document.querySelector("#spell-opt-btn-grid")?.addEventListener('click', () => {setSpellsLayout("grid")});
     document.querySelector("#spell-opt-btn-list")?.addEventListener('click', () => {setSpellsLayout("list")});
-    document.getElementById('spell-search-input').addEventListener('input', () => {fillSpellCards(spell_selector_class, spell_selector_lvl);})
+    document.getElementById('spell-search-input').addEventListener('input', () => {updateSpellCards(spell_selector_class, spell_selector_lvl); fillSpellButtonList();})
 
     document.querySelectorAll('.spell_tab_buttons .category').forEach(btn => {
         btn.addEventListener('click', () => {
-            selector_class = btn.textContent;
-            var c = fillSpellCards(selector_class,selector_lvl);
+            spell_selector_class = btn.textContent;
+            updateSpellCards();
             console.log("selector pressed");
-            spell_selector_class = btn.textContent
             document.querySelectorAll('.spell_tab_buttons .category').forEach(button => {
                 if (button.textContent.trim() === spell_selector_class) {
                     button.classList.add('active');
@@ -513,12 +544,13 @@ function bindSpellButtons(){
 
     document.querySelectorAll('.spell_tab_buttons .level').forEach(btn => {
         btn.addEventListener('click', () => {
+            let selector_lvl = 0;
             if (btn.textContent == "cantrips") {selector_lvl = 0}
             else {
                 selector_lvl = btn.textContent;
             }
             spell_selector_lvl = selector_lvl
-            var c = fillSpellCards(selector_class,selector_lvl);
+            updateSpellCards();
             console.log("selector pressed");
 
             document.querySelectorAll('.spell_tab_buttons .level').forEach(button => {
