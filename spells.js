@@ -509,8 +509,16 @@ function bindSpellButtons(){
 
     document.querySelectorAll('.spell_tab_buttons .level').forEach(btn => {
         btn.addEventListener('click', () => {
-            // retain active for css
-            document.querySelectorAll('.spell_tab_buttons .level').forEach(b => b.classList.remove('active'));
+            // remove active from others
+            // document.querySelectorAll('.spell_tab_buttons .level').forEach(b => b.classList.remove('active'));
+            // const activeButton = Array.from(
+            //     document.querySelectorAll('.spell_tab_buttons .level')
+            // ).find(b => ((b.textContent.trim() === String(spell_selector_lvl)) || ((b.textContent === "cantrips") && (spell_selector_lvl == '0')));
+
+            // if (activeButton) {
+            //     activeButton.classList.add('active');
+            // }
+            // btn.classList.add('active');
             var lvl = "0";
             if (btn.textContent == "cantrips") {selector_lvl = 0}
             else {
@@ -520,7 +528,13 @@ function bindSpellButtons(){
             var c = fillSpellCards(selector_class,selector_lvl);
             console.log("selector pressed");
 
-            
+            document.querySelectorAll('.spell_tab_buttons .level').forEach(button => {
+                if ((button.textContent.trim() === spell_selector_lvl) || ((button.textContent == "cantrips") && (spell_selector_lvl == "0"))) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
             
         });
     });
