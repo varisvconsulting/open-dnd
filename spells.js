@@ -188,6 +188,7 @@ function updateSpellCards(){
     for (const i of spell_data) {
         [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures='',spell_card=null] = i;
         if (spell_card){
+            console.log("spell card found");
             if (!((magic_class.includes(spell_selector_class)) || (spell_selector_class == "all"))) { continue;}
             if (!((spell_lvl.includes(spell_selector_lvl)) || (spell_selector_lvl == "all"))) { continue;}
 
@@ -209,6 +210,9 @@ function updateSpellCards(){
             }
             spell_card.style.display = "block";
 
+        }
+        else {
+            console.log("spell card data not present");
         }
     }
 }
