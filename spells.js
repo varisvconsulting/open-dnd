@@ -451,14 +451,14 @@ function bindSpellButtons(){
     document.querySelector("#spell-opt-btn-list")?.addEventListener('click', () => {setSpellsLayout("list")});
     document.getElementById('spell-search-input').addEventListener('input', () => {fillSpellButtonList()})
 
-// Option A: Get value as the user types (recommended)
-searchInput.addEventListener('input', () => {
-    const query = searchInput.value;
-    console.log('Current input:', query);
-    
-    // You can call your search function here
-    // yourSearchFunction(query);
-});
+
+    document.getElementById('spell-search-input').addEventListener('input', () => {
+        const query = searchInput.value;
+        console.log('Current input:', query);
+        
+        // You can call your search function here
+        // yourSearchFunction(query);
+    });
 }
 
 async function initialSpellSetup() {
