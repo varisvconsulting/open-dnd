@@ -188,7 +188,6 @@ function updateSpellCards(){
     for (const i of spell_data) {
         [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures='',spell_card=null] = i;
         if (spell_card){
-            console.log("spell card found: ", spell_card);
             if (!((magic_class.includes(spell_selector_class)) || (spell_selector_class == "all"))) { continue;}
             if (!((spell_lvl.includes(spell_selector_lvl)) || (spell_selector_lvl == "all"))) { continue;}
 
@@ -198,7 +197,6 @@ function updateSpellCards(){
                 for (val of i){
                     if (String(val).toLowerCase().trim().includes(spellSearch.toLowerCase().trim())){
                         matchesSearch = true;
-                        // console.log("match found at ", spell_name, " at ", val);
                         break;
                     }
                 }
@@ -228,60 +226,7 @@ function fillSpellCards(selector_class = "",selector_lvl = "") {
     for (const i of spell_data) {
         var [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = i
         
-        var item_card = document.createElement('div');
-        item_card.dataset.group = magic_class;
-        item_card.dataset.spell_lvl = spell_lvl;
-        item_card.classList = ["spell-card"];
-
-        i.push(item_card);
-        
-        // if (!((magic_class.includes(selector_class)) || (selector_class == "all"))) { continue;}
-        // if (!((spell_lvl.includes(selector_lvl)) || (selector_lvl == "all"))) { continue;}
-        
-        // const spellSearch = document.getElementById('spell-search-input').value;
-        // if (spellSearch != "") {
-        //     let matchesSearch = false;
-        //     for (val of i){
-        //         if (String(val).toLowerCase().trim().includes(spellSearch.toLowerCase().trim())){
-        //             matchesSearch = true;
-        //             // console.log("match found at ", spell_name, " at ", val);
-        //             break;
-        //         }
-        //     }
-
-        //     if (!matchesSearch) { continue; }
-        // }
-
-        // for summons and creatures created by spells
-        var creatureCardData = "";
-        if (creatures){
-            var cr = creatures.split(";");
-            for (c of cr){
-                creatureCardData += constructCreatureCard(c);
-            }
-        }
-
-        // main spell card
-        item_card.innerHTML = `
-            <div class="spell-header">
-                <h3>${escapeHtml(capitalize(spell_name))} </h3>
-                <span class="spell-type"><i> - level ${spell_lvl}, ${escapeHtml(spell_type)}</i></span>
-            </div>
-            <div class="spell-mechanics">
-                ${spell_casting ? `<p>Casting: <i>${spell_casting}</i></p>` : ``}
-                ${spell_components ? `<p>Components: <i>${spell_components}</i></p>` : ``}
-                ${range ? `<p>Range: <i>${range}</i></p>` : ``}
-                ${duration ? `<p>Duration: <i>${duration}</i></p>` : ``}
-            </div>
-            <div class="spell-effect">
-                <p><b>Effect:</b> ${makeNotationToHtml(effect_text)}</p>
-                ${higher_level ? `<p><b>Upcast:</b> ${makeNotationToHtml(higher_level)}</p>` : ''}
-                ${passive ? `<p><b>Passive:</b> ${makeNotationToHtml(passive)}</p>` : ''}
-                ${upgrades ? `<p><b>Upgrades:</b> ${makeNotationToHtml(upgrades)}</p>` : ''}
-            </div>
-            
-            ${creatures? creatureCardData : "" }
-            `;
+        var item_card = genSpellCard(spell_name);
         // console.log("adding from " + selector_class + " - " + selector_lvl + ": " + spell_name + " - " + creatures);
         list.appendChild(item_card)
     }
