@@ -528,9 +528,9 @@ function setSpellsLayout(layout_t){
 }
 
 function bindSpellButtons(){
-    document.querySelector("#spell-opt-btn-grid")?.addEventListener('click', () => {setSpellsLayout("grid")});
-    document.querySelector("#spell-opt-btn-list")?.addEventListener('click', () => {setSpellsLayout("list")});
-    document.getElementById('spell-search-input').addEventListener('input', () => {updateSpellCards(spell_selector_class, spell_selector_lvl); fillSpellButtonList();})
+    document.querySelector("#spell-opt-btn-grid")?.addEventListener('click', () => {setSpellsLayout("grid"); updateSpellCards(spell_selector_class, spell_selector_lvl); fillSpellButtonList(); });
+    document.querySelector("#spell-opt-btn-list")?.addEventListener('click', () => {setSpellsLayout("list"); updateSpellCards(spell_selector_class, spell_selector_lvl); fillSpellButtonList(); });
+    document.getElementById('spell-search-input').addEventListener('input', () => {updateSpellCards(spell_selector_class, spell_selector_lvl); fillSpellButtonList();});
 
     document.querySelectorAll('.spell_tab_buttons .category').forEach(btn => {
         btn.addEventListener('click', () => {
