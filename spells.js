@@ -137,7 +137,7 @@ function constructCreatureCard(name){
     return "";
 }
 
-function fillSpellButtonList(type="all", lvl="all"){
+function fillSpellButtonList(){
     const list = document.getElementById('spell_tab_list');
     list.replaceChildren();
     const spellSearch = document.getElementById('spell-search-input').value;
@@ -229,6 +229,8 @@ function updateSpellCards() {
 
         spell_card.style.display = "block";
     }
+
+    fillSpellButtonList();
 }
 
 function updateSpellCardsOld(){
@@ -501,7 +503,7 @@ function setSpellsLayout(layout_t){
 function bindSpellButtons(){
     document.querySelector("#spell-opt-btn-grid")?.addEventListener('click', () => {setSpellsLayout("grid");});
     document.querySelector("#spell-opt-btn-list")?.addEventListener('click', () => {setSpellsLayout("list");});
-    document.getElementById('spell-search-input').addEventListener('input', () => {updateSpellCards(spell_selector_class, spell_selector_lvl); fillSpellButtonList();});
+    document.getElementById('spell-search-input').addEventListener('input', () => {updateSpellCards();});
 
     document.querySelectorAll('.spell_tab_buttons .category').forEach(btn => {
         btn.addEventListener('click', () => {
