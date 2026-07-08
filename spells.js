@@ -502,6 +502,7 @@ function bindSpellButtons(){
             selector_class = btn.textContent;
             var c = fillSpellCards(selector_class,selector_lvl);
             console.log("selector pressed");
+            spell_selector_class = btn.textContent
             
         });
     });
@@ -510,14 +511,16 @@ function bindSpellButtons(){
         btn.addEventListener('click', () => {
             // retain active for css
             document.querySelectorAll('.spell_tab_buttons .level').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
             var lvl = "0";
             if (btn.textContent == "cantrips") {selector_lvl = 0}
             else {
                 selector_lvl = btn.textContent;
             }
+            spell_selector_lvl = selector_lvl
             var c = fillSpellCards(selector_class,selector_lvl);
             console.log("selector pressed");
+
+            
             
         });
     });
