@@ -184,10 +184,57 @@ function fillSpellButtonList(type="all", lvl="all"){
 
 }
 
-function updateSpellCards(){
+function updateSpellCards() {
+    console.log("update spells called");
+
+    const searchInput = document.getElementById('spell-search-input').value.toLowerCase().trim();
+
+    for (const i of spell_data) {
+        // Get the spell card from the END of the array (safest)
+        const spell_card = i[i.length - 1];
+
+        if (!(spell_card instanceof HTMLElement)) {
+            console.log("spell card data not present");
+            continue;
+        }
+
+        const [magic_class = '', spell_lvl = '', spell_name = ''] = i;
+
+        // Filtering logic
+        if (!((magic_class.includes(spell_selector_class)) || (spell_selector_class == "all"))) {
+            spell_card.style.display = "none";
+            continue;
+        }
+
+        if (!((spell_lvl.includes(spell_selector_lvl)) || (spell_selector_lvl == "all"))) {
+            spell_card.style.display = "none";
+            continue;
+        }
+
+        // Search filter
+        if (searchInput !== "") {
+            let matchesSearch = false;
+            for (const val of i) {
+                if (String(val).toLowerCase().includes(searchInput)) {
+                    matchesSearch = true;
+                    break;
+                }
+            }
+
+            if (!matchesSearch) {
+                spell_card.style.display = "none";
+                continue;
+            }
+        }
+
+        spell_card.style.display = "block";
+    }
+}
+
+function updateSpellCardsOld(){
     console.log("update spells called");
     for (const i of spell_data) {
-        [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures='',spell_card=null] = i;
+        const spell_card = i[i.length - 1];
         if (spell_card){
             if (!((magic_class.includes(spell_selector_class)) || (spell_selector_class == "all"))) { continue;}
             if (!((spell_lvl.includes(spell_selector_lvl)) || (spell_selector_lvl == "all"))) { continue;}
@@ -367,7 +414,6 @@ async function parseCSV(text) {
         const row_data = []
         var field = ""
         var quoted = false
-        // console.log(row)
         for (let i =0; i<row.length; i++) {
             var c = row[i];
             if (c == '"') { quoted = !quoted;}
@@ -391,7 +437,6 @@ async function parseCSV(text) {
                 }
             }
         }
-        // console.log(row_data);
         output.push(row_data);
     }
     return output;

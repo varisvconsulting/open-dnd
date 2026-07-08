@@ -180,9 +180,7 @@
     }
 
     function setVisibleByClass(c_str, visible = true, override = ""){
-        console.log("set vis called for " + String(c_str) + " " + String(visible));
         document.querySelectorAll(c_str).forEach(ob => {
-            console.log("work done?");
             if (visible) {
                 if (isEmptyValue(override)) {
                     ob.style.display = "inline";
@@ -190,17 +188,14 @@
                 } else {
                     ob.style.display = String(override);
                 }
-                console.log("made visible");
             } else {
                 ob.style.display = "none"
-                console.log("made invisible");
             }
         });
     }
 
     function isEmptyValue(value) {
         if (value === null || value === undefined) return true;
-        console.log(String(value).trim() === "");
         return String(value).trim() === "";
     }
 </script>
