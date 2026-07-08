@@ -161,12 +161,14 @@ function constructCreatureCard(name){
 function fillSpellButtonList(type="all", lvl="all"){
     const list = document.getElementById('spell_tab_list');
     list.replaceChildren();
+    const spellSearch = document.getElementById('spell-search-input').value;
+    console.log("search querry is: ", spellSearch);
 
     for (const i of spell_data) {
         let [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = i
 
-        if (!((magic_class.includes(selector_class)) || (selector_class == "all"))) { console.log("ignoring button for class ", spell_name); continue;}
-        if (!((spell_lvl.includes(selector_lvl)) || (selector_lvl == "all"))) { console.log("ignoring button for wrong lvl ", spell_name); continue;}
+        if (!((magic_class.includes(selector_class)) || (selector_class == "all"))) { /*console.log("ignoring button for class ", spell_name);*/ continue;}
+        if (!((spell_lvl.includes(selector_lvl)) || (selector_lvl == "all"))) { /*console.log("ignoring button for wrong lvl ", spell_name);*/ continue;}
 
         let entry = document.createElement('button');
         entry.classList.add('entry');
@@ -439,6 +441,16 @@ function setSpellsLayout(layout_t){
 function bindSpellButtons(){
     document.querySelector("#spell-opt-btn-grid")?.addEventListener('click', () => {setSpellsLayout("grid")});
     document.querySelector("#spell-opt-btn-list")?.addEventListener('click', () => {setSpellsLayout("list")});
+    document.getElementById('searchInput').addEventListener('input', () => )
+
+// Option A: Get value as the user types (recommended)
+searchInput.addEventListener('input', () => {
+    const query = searchInput.value;
+    console.log('Current input:', query);
+    
+    // You can call your search function here
+    // yourSearchFunction(query);
+});
 }
 
 async function initialSpellSetup() {
