@@ -170,6 +170,13 @@ function fillSpellButtonList(type="all", lvl="all"){
         if (!((magic_class.includes(selector_class)) || (selector_class == "all"))) { /*console.log("ignoring button for class ", spell_name);*/ continue;}
         if (!((spell_lvl.includes(selector_lvl)) || (selector_lvl == "all"))) { /*console.log("ignoring button for wrong lvl ", spell_name);*/ continue;}
 
+        for (val of i){
+            if (!String(i).includes("i")){
+                continue;
+            }
+        }
+
+
         let entry = document.createElement('button');
         entry.classList.add('entry');
         entry.dataset.name = spell_name
@@ -194,7 +201,6 @@ function fillSpellCards(selector_class,selector_lvl) {
     const list = document.getElementById('spell-grid');
     if (list === null) {return}
     list.replaceChildren();
-    // fillSpellButtonList();
 
     for (const i of spell_data) {
         var [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = i
@@ -441,7 +447,7 @@ function setSpellsLayout(layout_t){
 function bindSpellButtons(){
     document.querySelector("#spell-opt-btn-grid")?.addEventListener('click', () => {setSpellsLayout("grid")});
     document.querySelector("#spell-opt-btn-list")?.addEventListener('click', () => {setSpellsLayout("list")});
-    document.getElementById('searchInput').addEventListener('input', () => )
+    document.getElementById('searchInput').addEventListener('input', () => {fillSpellButtonList()})
 
 // Option A: Get value as the user types (recommended)
 searchInput.addEventListener('input', () => {
