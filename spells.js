@@ -228,7 +228,7 @@ function fillSpellCards(selector_class = "",selector_lvl = "") {
         
         var item_card = genSpellCard(spell_name);
         // console.log("adding from " + selector_class + " - " + selector_lvl + ": " + spell_name + " - " + creatures);
-        list.appendChild(item_card)
+        list.appendChild(item_card);
     }
 
     fillSpellButtonList(magic_class,selector_class);
