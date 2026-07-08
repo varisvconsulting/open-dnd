@@ -162,7 +162,6 @@ function fillSpellButtonList(type="all", lvl="all"){
     const list = document.getElementById('spell_tab_list');
     list.replaceChildren();
     const spellSearch = document.getElementById('spell-search-input').value;
-    console.log("search querry is: ", spellSearch);
 
     for (const i of spell_data) {
         let [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = i
@@ -228,6 +227,20 @@ function fillSpellCards(selector_class,selector_lvl) {
         
         if (!((magic_class.includes(selector_class)) || (selector_class == "all"))) { console.log("nah"); continue;}
         if (!((spell_lvl.includes(selector_lvl)) || (selector_lvl == "all"))) { console.log("no - " + selector_class + " " + selector_lvl); continue;}
+        
+        const spellSearch = document.getElementById('spell-search-input').value;
+        if (spellSearch != "") {
+            let matchesSearch = false;
+            for (val of i){
+                if (String(val).toLowerCase().trimp().includes(spellSearch.toLowerCase().trim())){
+                    matchesSearch = true;
+                    // console.log("match found at ", spell_name, " at ", val);
+                    break;
+                }
+            }
+
+            if (!matchesSearch) { continue; }
+        }
 
         item_card.innerHTML = `
             <div class="spell-header">
