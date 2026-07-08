@@ -468,7 +468,7 @@ function setSpellsLayout(layout_t){
 function bindSpellButtons(){
     document.querySelector("#spell-opt-btn-grid")?.addEventListener('click', () => {setSpellsLayout("grid")});
     document.querySelector("#spell-opt-btn-list")?.addEventListener('click', () => {setSpellsLayout("list")});
-    document.getElementById('spell-search-input').addEventListener('input', () => {fillSpellButtonList(); fillSpellCards();})
+    document.getElementById('spell-search-input').addEventListener('input', () => {fillSpellCards();})
 
 
     // let searchInput = document.getElementById('spell-search-input');
