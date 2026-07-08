@@ -227,7 +227,12 @@ function fillSpellCards(selector_class = "",selector_lvl = "") {
         var [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = i
         
         var item_card = genSpellCard(spell_name);
+
         if (item_card != null) {
+            item_card.dataset.group = magic_class;
+            item_card.dataset.spell_lvl = spell_lvl;
+            item_card.classList = ["spell-card"];
+            i.push(item_card);
             list.appendChild(item_card);
         }
     }
