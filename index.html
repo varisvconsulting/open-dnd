@@ -142,34 +142,6 @@
         }
     });
 
-    document.querySelectorAll('.spell_tab_buttons .category').forEach(btn => {
-        btn.addEventListener('click', () => {
-            // retain active for css
-            document.querySelectorAll('.spell_tab_buttons .category').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            selector_class = btn.textContent;
-            var c = fillSpellCards(selector_class,selector_lvl);
-            console.log("selector pressed");
-            
-        });
-    });
-
-    document.querySelectorAll('.spell_tab_buttons .level').forEach(btn => {
-        btn.addEventListener('click', () => {
-            // retain active for css
-            document.querySelectorAll('.spell_tab_buttons .level').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            var lvl = "0";
-            if (btn.textContent == "cantrips") {selector_lvl = 0}
-            else {
-                selector_lvl = btn.textContent;
-            }
-            var c = fillSpellCards(selector_class,selector_lvl);
-            console.log("selector pressed");
-            
-        });
-    });
-
     document.querySelectorAll('.header_tab .tab_button').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.header_tab .tab_button').forEach(b => b.classList.remove('active'));

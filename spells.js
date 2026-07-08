@@ -1,30 +1,9 @@
-var spell_data = []
-var creature_data = []
+var spell_data = [];
+var creature_data = [];
 
-
-async function loadSpellCsvOld() {
-    //const csvUrl= `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv?&gid=0`;
-    const SpellCsvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
-            `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=7929475&_v=${Date.now()}`
-        );
-    const list = document.getElementById('spell-list');
-    list.textContent = 'Loading…';
-    try {
-        const text = await fetch(SpellCsvUrl, {caches: 'no-store'}).then(r => r.text());
-        const rows = await parseCSV(text);
-        var _c = 0
-        for (const row of rows) {
-            var [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='',duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = row;
-            _c +=1;
-            if (_c <= 1) { continue; } //cus the first few tabs arent part of the stuff
-
-            spell_data.push([magic_class, spell_lvl, spell_name, spell_type, spell_casting, spell_components, range, duration, effect_text, higher_level, passive, upgrades,creatures]);    
-        }
-    } catch (e) {
-        list.textContent = 'Sorry—could not load data.';
-        console.log(e);
-    }
-}
+var spell_tab_display_mode = 0; // 0 is list, 1 is grid
+var spell_selector_class = "all";
+var spell_selector_lvl = "all";
 
 async function loadSpellCsv() {
     
@@ -204,10 +183,13 @@ function fillSpellButtonList(type="all", lvl="all"){
     }
 }
 
-function fillSpellCards(selector_class,selector_lvl) {
+function fillSpellCards(selector_class = "",selector_lvl = "") {
     const list = document.getElementById('spell-grid');
     if (list === null) {return}
     list.replaceChildren();
+
+    if (selector_class === "") {selector_class = spell_selector_class;}
+    if (selector_lvl === "") {selector_lvl = spell_selector_lvl}
 
     for (const i of spell_data) {
         var [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = i
@@ -225,8 +207,8 @@ function fillSpellCards(selector_class,selector_lvl) {
             }
         }
         
-        if (!((magic_class.includes(selector_class)) || (selector_class == "all"))) { console.log("nah"); continue;}
-        if (!((spell_lvl.includes(selector_lvl)) || (selector_lvl == "all"))) { console.log("no - " + selector_class + " " + selector_lvl); continue;}
+        if (!((magic_class.includes(selector_class)) || (selector_class == "all"))) { continue;}
+        if (!((spell_lvl.includes(selector_lvl)) || (selector_lvl == "all"))) { continue;}
         
         const spellSearch = document.getElementById('spell-search-input').value;
         if (spellSearch != "") {
@@ -364,6 +346,48 @@ function fillSpellListMainCard(s_name) {
     }
 }
 
+function genSpellCard(s_name) {
+     if (isEmptyValue(s_name)) {
+        // todo
+    } else {
+        var target = null;
+        for (const i of spell_data) {
+            var [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = i
+            if (spell_name === s_name) {
+                var item_card = document.createElement('div');
+                var creatureCardData = "";
+                if (creatures){
+                    var cr = creatures.split(";");
+                    for (c of cr){
+                        creatureCardData += constructCreatureCard(c);
+                    }
+                }
+                item_card.innerHTML = `
+                    <div class="spell-header">
+                        <h3>${escapeHtml(capitalize(spell_name))} </h3>
+                        <span class="spell-type"><i> - level ${spell_lvl}, ${escapeHtml(spell_type)}</i></span>
+                    </div>
+                    <div class="spell-mechanics">
+                        ${spell_casting ? `<p>Casting: <i>${spell_casting}</i></p>` : ``}
+                        ${spell_components ? `<p>Components: <i>${spell_components}</i></p>` : ``}
+                        ${range ? `<p>Range: <i>${range}</i></p>` : ``}
+                        ${duration ? `<p>Duration: <i>${duration}</i></p>` : ``}
+                    </div>
+                    <div class="spell-effect">
+                        <p><b>Effect:</b> ${makeNotationToHtml(effect_text)}</p>
+                        ${higher_level ? `<p><b>Upcast:</b> ${makeNotationToHtml(higher_level)}</p>` : ''}
+                        ${passive ? `<p><b>Passive:</b> ${makeNotationToHtml(passive)}</p>` : ''}
+                        ${upgrades ? `<p><b>Upgrades:</b> ${makeNotationToHtml(upgrades)}</p>` : ''}
+                    </div>
+                    ${creatures? creatureCardData : "" }
+                `;
+                
+                return item_card
+            }
+        }
+    }
+}
+
 function capitalize(str) {
   return str ? str[0].toUpperCase() + str.slice(1) : "";
 }
@@ -449,7 +473,7 @@ function getCleanCommasString(text) {
 function setSpellsLayout(layout_t){
     console.log("grid/list btns pressed");
     if (layout_t === "grid"){
-        // setVisibleByClass(".spell_tab_large_grid", true, "grid");
+        spell_tab_display_mode = 1 // 0 is list, 1 is grid
         setVisibleByClass(".spell_tab_large_list", false)
         setVisibleByClass(".spell_tab_large_grid", true, "grid");
         document.querySelector("#spell-opt-btn-list")?.classList.remove('active')
@@ -457,7 +481,7 @@ function setSpellsLayout(layout_t){
     }
 
     if (layout_t === "list"){
-        // setVisibleByClass(".spell_tab_large_grid", false);
+        spell_tab_display_mode = 0 // 0 is list, 1 is grid
         setVisibleByClass(".spell_tab_large_list", true, "grid");
         setVisibleByClass(".spell_tab_large_grid", false);
         document.querySelector("#spell-opt-btn-list")?.classList.add('active')
@@ -468,8 +492,35 @@ function setSpellsLayout(layout_t){
 function bindSpellButtons(){
     document.querySelector("#spell-opt-btn-grid")?.addEventListener('click', () => {setSpellsLayout("grid")});
     document.querySelector("#spell-opt-btn-list")?.addEventListener('click', () => {setSpellsLayout("list")});
-    document.getElementById('spell-search-input').addEventListener('input', () => {fillSpellCards();})
+    document.getElementById('spell-search-input').addEventListener('input', () => {fillSpellCards(spell_selector_class, spell_selector_lvl);})
 
+    document.querySelectorAll('.spell_tab_buttons .category').forEach(btn => {
+        btn.addEventListener('click', () => {
+            // retain active for css
+            document.querySelectorAll('.spell_tab_buttons .category').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selector_class = btn.textContent;
+            var c = fillSpellCards(selector_class,selector_lvl);
+            console.log("selector pressed");
+            
+        });
+    });
+
+    document.querySelectorAll('.spell_tab_buttons .level').forEach(btn => {
+        btn.addEventListener('click', () => {
+            // retain active for css
+            document.querySelectorAll('.spell_tab_buttons .level').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            var lvl = "0";
+            if (btn.textContent == "cantrips") {selector_lvl = 0}
+            else {
+                selector_lvl = btn.textContent;
+            }
+            var c = fillSpellCards(selector_class,selector_lvl);
+            console.log("selector pressed");
+            
+        });
+    });
 
     // let searchInput = document.getElementById('spell-search-input');
     // searchInput.addEventListener('input', () => {
