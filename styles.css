@@ -231,12 +231,12 @@ h4, li {
     width: 100%;
 }
 
-.list-panel{
-    /* padding:6px; */
+/* .list-panel{
+    padding:6px;
     align-self:start;
     position:sticky;
     top:18px
-}
+} */
 
 .item_tab_buttons .tab_button {
     background-color: rgb(177, 211, 198);
