@@ -175,7 +175,7 @@ function fillSpellButtonList(type="all", lvl="all"){
             for (val of i){
                 if (String(val).toLowerCase().includes(spellSearch.toLowerCase())){
                     matchesSearch = true;
-                    console.log("match found at ", spell_name, " at ", val);
+                    // console.log("match found at ", spell_name, " at ", val);
                     break;
                 }
             }
