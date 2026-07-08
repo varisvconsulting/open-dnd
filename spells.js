@@ -227,8 +227,9 @@ function fillSpellCards(selector_class = "",selector_lvl = "") {
         var [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures=''] = i
         
         var item_card = genSpellCard(spell_name);
-        // console.log("adding from " + selector_class + " - " + selector_lvl + ": " + spell_name + " - " + creatures);
-        list.appendChild(item_card);
+        if (item_card != null) {
+            list.appendChild(item_card);
+        }
     }
 
     fillSpellButtonList(magic_class,selector_class);
@@ -305,7 +306,7 @@ function fillSpellListMainCard(s_name) {
 
 function genSpellCard(s_name) {
      if (isEmptyValue(s_name)) {
-        // todo
+        return null
     } else {
         var target = null;
         for (const i of spell_data) {
