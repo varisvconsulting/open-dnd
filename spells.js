@@ -170,9 +170,11 @@ function fillSpellButtonList(type="all", lvl="all"){
         if (!((magic_class.includes(selector_class)) || (selector_class == "all"))) { /*console.log("ignoring button for class ", spell_name);*/ continue;}
         if (!((spell_lvl.includes(selector_lvl)) || (selector_lvl == "all"))) { /*console.log("ignoring button for wrong lvl ", spell_name);*/ continue;}
 
-        for (val of i){
-            if (!String(i).includes("i")){
-                continue;
+        if (spellSearch != "") {
+            for (val of i){
+                if (!String(i).includes(spellSearch)){
+                    continue;
+                }
             }
         }
 
@@ -447,7 +449,7 @@ function setSpellsLayout(layout_t){
 function bindSpellButtons(){
     document.querySelector("#spell-opt-btn-grid")?.addEventListener('click', () => {setSpellsLayout("grid")});
     document.querySelector("#spell-opt-btn-list")?.addEventListener('click', () => {setSpellsLayout("list")});
-    document.getElementById('searchInput').addEventListener('input', () => {fillSpellButtonList()})
+    document.getElementById('spell-search-input').addEventListener('input', () => {fillSpellButtonList()})
 
 // Option A: Get value as the user types (recommended)
 searchInput.addEventListener('input', () => {
