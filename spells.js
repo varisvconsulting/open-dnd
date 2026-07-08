@@ -327,33 +327,7 @@ function fillSpellListMainCard(s_name) {
             if (spell_name === s_name) {
                 const holder = document.getElementById("spell_tab_list_card");
                 holder.replaceChildren();
-                var item_card = document.createElement('div');
-                var creatureCardData = "";
-                if (creatures){
-                    var cr = creatures.split(";");
-                    for (c of cr){
-                        creatureCardData += constructCreatureCard(c);
-                    }
-                }
-                item_card.innerHTML = `
-                    <div class="spell-header">
-                        <h3>${escapeHtml(capitalize(spell_name))} </h3>
-                        <span class="spell-type"><i> - level ${spell_lvl}, ${escapeHtml(spell_type)}</i></span>
-                    </div>
-                    <div class="spell-mechanics">
-                        ${spell_casting ? `<p>Casting: <i>${spell_casting}</i></p>` : ``}
-                        ${spell_components ? `<p>Components: <i>${spell_components}</i></p>` : ``}
-                        ${range ? `<p>Range: <i>${range}</i></p>` : ``}
-                        ${duration ? `<p>Duration: <i>${duration}</i></p>` : ``}
-                    </div>
-                    <div class="spell-effect">
-                        <p><b>Effect:</b> ${makeNotationToHtml(effect_text)}</p>
-                        ${higher_level ? `<p><b>Upcast:</b> ${makeNotationToHtml(higher_level)}</p>` : ''}
-                        ${passive ? `<p><b>Passive:</b> ${makeNotationToHtml(passive)}</p>` : ''}
-                        ${upgrades ? `<p><b>Upgrades:</b> ${makeNotationToHtml(upgrades)}</p>` : ''}
-                    </div>
-                    ${creatures? creatureCardData : "" }
-                `;
+                var item_card = genSpellCard(spell_name);
                 holder.appendChild(item_card);
 
                 const cardHolder = document.getElementById("spell_tab_list_card");
@@ -528,8 +502,8 @@ function setSpellsLayout(layout_t){
 }
 
 function bindSpellButtons(){
-    document.querySelector("#spell-opt-btn-grid")?.addEventListener('click', () => {setSpellsLayout("grid"); updateSpellCards(spell_selector_class, spell_selector_lvl); fillSpellButtonList(); });
-    document.querySelector("#spell-opt-btn-list")?.addEventListener('click', () => {setSpellsLayout("list"); updateSpellCards(spell_selector_class, spell_selector_lvl); fillSpellButtonList(); });
+    document.querySelector("#spell-opt-btn-grid")?.addEventListener('click', () => {setSpellsLayout("grid");});
+    document.querySelector("#spell-opt-btn-list")?.addEventListener('click', () => {setSpellsLayout("list");});
     document.getElementById('spell-search-input').addEventListener('input', () => {updateSpellCards(spell_selector_class, spell_selector_lvl); fillSpellButtonList();});
 
     document.querySelectorAll('.spell_tab_buttons .category').forEach(btn => {
