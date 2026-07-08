@@ -321,13 +321,13 @@ ul.property_list {
 
 @media (min-width: 768px) {
   .weapons-list {
-    grid-template-columns: repeat(2, 1fr);   /* 2 columns on tablet */
+    grid-template-columns: repeat(3, 1fr);   /* 2 columns on tablet */
   }
 }
 
 @media (min-width: 1200px) {
     .weapons-list {
-        grid-template-columns: repeat(3, 1fr);   /* 3 columns on desktop if you want tighter packing */
+        grid-template-columns: repeat(4, 1fr);   /* 3 columns on desktop if you want tighter packing */
     }
 
     .spell_tab_large_list {
