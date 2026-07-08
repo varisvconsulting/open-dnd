@@ -230,32 +230,34 @@ function fillSpellCards(selector_class = "",selector_lvl = "") {
         item_card.classList = ["spell-card"];
 
         i.push(item_card);
-
-        // var creatureCardData = "";
-        // if (creatures){
-        //     var cr = creatures.split(";");
-        //     for (c of cr){
-        //         creatureCardData += constructCreatureCard(c);
-        //     }
-        // }
         
         // if (!((magic_class.includes(selector_class)) || (selector_class == "all"))) { continue;}
         // if (!((spell_lvl.includes(selector_lvl)) || (selector_lvl == "all"))) { continue;}
         
-        const spellSearch = document.getElementById('spell-search-input').value;
-        if (spellSearch != "") {
-            let matchesSearch = false;
-            for (val of i){
-                if (String(val).toLowerCase().trim().includes(spellSearch.toLowerCase().trim())){
-                    matchesSearch = true;
-                    // console.log("match found at ", spell_name, " at ", val);
-                    break;
-                }
-            }
+        // const spellSearch = document.getElementById('spell-search-input').value;
+        // if (spellSearch != "") {
+        //     let matchesSearch = false;
+        //     for (val of i){
+        //         if (String(val).toLowerCase().trim().includes(spellSearch.toLowerCase().trim())){
+        //             matchesSearch = true;
+        //             // console.log("match found at ", spell_name, " at ", val);
+        //             break;
+        //         }
+        //     }
 
-            if (!matchesSearch) { continue; }
+        //     if (!matchesSearch) { continue; }
+        // }
+
+        // for summons and creatures created by spells
+        var creatureCardData = "";
+        if (creatures){
+            var cr = creatures.split(";");
+            for (c of cr){
+                creatureCardData += constructCreatureCard(c);
+            }
         }
 
+        // main spell card
         item_card.innerHTML = `
             <div class="spell-header">
                 <h3>${escapeHtml(capitalize(spell_name))} </h3>
