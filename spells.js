@@ -185,6 +185,7 @@ function fillSpellButtonList(type="all", lvl="all"){
 }
 
 function updateSpellCards(){
+    console.log("update spells called");
     for (const i of spell_data) {
         [magic_class='', spell_lvl='', spell_name='', spell_type='',spell_casting='', spell_components='',range='', duration='',effect_text='',higher_level='',passive='',upgrades='',creatures='',spell_card=null] = i;
         if (spell_card){
