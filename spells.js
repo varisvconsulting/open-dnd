@@ -232,7 +232,7 @@ function fillSpellCards(selector_class,selector_lvl) {
         if (spellSearch != "") {
             let matchesSearch = false;
             for (val of i){
-                if (String(val).toLowerCase().trimp().includes(spellSearch.toLowerCase().trim())){
+                if (String(val).toLowerCase().trim().includes(spellSearch.toLowerCase().trim())){
                     matchesSearch = true;
                     // console.log("match found at ", spell_name, " at ", val);
                     break;
