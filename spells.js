@@ -171,12 +171,16 @@ function fillSpellButtonList(type="all", lvl="all"){
         if (!((spell_lvl.includes(selector_lvl)) || (selector_lvl == "all"))) { /*console.log("ignoring button for wrong lvl ", spell_name);*/ continue;}
 
         if (spellSearch != "") {
+            let matchesSearch = false;
             for (val of i){
-                if (!String(i).includes(spellSearch)){
-                    continue;
+                if (String(i).includes(spellSearch)){
+                    matchesSearch = true
                 }
             }
+
+            if (!matchesSearch) { continue; }
         }
+        
 
 
         let entry = document.createElement('button');
@@ -452,14 +456,14 @@ function bindSpellButtons(){
     document.getElementById('spell-search-input').addEventListener('input', () => {fillSpellButtonList()})
 
 
-    let searchInput = document.getElementById('spell-search-input');
-    searchInput.addEventListener('input', () => {
-        const query = searchInput.value;
-        console.log('Current input:', query);
+    // let searchInput = document.getElementById('spell-search-input');
+    // searchInput.addEventListener('input', () => {
+    //     const query = searchInput.value;
+    //     console.log('Current input:', query);
         
-        // You can call your search function here
-        // yourSearchFunction(query);
-    });
+    //     // You can call your search function here
+    //     // yourSearchFunction(query);
+    // });
 }
 
 async function initialSpellSetup() {
