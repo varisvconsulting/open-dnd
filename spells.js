@@ -452,7 +452,8 @@ function bindSpellButtons(){
     document.getElementById('spell-search-input').addEventListener('input', () => {fillSpellButtonList()})
 
 
-    document.getElementById('spell-search-input').addEventListener('input', () => {
+    let searchInput = document.getElementById('spell-search-input');
+    searchInput.addEventListener('input', () => {
         const query = searchInput.value;
         console.log('Current input:', query);
         
