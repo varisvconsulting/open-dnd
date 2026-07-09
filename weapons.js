@@ -167,6 +167,8 @@ function updateWeaponGroupFilter(){
         finalList = [...finalList, ...wpn_groups_martial];
     }
 
+    fillWeaponCards(WEAPON_CATEGORY_FILTER);
+
     finalList.forEach(item => {
         console.log(item)
         const f_option = document.createElement("option");
@@ -174,6 +176,8 @@ function updateWeaponGroupFilter(){
         f_option.textContent = item;
         wpn_g_filter.appendChild(f_option);
     });
+
+
 }
 
 
@@ -185,6 +189,8 @@ function bindItemButtons(){
 
     document.querySelectorAll("[data-weapon-group-filter]").forEach((select) => select.addEventListener('change', () => { 
         console.log("got pressed group filter: ", select);
+        WEAPON_GROUP_FILTER = select.value.toLowerCase().trim();
+        fillWeaponCards(WEAPON_GROUP_FILTER);
     }));
 }
 
