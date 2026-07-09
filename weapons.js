@@ -149,9 +149,16 @@ function getCleanCommasString(text) {
     return rez;
 }
 
+function bindItemButtons(){
+    document.querySelector("[data-filter]").forEach((select) => select.addEventListener('change', () => { 
+        console.log("got pressed filter: ", select);
+    }));
+}
+
 async function initialWeaponsSetup() {
     var a = await loadWeaponsCsv();
     var b = await fillWeaponCards("all");
+    bindItemButtons();
 
     document.querySelectorAll('.weapon_tab_buttons .tab_button').forEach(btn => {
         btn.addEventListener('click', () => {
