@@ -159,11 +159,11 @@ function updateWeaponGroupFilter(){
     const wpn_groups_martial = ["axes","hammers & cudgels", "martial polearms", "light blades", "medium blades", "heavy blades", "segmented arms", "fist weapons", "light bows", "heavy bows", "martial crossbows"];
 
     let finalList = ["all"];
-    if ((WEAPON_CATEGORY_FILTER === "all") || (WEAPON_GROUP_FILTER === "simple")) {
+    if ((WEAPON_CATEGORY_FILTER === "all") || (WEAPON_CATEGORY_FILTER === "simple")) {
         finalList = [...finalList, ...wpn_groups_simple];
     }
 
-    if ((WEAPON_CATEGORY_FILTER === "all") || (WEAPON_GROUP_FILTER === "martial")) {
+    if ((WEAPON_CATEGORY_FILTER === "all") || (WEAPON_CATEGORY_FILTER === "martial")) {
         finalList = [...finalList, ...wpn_groups_martial];
     }
 
@@ -180,9 +180,6 @@ function updateWeaponGroupFilter(){
 function bindItemButtons(){
     document.querySelectorAll("[data-weapon-category-filter]").forEach((select) => select.addEventListener('change', () => { 
         WEAPON_CATEGORY_FILTER = select.value;
-        console.log("got pressed category filter: ", WEAPON_CATEGORY_FILTER);
-        console.log("raw select value: ", select.value);
-        console.log("raw select value lowercased: ", select.value.toLowerCase().trim())
         updateWeaponGroupFilter();
     }));
 
