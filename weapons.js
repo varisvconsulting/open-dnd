@@ -155,10 +155,10 @@ function getCleanCommasString(text) {
 function updateWeaponGroupFilter(){
     let wpn_g_filter = document.querySelector("[data-weapon-group-filter]");
     wpn_g_filter.replaceChildren();
-    wpn_groups_simple = ["dagger","simple polearms","light arms","medium arms","heavy arms","simple bows","simple crossbows","thrown & other"];
-    wpn_groups_martial = ["axes","hammers & cudgels", "martial polearms", "light blades", "medium blades", "heavy blades", "segmented arms", "fist weapons", "light bows", "heavy bows", "martial crossbows"];
+    const wpn_groups_simple = ["dagger","simple polearms","light arms","medium arms","heavy arms","simple bows","simple crossbows","thrown & other"];
+    const wpn_groups_martial = ["axes","hammers & cudgels", "martial polearms", "light blades", "medium blades", "heavy blades", "segmented arms", "fist weapons", "light bows", "heavy bows", "martial crossbows"];
 
-    var finalList = ["all"];
+    let finalList = ["all"];
     if ((WEAPON_CATEGORY_FILTER === "all") || (WEAPON_GROUP_FILTER === "simple")) {
         finalList = [...finalList, ...wpn_groups_simple];
     }
@@ -167,11 +167,12 @@ function updateWeaponGroupFilter(){
         finalList = [...finalList, ...wpn_groups_martial];
     }
 
-    for (i of finalList){
-        let f_option = document.createElement("option");
-        f_option.innerHTML = i;
-        wpn_g_filter.appendChild(f_option)
-    }
+    finalList.forEach(item => {
+        const f_option = document.createElement("option");
+        f_option.value = item
+        f_option.textContent = item;
+        wpn_g_filter.appendChild(f_option);
+    });
 }
 
 
