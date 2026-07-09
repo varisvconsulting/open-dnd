@@ -152,9 +152,14 @@ function getCleanCommasString(text) {
     return rez;
 }
 
+function updateWeaponGroupFilter(){
+    let data-weapon-group-filter
+}
+
 function bindItemButtons(){
     document.querySelectorAll("[data-weapon-category-filter]").forEach((select) => select.addEventListener('change', () => { 
-        console.log("got pressed category filter: ", select);
+        WEAPON_CATEGORY_FILTER = select.value;
+        console.log("got pressed category filter: ", select.value);
     }));
 
     document.querySelectorAll("[data-weapon-group-filter]").forEach((select) => select.addEventListener('change', () => { 
