@@ -1,15 +1,6 @@
 const SPREADSHEET_ID = '1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ';  // ← replace
 const SHEET_GID      = '1';                         // ← tab number, usually 1
 
-//const url = `https://spreadsheets.google.com/feeds/cells/${SPREADSHEET_ID}/${SHEET_GID}/public/full?alt=json`;
-// const url = 'https://corsproxy.io/?' + encodeURIComponent(
-//              'https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=json&gid=0'
-//            );
-// const url = 'https://corsproxy.io/?' + encodeURIComponent(
-//              'https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=0'
-//            );
-//
-
 var weapon_data = []
 
 async function loadWeaponsCsv() {
@@ -17,16 +8,12 @@ async function loadWeaponsCsv() {
         const WeaponCsvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
              `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=0&_v=${Date.now()}`
            );
-        console.log('https://corsproxy.io/?' + encodeURIComponent(
-             `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=0&_v=${Date.now()}`
-           ));
         const list = document.getElementById('weapons-list');
         list.textContent = 'Loading…';
     
     //Core type	weapon group	name	damage	general properties	misc properties	attack maneuvers	tactical maneuvers	crit properties	strategy
         try {
             const text = await fetch(WeaponCsvUrl, {caches: 'no-store'}).then(r => r.text());
-            parseCSV(text);
             const rows = await parseCSV(text);
             var _c = 0
             for (const row of rows) {
@@ -112,7 +99,7 @@ function fillWeaponCards(GroupOrCategory) {
                     <div class="column"><h4>Crit</h4><p>${escapeHtml(crit_prop|| '-')}</p></div>
                 </div>`;
             console.log("adding from " + GroupOrCategory + " - " + name);
-            list.appendChild(item_card)
+            list.appendChild(item_card);
         }
     }
 
