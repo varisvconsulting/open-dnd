@@ -179,8 +179,8 @@ function updateWeaponGroupFilter(){
 
 function bindItemButtons(){
     document.querySelectorAll("[data-weapon-category-filter]").forEach((select) => select.addEventListener('change', () => { 
-        WEAPON_CATEGORY_FILTER = select.value;
-        console.log("got pressed category filter: ", select.value.toLowerCase());
+        WEAPON_CATEGORY_FILTER = select.value.toLowerCase();
+        console.log("got pressed category filter: ", select.value);
         updateWeaponGroupFilter();
     }));
 
