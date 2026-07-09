@@ -168,6 +168,7 @@ function updateWeaponGroupFilter(){
     }
 
     finalList.forEach(item => {
+        console.log(item)
         const f_option = document.createElement("option");
         f_option.value = item
         f_option.textContent = item;
