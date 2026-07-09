@@ -3,6 +3,9 @@ const SHEET_GID      = '1';                         // ← tab number, usually 1
 
 var weapon_data = []
 
+var WEAPON_CATEGORY_FILTER = "all";
+var WEAPON_GROUP_FILTER = "all";
+
 async function loadWeaponsCsv() {
         //const csvUrl= `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv?&gid=0`;
         const WeaponCsvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
@@ -150,8 +153,12 @@ function getCleanCommasString(text) {
 }
 
 function bindItemButtons(){
-    document.querySelector("[data-filter]").forEach((select) => select.addEventListener('change', () => { 
-        console.log("got pressed filter: ", select);
+    document.querySelectorAll("[data-weapon-category-filter]").forEach((select) => select.addEventListener('change', () => { 
+        console.log("got pressed category filter: ", select);
+    }));
+
+    document.querySelectorAll("[data-weapon-group-filter]").forEach((select) => select.addEventListener('change', () => { 
+        console.log("got pressed group filter: ", select);
     }));
 }
 
