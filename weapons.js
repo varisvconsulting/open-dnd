@@ -153,13 +153,55 @@ function getCleanCommasString(text) {
 }
 
 function updateWeaponGroupFilter(){
-    let data-weapon-group-filter
+    let wpn_g_filter = document.querySelector("[data-weapon-grou-filter]");
+    wpn_g_filter.replaceChildren();
+    wpn_groups_simple = ["dagger","simple polearms","light arms","medium arms","heavy arms","simple bows","simple crossbows","thrown & other"];
+    wpn_groups_martial = ["axes","hammers & cudgels", "martial polearms", "light blades", "medium blades", "heavy blades", "segmented arms", "fist weapons", "light bows", "heavy bows", "martial crossbows"];
+
+    var finalList = ["all"];
+    if ((WEAPON_CATEGORY_FILTER === "all") || (WEAPON_GROUP_FILTER === "simple")) {
+        finalList = [...finalList, ...wpn_groups_simple];
+    }
+
+    if ((WEAPON_CATEGORY_FILTER === "all") || (WEAPON_GROUP_FILTER === "martial")) {
+        finalList = [...finalList, ...wpn_groups_martial];
+    }
+
+    for (i of finalList){
+        let f_option = document.createElement("option");
+        f_option.innerHTML = i;
+        wpn_g_filter.appendChild(f_option)
+    }
 }
+
+        // <button class="tab_button weapon_tab_button">simple</button>
+        // <button class="tab_button weapon_tab_button">martial</button>
+        // <button class="tab_button weapon_tab_button wt_simple">daggers</button>
+        // <button class="tab_button weapon_tab_button wt_simple">simple polearms</button>
+        // <button class="tab_button weapon_tab_button wt_simple">light arms</button>
+        // <button class="tab_button weapon_tab_button wt_simple">medium arms</button>
+        // <button class="tab_button weapon_tab_button wt_simple">heavy arms</button>
+        // <button class="tab_button weapon_tab_button wt_simple">simple bows</button>
+        // <button class="tab_button weapon_tab_button wt_simple">simple crossbows</button>
+        // <button class="tab_button weapon_tab_button wt_simple">thrown & other</button>
+        // <button class="tab_button weapon_tab_button wt_martial">axes</button>
+        // <button class="tab_button weapon_tab_button wt_martial">hammers & cudgels</button>
+        // <button class="tab_button weapon_tab_button wt_martial">martial polearms</button>
+        // <button class="tab_button weapon_tab_button wt_martial">light blades</button>
+        // <button class="tab_button weapon_tab_button wt_martial">medium blades</button>
+        // <button class="tab_button weapon_tab_button wt_martial">heavy blades</button>
+        // <button class="tab_button weapon_tab_button wt_martial">segmented arms</button>
+        // <button class="tab_button weapon_tab_button wt_martial">fist weapons</button>
+        // <button class="tab_button weapon_tab_button wt_martial">light bows</button>
+        // <button class="tab_button weapon_tab_button wt_martial">heavy bows</button>
+        // <button class="tab_button weapon_tab_button wt_martial">martial crossbows</button>
+
 
 function bindItemButtons(){
     document.querySelectorAll("[data-weapon-category-filter]").forEach((select) => select.addEventListener('change', () => { 
         WEAPON_CATEGORY_FILTER = select.value;
         console.log("got pressed category filter: ", select.value);
+        updateWeaponGroupFilter();
     }));
 
     document.querySelectorAll("[data-weapon-group-filter]").forEach((select) => select.addEventListener('change', () => { 
