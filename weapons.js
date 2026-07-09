@@ -179,10 +179,7 @@ function updateWeaponGroupFilter(){
 
 function bindItemButtons(){
     document.querySelectorAll("[data-weapon-category-filter]").forEach((select) => select.addEventListener('change', () => { 
-        WEAPON_CATEGORY_FILTER = select.value.toLowerCase();
-        console.log("got pressed category filter: ", WEAPON_CATEGORY_FILTER);
-        console.log("raw select value: ", select.value);
-        console.log("raw select value lowercased: ", select.value.toLowerCase())
+        WEAPON_CATEGORY_FILTER = select.value.toLowerCase().trim();
         updateWeaponGroupFilter();
     }));
 
