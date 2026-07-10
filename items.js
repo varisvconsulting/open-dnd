@@ -242,8 +242,8 @@ function bindItemButtons(){
     }));
 
     document.querySelectorAll(".items_tab_button").forEach((btn) => {
-        console.log("clicked ", btn.textContent);
         btn.addEventListener('click', () => {
+            console.log("clicked ", btn.textContent);
             const category = btn.textContent.toLowerCase().trim();
 
             if (category === "weapons") {
