@@ -330,6 +330,13 @@ ul.property_list {
   background-color: #444;
 }
 
+.armor-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0px;
+  background-color: #444;
+}
+
 @media (min-width:300px) {
   .row-box {
     grid-template-columns: 1fr 1fr;
