@@ -253,7 +253,9 @@ function bindItemButtons(){
                 setVisibleByClass(".weapon-list", true, "grid");
                 setVisibleByClass(".armor-list", false);
             }
-            // TODO: add shields and consumables
+
+            document.querySelectorAll(".items_tab_button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
         });
     });
 }
