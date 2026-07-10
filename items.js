@@ -1,10 +1,35 @@
 const SPREADSHEET_ID = '1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ';  // ← replace
 const SHEET_GID      = '1';                         // ← tab number, usually 1
 
-var weapon_data = []
+var weapon_data = [];
+var armor_data = [];
 
 var WEAPON_CATEGORY_FILTER = "all";
 var WEAPON_GROUP_FILTER = "all";
+
+
+async function loadArmorCsv() {
+    const ArmorCsvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
+        `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=1007930722&_v=${Date.now()}`
+    );
+    const list = document.getElementById('armor-list');
+    list.textContent = `Loading…`;
+
+    try {
+        const text = await fetch(ArmorCsvUrl, {caches: 'no-store'}).then(r => r.text());
+        const rows = await parseCSV(text);
+        var _c = 0;
+        for (const row of rows) {
+            var [a_name, a_type, a_ac, a_bulk, a_block, a_protection, a_damage_reduction, a_slow, a_stealth_disadvantage] = row;
+            if (c != 0) {
+                armor_data.push([a_name, a_type, a_ac, a_bulk, a_block, a_protection, a_damage_reduction, a_slow, a_stealth_disadvantage]);
+            } 
+            c += 1;
+        }
+    } catch(e) {
+        console.log("failed to load armor data: ", e);
+    }
+}
 
 async function loadWeaponsCsv() {
         //const csvUrl= `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv?&gid=0`;
@@ -55,6 +80,25 @@ async function loadWeaponsCsv() {
             console.log(e)
         }
     }
+
+function fillArmorCards(){
+    const list = document.getElementById('armor-list');
+    list.replaceChildren();
+    for (const i of armor_data) {
+        var [a_name, a_type, a_ac, a_bulk, a_block, a_protection, a_damage_reduction, a_slow, a_stealth_disadvantage] = i;
+        var item_card = document.createElement('dic');
+        item_card.dataset.name = a_name;
+        item_card.classList = ["armor-card"];
+        item_card.innerHTML = `
+            <div class="armor-header">
+                <h3>${escapeHtml(a_name)}</h3>
+                <span class="misc-prop">${a_type}</span>
+            </div>
+            <div>base AC: ${a_ac}</div>
+        `;
+        list.appendChild(item_card);
+    }
+}
 
 function fillWeaponCards(GroupOrCategory) {
     const list = document.getElementById('weapons-list');
