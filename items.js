@@ -93,8 +93,15 @@ function fillArmorCards(){
             <div class="armor-header">
                 <h3>${escapeHtml(a_name)}</h3>
                 <span class="misc-prop">${a_type}</span>
+                ${}
             </div>
             <div>base AC: ${a_ac}</div>
+            ${(a_bulk) ? `<div>bulk: ${a_bulk}</div>`:``}
+            ${(a_slow) ? `<div>slow: ${a_slow}</div>`:``}
+            ${(a_block) ? `<div>block: ${a_block}</div>`:``}
+            ${(a_protection) ? `<div>protection: ${a_bulk}</div>`:``}
+            ${(a_damage_reduction) ? `<div>DR: ${a_bulk}</div>`:`p`}
+            ${(a_stealth_disadvantage) ? `<div>disadvantage on stealth checks</div>`:``}
         `;
         list.appendChild(item_card);
     }
