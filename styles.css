@@ -346,6 +346,13 @@ ul.property_list {
   margin-bottom: 0.5rem; */
 }
 
+.armor-card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #555;
+}
+
 @media (min-width:300px) {
   .row-box {
     grid-template-columns: 1fr 1fr;

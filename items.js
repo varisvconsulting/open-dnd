@@ -94,13 +94,19 @@ function fillArmorCards(){
                 <h3>${escapeHtml(a_name)}</h3>
                 <span class="misc-prop">${a_type}</span>
             </div>
-            <div>base AC: ${a_ac}</div>
-            ${(a_bulk) ? `<div>bulk: ${a_bulk}</div>`:``}
-            ${(a_slow) ? `<div>slow: ${a_slow}</div>`:``}
-            ${(a_block) ? `<div>block: ${a_block}</div>`:``}
-            ${(a_protection) ? `<div>protection: ${a_bulk}</div>`:``}
-            ${(a_damage_reduction) ? `<div>DR: ${a_bulk}</div>`:``}
-            ${(a_stealth_disadvantage) ? `<div>disadvantage on stealth checks</div>`:``}
+            <div class="armor-card-content">
+                <div>
+                    <div>base AC: ${a_ac}</div>
+                    ${(a_block) ? `<div>block: ${a_block}</div>`:``}
+                    ${(a_protection) ? `<div>protection: ${a_protection}</div>`:``}
+                    ${(a_damage_reduction) ? `<div>Damage reduction: ${a_damage_reduction}</div>`:``}
+                </div>
+                <div>
+                    ${(a_bulk) ? `<div>bulk: ${a_bulk}</div>`:``}
+                    ${(a_slow) ? `<div>slow: ${a_slow}</div>`:``}
+                    ${(a_stealth_disadvantage) ? `<div>disadvantage on stealth checks</div>`:``}
+                <div>
+            </dib>
         `;
         list.appendChild(item_card);
     }
