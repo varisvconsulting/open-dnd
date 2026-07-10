@@ -241,17 +241,21 @@ function bindItemButtons(){
         fillWeaponCards(WEAPON_GROUP_FILTER);
     }));
 
-    document.querySelectorAll(".items_tab_button").forEach((btn) => btn.addEventListener('click', (btn) => {
-        let category = btn.textContent.toLowerCase().trim();
-        if (category === "weapons"){
-            setVisibleByClass(".weapon-list", false);
-            setVisibleByClass(".armor-list", true, "grid");
-        }
-        if (category === "armor"){
-            setVisibleByClass(".weapon-list", true, "grid");
-            setVisibleByClass(".armor-list", false);
-        }
-    }));
+    document.querySelectorAll(".items_tab_button").forEach((btn) => {
+        btn.addEventListener('click', () => {           // no parameter here
+            const category = btn.textContent.toLowerCase().trim();
+
+            if (category === "weapons") {
+                setVisibleByClass(".weapon-list", false);
+                setVisibleByClass(".armor-list", true, "grid");
+            }
+            else if (category === "armor") {
+                setVisibleByClass(".weapon-list", true, "grid");
+                setVisibleByClass(".armor-list", false);
+            }
+            // TODO: add shields and consumables
+        });
+    });
 }
 
 async function initialItemsSetup() {
