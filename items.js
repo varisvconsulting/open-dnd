@@ -247,12 +247,12 @@ function bindItemButtons(){
             const category = btn.textContent.toLowerCase().trim();
 
             if (category === "weapons") {
-                setVisibleByClass(".weapon-list", false);
-                setVisibleByClass(".armor-list", true, "grid");
+                setVisibleByClass(".weapons-list", true, "grid");
+                setVisibleByClass(".armor-list", false);
             }
             else if (category === "armor") {
-                setVisibleByClass(".weapon-list", true, "grid");
-                setVisibleByClass(".armor-list", false);
+                setVisibleByClass(".weapons-list", false);
+                setVisibleByClass(".armor-list", true, "grid");
             }
 
             document.querySelectorAll(".items_tab_button").forEach(b => b.classList.remove("active"));
