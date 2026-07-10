@@ -239,6 +239,8 @@ function bindItemButtons(){
 async function initialWeaponsSetup() {
     var a = await loadWeaponsCsv();
     var b = await fillWeaponCards("all");
+    var c = await loadArmorCsv();
+    var d = await fillArmorCards();
     bindItemButtons();
 
     document.querySelectorAll('.weapon_tab_buttons .tab_button').forEach(btn => {
