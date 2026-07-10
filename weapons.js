@@ -155,7 +155,7 @@ function getCleanCommasString(text) {
 function updateWeaponGroupFilter(){
     let wpn_g_filter = document.querySelector("[data-weapon-group-filter]");
     wpn_g_filter.replaceChildren();
-    const wpn_groups_simple = ["dagger","simple polearms","light arms","medium arms","heavy arms","simple bows","simple crossbows","thrown & other"];
+    const wpn_groups_simple = ["daggers & knives","simple polearms","light arms","medium arms","heavy arms","simple bows","simple crossbows","thrown & other"];
     const wpn_groups_martial = ["axes","hammers & cudgels", "martial polearms", "light blades", "medium blades", "heavy blades", "segmented arms", "fist weapons", "light bows", "heavy bows", "martial crossbows"];
 
     let finalList = ["all"];
@@ -166,8 +166,6 @@ function updateWeaponGroupFilter(){
     if ((WEAPON_CATEGORY_FILTER === "all") || (WEAPON_CATEGORY_FILTER === "martial")) {
         finalList = [...finalList, ...wpn_groups_martial];
     }
-
-    fillWeaponCards(WEAPON_CATEGORY_FILTER);
 
     finalList.forEach(item => {
         console.log(item)
@@ -185,10 +183,10 @@ function bindItemButtons(){
     document.querySelectorAll("[data-weapon-category-filter]").forEach((select) => select.addEventListener('change', () => { 
         WEAPON_CATEGORY_FILTER = select.value;
         updateWeaponGroupFilter();
+        fillWeaponCards(WEAPON_CATEGORY_FILTER);
     }));
 
     document.querySelectorAll("[data-weapon-group-filter]").forEach((select) => select.addEventListener('change', () => { 
-        console.log("got pressed group filter: ", select);
         WEAPON_GROUP_FILTER = select.value.toLowerCase().trim();
         fillWeaponCards(WEAPON_GROUP_FILTER);
     }));

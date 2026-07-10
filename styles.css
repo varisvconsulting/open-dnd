@@ -310,6 +310,17 @@ ul.property_list {
     padding: 0;
 }
 
+.row-box {
+  display: grid;  
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 3px;
+  /* min-width:300px; */
+  width:100%;
+  width: 300px;
+}
+
+
 /* weapon card */
 /* Overall container – responsive grid of rows/blocks */
 .weapons-list {
@@ -319,9 +330,20 @@ ul.property_list {
   background-color: #444;
 }
 
+@media (min-width:300px) {
+  .row-box {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (min-width: 768px) {
   .weapons-list {
     grid-template-columns: repeat(3, 1fr);   /* 2 columns on tablet */
+  }
+
+  .row-box {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    Width: 600px;
   }
 }
 
