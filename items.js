@@ -18,13 +18,13 @@ async function loadArmorCsv() {
     try {
         const text = await fetch(ArmorCsvUrl, {caches: 'no-store'}).then(r => r.text());
         const rows = await parseCSV(text);
-        var _c = 0;
+        let _c = 0;
         for (const row of rows) {
             var [a_name, a_type, a_ac, a_bulk, a_block, a_protection, a_damage_reduction, a_slow, a_stealth_disadvantage] = row;
-            if (c != 0) {
+            if (_c != 0) {
                 armor_data.push([a_name, a_type, a_ac, a_bulk, a_block, a_protection, a_damage_reduction, a_slow, a_stealth_disadvantage]);
             } 
-            c += 1;
+            _c += 1;
         }
     } catch(e) {
         console.log("failed to load armor data: ", e);
@@ -48,7 +48,7 @@ async function loadWeaponsCsv() {
                 var [wpn_category='', wpn_group='', name='', damage='', general_prop='',misc_prop='',attack_man='',tactic_man='',crit_prop=''] = row;
                 versatile_damage = '';
                 _c +=1;
-                    if (_c <= 2) { continue; } //cus the first few tabs arent part of the stuff
+                if (_c <= 2) { continue; } //cus the first few tabs arent part of the stuff
 
                 var general_prop_list = general_prop.split(',');
                 for (prop of general_prop_list) {
