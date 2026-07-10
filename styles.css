@@ -342,8 +342,8 @@ ul.property_list {
   justify-content: space-between;
   align-items: baseline;
   border-bottom: 1px solid #555;
-  padding-bottom: 0.4rem;
-  margin-bottom: 0.5rem;
+  /* padding-bottom: 0.4rem;
+  margin-bottom: 0.5rem; */
 }
 
 @media (min-width:300px) {
