@@ -93,7 +93,6 @@ function fillArmorCards(){
             <div class="armor-header">
                 <h3>${escapeHtml(a_name)}</h3>
                 <span class="misc-prop">${a_type}</span>
-                ${}
             </div>
             <div>base AC: ${a_ac}</div>
             ${(a_bulk) ? `<div>bulk: ${a_bulk}</div>`:``}
