@@ -240,6 +240,18 @@ function bindItemButtons(){
         WEAPON_GROUP_FILTER = select.value.toLowerCase().trim();
         fillWeaponCards(WEAPON_GROUP_FILTER);
     }));
+
+    document.querySelectorAll(".tab_button .items_tab_button").forEach((btn) => btn.addEventListener('click', (btn) => {
+        let category = btn.textContent.toLowerCase().trim();
+        if (category === "weapons"){
+            setVisibleByClass(".weapon-list", false);
+            setVisibleByClass(".armor-list", true, "grid");
+        }
+        if (category === "armor"){
+            setVisibleByClass(".weapon-list", true, "grid");
+            setVisibleByClass(".armor-list", false);
+        }
+    }));
 }
 
 async function initialWeaponsSetup() {
