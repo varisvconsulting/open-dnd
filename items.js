@@ -241,7 +241,7 @@ function bindItemButtons(){
         fillWeaponCards(WEAPON_GROUP_FILTER);
     }));
 
-    document.querySelectorAll(".tab_button .items_tab_button").forEach((btn) => btn.addEventListener('click', (btn) => {
+    document.querySelectorAll(".items_tab_button").forEach((btn) => btn.addEventListener('click', (btn) => {
         let category = btn.textContent.toLowerCase().trim();
         if (category === "weapons"){
             setVisibleByClass(".weapon-list", false);
@@ -254,7 +254,7 @@ function bindItemButtons(){
     }));
 }
 
-async function initialWeaponsSetup() {
+async function initialItemsSetup() {
     var a = await loadWeaponsCsv();
     var b = await fillWeaponCards("all");
     var c = await loadArmorCsv();
