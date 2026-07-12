@@ -97,7 +97,7 @@ function fillArmorCards(){
             <div class="armor-card-content">
                 <div>
                     <div>base AC: ${a_ac}</div>
-                    <div>Block: ${(a_block) ? a_block:`0`} / ${a_protection ? `a_protection` : "-"}
+                    <div>Block: ${(a_block) ? a_block:`0`} / ${a_protection ? `+${a_protection}` : "-"}
                     ${(a_damage_reduction) ? `<div>Damage reduction: ${a_damage_reduction}</div>`:``}
                 </div>
                 <div>
