@@ -98,13 +98,19 @@ function fillArmorCards(){
                 <div>
                     <div>base AC: ${a_ac}</div>
                     <div>Block: ${(a_block) ? a_block:`0`} / ${a_protection ? `+${a_protection}` : "-"}
-                    ${(a_damage_reduction) ? `<div>Damage reduction: ${a_damage_reduction}</div>`:``}
                 </div>
-                <div>
+                ${((a_damage_reduction) || (a_stealth_disadvantage)) ? `
+                    <div>
+                        ${a_damage_reduction ? `DR: ${a_damage_reduction}`:``}
+                        ${a_stealth_disadvantage ? 'Stealth disadvantage':''}
+                    </div>
+                    `:``}
+                ${((a_bulk)||(a_slow)) ? `
+                    <div>
                     ${(a_bulk) ? `<div>bulk: ${a_bulk}</div>`:``}
                     ${(a_slow) ? `<div>slow: ${a_slow}</div>`:``}
-                    ${(a_stealth_disadvantage) ? `<div>disadvantage on stealth checks</div>`:``}
-                <div>
+                    <div>
+                    `:``}
             </dib>
         `;
         list.appendChild(item_card);
