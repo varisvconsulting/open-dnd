@@ -259,10 +259,12 @@ function bindItemButtons(){
             if (category === "weapons") {
                 setVisibleByClass(".weapons-list", true, "grid");
                 setVisibleByClass(".armor-list", false);
+                setVisibleByClass(".weapon-tab-buttons", true, "flex");
             }
             else if (category === "armor") {
                 setVisibleByClass(".weapons-list", false);
                 setVisibleByClass(".armor-list", true, "grid");
+                setVisibleByClass(".weapon-tab-buttons", false);
             }
 
             document.querySelectorAll(".items_tab_button").forEach(b => b.classList.remove("active"));
