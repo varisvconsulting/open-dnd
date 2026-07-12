@@ -91,7 +91,7 @@ function fillArmorCards(){
 
         let card_class = "light";
         if (a_type === `medium`) {card_class = "medium"} else if (a_type ===`heavy`) {card_class = "heavy"}
-        item_card.className `armor-card armor-${String(card_class)}`;
+        item_card.classList = [`armor-card armor-${String(card_class)}`];
 
         item_card.innerHTML = `
             <div class="armor-header">
