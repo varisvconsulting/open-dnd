@@ -101,8 +101,8 @@ function fillArmorCards(){
                 </div>
                 ${((a_damage_reduction) || (a_stealth_disadvantage)) ? `
                     <div>
-                        ${a_damage_reduction ? `DR: ${a_damage_reduction}`:``}
-                        ${a_stealth_disadvantage ? 'Stealth disadvantage':''}
+                        <div>${a_damage_reduction ? `DR: ${a_damage_reduction}`:``}</div>
+                        <div>${a_stealth_disadvantage ? 'Stealth disadvantage':''}</div>
                     </div>
                     `:``}
                 ${((a_bulk)||(a_slow)) ? `
