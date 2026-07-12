@@ -91,25 +91,20 @@ function fillArmorCards(){
         item_card.classList = ["armor-card"];
         item_card.innerHTML = `
             <div class="armor-header">
-                <h3>${escapeHtml(a_name)}</h3>
-                <span class="misc-prop">${a_type}</span>
+                <div><h3>${escapeHtml(a_name)}</h3> <i>${a_type}<i></div>
+                <span class="misc-prop">AC: ${a_ac}</span>
             </div>
             <div class="armor-card-content">
                 <div>
-                    <div>base AC: ${a_ac}</div>
                     <div>Block: ${(a_block) ? a_block:`0`} / ${a_protection ? `+${a_protection}` : "-"}</div>
+                    <div>${a_damage_reduction ? `DR: ${a_damage_reduction}`:``}</div>
                 </div>
                 ${((a_damage_reduction) || (a_stealth_disadvantage)) ? `
                     <div>
-                        <div>${a_damage_reduction ? `DR: ${a_damage_reduction}`:``}</div>
-                        <div>${a_stealth_disadvantage ? 'Stealth disadvantage':''}</div>
+                        ${(a_bulk) ? `<div>bulk: ${a_bulk}</div>`:``}
+                        ${(a_slow) ? `<div>slow: ${a_slow}</div>`:``}
+                        ${a_stealth_disadvantage ? '<div>Stealth disadvantage</div>':''}
                     </div>
-                    `:``}
-                ${((a_bulk)||(a_slow)) ? `
-                    <div>
-                    ${(a_bulk) ? `<div>bulk: ${a_bulk}</div>`:``}
-                    ${(a_slow) ? `<div>slow: ${a_slow}</div>`:``}
-                    <div>
                     `:``}
             </dib>
         `;
