@@ -355,6 +355,18 @@ ul.property_list {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+.armor-list .armor-light {
+  background-color: #5b8f47;
+}
+
+.armor-list .armor-medium {
+  background-color:#477765;
+}
+
+.armor-list .armor-heavy {
+  background-color: #555;
+}
+
 @media (min-width:300px) {
   .row-box {
     grid-template-columns: 1fr 1fr;

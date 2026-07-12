@@ -88,7 +88,11 @@ function fillArmorCards(){
         var [a_name, a_type, a_ac, a_bulk, a_block, a_protection, a_damage_reduction, a_slow, a_stealth_disadvantage] = i;
         var item_card = document.createElement('div');
         item_card.dataset.name = a_name;
-        item_card.classList = ["armor-card"];
+
+        let card_class = "light";
+        if (a_type === `medium`) {card_class = "medium"} else if (a_type ===`heavy`) {card_class = "heavy"}
+        item_card.classList = ["armor-card", `${card_class}`];
+
         item_card.innerHTML = `
             <div class="armor-header">
                 <div><h3>${escapeHtml(a_name)}</h3> <i>${a_type}<i></div>
