@@ -366,6 +366,13 @@ ul.property_list {
     grid-template-columns: repeat(3, 1fr);   /* 2 columns on tablet */
   }
 
+  .armor-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0px;
+    background-color: #444;
+  }
+
   .row-box {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     Width: 600px;
@@ -375,6 +382,10 @@ ul.property_list {
 @media (min-width: 1200px) {
     .weapons-list {
         grid-template-columns: repeat(4, 1fr);   /* 3 columns on desktop if you want tighter packing */
+    }
+
+    .armor-list {
+      grid-template-columns: repeat(4, 1fr);
     }
 
     .spell_tab_large_list {
