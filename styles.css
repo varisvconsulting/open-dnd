@@ -356,15 +356,15 @@ ul.property_list {
 }
 
 .armor-list .armor-light {
-  background-color: #5b8f47;
+  background-color: #5D4C3F;
 }
 
 .armor-list .armor-medium {
-  background-color:#477765;
+  background-color:#546E7A;
 }
 
 .armor-list .armor-heavy {
-  background-color: #555;
+  background-color: #34495E;
 }
 
 @media (min-width:300px) {
