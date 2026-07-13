@@ -25,7 +25,6 @@
             <button data-group="0" class="tab_button items_tab_button">shields</button>
             <button data-group="0" class="tab_button items_tab_button">consumables</button>
         </div>
-        <hr>
         <div class="weapon_tab_buttons">
             <div class="row-box">
                 <label>weapon category</label>
@@ -155,7 +154,7 @@
                     break;
                 case 'items':
                     setVisibleByClass(".large_main_menu_weapons", true)
-                    setVisibleByClass(".item_tab_buttons", true, "flex")
+                    setVisibleByClass(".item_tab_buttons", true);
                     break;
                 case 'spells':
                     setVisibleByClass('.large_main_menu_spells')
