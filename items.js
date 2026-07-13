@@ -143,7 +143,7 @@ function fillArmorCards(){
 }
 
 function fillShieldCards(){
-    const s_list = document.getElementById('shield-list');
+    const list = document.getElementById('shield-list');
     list.replaceChildren();
     for (const i of shield_data) {
         let [s_name, s_type, s_ac, s_bulk, s_block, s_actions, properties] = i
@@ -162,7 +162,7 @@ function fillShieldCards(){
                 ${s_actions ? `<span>Actions: ${s_actions}</span>`:``}
                 ${properties ? `<span>Properties: ${properties}</span>`:``}
             </div>`;
-        s_list.appendChild(item_card);
+        list.appendChild(item_card);
     }
 }
 
