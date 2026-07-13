@@ -153,7 +153,7 @@ function fillShieldCards(){
         item_card.innerHTML = `
             <div class="shield-header">
                 <h3>${escapeHtml(s_name)}</h3>
-                <span class="itm_type">${escapeHtml(type)}</span>
+                <span class="itm_type">${escapeHtml(S_type)}</span>
             </div>
             <div>
                 <span>AC: +${s_ac}</span>
