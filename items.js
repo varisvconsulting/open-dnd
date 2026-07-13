@@ -335,7 +335,8 @@ async function initialItemsSetup() {
     var b = await fillWeaponCards("all");
     var c = await loadArmorCsv();
     var d = await fillArmorCards();
-    var e = await fillShieldCards();
+    var e = await loadShieldCsv();
+    var f = await fillShieldCards();
     bindItemButtons();
 
     document.querySelectorAll('.weapon_tab_buttons .tab_button').forEach(btn => {
