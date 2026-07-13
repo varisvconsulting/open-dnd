@@ -153,6 +153,7 @@ function fillShieldCards(){
                 <h3>${escapeHtml(s_name)}</h3>
                 <span class="itm_type">${escapeHtml(type)}</span>
             </div>
+            <div>
                 <span>AC: +${s_ac}</span>
                 ${s_block ? `<span>Block: ${s_block}</span>`:``}
                 ${s_bulk ? `<span>Bulk: ${s_bulk}</span>`:``}
