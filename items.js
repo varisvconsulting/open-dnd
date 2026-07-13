@@ -3,6 +3,7 @@ const SHEET_GID      = '1';                         // ← tab number, usually 1
 
 var weapon_data = [];
 var armor_data = [];
+var shield_data = [];
 
 var WEAPON_CATEGORY_FILTER = "all";
 var WEAPON_GROUP_FILTER = "all";
@@ -23,6 +24,29 @@ async function loadArmorCsv() {
             var [a_name, a_type, a_ac, a_bulk, a_block, a_protection, a_damage_reduction, a_slow, a_stealth_disadvantage] = row;
             if (_c != 0) {
                 armor_data.push([a_name, a_type, a_ac, a_bulk, a_block, a_protection, a_damage_reduction, a_slow, a_stealth_disadvantage]);
+            } 
+            _c += 1;
+        }
+    } catch(e) {
+        console.log("failed to load armor data: ", e);
+    }
+}
+
+async function loadShieldCsv() {
+    const ArmorCsvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
+        `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=1366718996&_v=${Date.now()}`
+    );
+    const list = document.getElementById('armor-list');
+    list.textContent = `Loading…`;
+
+    try {
+        const text = await fetch(ArmorCsvUrl, {caches: 'no-store'}).then(r => r.text());
+        const rows = await parseCSV(text);
+        let _c = 0;
+        for (const row of rows) {
+            var [s_name, s_type, s_ac, s_bulk, s_block, s_actions, properties] = row;
+            if (_c != 0) {
+                shield_data.push([s_name, s_type, s_ac, s_bulk, s_block, s_actions, properties]);
             } 
             _c += 1;
         }
@@ -112,6 +136,29 @@ function fillArmorCards(){
                     `:``}
             </dib>
         `;
+        list.appendChild(item_card);
+    }
+}
+
+function fillShieldCards(){
+    const list = document.getElementById('shield-list');
+    list.replaceChildren();
+    for (const i of shield_data) {
+        var [s_name, s_type, s_ac, s_bulk, s_block, s_actions, properties] = i
+        
+        var item_card = document.createElement('div');
+        item_card.classList = ["shield-row"];       
+        item_card.innerHTML = `
+            <div class="shield-header">
+                <h3>${escapeHtml(s_name)}</h3>
+                <span class="itm_type">${escapeHtml(type)}</span>
+            </div>
+                <span>AC: +${s_ac}</span>
+                ${s_block ? `<span>Block: ${s_block}</span>`:``}
+                ${s_bulk ? `<span>Bulk: ${s_bulk}</span>`:``}
+                ${s_actions ? `<span>Actions: ${s_actions}</span>`:``}
+                ${properties ? `<span>Properties: ${properties}</span>`:``}
+            </div>`;
         list.appendChild(item_card);
     }
 }
@@ -267,6 +314,13 @@ function bindItemButtons(){
                 setVisibleByClass(".weapon_tab_buttons", false);
             }
 
+            else if (category === "shields") {
+                setVisibleByClass(".weapons-list", false);
+                setVisibleByClass(".armor-list", false);
+                setVisibleByClass(".weapon_tab_buttons", false);
+                setVisibleByClass(".shield-list", "grid")
+            }
+
             document.querySelectorAll(".items_tab_button").forEach(b => b.classList.remove("active"));
             btn.classList.add("active");
         });
@@ -278,6 +332,7 @@ async function initialItemsSetup() {
     var b = await fillWeaponCards("all");
     var c = await loadArmorCsv();
     var d = await fillArmorCards();
+    var e = await fillShieldCards();
     bindItemButtons();
 
     document.querySelectorAll('.weapon_tab_buttons .tab_button').forEach(btn => {
