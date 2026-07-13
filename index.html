@@ -19,12 +19,14 @@
 
     <!-- items -->
     <div class="item_tab_buttons" style="display: none;">
-        <button data-group="0" class="tab_button items_tab_button active">weapons</button>
-        <button data-group="0" class="tab_button items_tab_button">armor</button>
-        <button data-group="0" class="tab_button items_tab_button">shields</button>
-        <button data-group="0" class="tab_button items_tab_button">consumables</button>
+        <div class="item_button_hbox">
+            <button data-group="0" class="tab_button items_tab_button active">weapons</button>
+            <button data-group="0" class="tab_button items_tab_button">armor</button>
+            <button data-group="0" class="tab_button items_tab_button">shields</button>
+            <button data-group="0" class="tab_button items_tab_button">consumables</button>
+        </div>
         <hr>
-        <div class="weapon_tab_buttons" style="display: none;">
+        <div class="weapon_tab_buttons">
             <div class="row-box">
                 <label>weapon category</label>
                 <select data-weapon-category-filter="category" class="data-filter-dropdown">
@@ -154,7 +156,6 @@
                 case 'items':
                     setVisibleByClass(".large_main_menu_weapons", true)
                     setVisibleByClass(".item_tab_buttons", true, "flex")
-                    setVisibleByClass(".weapon_tab_buttons", true, "flex")
                     break;
                 case 'spells':
                     setVisibleByClass('.large_main_menu_spells')
