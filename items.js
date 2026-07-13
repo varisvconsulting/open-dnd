@@ -38,6 +38,7 @@ async function loadShieldCsv() {
     );
     const list = document.getElementById('armor-list');
     list.textContent = `Loading…`;
+    console.log("filling shields!!!");
 
     try {
         const text = await fetch(ArmorCsvUrl, {caches: 'no-store'}).then(r => r.text());
@@ -45,6 +46,7 @@ async function loadShieldCsv() {
         let _c = 0;
         for (const row of rows) {
             var [s_name, s_type, s_ac, s_bulk, s_block, s_actions, properties] = row;
+            console.log(s_name);
             if (_c != 0) {
                 shield_data.push([s_name, s_type, s_ac, s_bulk, s_block, s_actions, properties]);
             } 
@@ -141,12 +143,12 @@ function fillArmorCards(){
 }
 
 function fillShieldCards(){
-    const list = document.getElementById('shield-list');
+    const s_list = document.getElementById('shield-list');
     list.replaceChildren();
     for (const i of shield_data) {
-        var [s_name, s_type, s_ac, s_bulk, s_block, s_actions, properties] = i
+        let [s_name, s_type, s_ac, s_bulk, s_block, s_actions, properties] = i
         
-        var item_card = document.createElement('div');
+        let item_card = document.createElement('div');
         item_card.classList = ["shield-row"];       
         item_card.innerHTML = `
             <div class="shield-header">
@@ -160,7 +162,7 @@ function fillShieldCards(){
                 ${s_actions ? `<span>Actions: ${s_actions}</span>`:``}
                 ${properties ? `<span>Properties: ${properties}</span>`:``}
             </div>`;
-        list.appendChild(item_card);
+        s_list.appendChild(item_card);
     }
 }
 
