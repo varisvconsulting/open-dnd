@@ -13,6 +13,7 @@ async function loadCharClassCSV(){
 
     try {
         const text = await fetch(CharClassCsvUrl, {caches: 'no-store'}).then(r => r.text());
+        console.log(text);
         const rows = await parseClassCSV(text);
         let _c = 0;
         for (const row of rows) {
@@ -103,6 +104,29 @@ function parseClassCSV(text) {
         }
         console.log(row_data)
         output.push(row_data);
+    }
+    return output;
+}
+
+function makeNotationToHtml(text) {
+    var output = "";
+    for (i in text) {
+        var c = text[i];
+        if (c == "|") {
+            output += "<br>";
+        }
+        else if (c == "["){
+            output += "<ul><li>";
+        }
+        else if (c == ";"){
+            output += "</li><li>";
+        }
+        else if (c == "]"){
+            output += "</li></ul>";
+        }
+        else {
+            output += c;
+        }
     }
     return output;
 }
