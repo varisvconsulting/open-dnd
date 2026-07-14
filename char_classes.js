@@ -44,6 +44,6 @@ async function loadCharClassCSV(){
     console.log(CHAR_CLASS_DATA);
 }
 
-function initialCharClassSetup(){
+async function initialCharClassSetup(){
     var a = await loadCharClassCSV();
 }
