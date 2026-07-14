@@ -1,6 +1,6 @@
 var CHAR_CLASS_DATA = {
-    core_classes = [],
-    class_data = {}
+    core_classes: [],
+    class_data: {}
 }
 
 
