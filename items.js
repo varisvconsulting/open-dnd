@@ -155,8 +155,9 @@ function fillShieldCards(){
             <div class="shield-header">
                 <h3>${escapeHtml(s_name)}</h3>
                 <span class="itm_type">${escapeHtml(s_type)}</span>
+                ${properties ? `<span>Properties: ${properties}</span>`:``}
             </div>
-            <div>
+            <div class="shield-card-grid">
                 <span>AC: +${s_ac}</span>
                 ${s_block ? `<span>Block: ${s_block}</span>`:``}
                 ${s_bulk ? `<span>Bulk: ${s_bulk}</span>`:``}
@@ -369,6 +370,4 @@ async function initialItemsSetup() {
 
         });
     });
-
-    console.log(a," ",b);
 }

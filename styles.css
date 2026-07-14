@@ -344,6 +344,15 @@ ul.property_list {
   background-color: #444;
 }
 
+.shield-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #555;
+  /* padding-bottom: 0.4rem;
+  margin-bottom: 0.5rem; */
+}
+
 .armor-header {
   display: flex;
   justify-content: space-between;
