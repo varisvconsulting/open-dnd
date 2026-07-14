@@ -67,7 +67,7 @@ async function loadCharClassCSV(){
                     c_panel.id = `char_class_ability_box`;
                     c_panel.innerHTML =`
                         <div class="class_ability_name"><h>${s_name}</h></div>
-                        <div class="class_ability_desc">${s_description}</div>
+                        <div class="class_ability_desc">${parseCSV(s_description)}</div>
                     `
                     char_menu_panel.appendChild(c_panel);
                 }
@@ -79,6 +79,32 @@ async function loadCharClassCSV(){
     }
 
     console.log(CHAR_CLASS_DATA);
+}
+
+async function parseCSV(text) {
+    var rows = text.split(/\r?\n/);
+    var output = []
+    for (const row of rows) {
+        const row_data = []
+        var field = ""
+        var quoted = false
+        // console.log(row)
+        for (const c of row) {
+            if (c == '"') { quoted = !quoted;}
+            if ((c == ',') && (!quoted)) {
+                field = field.replace(/\\"/g, '"');
+                row_data.push(field);
+                field = "";
+            } else {
+                if ((c!="\\") && (c!="\"")){
+                    field += c;
+                }
+            }
+        }
+        console.log(row_data)
+        output.push(row_data);
+    }
+    return output;
 }
 
 async function initialCharClassSetup(){
