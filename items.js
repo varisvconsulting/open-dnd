@@ -37,7 +37,7 @@ async function loadShieldCsv() {
     const ArmorCsvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
         `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=1366718996&_v=${Date.now()}`
     );
-    const list = document.getElementById('armor-list');
+    const list = document.getElementById('shield-list');
     list.textContent = `Loading…`;
     console.log("filling shields!!!");
 
