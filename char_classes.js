@@ -67,7 +67,7 @@ async function loadCharClassCSV(){
                     c_panel.id = `char_class_ability_box`;
                     c_panel.innerHTML =`
                         <div class="class_ability_name"><h>${s_name}</h></div>
-                        <div class="class_ability_desc">${parseCSV(s_description)}</div>
+                        <div class="class_ability_desc">${s_description}</div>
                     `
                     char_menu_panel.appendChild(c_panel);
                 }
@@ -82,7 +82,6 @@ async function loadCharClassCSV(){
 }
 
 function parseCSV(text) {
-    console.log(text);
     var rows = text.split(/\r?\n/);
     var output = []
     for (const row of rows) {
