@@ -96,7 +96,7 @@
         <div id="spell-grid" class="spell-grid">[spell list menu]</div>
     </div>
 
-    <div class="class_tab_buttons" style="display:none">
+    <div id="class_tab_buttons" class="class_tab_buttons" style="display:none">
     </div>
 </div>
 
@@ -178,6 +178,7 @@
         setVisibleByClass('.large_main_menu', false);
         setVisibleByClass('.spell_tab_buttons', false);
         setVisibleByClass('.item_tab_buttons', false);
+        setVisibleByClass('.')
     }
 
     function setVisibleByClass(c_str, visible = true, override = ""){
