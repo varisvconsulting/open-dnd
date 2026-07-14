@@ -8,7 +8,7 @@ async function loadCharClassCSV(){
     const CharClassCsvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
         `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=308079445&_v=${Date.now()}`
     );
-    const list = document.getElementById('chas_class_display');
+    const list = document.getElementById('char_class_display');
     list.textContent = `Loading…`;
 
     try {
