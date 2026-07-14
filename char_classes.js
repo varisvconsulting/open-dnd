@@ -18,7 +18,7 @@ async function loadCharClassCSV(){
         for (const row of rows) {
             var [class_name, is_archetype, lvl, s_name, description] = row;
             if (_c != 0) {
-                if (!Object.hasOwn(CHAR_CLASS_DATA.core_classes)) {
+                if (!Object.hasOwn(CHAR_CLASS_DATA.core_classes, class_name)) {
                     CHAR_CLASS_DATA.core_classes.push(class_name)
                     CHAR_CLASS_DATA.class_data[class_name] = []
                 }
