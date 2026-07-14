@@ -484,6 +484,16 @@ ul.property_list {
   font-family: 'Georgia', serif; 
 }
 
+.shield-row {
+  background: #2a2a2e;                       /* dark fantasy bg; or parchment #f9f5e9 */
+  border: 1px solid #5c4033;                 /* subtle wood/iron border */
+  border-radius: 6px;
+  padding: 0.9rem 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  color: #e0e0e0;
+  font-family: 'Georgia', serif;             /* readable fantasy feel */
+}
+
 /* Each weapon "card" / row */
 .weapon-row {
   background: #2a2a2e;                       /* dark fantasy bg; or parchment #f9f5e9 */
