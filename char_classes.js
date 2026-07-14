@@ -82,6 +82,7 @@ async function loadCharClassCSV(){
 }
 
 function parseCSV(text) {
+    console.log(text);
     var rows = text.split(/\r?\n/);
     var output = []
     for (const row of rows) {
