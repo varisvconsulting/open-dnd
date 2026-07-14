@@ -32,7 +32,7 @@ h4, li {
   flex-wrap: wrap;
 }
 
-.header_tab .tab_button {
+.tab_button {
     background-color: #b1d3c6;
     border: none;
     color: rgb(20, 20, 20);
