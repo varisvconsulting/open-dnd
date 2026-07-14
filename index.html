@@ -159,6 +159,8 @@
                     setVisibleByClass('.large_main_menu_player_races', true)
                     break;
                 case 'classes':
+                    setVisibleByClass('.large_main_menu_classes', true);
+                    setVisibleByClass('.class_tab_buttons', true, "flex");
                     break;
                 case 'feats':
                     break;
@@ -178,7 +180,7 @@
         setVisibleByClass('.large_main_menu', false);
         setVisibleByClass('.spell_tab_buttons', false);
         setVisibleByClass('.item_tab_buttons', false);
-        setVisibleByClass('.')
+        setVisibleByClass('.class_tab_buttons')
     }
 
     function setVisibleByClass(c_str, visible = true, override = ""){
