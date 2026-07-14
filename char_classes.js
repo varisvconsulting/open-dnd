@@ -13,7 +13,7 @@ async function loadCharClassCSV(){
 
     try {
         const text = await fetch(CharClassCsvUrl, {caches: 'no-store'}).then(r => r.text());
-        const rows = await parseCSV(text);
+        const rows = await parseClassCSV(text);
         let _c = 0;
         for (const row of rows) {
             var [class_name, is_archetype, archetype_name, lvl, s_name, s_description] = row;
@@ -81,7 +81,7 @@ async function loadCharClassCSV(){
     console.log(CHAR_CLASS_DATA);
 }
 
-function parseCSV(text) {
+function parseClassCSV(text) {
     var rows = text.split(/\r?\n/);
     var output = []
     for (const row of rows) {
