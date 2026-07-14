@@ -30,6 +30,8 @@ async function loadCharClassCSV(){
                     let char_menu_panel = document.getElementById("char_class_display");
                     let c_panel = document.createElement("div");
                     c_panel.id = `char_class_${class_name}`;
+                    char_menu_panel.appendChild(c_panel)
+
                     c_btn.addEventListener("click", () => {
                         // Remove active from all buttons
                         document.querySelectorAll(".class_tab_button").forEach(btn => {
@@ -59,6 +61,15 @@ async function loadCharClassCSV(){
                         name: s_name,
                         description: s_description
                     })
+
+                    let char_menu_panel = document.getElementById(`char_class_${class_name}`);
+                    let c_panel = document.createElement("div");
+                    c_panel.id = `char_class_ability_box`;
+                    c_panel.innerHTML =`
+                        <div class="class_ability_name"><h>${s_name}</h></div>
+                        <div class="class_ability_desc">${s_description}</div>
+                    `
+                    char_menu_panel.appendChild(c_panel);
                 }
             }
             _c += 1;
