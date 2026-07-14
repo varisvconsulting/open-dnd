@@ -37,6 +37,18 @@ h4, li {
   flex-wrap: wrap;
 }
 
+.class_tab_buttons .tab_button {
+    background-color: #477765;
+    color: white;
+    /* padding: 5px 8px; */
+    /* text-align: center;
+    text-decoration: none; */
+    /* display: inline-block; */
+    font-size: 13px;
+    margin: 0.5px 0.5px;
+    float: left;
+}
+
 .tab_button {
     background-color: #b1d3c6;
     border: none;
