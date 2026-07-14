@@ -27,6 +27,7 @@ async function loadArmorCsv() {
             } 
             _c += 1;
         }
+        console.log("armor data: ", armor_data);
     } catch(e) {
         console.log("failed to load armor data: ", e);
     }
@@ -108,8 +109,8 @@ async function loadWeaponsCsv() {
     }
 
 function fillArmorCards(){
-    const list = document.getElementById('armor-list');
-    list.replaceChildren();
+    const armor_list = document.getElementById('armor-list');
+    armor_list.replaceChildren();
     for (const i of armor_data) {
         var [a_name, a_type, a_ac, a_bulk, a_block, a_protection, a_damage_reduction, a_slow, a_stealth_disadvantage] = i;
         var item_card = document.createElement('div');
@@ -138,7 +139,7 @@ function fillArmorCards(){
                     `:``}
             </dib>
         `;
-        list.appendChild(item_card);
+        armor_list.appendChild(item_card);
     }
 }
 
@@ -310,11 +311,13 @@ function bindItemButtons(){
                 setVisibleByClass(".weapons-list", true, "grid");
                 setVisibleByClass(".armor-list", false);
                 setVisibleByClass(".weapon_tab_buttons", true, "flex");
+                setVisibleByClass(".shield-list", false);
             }
             else if (category === "armor") {
                 setVisibleByClass(".weapons-list", false);
                 setVisibleByClass(".armor-list", true, "grid");
                 setVisibleByClass(".weapon_tab_buttons", false);
+                setVisibleByClass(".shield-list", false);
             }
 
             else if (category === "shields") {
@@ -331,12 +334,12 @@ function bindItemButtons(){
 }
 
 async function initialItemsSetup() {
-    var a = await loadWeaponsCsv();
-    var b = await fillWeaponCards("all");
-    var c = await loadArmorCsv();
-    var d = await fillArmorCards();
-    var e = await loadShieldCsv();
-    var f = await fillShieldCards();
+    var _a = await loadWeaponsCsv();
+    var _b = await fillWeaponCards("all");
+    var _c = await loadArmorCsv();
+    var _d = await fillArmorCards();
+    var _e = await loadShieldCsv();
+    var _f = await fillShieldCards();
     bindItemButtons();
 
     document.querySelectorAll('.weapon_tab_buttons .tab_button').forEach(btn => {
