@@ -32,6 +32,11 @@ h4, li {
   flex-wrap: wrap;
 }
 
+.class_tab_buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .tab_button {
     background-color: #b1d3c6;
     border: none;
