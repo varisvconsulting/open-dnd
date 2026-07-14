@@ -16,7 +16,7 @@ async function loadCharClassCSV(){
         const rows = await parseCSV(text);
         let _c = 0;
         for (const row of rows) {
-            var [class_name, is_archetype, lvl, s_name, s_description] = row;
+            var [class_name, is_archetype, archetype_name, lvl, s_name, s_description] = row;
             if (_c != 0) {
                 if (!Object.hasOwn(CHAR_CLASS_DATA.core_classes, class_name)) {
                     CHAR_CLASS_DATA.core_classes.push(class_name)
