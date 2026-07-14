@@ -6,7 +6,7 @@ var CHAR_CLASS_DATA = {
 
 async function loadCharClassCSV(){
     const CharClassCsvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
-        `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=1007930722&_v=${Date.now()}`
+        `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=308079445&_v=${Date.now()}`
     );
     const list = document.getElementById('armor-list');
     list.textContent = `Loading…`;
@@ -38,7 +38,7 @@ async function loadCharClassCSV(){
             _c += 1;
         }
     } catch(e) {
-        console.log("failed to load armor data: ", e);
+        console.log("failed to load char class data: ", e);
     }
 
     console.log(CHAR_CLASS_DATA);
