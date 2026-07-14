@@ -21,6 +21,11 @@ async function loadCharClassCSV(){
                 if (!CHAR_CLASS_DATA.core_classes.includes(class_name)) {
                     CHAR_CLASS_DATA.core_classes.push(class_name)
                     CHAR_CLASS_DATA.class_data[class_name] = []
+                    let class_btn_list = document.getElementById(class_tab_buttons);
+                    let c_btn = document.createElement("button");
+                    c_btn.classList = ["tab_button"];
+                    c_btn.innerHTML=class_name;
+                    class_btn_list.appendChild(c_btn);
                 }
     
                 if (is_archetype) {
