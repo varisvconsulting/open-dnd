@@ -12,7 +12,7 @@ async function loadCharClassCSV(){
     list.textContent = `Loading…`;
 
     try {
-        const text = await fetch(ArmorCsvUrl, {caches: 'no-store'}).then(r => r.text());
+        const text = await fetch(CharClassCsvUrl, {caches: 'no-store'}).then(r => r.text());
         const rows = await parseCSV(text);
         let _c = 0;
         for (const row of rows) {
