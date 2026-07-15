@@ -15,6 +15,11 @@ async function loadCharClassCSV(){
         const text = await fetch(CharClassCsvUrl, {caches: 'no-store'}).then(r => r.text());
         console.log(text);
         const rows = await parseClassCSV(text);
+
+        let char_menu_panel = document.getElementById("char_class_display");
+        char_menu_panel.replaceChildren(); 
+        let class_btn_list = document.getElementById("class_tab_buttons");
+
         let _c = 0;
         for (const row of rows) {
             var [class_name, archetype, lvl, s_name, s_description] = row;
@@ -22,13 +27,11 @@ async function loadCharClassCSV(){
                 if (!CHAR_CLASS_DATA.core_classes.includes(class_name)) {
                     CHAR_CLASS_DATA.core_classes.push(class_name)
                     CHAR_CLASS_DATA.class_data[class_name] = []
-                    let class_btn_list = document.getElementById("class_tab_buttons");
                     let c_btn = document.createElement("button");
                     c_btn.classList = ["tab_button class_tab_button"];
                     c_btn.innerHTML=class_name;
                     class_btn_list.appendChild(c_btn);
 
-                    let char_menu_panel = document.getElementById("char_class_display");
                     let c_panel = document.createElement("div");
                     c_panel.id = `char_class_${class_name}`;
                     char_menu_panel.appendChild(c_panel)
