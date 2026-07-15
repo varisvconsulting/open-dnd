@@ -15,8 +15,8 @@ async function loadCharClassCSV(){
         console.log(text);
         const rows = await parseClassCSV(text);
 
-        let char_menu_panel = document.getElementById("char_class_display");
-        char_menu_panel.replaceChildren(); 
+        let char_class_menu_panel = document.getElementById("char_class_display");
+        char_class_menu_panel.replaceChildren(); 
         let class_btn_list = document.getElementById("class_tab_buttons");
 
         let _c = 0;
@@ -33,7 +33,7 @@ async function loadCharClassCSV(){
 
                     let c_panel = document.createElement("div");
                     c_panel.id = `char_class_${class_name} char_class_panel`;
-                    char_menu_panel.appendChild(c_panel)
+                    char_class_menu_panel.appendChild(c_panel)
 
                     c_btn.addEventListener("click", () => {
                         // Remove active from all buttons
@@ -59,6 +59,7 @@ async function loadCharClassCSV(){
                 }
                 else
                 {
+                    let char_class_panel = document.getElementById(`char_class_${class_name}`);
                     CHAR_CLASS_DATA.class_data[class_name].push({
                         level: lvl,
                         name: s_name,
@@ -71,7 +72,7 @@ async function loadCharClassCSV(){
                         <div class="class_ability_name"><h3>${s_name}</h3></div>
                         <div class="class_ability_desc">${makeNotationToHtml(s_description)}</div>
                     `
-                    char_menu_panel.appendChild(c_panel);
+                    char_class_panel.appendChild(c_panel);
                 }
             }
             _c += 1;
