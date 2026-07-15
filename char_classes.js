@@ -65,7 +65,6 @@ async function loadCharClassCSV(){
                         description: s_description
                     })
 
-                    let char_menu_panel = document.getElementById(`char_class_${class_name}`);
                     let c_panel = document.createElement("div");
                     c_panel.id = `char_class_ability_box`;
                     c_panel.innerHTML =`
