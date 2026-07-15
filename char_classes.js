@@ -67,7 +67,7 @@ async function loadCharClassCSV(){
                     let c_panel = document.createElement("div");
                     c_panel.id = `char_class_ability_box`;
                     c_panel.innerHTML =`
-                        <div class="class_ability_name"><h>${s_name}</h></div>
+                        <div class="class_ability_name"><h3>${s_name}</h3></div>
                         <div class="class_ability_desc">${makeNotationToHtml(s_description)}</div>
                     `
                     char_menu_panel.appendChild(c_panel);
