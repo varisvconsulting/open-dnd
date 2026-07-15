@@ -83,28 +83,40 @@ async function loadCharClassCSV(){
 }
 
 function parseClassCSV(text) {
-    var rows = text.split(/\r?\n/);
-    var output = []
+    const rows = text.trim().split(/\r?\n/);
+    const output = [];
+
     for (const row of rows) {
-        const row_data = []
-        var field = ""
-        var quoted = false
-        // console.log(row)
-        for (const c of row) {
-            if (c == '"') { quoted = !quoted;}
-            if ((c == ',') && (!quoted)) {
-                field = field.replace(/\\"/g, '"');
+        if (!row.trim()) continue; // skip empty lines
+
+        const row_data = [];
+        let field = "";
+        let quoted = false;
+        let i = 0;
+
+        while (i < row.length) {
+            const c = row[i];
+
+            if (c === '"') {
+                quoted = !quoted;
+                i++;
+                continue;
+            }
+
+            if (c === ',' && !quoted) {
+                // end of field
                 row_data.push(field);
                 field = "";
             } else {
-                if ((c!="\\") && (c!="\"")){
-                    field += c;
-                }
+                field += c;
             }
+
+            i++;
         }
-        console.log(row_data)
+        row_data.push(field);
         output.push(row_data);
     }
+
     return output;
 }
 
