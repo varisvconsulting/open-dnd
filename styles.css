@@ -37,6 +37,11 @@ h4, li {
   flex-wrap: wrap;
 }
 
+.class_tab_buttons active{
+  background-color: #1a1a1a !important;
+  color: rgb(182, 218, 201);
+}
+
 .class_tab_buttons .tab_button {
     background-color: #477765;
     color: white;
