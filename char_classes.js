@@ -9,7 +9,6 @@ async function loadCharClassCSV(){
         `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=308079445&_v=${Date.now()}`
     );
     const list = document.getElementById('char_class_display');
-    list.textContent = `Loading…`;
 
     try {
         const text = await fetch(CharClassCsvUrl, {caches: 'no-store'}).then(r => r.text());
