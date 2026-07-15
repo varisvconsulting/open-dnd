@@ -37,8 +37,8 @@ async function populateBackgrounds() {
     for (const [key, value] of Object.entries(backgrounds)) {
         var item_card = document.createElement('div');
         var item_data = value;
-        console.log("populating entry... " + key);
-        console.log(value);
+        // console.log("populating entry... " + key);
+        // console.log(value);
         // item_card.dataset.group = magic_class;
         item_card.classList = ["spell-card"];
 

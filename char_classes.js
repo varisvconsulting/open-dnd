@@ -27,14 +27,18 @@ async function loadCharClassCSV(){
                     console.log("ADDING NEW CLASS DATA: ", class_name);
                     CHAR_CLASS_DATA.core_classes.push(class_name);
                     CHAR_CLASS_DATA.class_data[class_name] = [];
+
+                    //make class menu tab button for class
                     let c_btn = document.createElement("button");
                     c_btn.className = "tab_button class_tab_button";
                     c_btn.innerHTML=class_name;
                     class_btn_list.appendChild(c_btn);
 
+                    // make panel for class
                     let c_panel = document.createElement("div");
                     c_panel.id = `char_class_${class_name}`; 
                     c_panel.className = "char_class_panel";
+                    c_panel.style.display = "none"; 
                     char_class_menu_panel.appendChild(c_panel)
 
                     c_btn.addEventListener("click", () => {
