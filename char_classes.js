@@ -33,7 +33,7 @@ async function loadCharClassCSV(){
                     class_btn_list.appendChild(c_btn);
 
                     let c_panel = document.createElement("div");
-                    c_panel.id = "char_class_${class_name}"; 
+                    c_panel.id = `char_class_${class_name}`; 
                     c_panel.className = "char_class_panel";
                     char_class_menu_panel.appendChild(c_panel)
 
