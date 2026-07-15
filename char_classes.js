@@ -24,8 +24,9 @@ async function loadCharClassCSV(){
             var [class_name, archetype, lvl, s_name, s_description] = row;
             if (_c != 0) {
                 if (!CHAR_CLASS_DATA.core_classes.includes(class_name)) {
-                    CHAR_CLASS_DATA.core_classes.push(class_name)
-                    CHAR_CLASS_DATA.class_data[class_name] = []
+                    console.log("ADDING NEW CLASS DATA: ", class_name);
+                    CHAR_CLASS_DATA.core_classes.push(class_name);
+                    CHAR_CLASS_DATA.class_data[class_name] = [];
                     let c_btn = document.createElement("button");
                     c_btn.classList = ["tab_button class_tab_button"];
                     c_btn.innerHTML=class_name;
