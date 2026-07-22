@@ -61,7 +61,60 @@ async function loadCharClassCSV(){
                 }
     
                 if (archetype) {
-                    // todo
+                    const archName = archetype.trim();
+
+                    // Track this archetype
+                    classArchetypes.get(class_name).add(archName);
+
+                    // Add to data model if you want
+                    if (!CHAR_CLASS_DATA.class_data[class_name].some(a => a.archetype === archName)) {
+                        CHAR_CLASS_DATA.class_data[class_name].push({ archetype: archName, abilities: [] });
+                    }
+
+                    // Create archetype tab container (once)
+                    let tabsContainer = classPanel.querySelector('.archetype-tabs');
+                    if (!tabsContainer) {
+                        tabsContainer = document.createElement('div');
+                        tabsContainer.className = 'archetype-tabs';
+                        tabsContainer.innerHTML = `<h2>Archetypes</h2>`;
+                        classPanel.appendChild(tabsContainer);
+                    }
+
+                    // Create archetype content panel (once)
+                    let contentId = `arch_${class_name}_${archName}`;
+                    let archContent = document.getElementById(contentId);
+                    if (!archContent) {
+                        archContent = document.createElement('div');
+                        archContent.id = contentId;
+                        archContent.className = 'archetype-content';
+                        archContent.style.display = 'none';
+                        classPanel.appendChild(archContent);
+                    }
+
+                    // Add ability box
+                    const box = createAbilityBox(s_name, s_description);
+                    archContent.appendChild(box);
+
+                    // Create tab button (once)
+                    if (!tabsContainer.querySelector(`[data-arch="${archName}"]`)) {
+                        const tabBtn = document.createElement('button');
+                        tabBtn.className = 'arch-tab';
+                        tabBtn.textContent = archName;
+                        tabBtn.dataset.arch = archName;
+                        tabsContainer.appendChild(tabBtn);
+
+                        tabBtn.addEventListener('click', () => {
+                            // Deactivate all tabs in this panel
+                            tabsContainer.querySelectorAll('.arch-tab').forEach(b => b.classList.remove('active'));
+                            tabBtn.classList.add('active');
+
+                            // Hide all archetype contents in this panel
+                            classPanel.querySelectorAll('.archetype-content').forEach(c => c.style.display = 'none');
+
+                            // Show this one
+                            archContent.style.display = 'block';
+                        });
+                    }
                 }
                 else
                 {
