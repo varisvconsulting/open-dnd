@@ -265,6 +265,11 @@ h4, li {
   padding: 5px;
 }
 
+.class_ability_name {
+  margin: 5px;
+  padding: 5px;
+}
+
 .item_button_hbox .tab_button {
     background-color: #477765;
     border: none;
