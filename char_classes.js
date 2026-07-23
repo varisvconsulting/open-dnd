@@ -29,7 +29,7 @@ async function loadCharClassCSV(){
                     CHAR_CLASS_DATA.class_data[class_name] = {
                         archetypes: {},
                         archetype_abilities: {},
-                        abilities: {},
+                        abilities: [],
 
                     };
 
@@ -104,6 +104,7 @@ async function loadCharClassCSV(){
                         arch_panel.id = archPanelName;
                         arch_panel.classList.add(`class_${class_name}_arch_${a_lvl}`);
                         arch_panel.classList.add(`class_${class_name}_arch_${archetype}`);
+                        arch_panel.style.display = "none";
                         class_arch_lvl_panel.appendChild(arch_panel);
                     } 
 
@@ -141,15 +142,13 @@ async function loadCharClassCSV(){
                     `
                     arch_panel.appendChild(c_panel);
                     if (!CHAR_CLASS_DATA.class_data[class_name].archetype_abilities.hasOwnProperty(archName)){
-                        CHAR_CLASS_DATA.class_data[class_name].archetype_abilities[archName]={}
+                        CHAR_CLASS_DATA.class_data[class_name].archetype_abilities[archName]=[]
                     }
-                    CHAR_CLASS_DATA.class_data[class_name].archetype_abilities[archName][s_name] = {
-                        
+                    CHAR_CLASS_DATA.class_data[class_name].archetype_abilities[archName].push({
                         level: lvl,
                         name: s_name,
-                        description: s_description
-                        
-                    };
+                        description: s_description  
+                    });
                 }
                 else
                 {
