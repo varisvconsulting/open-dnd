@@ -62,13 +62,33 @@ async function loadCharClassCSV(){
     
                 if (archetype) {
                     const archName = archetype.trim();
+                    const archLvlPanelName = `char_class_${class_name}_${level}`;
+                    const archPanelName = `archetype_panel_${archetype}`;
+                    
                     let char_class_panel = document.getElementById(`char_class_${class_name}`);
-                    let arch_panel = document.getElementById(`char_arch_panel_${archName}`);
-                    if (!arch_panel) {
-                        arch_panel = document.createElement("div");
-                        arch_panel.classList.add(`char_class_${archName}`);
-                        char_class_panel.appendChild(arch_panel)
+                    let class_arch_lvl_panel = document.getElementById(archLvlPanelName);
+                    let arch_panel = document.getElementById(archPanelName);
+
+                    if (!class_arch_lvl_panel) {
+                        class_arch_lvl_panel = document.createElement("div");
+                        //class_arch_lvl_panel.classList.add(archLvlPanelName);
+                        class_arch_lvl_panel.id = archLvlPanelName;
+                        char_class_panel.appendChild(arch_panel);
                     }
+
+                    if (!arch_panel) {
+                        arch_panel = document.createElement("div")
+                        arch_panel.id = archPanelName
+                        class_arch_lvl_panel.appendChild(arch_panel)
+                    } 
+
+                    let c_panel = document.createElement("div");
+                    c_panel.id = `char_class_ability_box`;
+                    c_panel.innerHTML =`
+                        <div class="class_ability_name"><h3>${s_name}</h3></div>
+                        <div class="class_ability_desc">${makeNotationToHtml(s_description)}</div>
+                    `
+                    arch_panel.appendChild(c_panel);
                 }
                 else
                 {
