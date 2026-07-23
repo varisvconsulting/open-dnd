@@ -37,25 +37,6 @@ h4, li {
   flex-wrap: wrap;
 }
 
-.archetype_buttonlist button {
-  background-color: #477765;
-    color: white;
-    font-size: 13px;
-    margin: 0.5px 0.5px;
-    float: left;
-    border-radius:10px;
-}
-
-.archetype_buttonlist .active{
-  background-color: #1a1a1a !important;
-  color: rgb(182, 218, 201);
-}
-
-.class_tab_buttons .active{
-  background-color: #1a1a1a !important;
-  color: rgb(182, 218, 201);
-}
-
 .class_tab_buttons .tab_button {
     background-color: #477765;
     color: white;
