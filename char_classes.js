@@ -26,7 +26,12 @@ async function loadCharClassCSV(){
                 if (!CHAR_CLASS_DATA.core_classes.includes(class_name)) {
                     console.log("ADDING NEW CLASS DATA: ", class_name);
                     CHAR_CLASS_DATA.core_classes.push(class_name);
-                    CHAR_CLASS_DATA.class_data[class_name] = [];
+                    CHAR_CLASS_DATA.class_data[class_name] = {
+                        archetypes: {},
+                        archetype_abilities: {},
+                        abilities: {},
+
+                    };
 
                     //make class menu tab button for class
                     let c_btn = document.createElement("button");
@@ -61,13 +66,24 @@ async function loadCharClassCSV(){
                 }
     
                 if (archetype) {
+                    
                     const archName = archetype.trim();
-                    const archLvlPanelName = `char_class_${class_name}_${lvl}`;
+                    let a_lvl = lvl;
+                    if (!CHAR_CLASS_DATA.class_data[class_name].archetypes.hasOwnProperty(archName)) {
+                        CHAR_CLASS_DATA.class_data[class_name].archetypes[archName] = lvl;
+                    } else {
+                        a_lvl = CHAR_CLASS_DATA.class_data[class_name].archetypes[archName];
+                    }
+                    const archLvlPanelName = `char_class_${class_name}_${a_lvl}`;
                     const archPanelName = `archetype_panel_${archetype}`;
+                    const archLvLPanelButtonlistName = `char_class_${class_name}_${a_lvl}_buttons`;
+                    const archSelectButtonName = `archetype_${archetype}_button`;
                     
                     let char_class_panel = document.getElementById(`char_class_${class_name}`);
                     let class_arch_lvl_panel = document.getElementById(archLvlPanelName);
+                    let class_arch_lvl_buttonlist = document.getElementById(archLvLPanelButtonlistName);
                     let arch_panel = document.getElementById(archPanelName);
+                    let arch_button = document.getElementById(archSelectButtonName)
 
                     if (!class_arch_lvl_panel) {
                         class_arch_lvl_panel = document.createElement("div");
@@ -76,11 +92,24 @@ async function loadCharClassCSV(){
                         char_class_panel.appendChild(class_arch_lvl_panel);
                     }
 
+                    if (!class_arch_lvl_buttonlist) {
+                        class_arch_lvl_buttonlist = document.createElement("div");
+                        class_arch_lvl_buttonlist.id = archLvLPanelButtonlistName;
+                        class_arch_lvl_buttonlist.classList.push("archetype_buttons");
+                    }
+
                     if (!arch_panel) {
-                        arch_panel = document.createElement("div")
-                        arch_panel.id = archPanelName
-                        class_arch_lvl_panel.appendChild(arch_panel)
+                        arch_panel = document.createElement("div");
+                        arch_panel.id = archPanelName;
+                        class_arch_lvl_panel.appendChild(arch_panel);
                     } 
+
+                    if (!arch_button) {
+                        arch_button = document.createElement("button");
+                        arch_button.id = `archetype_button_${archName}`;
+                        class_arch_lvl_buttonlist.appendChild(arch_button);
+                        arch_button.textContent = archName;
+                    }
 
                     let c_panel = document.createElement("div");
                     c_panel.id = `char_class_ability_box`;
@@ -93,7 +122,7 @@ async function loadCharClassCSV(){
                 else
                 {
                     let char_class_panel = document.getElementById(`char_class_${class_name}`);
-                    CHAR_CLASS_DATA.class_data[class_name].push({
+                    CHAR_CLASS_DATA.class_data[class_name].abilities = ({
                         level: lvl,
                         name: s_name,
                         description: s_description
