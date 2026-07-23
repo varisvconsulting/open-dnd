@@ -115,11 +115,12 @@ async function loadCharClassCSV(){
                         arch_button.textContent = archName;
                         arch_button.addEventListener('click', () => {
                             // Remove active from all archetype buttons in this level
+                            
                             document.querySelectorAll(`.arch_${class_name}_${a_lvl}_btn`).forEach(btn => {
                                 btn.classList.remove("active");
                             });
                             arch_button.classList.add("active");
-
+                            console.log("looking for ", `.class_${class_name}_arch_${a_lvl}`);
                             // // Hide all archetype panels in this level
                             // document.querySelectorAll(`.class_${class_name}_arch_${a_lvl}`).forEach(panel => {
                             //     panel.style.display = "none";
