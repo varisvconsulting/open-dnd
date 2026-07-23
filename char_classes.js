@@ -102,23 +102,23 @@ async function loadCharClassCSV(){
                     if (!arch_panel) {
                         arch_panel = document.createElement("div");
                         arch_panel.id = archPanelName;
-                        arch_panel.classList.add(`class_${className}_arch_${a_lvl}`);
-                        arch_panel.classList.add(`class_${className}_arch_${archetype}`);
+                        arch_panel.classList.add(`class_${class_name}_arch_${a_lvl}`);
+                        arch_panel.classList.add(`class_${class_name}_arch_${archetype}`);
                         class_arch_lvl_panel.appendChild(arch_panel);
                     } 
 
                     if (!arch_button) {
                         arch_button = document.createElement("button");
                         arch_button.id = archSelectButtonName;
-                        arch_button.classList.add(`arch_${className}_${a_lvl}_btn`);
+                        arch_button.classList.add(`arch_${class_name}_${a_lvl}_btn`);
                         class_arch_lvl_buttonlist.appendChild(arch_button);
                         arch_button.textContent = archName;
                         arch_button.addEventListener('click', () => {
-                            document.querySelectorAll(`arch_${className}_${a_lvl}_btn`).forEach(btn => {
+                            document.querySelectorAll(`arch_${class_name}_${a_lvl}_btn`).forEach(btn => {
                                 btn.classList.remove("active");
                             });
                             arch_button.classList.add("active");
-                            document.querySelectorAll(`class_${className}_arch_${a_lvl}`).forEach(e => {
+                            document.querySelectorAll(`class_${class_name}_arch_${a_lvl}`).forEach(e => {
                                 e.classList.remove("active");
                                 e.style.display = "none";
                             });
