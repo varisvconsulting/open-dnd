@@ -67,6 +67,7 @@ async function loadCharClassCSV(){
 
                 let lvlboxName = `class_${class_name}_lvl_${lvl}`;
                 let lvlbox = document.getElementById(lvlboxName);
+                let class_panel = document.getElementById(`char_class_${class_name}`);
                 if (!lvlbox) {
                     lvlbox = document.createElement("div");
                     lvlbox.id = lvlboxName;
@@ -141,7 +142,6 @@ async function loadCharClassCSV(){
                 }
                 else
                 {
-                    let char_class_panel = document.getElementById(`char_class_${class_name}`);
                     CHAR_CLASS_DATA.class_data[class_name].abilities.push({
                         level: lvl,
                         name: s_name,
@@ -154,7 +154,7 @@ async function loadCharClassCSV(){
                         <div class="class_ability_name"><h3>${s_name}</h3></div>
                         <div class="class_ability_desc">${makeNotationToHtml(s_description)}</div>
                     `
-                    char_class_panel.appendChild(c_panel);
+                    lvlbox.appendChild(c_panel);
                 }
             }
             _c += 1;
