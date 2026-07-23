@@ -77,6 +77,8 @@ async function loadCharClassCSV(){
                 if (archetype) {
                     
                     const archName = archetype.trim();
+
+                    //initial archetype. for data purposes only.
                     let a_lvl = lvl;
                     if (!CHAR_CLASS_DATA.class_data[class_name].archetypes.hasOwnProperty(archName)) {
                         CHAR_CLASS_DATA.class_data[class_name].archetypes[archName] = lvl;
