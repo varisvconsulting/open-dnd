@@ -69,6 +69,11 @@ h4, li {
   flex-wrap: wrap;
 }
 
+.archetype_buttons .active {
+  background-color: #1a1a1a !important;
+  color: rgb(182, 218, 201);
+}
+
 .header_tab .active{
   background-color: #1a1a1a !important;
   color: rgb(182, 218, 201);
