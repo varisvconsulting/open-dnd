@@ -44,7 +44,7 @@ async function loadCharClassCSV(){
                     c_panel.id = `char_class_${class_name}`; 
                     c_panel.className = "char_class_panel";
                     c_panel.style.display = "none"; 
-                    char_class_menu_panel.appendChild(c_panel)
+                    char_class_menu_panel.appendChild(c_panel);
 
                     c_btn.addEventListener("click", () => {
                         // Remove active from all buttons
@@ -64,6 +64,14 @@ async function loadCharClassCSV(){
                         c_panel.style.display = "block";
                     });
                 }
+
+                let lvlboxName = `class_${class_name}_lvl_${lvl}`;
+                let lvlbox = document.getElementById(lvlboxName);
+                if (!lvlbox) {
+                    lvlbox = document.createElement("div");
+                    lvlbox.id = lvlboxName;
+                    class_panel.appendChild(lvlbox);
+                }
     
                 if (archetype) {
                     
@@ -78,35 +86,19 @@ async function loadCharClassCSV(){
                     const archPanelName = `archetype_panel_${archetype}`;
                     const archLvLPanelButtonlistName = `char_class_${class_name}_${a_lvl}_buttons`;
                     const archSelectButtonName = `archetype_${archetype}_button`;
-                    
-                    let char_class_panel = document.getElementById(`char_class_${class_name}`);
-                    let class_arch_lvl_panel = document.getElementById(archLvlPanelName);
-                    let class_arch_lvl_buttonlist = document.getElementById(archLvLPanelButtonlistName);
-                    let arch_panel = document.getElementById(archPanelName);
-                    let arch_button = document.getElementById(archSelectButtonName)
 
-                    if (!class_arch_lvl_panel) {
-                        class_arch_lvl_panel = document.createElement("div");
-                        //class_arch_lvl_panel.classList.add(archLvlPanelName);
-                        class_arch_lvl_panel.id = archLvlPanelName;
-                        char_class_panel.appendChild(class_arch_lvl_panel);
-                    }
+                    const allArchNameHTMLClass = `${class_name}_arch_ability`;
+                    const archNameHTMLClass = `${class_name}_arch_${archName}`;
+                    
+                    let class_arch_lvl_buttonlist = document.getElementById(archLvLPanelButtonlistName);
+                    let arch_button = document.getElementById(archSelectButtonName);
 
                     if (!class_arch_lvl_buttonlist) {
                         class_arch_lvl_buttonlist = document.createElement("div");
                         class_arch_lvl_buttonlist.id = archLvLPanelButtonlistName;
                         class_arch_lvl_buttonlist.className = "archetype_buttons";
-                        class_arch_lvl_panel.appendChild(class_arch_lvl_buttonlist);
+                        lvlbox.appendChild(class_arch_lvl_buttonlist);
                     }
-
-                    if (!arch_panel) {
-                        arch_panel = document.createElement("div");
-                        arch_panel.id = archPanelName;
-                        arch_panel.classList.add(`class_${class_name}_arch_${a_lvl}`);
-                        arch_panel.classList.add(`class_${class_name}_arch_${archetype}`);
-                        arch_panel.style.display = "none";
-                        class_arch_lvl_panel.appendChild(arch_panel);
-                    } 
 
                     if (!arch_button) {
                         arch_button = document.createElement("button");
@@ -122,20 +114,22 @@ async function loadCharClassCSV(){
                                 btn.classList.remove("active");
                             });
                             arch_button.classList.add("active");
-                            setVisibleByClass(`.class_${class_name}_arch_${a_lvl}`,false);
+                            setVisibleByClass(`.${allArchNameHTMLClass}`,false);
 
                             // Show this one
-                            arch_panel.style.display = "block";
+                            setVisibleByClass(`.${archNameHTMLClass}`, true, "block");
                         });
                     }
 
                     let c_panel = document.createElement("div");
                     c_panel.id = `char_class_ability_box`;
+                    c_panel.classList.add(archNameHTMLClass);
+                    c_panel.classList.add(allArchNameHTMLClass)
                     c_panel.innerHTML =`
                         <div class="class_ability_name"><h3>${s_name}</h3></div>
                         <div class="class_ability_desc">${makeNotationToHtml(s_description)}</div>
                     `
-                    arch_panel.appendChild(c_panel);
+                    lvlbox.appendChild(c_panel);
                     if (!CHAR_CLASS_DATA.class_data[class_name].archetype_abilities.hasOwnProperty(archName)){
                         CHAR_CLASS_DATA.class_data[class_name].archetype_abilities[archName]=[]
                     }
@@ -170,6 +164,19 @@ async function loadCharClassCSV(){
     }
 
     console.log(CHAR_CLASS_DATA);
+}
+
+function makeClassBaseline(className) {
+    let class_panel = document.getElementById(className);
+    if (!class_panel) {
+        let char_class_menu_panel = document.getElementById("char_class_display");
+
+        let c_panel = document.createElement("div");
+        c_panel.id = `char_class_${class_name}`; 
+        c_panel.className = "char_class_panel";
+        c_panel.style.display = "none"; 
+        char_class_menu_panel.appendChild(c_panel);
+    }
 }
 
 function parseClassCSV(text) {
