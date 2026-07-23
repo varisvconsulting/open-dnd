@@ -95,7 +95,7 @@ async function loadCharClassCSV(){
                     if (!class_arch_lvl_buttonlist) {
                         class_arch_lvl_buttonlist = document.createElement("div");
                         class_arch_lvl_buttonlist.id = archLvLPanelButtonlistName;
-                        class_arch_lvl_buttonlist.classList.push("archetype_buttons");
+                        class_arch_lvl_buttonlist.className = "archetype_buttons";
                     }
 
                     if (!arch_panel) {
