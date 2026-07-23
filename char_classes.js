@@ -74,7 +74,7 @@ async function loadCharClassCSV(){
                     } else {
                         a_lvl = CHAR_CLASS_DATA.class_data[class_name].archetypes[archName];
                     }
-                    const archLvlPanelName = `char_class_${archetype}_${a_lvl}`;
+                    const archLvlPanelName = `char_class_${class_name}_${a_lvl}`;
                     const archPanelName = `archetype_panel_${archetype}`;
                     const archLvLPanelButtonlistName = `char_class_${class_name}_${a_lvl}_buttons`;
                     const archSelectButtonName = `archetype_${archetype}_button`;
@@ -107,7 +107,7 @@ async function loadCharClassCSV(){
 
                     if (!arch_button) {
                         arch_button = document.createElement("button");
-                        arch_button.id = `archetype_button_${archName}`;
+                        arch_button.id = archSelectButtonName;
                         class_arch_lvl_buttonlist.appendChild(arch_button);
                         arch_button.textContent = archName;
                     }
