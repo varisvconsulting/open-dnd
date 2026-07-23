@@ -96,7 +96,6 @@ async function loadCharClassCSV(){
                         class_arch_lvl_buttonlist = document.createElement("div");
                         class_arch_lvl_buttonlist.id = archLvLPanelButtonlistName;
                         class_arch_lvl_buttonlist.className = "archetype_buttons";
-                        class_arch_lvl_buttonlist.classList.add("archetype_buttonlist");
                         class_arch_lvl_panel.appendChild(class_arch_lvl_buttonlist);
                     }
 
@@ -113,6 +112,7 @@ async function loadCharClassCSV(){
                         arch_button = document.createElement("button");
                         arch_button.id = archSelectButtonName;
                         arch_button.classList.add(`arch_${class_name}_${a_lvl}_btn`);
+                        arch_button.classList.add(`tab_button`);
                         class_arch_lvl_buttonlist.appendChild(arch_button);
                         arch_button.textContent = archName;
                         arch_button.addEventListener('click', () => {
