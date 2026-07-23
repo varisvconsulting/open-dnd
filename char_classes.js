@@ -73,7 +73,7 @@ async function loadCharClassCSV(){
                         class_arch_lvl_panel = document.createElement("div");
                         //class_arch_lvl_panel.classList.add(archLvlPanelName);
                         class_arch_lvl_panel.id = archLvlPanelName;
-                        char_class_panel.appendChild(arch_panel);
+                        char_class_panel.appendChild(class_arch_lvl_panel);
                     }
 
                     if (!arch_panel) {
