@@ -43,6 +43,7 @@ h4, li {
     font-size: 13px;
     margin: 0.5px 0.5px;
     float: left;
+    border-radius:10px;
 }
 
 .archetype_buttonlist .active{
