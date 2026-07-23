@@ -62,7 +62,7 @@ async function loadCharClassCSV(){
     
                 if (archetype) {
                     const archName = archetype.trim();
-                    const archLvlPanelName = `char_class_${class_name}_${level}`;
+                    const archLvlPanelName = `char_class_${class_name}_${lvl}`;
                     const archPanelName = `archetype_panel_${archetype}`;
                     
                     let char_class_panel = document.getElementById(`char_class_${class_name}`);
