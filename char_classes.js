@@ -96,6 +96,7 @@ async function loadCharClassCSV(){
                         class_arch_lvl_buttonlist = document.createElement("div");
                         class_arch_lvl_buttonlist.id = archLvLPanelButtonlistName;
                         class_arch_lvl_buttonlist.className = "archetype_buttons";
+                        class_arch_lvl_buttonlist.classList.add("archetype_buttonlist");
                         class_arch_lvl_panel.appendChild(class_arch_lvl_buttonlist);
                     }
 
@@ -121,12 +122,6 @@ async function loadCharClassCSV(){
                                 btn.classList.remove("active");
                             });
                             arch_button.classList.add("active");
-                            console.log("looking for ", `.class_${class_name}_arch_${a_lvl}`);
-                            // // Hide all archetype panels in this level
-                            // document.querySelectorAll(`.class_${class_name}_arch_${a_lvl}`).forEach(panel => {
-                            //     panel.style.display = "none";
-                            //     console.log("did it for ",  panel);
-                            // });
                             setVisibleByClass(`.class_${class_name}_arch_${a_lvl}`,false);
 
                             // Show this one
