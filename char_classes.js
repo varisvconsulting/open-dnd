@@ -122,7 +122,7 @@ async function loadCharClassCSV(){
                                 e.classList.remove("active");
                                 e.style.display = "none";
                             });
-                            arch_panel.display = "block";
+                            arch_panel.style.display = "block";
                             
                         });
                     }
