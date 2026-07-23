@@ -140,15 +140,25 @@ async function loadCharClassCSV(){
                         <div class="class_ability_desc">${makeNotationToHtml(s_description)}</div>
                     `
                     arch_panel.appendChild(c_panel);
+                    if (!CHAR_CLASS_DATA.class_data[class_name].archetype_abilities.hasOwnProperty(archName)){
+                        CHAR_CLASS_DATA.class_data[class_name].archetype_abilities[archName]={}
+                    }
+                    CHAR_CLASS_DATA.class_data[class_name].archetype_abilities[archName][s_name] = {
+                        
+                        level: lvl,
+                        name: s_name,
+                        description: s_description
+                        
+                    };
                 }
                 else
                 {
                     let char_class_panel = document.getElementById(`char_class_${class_name}`);
-                    CHAR_CLASS_DATA.class_data[class_name].abilities = ({
+                    CHAR_CLASS_DATA.class_data[class_name].abilities.push({
                         level: lvl,
                         name: s_name,
                         description: s_description
-                    })
+                    });
 
                     let c_panel = document.createElement("div");
                     c_panel.id = `char_class_ability_box`;
