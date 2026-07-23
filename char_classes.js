@@ -118,7 +118,7 @@ async function loadCharClassCSV(){
                                 btn.classList.remove("active");
                             });
                             arch_button.classList.add("active");
-                            document.querySelectorAll(`class_${className}_arch_${archetype}`).forEach(e => {
+                            document.querySelectorAll(`class_${className}_arch_${a_lvl}`).forEach(e => {
                                 e.classList.remove("active");
                                 e.style.display = "none";
                             });
