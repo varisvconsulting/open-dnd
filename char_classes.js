@@ -76,7 +76,7 @@ async function loadCharClassCSV(){
     
                 if (archetype) {
                     
-                    const archName = archetype.trim();
+                    const archName = archetype.trim().replace(/ /g,'');
 
                     //initial archetype. for data purposes only.
                     let a_lvl = lvl;
