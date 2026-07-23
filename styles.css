@@ -64,6 +64,11 @@ h4, li {
     border-radius:999px;
 }
 
+.archetype_buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .header_tab .active{
   background-color: #1a1a1a !important;
   color: rgb(182, 218, 201);
