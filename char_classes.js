@@ -123,6 +123,7 @@ async function loadCharClassCSV(){
                             // Hide all archetype panels in this level
                             document.querySelectorAll(`.class_${class_name}_arch_${a_lvl}`).forEach(panel => {
                                 panel.style.display = "none";
+                                console.log("did it for ",  panel);
                             });
 
                             // Show this one
