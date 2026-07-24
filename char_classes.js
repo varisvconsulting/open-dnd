@@ -112,15 +112,20 @@ async function loadCharClassCSV(){
                         arch_button.textContent = archName;
                         arch_button.addEventListener('click', () => {
                             // Remove active from all archetype buttons in this level
-                            
-                            document.querySelectorAll(`.arch_${class_name}_${a_lvl}_btn`).forEach(btn => {
-                                btn.classList.remove("active");
-                            });
-                            arch_button.classList.add("active");
                             setVisibleByClass(`.${allArchNameHTMLClass}`,false);
+                            if (arch_button.classList.contains("active")){
+                                document.querySelectorAll(`.arch_${class_name}_${a_lvl}_btn`).forEach(btn => {
+                                    btn.classList.remove("active");
+                                });
+                            } else {
+                                document.querySelectorAll(`.arch_${class_name}_${a_lvl}_btn`).forEach(btn => {
+                                    btn.classList.remove("active");
+                                });
+                                arch_button.classList.add("active");
 
-                            // Show this one
-                            setVisibleByClass(`.${archNameHTMLClass}`, true, "block");
+                                // Show this one
+                                setVisibleByClass(`.${archNameHTMLClass}`, true, "block");
+                            }
                         });
                     }
 
