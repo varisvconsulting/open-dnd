@@ -111,28 +111,16 @@ async function loadCharClassCSV(){
                         class_arch_lvl_buttonlist.appendChild(arch_button);
                         arch_button.textContent = archName;
                         arch_button.addEventListener('click', () => {
-                            const isCurrentlyActive = arch_button.classList.contains("active");
-                            const c = arch_button.textContent;
-
-                            // Remove active from ALL buttons in this level
-                            console.log(`.arch_${c}_${a_lvl}_btn`);
-                            document.querySelectorAll(`.arch_${c}_${a_lvl}_btn`).forEach(btn => {
+                            // Remove active from all archetype buttons in this level
+                            
+                            document.querySelectorAll(`.arch_${class_name}_${a_lvl}_btn`).forEach(btn => {
                                 btn.classList.remove("active");
-                                console.log("removed");
                             });
+                            arch_button.classList.add("active");
+                            setVisibleByClass(`.${allArchNameHTMLClass}`,false);
 
-                            // Hide ALL archetype ability panels in this group
-                            setVisibleByClass(`.${allArchNameHTMLClass}`, false);
-
-                            if (isCurrentlyActive) {
-                                // Toggle OFF - do nothing else (everything is already hidden)
-                                console.log(`Toggled off: ${archName}`);
-                            } else {
-                                // Toggle ON
-                                arch_button.classList.add("active");
-                                setVisibleByClass(`.${archNameHTMLClass}`, true, "block");
-                                console.log(`Toggled on: ${archName}`);
-                            }
+                            // Show this one
+                            setVisibleByClass(`.${archNameHTMLClass}`, true, "block");
                         });
                     }
 
