@@ -42,7 +42,7 @@ async function loadCharClassCSV(){
                     // make panel for class
                     let c_panel = document.createElement("div");
                     c_panel.id = `char_class_${class_name}`; 
-                    c_panel.className = "char_class_panel";
+                    c_panel.className = `char_class_panel`;
                     c_panel.style.display = "none"; 
                     char_class_menu_panel.appendChild(c_panel);
 
@@ -78,7 +78,7 @@ async function loadCharClassCSV(){
                     
                     const archName = archetype.trim().replace(/ /g,'');
 
-                    //initial archetype. for data purposes only.
+                    //initial archetype lvl. for data purposes only.
                     let a_lvl = lvl;
                     if (!CHAR_CLASS_DATA.class_data[class_name].archetypes.hasOwnProperty(archName)) {
                         CHAR_CLASS_DATA.class_data[class_name].archetypes[archName] = lvl;
@@ -90,7 +90,7 @@ async function loadCharClassCSV(){
                     const archLvLPanelButtonlistName = `char_class_${class_name}_${a_lvl}_buttons`;
                     const archSelectButtonName = `archetype_${archetype}_button`;
 
-                    const allArchNameHTMLClass = `${class_name}_arch_ability`;
+                    const allArchNameHTMLClass = `${class_name}_arch_ability_${a_lvl}`;
                     const archNameHTMLClass = `${class_name}_arch_${archName}`;
                     
                     let class_arch_lvl_buttonlist = document.getElementById(archLvLPanelButtonlistName);
