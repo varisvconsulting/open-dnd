@@ -116,6 +116,7 @@ async function loadCharClassCSV(){
                             // Remove active from ALL buttons in this level
                             document.querySelectorAll(`.arch_${class_name}_${a_lvl}_btn`).forEach(btn => {
                                 btn.classList.remove("active");
+                                console.log("removed");
                             });
 
                             // Hide ALL archetype ability panels in this group
