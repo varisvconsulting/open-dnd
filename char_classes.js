@@ -112,10 +112,11 @@ async function loadCharClassCSV(){
                         arch_button.textContent = archName;
                         arch_button.addEventListener('click', () => {
                             const isCurrentlyActive = arch_button.classList.contains("active");
+                            const c = arch_button.textContent;
 
                             // Remove active from ALL buttons in this level
-                            console.log(`.arch_${class_name}_${a_lvl}_btn`);
-                            document.querySelectorAll(`.arch_${class_name}_${a_lvl}_btn`).forEach(btn => {
+                            console.log(`.arch_${c}_${a_lvl}_btn`);
+                            document.querySelectorAll(`.arch_${c}_${a_lvl}_btn`).forEach(btn => {
                                 btn.classList.remove("active");
                                 console.log("removed");
                             });
