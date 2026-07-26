@@ -63,9 +63,8 @@ async function loadCharClassCSV(){
                     //     // Show this panel
                     //     c_panel.style.display = "block";
                     // });
-                    if(class_name) {
-                        makeClassBaseline(class_name);
-                    }
+
+                    makeClassBaseline(class_name);
                 }
 
                 let lvlboxName = `class_${class_name}_lvl_${lvl}`;
@@ -143,7 +142,7 @@ async function loadCharClassCSV(){
                     c_panel.classList.add(allArchNameHTMLClass);
                     c_panel.style.display = "none";
                     c_panel.innerHTML =`
-                        <div class="class_ability_name"><h3>${capitalizeFirst(s_name)}</h3></div>
+                        <div class="class_ability_name"><h3>${s_name}</h3></div>
                         <div class="class_ability_desc">${makeNotationToHtml(s_description)}</div>
                     `
                     lvlbox.appendChild(c_panel);
