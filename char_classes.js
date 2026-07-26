@@ -63,8 +63,9 @@ async function loadCharClassCSV(){
                     //     // Show this panel
                     //     c_panel.style.display = "block";
                     // });
-
-                    makeClassBaseline(class_name);
+                    if(class_name) {
+                        makeClassBaseline(class_name);
+                    }
                 }
 
                 let lvlboxName = `class_${class_name}_lvl_${lvl}`;
