@@ -142,7 +142,7 @@ async function loadCharClassCSV(){
                     c_panel.classList.add(allArchNameHTMLClass);
                     c_panel.style.display = "none";
                     c_panel.innerHTML =`
-                        <div class="class_ability_name"><h3>${s_name}</h3></div>
+                        <div class="class_ability_name"><h3>${capitalizeFirst(s_name)}</h3></div>
                         <div class="class_ability_desc">${makeNotationToHtml(s_description)}</div>
                     `
                     lvlbox.appendChild(c_panel);
@@ -166,7 +166,7 @@ async function loadCharClassCSV(){
                     let c_panel = document.createElement("div");
                     c_panel.id = `char_class_ability_box`;
                     c_panel.innerHTML =`
-                        <div class="class_ability_name"><h3>${s_name}</h3></div>
+                        <div class="class_ability_name"><h3>${capitalizeFirst(s_name)}</h3></div>
                         <div class="class_ability_desc">${makeNotationToHtml(s_description)}</div>
                     `
                     lvlbox.appendChild(c_panel);
@@ -301,6 +301,11 @@ function makeNotationToHtml(text) {
         }
     }
     return output;
+}
+
+function capitalizeFirst(string) {
+    if (!string) return "";                    // handle empty string
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
 
 async function initialCharClassSetup(){
