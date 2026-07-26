@@ -50,10 +50,24 @@ h4, li {
 }
 
 .class_lvl_holder {
-    display: flex;                        /* space between columns */
-    /* Optional adjustments */
-    /* align-items: start; */
-    /* padding: 10px; */
+    display: flex;
+    align-items: center;        /* vertically centers the indicator */
+    gap: 16px;                  /* space between indicator and box */
+    margin-bottom: 20px;        /* spacing between levels */
+}
+
+.class_lvl_indicator {
+    flex: 0 0 auto;             /* don't grow or shrink */
+    width: 50px;                /* adjust as needed */
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #ffd700;             /* example color */
+}
+
+.class_lvl_box {
+    flex: 1 1 auto;             /* takes all remaining space */
+    /* your existing styles for the box */
 }
 
 .tab_button {

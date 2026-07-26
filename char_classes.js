@@ -232,6 +232,7 @@ function makeClassBaseline(class_name) {
         lvlbox = document.createElement("div");
         let lvlboxName = `class_${class_name}_lvl_${String(i)}`;
         lvlbox.id = lvlboxName;
+        lvlbox.className = "class_lvl_box";
         lvlholder.appendChild(lvlbox);
     }   
 }
