@@ -69,7 +69,7 @@ h4, li {
     width: 50px;
     position: sticky;                /* adjust as needed */
     top: 140px;
-    float: left;
+    float: top left;
     font-weight: bold;
     font-size: 1.4rem;
     color: #ffd700;             /* example color */
