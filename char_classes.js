@@ -215,11 +215,17 @@ function makeClassBaseline(class_name) {
         // Show this panel
         c_panel.style.display = "block";
     });
-    
+
     for (let i = 0; i < 13; i++) {
         let lvlholder = document.createElement("div");
         lvlholder.className = "class_lvl_holder";
         c_panel.appendChild(lvlholder);
+
+        if (i % 2 == 0) {
+            lvlholder.classList.add("even");
+        } else {
+            lvlholder.classList.add("odd");
+        }
 
         if (i>0) {
             let lvlindicator = document.createElement("div");
