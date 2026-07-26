@@ -112,7 +112,7 @@ async function loadCharClassCSV(){
                         arch_button.textContent = archName;
                         arch_button.addEventListener('click', () => {
                             // Remove active from all archetype buttons in this level
-                            
+                            console.log(`.arch_${class_name}_${a_lvl}_btn`);
                             document.querySelectorAll(`.arch_${class_name}_${a_lvl}_btn`).forEach(btn => {
                                 btn.classList.remove("active");
                             });
