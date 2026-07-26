@@ -49,6 +49,13 @@ h4, li {
     float: left;
 }
 
+.class_lvl_holder {
+    display: flex;                        /* space between columns */
+    /* Optional adjustments */
+    /* align-items: start; */
+    /* padding: 10px; */
+}
+
 .tab_button {
     background-color: #b1d3c6;
     border: none;
