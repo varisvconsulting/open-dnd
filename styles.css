@@ -56,6 +56,14 @@ h4, li {
     margin-bottom: 20px;        /* spacing between levels */
 }
 
+.class_lvl_holder.odd{
+  background-color: #1a1a1a;
+}
+
+.class_lvl_holder.even{
+  background-color:#2a2a2e;
+}
+
 .class_lvl_indicator {
     flex: 0 0 auto;             /* don't grow or shrink */
     width: 50px;                /* adjust as needed */
