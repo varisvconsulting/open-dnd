@@ -215,9 +215,8 @@ function makeClassBaseline(class_name) {
         // Show this panel
         c_panel.style.display = "block";
     });
-
-    // for i from 0 to 9
-    for (let i = 0; i < 10; i++) {
+    
+    for (let i = 0; i < 13; i++) {
         let lvlholder = document.createElement("div");
         lvlholder.className = "class_lvl_holder";
         c_panel.appendChild(lvlholder);
