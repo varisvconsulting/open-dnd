@@ -33,36 +33,38 @@ async function loadCharClassCSV(){
 
                     };
 
-                    //make class menu tab button for class
-                    let c_btn = document.createElement("button");
-                    c_btn.className = "tab_button class_tab_button";
-                    c_btn.innerHTML=class_name;
-                    class_btn_list.appendChild(c_btn);
+                    // //make class menu tab button for class
+                    // let c_btn = document.createElement("button");
+                    // c_btn.className = "tab_button class_tab_button";
+                    // c_btn.innerHTML=class_name;
+                    // class_btn_list.appendChild(c_btn);
 
-                    // make panel for class
-                    let c_panel = document.createElement("div");
-                    c_panel.id = `char_class_${class_name}`; 
-                    c_panel.className = `char_class_panel`;
-                    c_panel.style.display = "none"; 
-                    char_class_menu_panel.appendChild(c_panel);
+                    // // make panel for class
+                    // let c_panel = document.createElement("div");
+                    // c_panel.id = `char_class_${class_name}`; 
+                    // c_panel.className = `char_class_panel`;
+                    // c_panel.style.display = "none"; 
+                    // char_class_menu_panel.appendChild(c_panel);
 
-                    c_btn.addEventListener("click", () => {
-                        // Remove active from all buttons
-                        document.querySelectorAll(".class_tab_button").forEach(btn => {
-                            btn.classList.remove("active");
-                        });
+                    // c_btn.addEventListener("click", () => {
+                    //     // Remove active from all buttons
+                    //     document.querySelectorAll(".class_tab_button").forEach(btn => {
+                    //         btn.classList.remove("active");
+                    //     });
 
-                        // Activate this button
-                        c_btn.classList.add("active");
+                    //     // Activate this button
+                    //     c_btn.classList.add("active");
 
-                        // Hide all panels
-                        document.querySelectorAll(".char_class_panel").forEach(panel => {
-                            panel.style.display = "none";
-                        });
+                    //     // Hide all panels
+                    //     document.querySelectorAll(".char_class_panel").forEach(panel => {
+                    //         panel.style.display = "none";
+                    //     });
 
-                        // Show this panel
-                        c_panel.style.display = "block";
-                    });
+                    //     // Show this panel
+                    //     c_panel.style.display = "block";
+                    // });
+
+                    makeClassBaseline(class_name);
                 }
 
                 let lvlboxName = `class_${class_name}_lvl_${lvl}`;
@@ -179,17 +181,59 @@ async function loadCharClassCSV(){
     console.log(CHAR_CLASS_DATA);
 }
 
-function makeClassBaseline(className) {
-    let class_panel = document.getElementById(className);
-    if (!class_panel) {
-        let char_class_menu_panel = document.getElementById("char_class_display");
+function makeClassBaseline(class_name) {
+    let char_class_menu_panel = document.getElementById("char_class_display");
+    let class_btn_list = document.getElementById("class_tab_buttons");
+    
+    //make class menu tab button for class
+    let c_btn = document.createElement("button");
+    c_btn.className = "tab_button class_tab_button";
+    c_btn.innerHTML=class_name;
+    class_btn_list.appendChild(c_btn);
 
-        let c_panel = document.createElement("div");
-        c_panel.id = `char_class_${class_name}`; 
-        c_panel.className = "char_class_panel";
-        c_panel.style.display = "none"; 
-        char_class_menu_panel.appendChild(c_panel);
-    }
+    // make panel for class
+    let c_panel = document.createElement("div");
+    c_panel.id = `char_class_${class_name}`; 
+    c_panel.className = `char_class_panel`;
+    c_panel.style.display = "none"; 
+    char_class_menu_panel.appendChild(c_panel);
+
+    c_btn.addEventListener("click", () => {
+        // Remove active from all buttons
+        document.querySelectorAll(".class_tab_button").forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        // Activate this button
+        c_btn.classList.add("active");
+
+        // Hide all panels
+        document.querySelectorAll(".char_class_panel").forEach(panel => {
+            panel.style.display = "none";
+        });
+
+        // Show this panel
+        c_panel.style.display = "block";
+    });
+
+    // for i from 0 to 9
+    for (let i = 0; i < 10; i++) {
+        let lvlholder = document.createElement("div");
+        lvlholder.className = "class_lvl_holder";
+        c_panel.appendChild(lvlholder);
+
+        if (i>0) {
+            let lvlindicator = document.createElement("div");
+            lvlindicator.className = "class_lvl_indicator";
+            lvlindicator.innerHTML = `LVL ${String(i)}`;
+            lvlholder.appendChild(lvlindicator);
+        }
+
+        lvlbox = document.createElement("div");
+        let lvlboxName = `class_${class_name}_lvl_${String(i)}`;
+        lvlbox.id = lvlboxName;
+        lvlholder.appendChild(lvlbox);
+    }   
 }
 
 function parseClassCSV(text) {
