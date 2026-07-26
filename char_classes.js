@@ -21,7 +21,7 @@ async function loadCharClassCSV(){
 
         let _c = 0;
         for (const row of rows) {
-            var [class_name, archetype, lvl, s_name, s_description] = row;
+            let [class_name, archetype, lvl, s_name, s_description] = row;
             if (_c != 0) {
                 if (!CHAR_CLASS_DATA.core_classes.includes(class_name)) {
                     console.log("ADDING NEW CLASS DATA: ", class_name);
