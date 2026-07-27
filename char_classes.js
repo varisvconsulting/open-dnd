@@ -24,7 +24,7 @@ async function loadCharClassCSV(){
             let [class_name, archetype, lvl, s_name, s_description] = row;
             if (_c != 0) {
                 if (!CHAR_CLASS_DATA.core_classes.includes(class_name)) {
-                    if (class_name != "") {
+                    // if (class_name.trim() != "") {
                         console.log("ADDING NEW CLASS DATA: ", class_name);
                         CHAR_CLASS_DATA.core_classes.push(class_name);
                         CHAR_CLASS_DATA.class_data[class_name] = {
@@ -35,7 +35,7 @@ async function loadCharClassCSV(){
                         };
 
                         makeClassBaseline(class_name);
-                    }
+                    // }
                 }
 
                 let lvlboxName = `class_${class_name}_lvl_${lvl}`;
