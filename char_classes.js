@@ -24,47 +24,18 @@ async function loadCharClassCSV(){
             let [class_name, archetype, lvl, s_name, s_description] = row;
             if (_c != 0) {
                 if (!CHAR_CLASS_DATA.core_classes.includes(class_name)) {
-                    console.log("ADDING NEW CLASS DATA: ", class_name);
-                    CHAR_CLASS_DATA.core_classes.push(class_name);
-                    CHAR_CLASS_DATA.class_data[class_name] = {
-                        archetypes: {},
-                        archetype_abilities: {},
-                        abilities: [],
+                    if (class_name != "") {
+                        console.log("ADDING NEW CLASS DATA: ", class_name);
+                        CHAR_CLASS_DATA.core_classes.push(class_name);
+                        CHAR_CLASS_DATA.class_data[class_name] = {
+                            archetypes: {},
+                            archetype_abilities: {},
+                            abilities: [],
 
-                    };
+                        };
 
-                    // //make class menu tab button for class
-                    // let c_btn = document.createElement("button");
-                    // c_btn.className = "tab_button class_tab_button";
-                    // c_btn.innerHTML=class_name;
-                    // class_btn_list.appendChild(c_btn);
-
-                    // // make panel for class
-                    // let c_panel = document.createElement("div");
-                    // c_panel.id = `char_class_${class_name}`; 
-                    // c_panel.className = `char_class_panel`;
-                    // c_panel.style.display = "none"; 
-                    // char_class_menu_panel.appendChild(c_panel);
-
-                    // c_btn.addEventListener("click", () => {
-                    //     // Remove active from all buttons
-                    //     document.querySelectorAll(".class_tab_button").forEach(btn => {
-                    //         btn.classList.remove("active");
-                    //     });
-
-                    //     // Activate this button
-                    //     c_btn.classList.add("active");
-
-                    //     // Hide all panels
-                    //     document.querySelectorAll(".char_class_panel").forEach(panel => {
-                    //         panel.style.display = "none";
-                    //     });
-
-                    //     // Show this panel
-                    //     c_panel.style.display = "block";
-                    // });
-
-                    makeClassBaseline(class_name);
+                        makeClassBaseline(class_name);
+                    }
                 }
 
                 let lvlboxName = `class_${class_name}_lvl_${lvl}`;
