@@ -20,6 +20,7 @@ async function loadCharClassCSV(){
         let class_btn_list = document.getElementById("class_tab_buttons");
 
         let _c = 0;
+        console.log(rows)
         for (const row of rows) {
             let [class_name, archetype, lvl, s_name, s_description] = row;
             if (_c != 0) {
