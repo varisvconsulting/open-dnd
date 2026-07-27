@@ -26,6 +26,7 @@ async function loadCharClassCSV(){
                 if (!CHAR_CLASS_DATA.core_classes.includes(class_name)) {
                     // if (class_name.trim() != "") {
                         console.log("ADDING NEW CLASS DATA: ", class_name);
+                        console.log("data: ", row);
                         CHAR_CLASS_DATA.core_classes.push(class_name);
                         CHAR_CLASS_DATA.class_data[class_name] = {
                             archetypes: {},
