@@ -1,21 +1,21 @@
 [
-  {
-    name: "name",
-    types: ["humanoid"],
-    description: "
-    Description...  
-    ",
-    attribute_bonuses:[],
-    side: "medium",
-    speed: "20ft",
-    traits: [
-      {
-        name: "trait demo", 
-        description: "trait description..."
-      }
-    ],
-    proficiencies: ["2 skills of choice."],
-  },
+  # {
+  #   name: "name",
+  #   types: ["humanoid"],
+  #   description: "
+  #   Description...  
+  #   ",
+  #   attribute_bonuses:[],
+  #   side: "medium",
+  #   speed: "20ft",
+  #   traits: [
+  #     {
+  #       name: "trait demo", 
+  #       description: "trait description..."
+  #     }
+  #   ],
+  #   proficiencies: ["2 skills of choice."],
+  # },
   {
     name: "Human",
     types: ["humanoid"],

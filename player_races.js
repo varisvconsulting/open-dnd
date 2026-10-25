@@ -49,7 +49,11 @@ async function loadRacesYaml(path) {
     console.log(jsyaml.load(text));
     var rez = jsyaml.load(text);
     console.log(rez);
+    console.log(rez[0]);
     console.log(rez[0].name);
+    console.log(rez[0]["name"]);
+    console.log(rez[1]["traits"]);
+    console.log(rez[1]["traits"][0]["minitrait_list"]);
     return jsyaml.load(text);
 }
 
