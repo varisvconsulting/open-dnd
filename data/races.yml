@@ -343,33 +343,30 @@
     Description...  
     ",
     attribute_bonuses:["+2 to one of DEX/CON/INT/WIS"],
-    side: "medium",
-    speed: "20ft",
+    side: "small",
+    speed: "30ft",
     traits: [
       {
-        name: "Minor gnome traits", 
-        description: "Choose 2 minor gnome traits from the list below:",
+        name: "Hopeless", 
+        description: "Goblins have a -1 penalty to intimidation, persuasion, and insight checks."
+      },
+      {
+        name: "Minor goblin traits",
+        description: "Choose 2 minor goblin traits from the list below:",
         minitrait_list: [
-          "Aura": "Gain a +1d3 bonus to saves vs spells and magic.",
-          "Bound wisp": "You gain a companion wisp that has a float speed of 40ft, 1hp, and can reach up to 40ft from you. It can carry up to 5 pound heavy objects, can illuminate up to a 30ft sphere, and can grant you a +1 bonus to push, climb, and pull checks. It recorporates near you each morning when destroyed, dispelled, or somehow discorporated.",
-          "Changeling": "Appear slightly more as a dwarf, human, half-elf, or ginasi. You gain a +1d4 bonus to checks made to pass as a youth of that race. You gain an extra language and skill proficiency.",
-          "Discorporate": "While not damaged since your past turn and not shocked, sickened, or distracted, you can spend 2 rest dice as an action to discorporate, becoming ethereal and invisible for 1d4+1 rounds.",
-          "Dream tracing": "You may choose to meditate all rest, taking no rest dice action, regaining 2 rest dice at the end of the rest period.",
-          "Elder gnome descendant": "Every magical item that uses charges has an extra charge for use just by you that is restored every rest.",
-          "Jynx": "up to 5 times per long rest, you can reroll a d20 or a chance dice roll. This is separate from odd luck.",
-          "Lifegiver": "You can spend a rest dice to heal a creature for 1d4 + wisdom bonus health, or to cause a small plant or fruit to grow and mature.",
-          "Lucky": "You can use odd luck twice per rest.",
-          "Magical gift": "Learn a cantrip or lesser hex of choice. Use wisdom as the casting modifier.",
-          "Normalized": "You appear more humanlike. Gain resistance to psychic damage.",
-          "Partial nondetection": "Creatures have a -2 penalty to checks made to find or detect you, both magically and via mundane means.",
-          "Paternal gift-rune": "Choose a one-handed weapon, gain proficiency with it. It is bound to you and can be recalled as a bonus action. Your arm bears a mark of this. The bound weapon can be exchanged at a cost of 3 rest dice during a rest.",
-          "Small and swift": "Gain a +1 bonus to AC. Increase movement speed by 5ft.",
-          "Strange attunement": "You gain an extra ring slot.",
-          "Strange senses": "You can spend a rest dice as a full round action to feel the world around you, gaining knowledge of the following: How many creatures are within 500 ft, and how many of them are undead, aberrations, beasts, monstrocities, eldrich entities, or fiends. Gain a +1 bonus to perception checks."
+          "Beyond reason": "Once per long rest you can reroll any roll resulting in a natural 1.",
+          "Big eyes": "Gain 60 feet of darkvision, and a +1 bonus to one of perception, investigation, or insight.",
+          "Civilized": "Gain proficiency with a tool and skill of choice. Reduce your hopeless persuasion penalty to only -1.",
+          "Clawed": "Your unarmed attacks deal an extra 2 slashing damage.",
+          "Punching bag": "When receiving a critical hit, you can choose to reduce the damage by half and take 1d3 damage to fatigue.",
+          "Tag along": "You learn an extra 2 languages but speak them like a goblin would. Gain a +1 bonus to deception.",
+          "Tantrum": "You can spend 1 rest dice to gain a +1 bonus to attacks and damage, and -1 to all other rolls for 1d6 hours, or until you fall unconscious.",
+          "Twitchy": "Gain an extra reaction.",
+          "Underling": Your rest dice maximum is increased by 1. You can spend 2 rest dice once per rest to remove any penalties or disadvantages on a roll you are making.",
         ]
       }
     ],
-    proficiencies: ["1 skill of choice.", "1 language of choice"],
+    proficiencies: ["1 skill of choice.", "simple light weapons"],
   },
 ]
 

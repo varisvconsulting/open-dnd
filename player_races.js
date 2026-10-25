@@ -47,6 +47,9 @@ async function loadRacesYaml(path) {
     }
     const text = await response.text();
     console.log(jsyaml.load(text));
+    var rez = jsyaml.load(text);
+    console.log(rez);
+    console.log(rez[0].name);
     return jsyaml.load(text);
 }
 
