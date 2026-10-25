@@ -10,13 +10,130 @@
     speed: "20ft",
     traits: [
       {
-        name: "trai demo", 
+        name: "trait demo", 
         description: "trait description..."
       }
     ],
     proficiencies: ["2 skills of choice."],
 
 
-  }
+  },
+  {
+    name: "Human",
+    types: ["humanoid"],
+    description: "
+    Description...  
+    ",
+    attribute_bonuses:["+2 to an ability score of choice, or +1 to an ability score of choice"],
+    side: "medium",
+    speed: "30ft",
+    traits: [
+      {
+        name: "Extra Feat", 
+        description: "you gain an extra feat at lvl 1."
+      },
+      {
+        name: "Striving Nature",
+        description: "Once per rest, gain advantage on a d20 roll as a free action."
+      },
+    ],
+    proficiencies: ["2 skills of choice."],
+  },
+  {
+    name: "Dwarf",
+    types: ["humanoid"],
+    description: "
+    Description...  
+    ",
+    attribute_bonuses:["+2 to CON","+2 to one of STR/INT/WIS"],
+    side: "medium",
+    speed: "25ft",
+    traits: [
+      {
+        name: "Dwarven traits", 
+        description: "Choose 2 dwarven traits from the list below:",
+        minitrait_list: [
+          "drunkard":               "Gain a +1 bonus to strength. Receive a -2 penalty to strength every rest so long as you do not have a drink. You gain a +1 bonus to checks made to start a riot or fight.",
+          "Dwaven craftsmanship":   "Gain a +1d4 bonus to tool checks. Once per long rest, when creating an item, you can increase one of its properties by +1.",
+          "warven fortitude":       "Resistance to poison and advantage on all saves against being poisoned. You gain +1 health per level, including at lvl 1.",
+          "Dwarven sturdiness":     "So long as you have at least 1 rest dice, your armor provides you with an additional instance of block at the start of combat.",
+          "Dwarven table-manners":  "Gain a +1 bonus to persuasion, intimidation, and insight checks.",
+          "Dwarven weapon training":"Gain proficiency with 2 weapon groups of choice. They must be either melee or crossbows.",
+          "Heavy hauling":          "Reduce bulk by 1. Armor does not reduce your movement speed.",
+          "Ironbeard":              "You gain a +1 bonus to AC and block checks while wearing any armor.",
+          "Tunnel-sighted":         "Gain darkvision at a range of 30 feet. Gain a +1d4 bonus to checks made to find hidden passages and doors."
+        ]
+      }
+    ],
+    proficiencies: ["light armor","light shields","1 tool of choice","1 skill of choice"],
+  },  
+  {
+    name: "dragonborn",
+    types: ["humanoid","draconid"],
+    description: "
+    Description...  
+    ",
+    attribute_bonuses:["+2 to CON","-2 to CHA","+2 bonus to one of STR/DEX/INT/WIS"],
+    side: "large",
+    speed: "25ft",
+    traits: [
+      {
+        name: "Fire breath", 
+        description: "You can spend 1 rest dice to breathe fire in a (5ft + 5ft per con bonus) cone. Creatures struck must make a dexterity save, taking 1d6 fire damage per proficiency bonus, and 1d6 fire damage per 2 character levels on a failed save, and half damage on a successful one. The DC is equal to 8 + proficiency + CON bonus. After use, you must roll a 1d8 chance dice at the start of every next turn, regaining use of the ability on a 2 or lower"
+      },
+      {
+        name: "Large lizard",
+        description: "You gain a -1 penalty to AC and have your maximum block reduced by 1. You can wield large agile and light weapons as normal, and can wield large one-handed or versatile weapons that are neither light nor agile as normal two-handed weapons.|<i>(Large weapons have their damage dice size increased by 1 seize category.)</i>"  
+      },
+      {
+        name: "Minor dragonborn traits",
+        description: "pick 2 minor dragonborn traits from the list below:",
+        minitrait_list: [
+          "Scaled beast": "You gain damage reduction 1.",
+          "Dragon heart": "Your rest dice maximum is increased by 1.",
+          "Drake claws": "Your unarmed strikes deal slashing damage. Your unarmed damage dice are increased by 1 size category.",
+          "Wyvern shriek": "You can use fire-breath to deal sonic damage to all creatures within a radius equal to fire breaths range + 10ft. The save for it is changed to con instead.",
+          "Draconic aspect": "Choose a damage type: fire, cold, lightning, acid, or poison. Fire breaths damage is increased by 1d6, and half the damage dealt is changed to the chosen damage type. You gain resistance to the chosen damage type.",
+          "Serpent eyes": "Gain perfect darkvision, gain a +2 bonus to perception checks, and gain a +2 bonus on checks made to follow tracks and detect hidden creatures"
+        ]
+      }
+    ],
+    proficiencies: ["1 skill of choice from athletics, survival, nature, history, intimidation, or arcana.","1 weapon group of choice."]
+  },
+  {
+    name: "elf",
+    types: ["humanoid"],
+    description: "
+    Description...  
+    ",
+    attribute_bonuses:["+2 to DEX","+2 to one non-DEX ability score of choice or +1 to two non-DEX ability scores of choice"],
+    side: "medium",
+    speed: "35ft",
+    traits: [
+      {
+        name: "Tracing", 
+        description: "Your rest dice maximum is increased by 1."
+      },
+      {
+        name: "Elven traits",
+        description: "Pick one elven trait from the list below:",
+        minitrait_list: [
+          "Arcane intuition": "You learn 1 arcane cantrip of your choice. You use your highest mental ability score as the casting attribute. Upgrade the cantrip in on the following ways at 1st, 5th, and 9th level:[increase any associated duration by 1 turn; increase any associated DC by 1; gain a +1 bonus to any associated attacks; grant it a new upgrade from it's own list.]",
+          "Attuned form": "You can wear an extra ring and an extra medallion. You gain a +1 bonus to interact with magical items.",
+          "Eladrii descendant": "You gain a +1 bonus to strength. You possess horns and thus cannot wear helmets not made for you. You can spend 1 rest dice to gain a 1d6 bonus to a strength or dexterity check as a free action.",
+          "Fae luck": "You can reroll an ability check or chance dice twice per rest.",
+          "Elven marksmanship": "Your ranged attacks add your intelligence modifier to the amount of damage dealt.",
+          "Fae-blooded": "You gain a +2 bonus to charisma. You can use charisma for your nature checks.",
+          "Heavy soul": "You gain a +1d6 bonus to saves made against necromancy, transmutation, enchantment, and illusion type magical spells and abilities.",
+          "Moon-blooded": "You can see perfectly in the dark, and your rest dice maximum is increased by 1.",
+          "Noble-line": "Gain proficiency with two weapon groups of choice. Learn an extra language. Gain proficiency with a tool, game set, and instrument of choice. Gain a +1 bonus to persuasion. Learn a divination, illusion, or enchantment cantrip and use charisma as the casting modifier.",
+          "Outcast house descendant": "You gain proficiency with 2 skills of choice, 1 weapon group, and with 1 tool. Learn a minor hex and upgrade it once uppon reaching 2nd character level.",
+          "Shadow-lineage": "You gain proficiency with all agile weapons. You can use dexterity as the casting modifier in place of charisma or intelligence for cantrips, spells, scrolls, and wands. Gain 160 ft of darkvision.",
+          "Sun-blooded": "You gain +4 max HP. The DC of your spells and the block dc of your attacks is increased by 1. Healing you give and receive is increased by 1.",
+          "Tiefling": "You have small horns and cannot wear helmets not specifically made for you. Learn an occult cantrip of choice. Use your int or charisma as the casting modifier. Upgrade the cantrip in one of the following ways, twice:[Deal an extra 1d4 damage if it deals damage;Reduce casting time from an action to a bonus action.;Reduce casting time from bonus action to move action;Double range.]"
+      }
+    ],
+    proficiencies: ["2 skills of choice.","2 languages of choice"],
+  },
   # {},
 ]
