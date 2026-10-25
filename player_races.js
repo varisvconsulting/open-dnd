@@ -75,7 +75,7 @@ async function populatePlayerRaces() {
                 <div class="entry-property"><b>type</b>: ${getRacialTypesHtml(value["types"])}</div>
                 <div class="entry-property"><b>size</b>: ${value["size"]}</div>
                 <div class="entry-property"><b>attribute bonus</b>: ${getRacialAttributeHtml(value["attribute_bonuses"])}</div>
-                <div class="entry-property"><b>proficiencies</b>: ${value["proficiencies"]}</div>
+                <div class="entry-property"><b>proficiencies</b>: ${getRacialProficiencyHtml(value["proficiencies"])}</div>
                 <div class="entry-property"><b>speed</b>: ${value["speed"]}</div>
                 <br>
                 <div class="entry-property">${getPropertyHtml(player_races[key].traits)}</div>
@@ -129,7 +129,14 @@ function getRacialTypesHtml(types){
 function getRacialAttributeHtml(attributes){
     let html = "";
     for (const a of attributes) {
-        html += `<i class="racial_attribute_mod">${a}</i>`
+        html += `<i class="mini_property">${a}</i>`
+    }
+}
+
+function getRacialProficiencyHtml(prof){
+    let html = "";
+    for (const a of prof) {
+        html += `<i class="mini_property">${a}</i>`
     }
 }
 
