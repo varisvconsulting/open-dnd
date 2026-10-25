@@ -129,7 +129,7 @@ function getRacialTypesHtml(types){
 function getRacialAttributeHtml(attributes){
     let html = "";
     for (const a of attributes) {
-        html += `<span class="mini_property">${a}</span>`
+        html += `<span class="mini_property">${a}</span> `;
     }
     return html;
 }
@@ -137,7 +137,7 @@ function getRacialAttributeHtml(attributes){
 function getRacialProficiencyHtml(prof){
     let html = "";
     for (const a of prof) {
-        html += `<i class="mini_property">${a}</i>`
+        html += `<span class="mini_property">${a}</span> `;
     }
     return html;
 }
