@@ -52,8 +52,8 @@
         description: "Choose 2 dwarven traits from the list below:",
         minitrait_list: [
           "drunkard":               "Gain a +1 bonus to strength. Receive a -2 penalty to strength every rest so long as you do not have a drink. You gain a +1 bonus to checks made to start a riot or fight.",
-          "Dwaven craftsmanship":   "Gain a +1d4 bonus to tool checks. Once per long rest, when creating an item, you can increase one of its properties by +1.",
-          "warven fortitude":       "Resistance to poison and advantage on all saves against being poisoned. You gain +1 health per level, including at lvl 1.",
+          "Dwarven craftsmanship":   "Gain a +1d4 bonus to tool checks. Once per long rest, when creating an item, you can increase one of its properties by +1.",
+          "Dwarven fortitude":       "Resistance to poison and advantage on all saves against being poisoned. You gain +1 health per level, including at lvl 1.",
           "Dwarven sturdiness":     "So long as you have at least 1 rest dice, your armor provides you with an additional instance of block at the start of combat.",
           "Dwarven table-manners":  "Gain a +1 bonus to persuasion, intimidation, and insight checks.",
           "Dwarven weapon training":"Gain proficiency with 2 weapon groups of choice. They must be either melee or crossbows.",

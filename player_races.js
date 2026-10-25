@@ -46,7 +46,6 @@ async function loadRacesYaml(path) {
         throw new Error(`failed to load path ${path}: ${response.status}`);
     }
     const text = await response.text();
-    console.log(jsyaml.load(text));
     var rez = jsyaml.load(text);
 
     for (entry of rez){
