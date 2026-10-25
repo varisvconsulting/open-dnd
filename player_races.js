@@ -95,7 +95,7 @@ function getPropertyHtml(traits) {
     let html = `<div class="entry-property"><b>${trait.name}</b>: ${trait.description}`;
 
     // Check if this trait has a minitrait_list
-    if ((trait, "minitrait_list")) {
+    if (Object.hasOwn(trait, "minitrait_list")) {
     //   const minitraitList = trait.minitrait_list;
 
       // Example: loop through the minitraits
