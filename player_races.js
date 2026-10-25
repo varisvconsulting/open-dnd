@@ -103,7 +103,7 @@ function getPropertyHtml(traits) {
         // Each "mini" is an object with one key
         const [name, description] = Object.entries(mini)[0];
         
-        html += `<li><b>${name}</b>: ${description}</li>`;
+        html += `<li><i>${name}</i>: <i>${description}</i></li>`;
       }
 
       html += `</ul>`;
