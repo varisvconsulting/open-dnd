@@ -15,8 +15,6 @@
       }
     ],
     proficiencies: ["2 skills of choice."],
-
-
   },
   {
     name: "Human",
@@ -75,7 +73,7 @@
     ",
     attribute_bonuses:["+2 to CON","-2 to CHA","+2 bonus to one of STR/DEX/INT/WIS"],
     side: "large",
-    speed: "25ft",
+    speed: "30ft",
     traits: [
       {
         name: "Fire breath", 
@@ -102,7 +100,7 @@
   },
   {
     name: "elf",
-    types: ["humanoid"],
+    types: ["humanoid", "fae"],
     description: "
     Description...  
     ",
@@ -130,10 +128,250 @@
           "Outcast house descendant": "You gain proficiency with 2 skills of choice, 1 weapon group, and with 1 tool. Learn a minor hex and upgrade it once uppon reaching 2nd character level.",
           "Shadow-lineage": "You gain proficiency with all agile weapons. You can use dexterity as the casting modifier in place of charisma or intelligence for cantrips, spells, scrolls, and wands. Gain 160 ft of darkvision.",
           "Sun-blooded": "You gain +4 max HP. The DC of your spells and the block dc of your attacks is increased by 1. Healing you give and receive is increased by 1.",
-          "Tiefling": "You have small horns and cannot wear helmets not specifically made for you. Learn an occult cantrip of choice. Use your int or charisma as the casting modifier. Upgrade the cantrip in one of the following ways, twice:[Deal an extra 1d4 damage if it deals damage;Reduce casting time from an action to a bonus action.;Reduce casting time from bonus action to move action;Double range.]"
+          "Tiefling": "You have small horns and cannot wear helmets not specifically made for you. Learn an occult cantrip of choice. Use your int or charisma as the casting modifier. Upgrade the cantrip in one of the following ways, twice:[Deal an extra 1d4 damage if it deals damage;Reduce casting time from an action to a bonus action.;Reduce casting time from bonus action to move action;Double range.]",
+          ],
+      }
+      ],
+    proficiencies: ["2 skills of choice.","2 languages of choice."],
+  },
+  {
+    name: "Firbolg",
+    types: ["humanoid", "fae"],
+    description: "
+    Description...  
+    ",
+    attribute_bonuses:["+2 to STR", "+2 to CON", "+1 to one of DEX/INT/WIS/CHA"],
+    side: "large",
+    speed: "25ft",
+    traits: [
+      {
+        name: "Gentle giant", 
+        description: "You gain a -1 penalty to AC and 1 less base block from dex(min 0.) You can wield large one handed weapons as though they were two-handed medium weapons. <i>(large weapons have their damage dice size increased by 1 size category.)</i>"
+      },
+      {
+        name: "Firbolg traits",
+        description: "Pick on trait from the list below:",
+        minitrait_list: [
+          "Very hearty": "You gain +2 health per level, including at lvl 1.",
+          "Know other": "You can spend 1 rest dice to gain a +5 bonus to an insight checks.",
+          "Homebuilder": "Your ability scores gain a +2 bonus only during rests. You gain 1 free rest dice to use for rest activities every rest.",
+          "Lumbering giant": "Your rest dice maximum is increased by 1. You have 1 extra death save slot. You gain a +1 bonus to strength. Your movement speed is reduced by 5 feet."
+        ]
       }
     ],
-    proficiencies: ["2 skills of choice.","2 languages of choice"],
+    proficiencies: ["1 skill from survival, medicine, nature, handle-animal, or history.","1 tool of choice.","1 language of choice."],
   },
-  # {},
+  {
+    name: "Ginasi",
+    types: ["humanoid", "elemental"],
+    description: "
+    Description...  
+    ",
+    attribute_bonuses:["+1 to three ability scores of choice, in any combination."],
+    side: "medium",
+    speed: "30ft",
+    traits: [
+      {
+        name: "Elemental affinity", 
+        description: "Choose an energy type from the following: fire, cold, lightning, or sonic. You gain resistance to the damage type of choice. You can be healed by spells that heal elementals."
+      },
+      {
+        name: "Ginasi lineage",
+        description: "Choose a ginasi origin trait from the list below:",
+        minitrait_list: [
+          "Distant descendant": "Gain an extra feat at 1st level.",
+          "Enchanted birth": "At lvl 1, you have 1 elemental magic points(EMP.) At 1/3/5/7 character lvl you gain a new upgrade: At lvl 1 - Learn a cantrip and lvl 1 spell of choice. At lvl 3/5/7 you learn an extra lvl 1/2/3 spell, accordingly. Casting such these spells requires expending existing spell slots or spell points from classes, by spending 2 rest dice per level of the spell, or by spending 1 elemental magic point per level of the spell. You gain +1 max EMP at 2/4/6 lvl increase max EMP by 1. You regain up to 2 EMP per rest.",
+          "Native elemental descendant": "Gain immunity to your elemental affinity type. Gain 120ft of darkvision. Gain a +1 bonus to 3 saves of choice.",
+          "Pactborn": "You gain +1 rest dice.",
+          "Stoneborn": "Your max HP is increased by 5. You gain +1 block at the start of combat.",
+          "Temple guardian elemental": "your melee attacks deal an extra 1d4 damage of the type chosen in elemental affinity.",
+          "Emberborn": "You gain a number of elemental magic(EMP) points equal to your CHA bonus +2(min 1.) You regain all EMP during a long rest. You can spend 1 EMP in place of a bonus action or movement action. You cannot spend more than 1 per turn.",
+          "Dual-elemental": "Choose a second elemental affinity."
+        ]
+      }
+    ],
+    proficiencies: ["1 skill of choice.","1 language of choie."],
+  },
+  {
+    name: "Griphir",
+    types: ["humanoid", "beast"],
+    description: "
+    Description...  
+    ",
+    attribute_bonuses:["+1 to STR","+1 to DEX","+2 to one ability score of choice"],
+    side: "large",
+    speed: "30ft",
+    traits: [
+      {
+        name: "Large talons", 
+        description: "you can wield large light or agile weapons as though they were medium. You can treat heavy shields as light shields. You cannot wear boots, but you have two extra ring slots (Large weapons have their damage dice size increased by 1 seize category.)"
+      },
+      {
+        name: "Griphir host",
+        description: "Choose one Griphir origin trait from the list below:",
+        minitrait_list: [
+          "The griphon lord": "Your appearance is more that of a brown, wide-beaked griphon. You gain +1 max HP per level, and your rest dice maximum is increased by 1.",
+          "The crowfather": "Your appearance is more of that of a dark red-eyed crow. You gain a +1 bonus to arcana, investigation, and insight checks. You gain a +2 bonus on checks made to interact with magical items, runes, and arcane devices.",
+          "The morning-caller": "Your appearance is more that of a rooster or cockatrice-headed being with white or gray feathers. You can heal an extra 1d10 health and restore 1 extra rest dice every rest. Your unarmed attacks deal an extra 1d6 slashing damage.",
+          "The serpent-slayer": "Your appearance is more that of a hawk-beaked being. You can wield non-light and non-agile large one-handed or versatile weapons as though they were light one-handed weapons or two-handed weapons respectively. You gain +1 block at the start of combat.",
+          "The songbird": "Your appearance is softer and that of a songbird, and you are small enough to have your size changed to medium. You gain a +1 bonus to charisma and dexterity.",
+          "The Stargazer": "Your appearance is more owl-like. Gain 120ft of darkvision. You gain a +1 bonus to wisdom. You gain a +1 bonus to saves vs spells and magical effects."
+        ]
+      }
+    ],
+    proficiencies: ["1 skill of choice from either insight, investigation, or perception.","2 languages of choice."],
+  },
+  {
+    name: "Half-elf",
+    types: ["humanoid"],
+    description: "
+    Description...  
+    ",
+    attribute_bonuses:["+1 to INT","+2 to one ability score of choice or +1 to two ability scores of choice."],
+    side: "medium",
+    speed: "30ft",
+    traits: [
+      {
+        name: "Talented", 
+        description: "You gain a 1d3, 1d4, and 1d6 talent dice. You can add one talent dice to a dice roll you perform as a free action by expending it, adding its result to the roll. You regain all talent dice every rest."
+      }
+    ],
+    proficiencies: ["expertise with 1 skill of choice", "1 tool or instrument of choice", "1 language of choice"],
+
+  },
+  {
+    name: "Half-orc",
+    types: ["humanoid"],
+    description: "
+    Description...  
+    ",
+    attribute_bonuses:["+2 to STR", "+2 to one of DEX/CON/WIS"],
+    side: "medium",
+    speed: "30ft",
+    traits: [
+      {
+        name: "Minor Half-Orc traits", 
+        description: "Pick three from the list below:",
+        minitrait_list: [
+          "Civilized clan": "Gain proficiency with a skill and language of choice.",
+          "Dark sight": "You gain 120ft of darkvision.",
+          "Fearless": "You gain advantage on all saves made against fear and terror effects. If another effect would also grant you advantage against fear effect, roll an extra d20.",
+          "Fighting spirit": "Once per long rest, you can spend a rest dice when being reduced to 0 hp. If you choose to do so, you are instead reduced to 1 hp.",
+          "Half-orc fortitude": "Gain a +2 bonus to constitution saves and rolls.",
+          "Nocturnal": "Gain a +1 bonus to skill checks that you are proficient with during night or darkness.",
+          "Snout": "Gain the strong scent ability. You gain advantage on all perception and investigation checks involving smell.",
+          "Stubborn": "Once per rest, you can spend a rest dice when rolling any d20 check with disadvantage to reroll the lowest die.",
+          "Tough hide": "Reduce all incoming damage by 1.",
+          "Wandering clan": "You learn 2 languages and gain a +1d4 bonus to survival checks.",
+          "Ogblood descendant": "Gain sharp teeth and a bite attack, dealing 2d3 + CON damage. Gain a -1 penalty to mental saves vs spells, gain a +1 bonus to STR and CON.",
+          "Warrior clan": "Gain proficiency with a two-handed weapon, a light weapon, a reach weapon, a ranged weapon, a thrown weapon, and a shield of choice.",
+          "Runebreaker rage": "Once per rest, you may spend 1d3 rest dice to make an anger roll (<i>roll 1d20 + your CON bonus + your STR bonus + proficiency bonus</i>) in place of a STR/CON/WIS/CHA save vs a spell. If the rest dice roll exceeds available rest dice, lose all rest dice and take 2d4 damage to fatigue."
+        ]
+      }
+    ],
+    proficiencies: ["1 of athletics, survival, intimidation, religion, or deception.", "1 tool.", "1 weapon group of choice."],
+  },
+  {
+    name: "Kobold",
+    types: ["humanoid", "draconid", "beast"],
+    description: "
+    Description...  
+    ",
+    attribute_bonuses:[a +2 bonus to DEX and a +1 bonus to one other ability score of choice],
+    side: "small",
+    speed: "25ft",
+    traits: [
+      {
+        name: "Kobold frailty", 
+        description: "Gain 1 less max HP per level. This cannot reduce health gain below 1."
+      },
+      {
+        name: "Minor kobold traits",
+        description: "Choose 2 minor kobold traits from the list below:",
+        minitrait_list: [
+          "Kobold skittering": "Your movement speed is increased by 15.",
+          "Prehensile tail": "You can always hold on to one object with your tail. You can slap a creature with your tail or attack with a light one-handed weapon it is carrying as a bonus action. A simple slap deals 1 + dexterity bonus damage.",
+          "Scaled": "You add your constitution bonus to death saving throws. If a critical hit would reduce you to 0 health, it instead reduces you to 1.",
+          "Scavenger belly": "You cannot be sickened or poisoned, and you take 1 less poison and acid damage",
+          "Small and swift": "Gain a +1 bonus to AC, dexterity saves, and stealth checks.",
+          "Snake fangs": "You can spend a rest dice to bite a creature as an action. Make a melee attack, dealing 1d4 + your con bonus piercing damage and 1d4 + your con bonus poison damage. The target must make a constitution save vs a DC of 8 + your proficiency + your constitution bonus. On a failure, they become poisoned for 1 minute.",
+          "Thieving kobold": "You gain a +1d4 bonus to sleight of hand checks made to steal.;Nocturnal sight - You have 120 feet of darkvision."
+        ]
+      }
+    ],
+    proficiencies: ["2 skills of choice."],
+  },
+  {
+    name: "Gnome",
+    types: ["humanoid","fae"],
+    description: "
+    Description...  
+    ",
+    attribute_bonuses:[+2 to one of DEX/INT/WIS/CHA.],
+    side: "small",
+    speed: "25ft",
+    traits: [
+      {
+        name: "Minor gnome traits", 
+        description: "Choose 2 minor gnome traits from the list below:",
+        minitrait_list: [
+          "Aura": "Gain a +1d3 bonus to saves vs spells and magic.",
+          "Bound wisp": "You gain a companion wisp that has a float speed of 40ft, 1hp, and can reach up to 40ft from you. It can carry up to 5 pound heavy objects, can illuminate up to a 30ft sphere, and can grant you a +1 bonus to push, climb, and pull checks. It recorporates near you each morning when destroyed, dispelled, or somehow discorporated.",
+          "Changeling": "Appear slightly more as a dwarf, human, half-elf, or ginasi. You gain a +1d4 bonus to checks made to pass as a youth of that race. You gain an extra language and skill proficiency.",
+          "Discorporate": "While not damaged since your past turn and not shocked, sickened, or distracted, you can spend 2 rest dice as an action to discorporate, becoming ethereal and invisible for 1d4+1 rounds.",
+          "Dream tracing": "You may choose to meditate all rest, taking no rest dice action, regaining 2 rest dice at the end of the rest period.",
+          "Elder gnome descendant": "Every magical item that uses charges has an extra charge for use just by you that is restored every rest.",
+          "Jynx": "up to 5 times per long rest, you can reroll a d20 or a chance dice roll. This is separate from odd luck.",
+          "Lifegiver": "You can spend a rest dice to heal a creature for 1d4 + wisdom bonus health, or to cause a small plant or fruit to grow and mature.",
+          "Lucky": "You can use odd luck twice per rest.",
+          "Magical gift": "Learn a cantrip or lesser hex of choice. Use wisdom as the casting modifier.",
+          "Normalized": "You appear more humanlike. Gain resistance to psychic damage.",
+          "Partial nondetection": "Creatures have a -2 penalty to checks made to find or detect you, both magically and via mundane means.",
+          "Paternal gift-rune": "Choose a one-handed weapon, gain proficiency with it. It is bound to you and can be recalled as a bonus action. Your arm bears a mark of this. The bound weapon can be exchanged at a cost of 3 rest dice during a rest.",
+          "Small and swift": "Gain a +1 bonus to AC. Increase movement speed by 5ft.",
+          "Strange attunement": "You gain an extra ring slot.",
+          "Strange senses": "You can spend a rest dice as a full round action to feel the world around you, gaining knowledge of the following: How many creatures are within 500 ft, and how many of them are undead, aberrations, beasts, monstrocities, eldrich entities, or fiends. Gain a +1 bonus to perception checks."
+        ]
+      }
+    ],
+    proficiencies: ["1 skill of choice.", "1 language of choice"],
+  },
+  {
+    name: "Goblin",
+    types: ["humanoid"],
+    description: "
+    Description...  
+    ",
+    attribute_bonuses:["+2 to one of DEX/CON/INT/WIS"],
+    side: "medium",
+    speed: "20ft",
+    traits: [
+      {
+        name: "Minor gnome traits", 
+        description: "Choose 2 minor gnome traits from the list below:",
+        minitrait_list: [
+          "Aura": "Gain a +1d3 bonus to saves vs spells and magic.",
+          "Bound wisp": "You gain a companion wisp that has a float speed of 40ft, 1hp, and can reach up to 40ft from you. It can carry up to 5 pound heavy objects, can illuminate up to a 30ft sphere, and can grant you a +1 bonus to push, climb, and pull checks. It recorporates near you each morning when destroyed, dispelled, or somehow discorporated.",
+          "Changeling": "Appear slightly more as a dwarf, human, half-elf, or ginasi. You gain a +1d4 bonus to checks made to pass as a youth of that race. You gain an extra language and skill proficiency.",
+          "Discorporate": "While not damaged since your past turn and not shocked, sickened, or distracted, you can spend 2 rest dice as an action to discorporate, becoming ethereal and invisible for 1d4+1 rounds.",
+          "Dream tracing": "You may choose to meditate all rest, taking no rest dice action, regaining 2 rest dice at the end of the rest period.",
+          "Elder gnome descendant": "Every magical item that uses charges has an extra charge for use just by you that is restored every rest.",
+          "Jynx": "up to 5 times per long rest, you can reroll a d20 or a chance dice roll. This is separate from odd luck.",
+          "Lifegiver": "You can spend a rest dice to heal a creature for 1d4 + wisdom bonus health, or to cause a small plant or fruit to grow and mature.",
+          "Lucky": "You can use odd luck twice per rest.",
+          "Magical gift": "Learn a cantrip or lesser hex of choice. Use wisdom as the casting modifier.",
+          "Normalized": "You appear more humanlike. Gain resistance to psychic damage.",
+          "Partial nondetection": "Creatures have a -2 penalty to checks made to find or detect you, both magically and via mundane means.",
+          "Paternal gift-rune": "Choose a one-handed weapon, gain proficiency with it. It is bound to you and can be recalled as a bonus action. Your arm bears a mark of this. The bound weapon can be exchanged at a cost of 3 rest dice during a rest.",
+          "Small and swift": "Gain a +1 bonus to AC. Increase movement speed by 5ft.",
+          "Strange attunement": "You gain an extra ring slot.",
+          "Strange senses": "You can spend a rest dice as a full round action to feel the world around you, gaining knowledge of the following: How many creatures are within 500 ft, and how many of them are undead, aberrations, beasts, monstrocities, eldrich entities, or fiends. Gain a +1 bonus to perception checks."
+        ]
+      }
+    ],
+    proficiencies: ["1 skill of choice.", "1 language of choice"],
+  },
 ]
+
+
+
