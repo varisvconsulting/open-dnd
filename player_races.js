@@ -72,9 +72,9 @@ async function populatePlayerRaces() {
                 <h3>${escapeHtml(capitalize(item_data["name"]))} </h3>
             </div>
             <div class="race_desc_box">
-                <div class="entry-property"><b>type</b>: ${value["types"]}</div>
+                <div class="entry-property"><b>type</b>: ${getRacialTypesHtml(value["types"])}</div>
                 <div class="entry-property"><b>size</b>: ${value["size"]}</div>
-                <div class="entry-property"><b>attribute bonus</b>: ${value["attribute_bonus"]}</div>
+                <div class="entry-property"><b>attribute bonus</b>: ${getRacialAttributeHtml(value["attribute_bonuses"])}</div>
                 <div class="entry-property"><b>proficiencies</b>: ${value["proficiencies"]}</div>
                 <div class="entry-property"><b>speed</b>: ${value["speed"]}</div>
                 <br>
@@ -113,6 +113,24 @@ function getPropertyHtml(traits) {
   }
 
   return html;
+}
+
+function getRacialTypesHtml(types){
+    let html = "";
+    for (const t of types){
+        if (html != ""){
+            html += ", ";
+        }
+        html += t;
+    }
+    return html;
+}
+
+function getRacialAttributeHtml(attributes){
+    let html = "";
+    for (const a of attributes) {
+        html += `<i class="racial_attribute_mod">${a}</i>`
+    }
 }
 
 function PlayerRaceTraitNotationToHtml(text) {

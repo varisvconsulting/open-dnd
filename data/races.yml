@@ -6,7 +6,7 @@
   #   Description...  
   #   ",
   #   attribute_bonuses:[],
-  #   side: "medium",
+  #   size: "medium",
   #   speed: "20ft",
   #   traits: [
   #     {
@@ -23,7 +23,7 @@
     Description...  
     ",
     attribute_bonuses:["+2 to an ability score of choice, or +1 to an ability score of choice"],
-    side: "medium",
+    size: "medium",
     speed: "30ft",
     traits: [
       {
@@ -44,16 +44,16 @@
     Description...  
     ",
     attribute_bonuses:["+2 to CON","+2 to one of STR/INT/WIS"],
-    side: "medium",
+    size: "medium",
     speed: "25ft",
     traits: [
       {
         name: "Dwarven traits", 
         description: "Choose 2 dwarven traits from the list below:",
         minitrait_list: [
-          "drunkard":               "Gain a +1 bonus to strength. Receive a -2 penalty to strength every rest so long as you do not have a drink. You gain a +1 bonus to checks made to start a riot or fight.",
-          "Dwarven craftsmanship":   "Gain a +1d4 bonus to tool checks. Once per long rest, when creating an item, you can increase one of its properties by +1.",
-          "Dwarven fortitude":       "Resistance to poison and advantage on all saves against being poisoned. You gain +1 health per level, including at lvl 1.",
+          "Dwarven Drunkard":       "Gain a +1 bonus to strength. Receive a -2 penalty to strength every rest so long as you do not have a drink. You gain a +1 bonus to checks made to start a riot or fight.",
+          "Dwarven craftsmanship":  "Gain a +1d4 bonus to tool checks. Once per long rest, when creating an item, you can increase one of its properties by +1.",
+          "Dwarven fortitude":      "Resistance to poison and advantage on all saves against being poisoned. You gain +1 health per level, including at lvl 1.",
           "Dwarven sturdiness":     "So long as you have at least 1 rest dice, your armor provides you with an additional instance of block at the start of combat.",
           "Dwarven table-manners":  "Gain a +1 bonus to persuasion, intimidation, and insight checks.",
           "Dwarven weapon training":"Gain proficiency with 2 weapon groups of choice. They must be either melee or crossbows.",
@@ -66,13 +66,13 @@
     proficiencies: ["light armor","light shields","1 tool of choice","1 skill of choice"],
   },  
   {
-    name: "dragonborn",
+    name: "Dragonborn",
     types: ["humanoid","draconid"],
     description: "
     Description...  
     ",
     attribute_bonuses:["+2 to CON","-2 to CHA","+2 bonus to one of STR/DEX/INT/WIS"],
-    side: "large",
+    size: "large",
     speed: "30ft",
     traits: [
       {
@@ -105,7 +105,7 @@
     Description...  
     ",
     attribute_bonuses:["+2 to DEX","+2 to one non-DEX ability score of choice or +1 to two non-DEX ability scores of choice"],
-    side: "medium",
+    size: "medium",
     speed: "35ft",
     traits: [
       {
@@ -141,7 +141,7 @@
     Description...  
     ",
     attribute_bonuses:["+2 to STR", "+2 to CON", "+1 to one of DEX/INT/WIS/CHA"],
-    side: "large",
+    size: "large",
     speed: "25ft",
     traits: [
       {
@@ -168,7 +168,7 @@
     Description...  
     ",
     attribute_bonuses:["+1 to three ability scores of choice, in any combination."],
-    side: "medium",
+    size: "medium",
     speed: "30ft",
     traits: [
       {
@@ -199,7 +199,7 @@
     Description...  
     ",
     attribute_bonuses:["+1 to STR","+1 to DEX","+2 to one ability score of choice"],
-    side: "large",
+    size: "large",
     speed: "30ft",
     traits: [
       {
@@ -228,7 +228,7 @@
     Description...  
     ",
     attribute_bonuses:["+1 to INT","+2 to one ability score of choice or +1 to two ability scores of choice."],
-    side: "medium",
+    size: "medium",
     speed: "30ft",
     traits: [
       {
@@ -246,7 +246,7 @@
     Description...  
     ",
     attribute_bonuses:["+2 to STR", "+2 to one of DEX/CON/WIS"],
-    side: "medium",
+    size: "medium",
     speed: "30ft",
     traits: [
       {
@@ -278,7 +278,7 @@
     Description...  
     ",
     attribute_bonuses:[a +2 bonus to DEX and a +1 bonus to one other ability score of choice],
-    side: "small",
+    size: "small",
     speed: "25ft",
     traits: [
       {
@@ -308,7 +308,7 @@
     Description...  
     ",
     attribute_bonuses:[+2 to one of DEX/INT/WIS/CHA.],
-    side: "small",
+    size: "small",
     speed: "25ft",
     traits: [
       {
@@ -343,7 +343,7 @@
     Description...  
     ",
     attribute_bonuses:["+2 to one of DEX/CON/INT/WIS"],
-    side: "small",
+    size: "small",
     speed: "30ft",
     traits: [
       {
