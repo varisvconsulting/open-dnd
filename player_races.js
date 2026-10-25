@@ -61,29 +61,29 @@ async function populatePlayerRaces() {
     list.replaceChildren()
     // var keys = Object.keys(player_races);
     for (const [key, value] of Object.entries(player_races)) {
-        // var item_card = document.createElement('div');
-        // var item_data = value
-        // console.log("populating entry... " + key)
-        // // item_card.dataset.group = magic_class;
-        // item_card.classList = ["spell-card"];
+        var item_card = document.createElement('div');
+        var item_data = value
+        console.log("populating entry... " + key)
+        item_card.dataset.group = magic_class;
+        item_card.classList = ["spell-card"];
 
-        // item_card.innerHTML = `
-        //     <div class="player-race-header">
-        //         <h3>${escapeHtml(capitalize(item_data["name"]))} </h3>
-        //     </div>
-        //     <div class="race_desc_box">
-        //         <div class="entry-property"><b>type</b>: ${value["types"]}</div>
-        //         <div class="entry-property"><b>size</b>: ${value["size"]}</div>
-        //         <div class="entry-property"><b>attribute bonus</b>: ${value["attribute_bonus"]}</div>
-        //         <div class="entry-property"><b>proficiencies</b>: ${value["proficiencies"]}</div>
-        //         <div class="entry-property"><b>speed</b>: ${value["speed"]}</div>
-        //         <br>
-        //         <div class="entry-property">${PlayerRaceTraitNotationToHtml(value["traits"])}</div>
-        //         <p>${value["description"]}<p>
+        item_card.innerHTML = `
+            <div class="player-race-header">
+                <h3>${escapeHtml(capitalize(item_data["name"]))} </h3>
+            </div>
+            <div class="race_desc_box">
+                <div class="entry-property"><b>type</b>: ${value["types"]}</div>
+                <div class="entry-property"><b>size</b>: ${value["size"]}</div>
+                <div class="entry-property"><b>attribute bonus</b>: ${value["attribute_bonus"]}</div>
+                <div class="entry-property"><b>proficiencies</b>: ${value["proficiencies"]}</div>
+                <div class="entry-property"><b>speed</b>: ${value["speed"]}</div>
+                <br>
+                <div class="entry-property">${getPropertyHtml(player_races[key].traits)}</div>
+                <p>${value["description"]}<p>
                 
-        //     </div>
-        //     `;
-        // list.appendChild(item_card);
+            </div>
+            `;
+        list.appendChild(item_card);
         getPropertyHtml(player_races[key].traits);
     }
 }
@@ -98,10 +98,13 @@ function getPropertyHtml(traits) {
     if (Object.hasOwn(trait, "minitrait_list")) {
         const minitraits = trait.minitrait_list;
 
+        html += "<ul>";
         // Loop through it
         for (const [name, description] of Object.entries(minitraits)) {
+            html += `<li><i>${name}</i> - ${PlayerRaceTraitNotationToHtml(description)}</li>`;
             console.log(name, description);
         }
+        html += "</ul>";
     }
 
     html += "</div>";
