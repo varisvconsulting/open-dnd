@@ -262,6 +262,7 @@ h4, li {
   background-color: #5c4033;
   border: none;
   border-radius: 8px;
+  padding: 4px;
 }
 
 .spell_tab_large_list {
