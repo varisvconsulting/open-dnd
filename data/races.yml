@@ -1,0 +1,22 @@
+[
+  {
+    name: "name",
+    types: ["humanoid"],
+    description: "
+    Description...  
+    ",
+    attribute_bonuses:[],
+    side: "medium",
+    speed: "20ft",
+    traits: [
+      {
+        name: "trai demo", 
+        description: "trait description..."
+      }
+    ],
+    proficiencies: ["2 skills of choice."],
+
+
+  }
+  # {},
+]

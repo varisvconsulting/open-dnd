@@ -50,7 +50,7 @@ h4, li {
 }
 
 .class_tab_button.active{
-  color: gold !important;
+    color: gold !important;
 }
 
 .class_lvl_holder {

@@ -1,5 +1,7 @@
 var player_races = {};
 
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+
 async function loadPlayerRacesCSV() {
     const PRCsvUrl= `https://docs.google.com/spreadsheets/d/1FvMqrnt5MnwbhKFfjVkT7HFT3fC8yKnyvrQnPtjxrPQ/export?format=csv&gid=1936715235`;
     // const csvUrl = 'https://corsproxy.io/?' + encodeURIComponent(
@@ -38,6 +40,16 @@ async function loadPlayerRacesCSV() {
         list.textContent = 'Sorry—could not load data.';
         console.log(e)
     }
+}
+
+async function loadRacesYaml(path) {
+    const response = await fetch(path);
+    if (!response.ok) {
+        throw new Error(`failed to load path ${path}: ${response.status}`);
+    }
+    const text = await response.text();
+    console.log(jsyaml.load(text));
+    return jsyaml.load(text);
 }
 
 async function populatePlayerRaces() {
