@@ -64,8 +64,8 @@ async function populatePlayerRaces() {
         var item_card = document.createElement('div');
         var item_data = value
         console.log("populating entry... " + key)
-        item_card.dataset.group = magic_class;
-        item_card.classList = ["spell-card"];
+        // item_card.dataset.group = magic_class;
+        // item_card.classList = ["spell-card"];
 
         item_card.innerHTML = `
             <div class="player-race-header">
