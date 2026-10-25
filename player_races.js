@@ -48,12 +48,12 @@ async function loadRacesYaml(path) {
     const text = await response.text();
     console.log(jsyaml.load(text));
     var rez = jsyaml.load(text);
-    console.log(rez);
-    console.log(rez[0]);
-    console.log(rez[0].name);
-    console.log(rez[0]["name"]);
-    console.log(rez[1]["traits"]);
-    console.log(rez[1]["traits"][0]["minitrait_list"]);
+
+    for (entry of rez){
+        console.log(entry);
+        let name = entry.name;
+        player_races[name]=entry;
+    }
     return jsyaml.load(text);
 }
 
@@ -62,30 +62,42 @@ async function populatePlayerRaces() {
     list.replaceChildren()
     // var keys = Object.keys(player_races);
     for (const [key, value] of Object.entries(player_races)) {
-        var item_card = document.createElement('div');
-        var item_data = value
-        console.log("populating entry... " + key)
-        // item_card.dataset.group = magic_class;
-        item_card.classList = ["spell-card"];
+        // var item_card = document.createElement('div');
+        // var item_data = value
+        // console.log("populating entry... " + key)
+        // // item_card.dataset.group = magic_class;
+        // item_card.classList = ["spell-card"];
 
-        item_card.innerHTML = `
-            <div class="player-race-header">
-                <h3>${escapeHtml(capitalize(item_data["name"]))} </h3>
-            </div>
-            <div class="race_desc_box">
-                <div class="entry-property"><b>type</b>: ${value["types"]}</div>
-                <div class="entry-property"><b>size</b>: ${value["size"]}</div>
-                <div class="entry-property"><b>attribute bonus</b>: ${value["attribute_bonus"]}</div>
-                <div class="entry-property"><b>proficiencies</b>: ${value["proficiencies"]}</div>
-                <div class="entry-property"><b>speed</b>: ${value["speed"]}</div>
-                <br>
-                <div class="entry-property">${PlayerRaceTraitNotationToHtml(value["traits"])}</div>
-                <p>${value["description"]}<p>
+        // item_card.innerHTML = `
+        //     <div class="player-race-header">
+        //         <h3>${escapeHtml(capitalize(item_data["name"]))} </h3>
+        //     </div>
+        //     <div class="race_desc_box">
+        //         <div class="entry-property"><b>type</b>: ${value["types"]}</div>
+        //         <div class="entry-property"><b>size</b>: ${value["size"]}</div>
+        //         <div class="entry-property"><b>attribute bonus</b>: ${value["attribute_bonus"]}</div>
+        //         <div class="entry-property"><b>proficiencies</b>: ${value["proficiencies"]}</div>
+        //         <div class="entry-property"><b>speed</b>: ${value["speed"]}</div>
+        //         <br>
+        //         <div class="entry-property">${PlayerRaceTraitNotationToHtml(value["traits"])}</div>
+        //         <p>${value["description"]}<p>
                 
-            </div>
-            `;
-        list.appendChild(item_card);
+        //     </div>
+        //     `;
+        // list.appendChild(item_card);
+        getPropertyHtml(player_races[key].traits);
     }
+}
+
+function getPropertyHtml(traits) {
+    var text = ""
+    for (const trait of traits){
+        var t2 = `<div class="entry-property"><b>${trait.name}</b>: ${trait.description}`;
+        var [mtrait_names, mtrait_desc] = Object.entries(minitrait_list);
+        console.log(`${mtrait_names} \n ${mtrait_desc}`);
+            
+    }
+    t2 = t2 + '</div>';
 }
 
 
@@ -114,6 +126,6 @@ function PlayerRaceTraitNotationToHtml(text) {
 
 async function initialRaceSetup() {
     var zero = await loadRacesYaml('data/races.yml');
-    var a = await loadPlayerRacesCSV();
+    // var a = await loadPlayerRacesCSV();
     var b = await populatePlayerRaces();
 }
