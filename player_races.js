@@ -100,10 +100,10 @@ function getPropertyHtml(traits) {
 
         html += "<ul>";
         // Loop through it
-        for (const minitrait of Object.entries(minitraits)) {
-            const [name, desc] = Object.entries(minitrait)
-            html += `<li><i>${name}</i> - ${PlayerRaceTraitNotationToHtml(desc)}</li>`;
-            console.log(name, desc);
+        for (const [name, description] of Object.entries(minitraits)) {
+            
+            html += `<li><i>${name}</i> - ${PlayerRaceTraitNotationToHtml(description)}</li>`;
+            console.log(name, description);
         }
         html += "</ul>";
     }
