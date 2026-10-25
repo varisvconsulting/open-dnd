@@ -108,6 +108,7 @@ function PlayerRaceTraitNotationToHtml(text) {
 }
 
 async function initialRaceSetup() {
+    var zero = await loadRacesYaml('data/races.yml');
     var a = await loadPlayerRacesCSV();
     var b = await populatePlayerRaces();
 }
