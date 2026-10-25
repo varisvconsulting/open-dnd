@@ -99,7 +99,7 @@ function getPropertyHtml(traits) {
     //   const minitraitList = trait.minitrait_list;
 
       // Example: loop through the minitraits
-      for (const [name, desc] of trait.minitrait_list) {
+      for (const [name, desc] of trait["minitrait_list"]) {
         console.log(`${String(name)}\n${String(desc)}`);
         // You can also add them to the HTML here if you want
         html += `<br><i>${name}</i>: ${desc}`;
