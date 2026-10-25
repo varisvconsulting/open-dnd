@@ -89,31 +89,30 @@ async function populatePlayerRaces() {
 }
 
 function getPropertyHtml(traits) {
-  let text = "";
+  let html = "";
 
   for (const trait of traits) {
-    let html = `<div class="entry-property"><b>${trait.name}</b>: ${trait.description}`;
+    html += `<div class="entry-property">
+               <b>${trait.name}</b>: ${trait.description}`;
 
-    // Check if this trait has a minitrait_list
-    if (Object.hasOwn(trait, "minitrait_list")) {
-        const minitraits = trait.minitrait_list;
+    // Check if minitrait_list exists and is an array
+    if (Array.isArray(trait.minitrait_list)) {
+      html += `<ul class="minitrait-list">`;
 
-        html += "<ul>";
-        // Loop through it
-        for (const [name, description] of Object.entries(minitraits)) {
-            
-            html += `<li><i>${name}</i> - ${PlayerRaceTraitNotationToHtml(description)}</li>`;
-            console.log(name, description);
-        }
-        html += "</ul>";
+      for (const mini of trait.minitrait_list) {
+        // Each "mini" is an object with one key
+        const [name, description] = Object.entries(mini)[0];
+        
+        html += `<li><b>${name}</b>: ${description}</li>`;
+      }
+
+      html += `</ul>`;
     }
 
-    html += "</div>";
-    text += html;
-    console.log(text);
+    html += `</div>`;
   }
 
-  return text;
+  return html;
 }
 
 function PlayerRaceTraitNotationToHtml(text) {
