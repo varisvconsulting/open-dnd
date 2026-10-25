@@ -103,7 +103,7 @@ function getPropertyHtml(traits) {
         // Each "mini" is an object with one key
         const [name, description] = Object.entries(mini)[0];
         
-        html += `<li><i>${name}</i> - <i>${PlayerRaceTraitNotationToHtml(description)}</i></li>`;
+        html += `<li><span>${name}</i> - <i>${PlayerRaceTraitNotationToHtml(description)}</span></li>`;
       }
 
       html += `</ul>`;
@@ -129,7 +129,7 @@ function getRacialTypesHtml(types){
 function getRacialAttributeHtml(attributes){
     let html = "";
     for (const a of attributes) {
-        html += `<i class="mini_property">${a}</i>`
+        html += `<span class="mini_property">${a}</span>`
     }
     return html;
 }
