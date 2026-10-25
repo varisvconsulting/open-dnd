@@ -89,16 +89,29 @@ async function populatePlayerRaces() {
 }
 
 function getPropertyHtml(traits) {
-    var text = ""
-    for (const trait of traits){
-        var t2 = `<div class="entry-property"><b>${trait.name}</b>: ${trait.description}`;
-        var [mtrait_names, mtrait_desc] = Object.entries(minitrait_list);
-        console.log(`${mtrait_names} \n ${mtrait_desc}`);
-            
-    }
-    t2 = t2 + '</div>';
-}
+  let text = "";
 
+  for (const trait of traits) {
+    let html = `<div class="entry-property"><b>${trait.name}</b>: ${trait.description}`;
+
+    // Check if this trait has a minitrait_list
+    if (Object.hasOwn(trait, "minitrait_list")) {
+      const minitraitList = trait.minitrait_list;
+
+      // Example: loop through the minitraits
+      for (const [name, desc] of Object.entries(minitraitList)) {
+        console.log(`${name}\n${desc}`);
+        // You can also add them to the HTML here if you want
+        // html += `<br><i>${name}</i>: ${desc}`;
+      }
+    }
+
+    html += "</div>";
+    text += html;
+  }
+
+  return text;
+}
 
 function PlayerRaceTraitNotationToHtml(text) {
     var output = "";
