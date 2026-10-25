@@ -258,6 +258,12 @@ h4, li {
     border-radius: 8px
 }
 
+.mini_property {
+  background-color: #5c4033;
+  border: none;
+  border-radius: 8px;
+}
+
 .spell_tab_large_list {
     width: 100%;
     display: grid;
