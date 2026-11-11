@@ -1,0 +1,828 @@
+"feats": 
+  "Arcane ritual circle":
+    "requirements":
+      - "ability to cast arcane or occult spells"
+    "description": >-
+      You may spend 10 minutes to form an arcane circle using chalk, salt, or fine sand, allowing you to cast a spell without paying its cost.
+      The spell must not directly deal damage to other creatures, must be below the maximum level of spell you can cast, and must not involve
+      material components worth more than 1 gold.
+
+      When doing so, you must make a DC 13 + spell lvl + casting lvl arcana check. On a failure, the spell fizzles.
+
+  "Armor proficiency":
+    "requirements": 
+      - "12/13/14 strength"
+    "description": >-
+      Gain proficiency with light armor if you have 12 strength at least.
+      If already proficient with light armor, gain proficiency with medium armor instead if you have 13 strength at least.
+      If already proficient with medium armor, gain proficiency with heavy armor instead if you have 14 strength at least.
+      If already proficient with heavy armor, gain a +2 bonus to block checks instead. 
+      
+      Can be taken multiple times, each time upgrading proficiency further, or granting a block bonus. 
+      Gaining armor proficiency from class features may alter the feat, upgrading it 1 step further.
+
+  "Blood-memories":
+    "requirements":
+      - "half-elf or half-orc"
+    "description": >-
+      If you are a half-elf, gain proficiency with arcana, light blades and martial light bows.
+      If you are a half-orc, gain proficiency with religion, martial axes and medium martial blades.
+      
+      Gain a 1d8 ancestor dice. You may add the dice to a d20 or damage roll you are proficient with, 
+      but doing so reduces their size by 1 dice size category. (1d8 > 1d6 > 1d4 > 1d3 > 1d2 > 1 > 0)
+      
+      The ancestor dice are restored by 2d4 size categories every long rest, up to a max of 1d8.
+
+  "Bowmanship":
+    "requirements": 
+      - "14/18/22 dexterity."
+      - "proficiency with a bow."
+    "description": >-
+      You gain a +2 bonus to bow attacks made against targets within the second range increment.
+      Your critical hits with bows deal an additional 1d4 damage.
+
+      All bows have the steady shot maneuver:
+        "Aimed shot - Attack with inaccurate > If heft > dmg +1d4." 
+
+      This feat can be taken 2 more times, increasing the critical hit bonus and aimed shot bonus damage by 1 dice size category, but at a +4 dexterity requirement.
+
+  "Child of Og":
+    "requirements":
+      - "half-orc or orc"
+    "description": >-
+      Gain a +2 bonus to intimidation checks, block checks, and checks made to rally, inspire, or command troops.
+      Reduce the unwieldy property of weapons you wield by 1(removes unwieldy, and treats "unwieldy+" as "unwieldy", etc.)
+
+  "Combat experience":
+    "requirements": 
+      - "none"
+    "description": "All damage you deal is increased by 1 and is increased by 1 per archetype or class that you possess. "
+
+  "Craftsmanship":
+    "requirements": 
+      - "ability to create or procure items during rest"
+    "description": >-
+      Once per long rest when creating or procuring an item as part of a class ability, spell, or similar effect, you can create 1 extra.
+      Once per long rest when creating an item with a cost (rest dice, alchemy points, etc.) reduce the cost by 1.
+
+  "Critical healing":
+    "requirements": 
+      - "Healer archetype(cleric)"
+    "description": >-
+      The critical heal chance dice is reduce by 1 size category (1d10 -> 1d8 -> 1d6 -> 1d4) and you heal an extra 1d6 health on critical heals.
+
+  "Dark enlightenment":
+    "requirements":
+      - "elf, half-elf, or shadowling"
+    "description": >-
+      You may choose to automatically fail 1 death save in order to restore 1 rest dice.
+      You cannot descend into terror (may still be shaken and afraid.)
+
+  "Deadeye shot":
+    "requirements":
+      - "proficiency with crossbows"
+    "description": >-
+      You can spend 1 rest dice to make a "deadeye shot" maneuver with a crossbow when attacking:
+
+        Deadeye shot - Attack with advantage. The block check has disadvantage. Any unblocked hit is immediately a critical strike.
+
+  "Dragons breath mastery":
+    "requirements":
+      - "draconid"
+    "description": >-
+      Your dragons breath ability has its range increased by 5 ft, its damage increased by 1d6, it's DC increased by 1, 
+      and the recharge dice reduced by 1 size category (1d8 -> 1d6  -> 1d4 -> 1d3)
+
+  "Dwarven artifice":
+    "requires":
+      - "dwarf"
+    "description": >-
+      When crafting items, you may increase on property(on value in its properties or effect) by 1.
+
+      When enchanting a weapon, you may improve one maneuver on the weapon (improve "attack-" to "attack",
+      "block+" to "block"(regular) to "block-", removing "unwieldy" or "inaccurate", or reducing "unwieldy+"
+      and "very inaccurate" to their weaker counterparts.)
+
+  "Dwarven veteran":
+    "requirements":
+      - "dwarf"
+    "description": >-
+      Choose 1 melee or crossbow weapon group of choice. Expand their critical range by 1.
+      Reduce bulk from armor by 1.
+
+  "Improved sneak attack":
+    "requirements":
+      - "rogue"
+    "description": >-
+      Your sneak attack dice damage is increased by 1 dice size category.
+      Can be taken an additional time to increase it by 1 dice.
+
+  "Dual wielding":
+    "requirements": 
+      - "13/15/17 dexterity"
+    "description": >-
+      +1 dexterity or strength.
+
+      This feat may be taken up to 3 times, at an increased dexterity requirement, allowing one of the following upgrades per feat pick:
+      * Trained hand:  Off-hand weapons apply your attribute to the damage roll(by default, offhand weapons do only apply the attribute bonus to hit, not to damage)
+      * Quick strikes: You may treat all light weapons as swift (may make an attack as a bonus action, even when not otherwise attacking.)
+      * Agile defense: while dual wielding two light or agile weapons, you gain a +1 bonus to AC and block checks.
+      * Hasty reactions: While dual wielding two light or agile weapons, you gain an extra reaction(+1 reactions per round.)
+      * Swift combat: While dual wielding two light weapons, you gain an extra attack (+1 attack when performing attack action. The extra attack must be made with the off-hand weapon.)
+
+  "Elven power":
+    "requirements": 
+      - "elf"
+    "description": >-
+      Your rest dice maximum is increased by 1.
+      +1 to a mental ability score.
+
+  "Expertise":
+    "requirements": 
+      - "11 intelligence"
+    "description": >-
+      Upgrade a skill or tool proficiency from proficient to expert.
+      Gain a +1 bonus to it.
+
+  "Extra cantrip upgrade":
+    "requirements": 
+      - "upgradeable cantrip"
+    "description": >-
+      Gain 1 extra upgrade to a cantrip you have learned to cast. 
+      +1 to an attribute of choice.
+
+  "Extreme critical":
+    "requirements": 
+      - "18 strength or 18 dexterity"
+    "description": >-
+      When landing a weapon attack but not critically striking, you may spend a bonus action to roll a 1d20 chance dice. On a 20, the attack crits instead.
+
+  "Fae luck":
+    "requirements": 
+      - "elf, half-elf, gnome, shadowling, or firbolg"
+    "description": >-
+      You can re-roll a skill check, ability score check, death save, or chance dice up to twice per long rest. 
+      This is on top of any other traits that let you do so.
+
+  "Firbolg spiritsong":
+    "requirements": 
+      - "firbolg"
+    "description": >-
+      Choose one upgrade from the list below:
+      * Learn a non-necromancy, non-arcane cantrip that does not deal damage directly. 
+      * Learn a non-necromancy, non-arcane lvl 1 spell that does not deal damage directly. You may spend 1 rest dice to cast it.
+      
+      Use your performance or insight bonus as the casting attribute modifier for either (DC = 8 + prof + modifier.)
+
+  "Flight feathers":
+    "requirements":
+      - "griphir"
+    "description": >-
+      Your arms have greater flight feathers, allowing you to make up to 40ft leaps as a move or bonus action, and granting you a glide speed of 60ft. 
+      After performing such a leap, you gain 1 extra attack until the end of your turn or until your finish another action.
+      Reduce fall-damage taken by 3d6.
+
+      Wearing armor suits or coats negates these benefits. 
+
+  "Infernal magic":
+    "requirements":
+      - "elf, with tiefling elven trait"
+      - "ability to cast spells"
+      - "lvl 4"
+    "description": >-
+      Learn a lvl 1, lvl 2, and lvl 3 occult spell. You may spend 1d4 HP, 1 rest dice, or 1 point of damage to fatigue per spell level
+      to cast them. Use your highest attribute as the casting modifier.
+
+      Also, upgrade the cantrip upgraded by your tiefling trait an additional time.
+
+  "Forbidden magic":
+    "requirements": 
+      - "ability to cast non-occult spells."
+      - "12 intelligence."
+    "description": >-
+      Learn an occult spell of any spell level that you can cast. 
+      You can spend any spell slot or an amount of rest dice equal to the spells level to cast it. 
+      You can use intelligence, or any other casting attribute you have(from other spell lists you have) as the casting attribute for it.
+
+  "Great determination":
+    "requirements": 
+      - "human"
+      - "lvl 3"
+    "description": >-
+      You can use determination two extra times per rest. 
+      +1 to an ability score of choice.
+
+  "Grit":
+    "requirements": 
+      - "16 constitution"
+    "description": >-
+      You death save slot number is increased by 1(from 3 to 4, by default.) 
+      You gain a +2 bonus to death saves. 
+      Your max HP is increased by 4.
+      You do not fall unconscious when reduced to 0 hp.
+
+  "Grudgebearer":
+    "requirements":
+      - "goblin or dwarf"
+    "description": >-
+      You can hold one very strong grudge at a time against a creature that outperforms, humiliates, or harms you, 
+      gaining a +1d4 bonus to checks, saves, and attacks made against it, to destroy its creations, or to trick it. 
+      A grudge lasts until a new one is made, and only one such grudge per rest can be made. 
+
+  "Guts of steel":
+    "requirements": 
+      - "18 constitution"
+    "description": >-
+      When taking fatigue damage, reduce the damage taken by 1. If this would reduce it to 0, make a DC 16 constitution save. 
+      On a success, you take no damage to fatigue instead.
+
+      gain resistance to poison damage.
+      +6 max HP.
+
+  "Hand to hand combat":
+    "requirements": 
+      - "none"
+    "description": >-
+      While not wielding any weapons or shields, gain a +1 bonus to AC.
+      Your unarmed attacks deal an extra 1d4 bludgeoning damage.
+      +1 to strength, constitution, or dexterity.
+
+  "Rite magic":
+    "requirements":
+      - "coven outcast, cult initiate, curse-bearer, disciple, exile, follower, heretic, madman, or mystic pupil background."
+    "description": >-
+      -1 max HP.
+
+      Gain one of the following upgrades:
+      
+      * Rite spell - Learn a lvl 2 oath spell. You can cast it by spending 2 rest dice. The spell uses wisdom as the casting modifier 
+        and has a 1d3 HP material component.
+      
+      * Rite slot - You regain a rite slot every rest, which can be used in place of other spell slots(if applicable) and is treated as
+        a lvl 3 spell slot. It is treated as a lvl 4 spell slot if used for an oath spell. 
+        It can spent to grant a character within 20ft a +1d8 bonus to a save as a reaction. 
+        
+      * Minor rites - Learn 2 oath or mystic cantrips. They use wisdom as the casting modifier. They cannot be upgraded.
+
+      * Rite dice - You regain a 1d6 rite dice. It may be spend it during a rest, rolling it and granting it as a temporary bonus to a 
+        skill you are proficient with, or to modify a spell you know and increase one of its property or effect values by the result 
+        (if range or area, 5ft per bonus.) The bonus lasts for 1 day.
+
+  "Herbology":
+    "requirements":
+      - "apprentice alchemist, brewers apprentice, hermit, physician, or woodsman background, or ranger or alchemist"
+    "description": >-
+      During a rest, if in a location where you can gather herbs, and if in possession of a set of herbalists, alchemists, or brewers tools, 
+      you may spend 1 rest dice and make a nature check. Per 4 points above 13 in the result, you can create 1 herbal potion. 
+
+      Pick a herbology potion recipe upgrade from the list below when picking the feat:
+      * herbal healing potion - When consumed, heal 1d4 HP and gain regeneration 1 for 3 rounds.
+      * herbal endurance potion - When consumed, gain resistance to cold and hot environments, and environmental effects and saves for 1 hour. 
+      * herbal antidote potion - When consumed, remake saves vs ongoing mundane diseases and poisons, and gain a +1d3 bonus to those saves. 
+      Reduce duration of ongoing poisons by 2d6 rounds.
+      * herbal vigor potion - When consumed, reduce duration of ongoing shocked, dazed, disoriented, sickened, poisoned, weakened, confused 
+      and hobbled conditions by 1d4 rounds. 
+
+  "Rune circle":
+    "requirements": 
+      - "Ability to cast oath or occult spells."
+      - "lvl 5"
+    "description": >-
+      You may spend 10 minutes creating a runed circle from salt/silver dust/done dust/blood, allowing a DC 14 + spell level religion check, allowing the casting of an
+      oath or occult spell without paying its cost(rest dice or spell slots.) The spell is cast at its lowest possible level.
+
+      It cannot be a spell that creates undead or conjures creatures, or an evocation spell.
+
+  "Necromantic circle":
+    "requirements":
+      - "Ability to cast necromancy spells"
+      - "lvl 5"
+    "description": >-
+      You may spend 10 minutes to create a necromantic circle around a creature, made from bone dust, blood, or iron filings. When doing so, the caster must make 
+      a DC 14 + spell lvl arcana check, allowing you to cast a necromancy spell without paying its cost (rest dice, spell slots, etc.) and incinerating the circle
+      on a success.
+
+      On a failure, you roll 1d4 to determine the outcome:
+      * 1 - spell fizzles, circle destroyed.
+      * 2 - spell fizzles, circle remains, may retry.
+      * 3 - spell fizzles, circle destroyed, caster takes 1d3 necrotic damage.
+      * 4 - spell fizzles, circle destroyed, roll 1d4 to determine the further outcome:
+          1 - nothing.
+          2 - make a DC 15 wisdom save, receiving a minor arcane curse on a failure (-1 to random attribute) until long rest.
+          3 - make a DC 15 intelligence save, taking 1d8 necrotic damage on a failure.
+          4 - make a DC 15 charisma save, receiving a permanent minor necrotic curse (-1 to random attribute.)
+
+  "Hardened scales":
+    "requirements": 
+      - "kobold or draconid"
+    "description": >-
+      Gain a +1 bonus to AC. 
+      Gain 1 block at the start of combat.
+
+  "Heavy wielding":
+    "requirements": 
+      - "strength 14"
+    "description": >-
+      Treat all agile weapons as also being light(can effectively wield in offhand.) 
+      Treat all two-handed weapons as versatile(can be wielded one-handed, but decrease their damage dice by 1 size category if you wield them one-handed)
+
+      +1 to strength or constitution
+
+  "Innate magic":
+    "requirements": 
+      - "12 wisdom"
+      - "12 intelligence"
+      - "12 charisma"
+    "description": >-
+      Learn 1 cantrip of choice(from any class of magic). Pick a mental attribute or constitution to use as its casting attribute.
+      
+      +1 to a mental attribute of choice.
+
+  "Improved cleave":
+    "requirements": 
+      - "13 strength"
+    "description": >-
+      Your attacks with cleave may target an additional creature, adjacent to the last.
+      This also applies to attacks with the strikethrough property(cleave but outwards.)
+      
+      +1 strength.
+
+  "Iron will":
+    "requirements": 
+      - "16 wisdom"
+    "description": >-
+      You gain a +1 bonus to mental saves.
+      Ignore the first instance of fatigue you receive per rest.
+
+  "Lifeforce":
+    "requirements": 
+      - "16 constitution."
+    "description": >-
+      +7 max HP.
+      +1 death save slots.
+
+  "Madness magick":
+    "requirements":
+      - "goblin or half-orc or orc"
+      - "ability to cast mystic, occult, or oath spells"
+      - "lvl 3"
+    "description": >-
+      You may spend 1 rest dice as a free action when casting a spell to increase its level by 1. 
+      You may do so a number of times equal to your constitution bonus (min 1.) per long rest.
+      Each time you use this ability, you suffer 1d3 psychic damage per level of the spell.
+      You cannot increase a spells level beyond 1/2 your total level + 1(rounded down.)
+      The next new spell or cantrip you learn is lost, and instead your rest dice maximum is increased by 2.
+
+  "Farsight":
+    "requirements":
+      - "elf"
+      - "lvl 5"
+    "description":
+      You gain a +1 bonus to dexterity and intelligence saves.
+      You gain a +1 bonus to wisdom.
+
+      You may spend 3 rest dice to immediatelly succeed on a save vs an illusion, chronomancy, or enchantment spell effect, 
+      so long as its DC does not exceed 8 + your wisdom total.
+
+      You have advantage on initiative checks.
+
+  "Cave explorer":
+    "requirements":
+      - "dwarf, kobold, or goblin. Or if you have the cave dweller, delver, lurker, mountain dweller, or underdark traveler background."
+    "description": >-
+      Gain 30ft of darkvision.
+      Gain a +2 bonus to checks made to discover hidden or secret underground passages.
+      Gain a +2 bonus to checks made to interact with ore, gems, and subterranean flora and fungi.
+
+  "Mana-refusal":
+    "requirements": 
+      - "11 constitution."
+      - "ability to cast an arcane or occult cantrip."
+    "description": >-
+      Lose ability to cast one arcane or occult cantrip, gaining a number of upgrades from the list below, equal to the amount of upgrades that the cantrip had + 1(min 1.):
+      * You can make a mental save of choice against a spell in place of an affected ally within 30 feet, once per long rest, as a reaction.
+      * Your max HP is reduced by 2, gain an extra death save slot, increase rest dice maximum by 1.
+      * You gain a +1 bonus to saves vs spells.
+      * You may lose the ability to cast a lvl 1 spell permanently, increasing rest dice maximum by 2.
+
+  "Mastered maneuver":
+    "requirements":
+      - "14 strength"
+      - "14 dexterity"
+    "description": >-
+      Pick a maneuver (by name, such as "chop", "cleave", "poke", etc.) from a weapon you are proficient with. you may perform this maneuver free of cost(no bonus or move action, or rest dice/fatigue.) 
+
+  "Moon-blood":
+    "requirements":
+      - "shadowling"
+    "description": >-
+      -1 to max HP.
+
+      Every long rest, you gain 3 temporary rest dice which last until the next long rest. 
+      They can only be used at night.
+
+  "More upgrades":
+    "requirements":
+      - "At least 10 in all ability scores."
+    "description": >-
+      Choose two different feats, cantrips, class features, background or race abilities that allow you to choose permanent upgrades from a list
+      (when it says "choose an upgrade from the list below..." or simply "choose one" but not when it calles them "abilities") and choose an aditional 
+      upgrade from those lists.
+      
+      This only applies to "upgrades", not abilities or other features.
+      This cannot result in granting additional feats.
+
+  "Mind palace":
+    "requirements":
+      - "18 intelligence"
+    "description": >-
+      You gain two mind palace points that are restored every long rest. 
+      Points can be used interchangeably with rest dice and class resources. 
+
+      A mind palace point can be used to grant a mental skill a +1d4 bonus as a free action.
+
+  "Mixed elemental descendant":
+    "requirements":
+      - "ginasi"
+    "description": >-
+      Choose another Ginasi origin trait (from their racial ability "ginasi lineage"). 
+      +1 to an ability score of choice.
+      Gain proficiency with a skill or tool of choice.
+
+  "Mutant kobold":
+    "requirements":
+      - "kobold"
+    "description": >-
+      Choose one new kobold mutation upgrade from the list below:
+
+      * Troglodyte - Gain a -2 penalty to intelligence. Your unarmed and bite attacks deal an extra 1d4 slashing damage. You gain
+      +60ft of darkvision.
+      
+      * Drakeling - Gain a -2 penalty to wisdom. Gain the "fire breath" draconid racial ability, but reduce its range to
+      "5ft per 2 constitution bonus" and its chance dice to 1d4.
+      
+      * Cavebold - Gain a -2 penalty to charisma. Gain rough fur covering (resistance to cold, bleed, and fire damage) and
+      echosight at a range of 100ft.
+      
+      * Rokold - Gain a -2 penalty to constitution. You may spend 2 rest dice to attempt to stun a target within 20ft by looking 
+      in their eyes, requiring a wisdom save vs a DC of 8 + your insight bonus. On a failure, they are either stunned for 1d3 rounds.
+      
+      * Goldling - Gain a -2 penalty to death saves and a -1 penalty to AC. Gain a +3 bonus to intelligence.
+      
+      * Kobolid - Gain small wings, barring you from wearing heavy or non-specialized armor, and granting you a glide speed of 40ft, 
+      and reducing fall damage by 3d6.
+      
+      * Kobolisk - Gain a -5ft penalty to movement speed. Gain resistance to acid and slashing damage, and adding 1d3 poison damage 
+      to unarmed and bite attacks. You may spend 2 rest dice during a rest to produce 4 vials worth of basic poison.
+
+  "Overpower":
+    "requirements":
+      - "16 strength"
+    "description": >-
+      All melee weapons you wield also have the overpower maneuver:
+        " Overpower - On block > force block reroll. "
+      Allowing you to perform the maneuver on enemies that block your attacks, forcing them to reroll their block check.
+
+  "primordial-soul":
+    "requirements":
+      - "griphir, firbolg, or ginasi"
+    "description": >-
+      You have a natural bond to the primordial world. You gain a 1d12 primordial dice.
+      
+      A primordial dice can be rolled and its bonus applied to handle animal, nature, and arcana checks, increasing the
+      result by the rolled amount, but also reducing the size of the primordial dice by 2 size dice categories. 
+      
+      A primordial dice may also be applied to the damage of enchanted or magical weapons you wield, 
+      but this reduces its size by 1 size category, and it's not multiplied on a critical hit.
+
+      The primordial dice are restored by 1d3 size categories every long rest(max 1d12)
+      (1d12 > 1d10 > 1d8 > 1d6 > 1d4 > 1d3 > 1d2 > 1 > 0)
+
+  "Dirty kick":
+    "requirements":
+      - "rogue, or has the criminal, sewer rat, hooligan, prisoner, raider, renegade, bounty hunter, or sailor background."
+    "description": >-
+      Once per combat, you may perform a dirty kick manever (follows maneuver rules):
+        "Dirty kick - Attack with block- and dmg 1d4b. On strike > apply hobbled, shocked, dazed, and weakened for 1d3 rounds."
+        (hobbled - cannot make movement actions, except by expending an action to move at 1/2 speed.)
+        (shocked - cannot perform reactions.)
+        (dazed - cannot perform bonus actions.)
+        (weakened - disadvantage on attack rolls.)
+
+      A dirty kick is otherwise considered an unarmed attack. 
+
+  "Pilgrims cantrip":
+    "requirements":
+      - "cult initiate, disciple, exile, follower, or temple student background."
+    "description": >-
+      wisdom +1.
+
+      Learn the following unique oath cantrip:
+        
+        Sojurn, cantrip
+        abjuration, oath
+        casting time: bonus action
+        components: verbal, somatic, focus(talisman, sacred symbol, or ring.)
+        target: self
+        duration: 2 rounds.
+        effect: grant the next skill check you make within 2 rounds to have a +1d3 bonus, or modify the next cantrip you cast 
+        within the next 2 rounds by granting it a +1d3 bonus to a property of choice.
+        (5ft of range per bonus, duration, damage, number of creatures affected, etc. Subject to GM.)
+
+  "High metabolism":
+    "requirements":
+      - "14 constitution"
+    "description": >-
+      Healing potions heal your for 2 extra HP.
+      You heal 1d3 extra HP each rest.
+      
+      +1 to strength, charisma, or constitution.
+  
+  "Veil-magic":
+    "requirements":
+      - "has died"
+    "description": >-
+      Learn an oath, mystic, or arcane cantrip, two lvl 1 spells, and a lvl 3 spell.
+      You may spend 1d3 HP per spell level and 1 rest dice to cast the spell.
+      The cantrip and spells use your highest mental attribute as the casting modifier.
+      The spells may be cast up to 3rd spell lvl, or up to the maximum level that you can cast spells.
+  
+  "Thick skull":
+    "requirements": 
+      - "16 constitution or 16 strength"
+    "description": >-
+      When becomming stunned from a maneuver or damage-dealing spell or ability, make a constitution save with advantage vs the damage dealt.
+      On a failure, no change.
+      On a success, you are dazed for the stun duration instead.
+
+      If either dice rolls a nat 20, reduce the duration by 1d4 rounds.
+
+  "Volition":
+    "requirements":
+      - "at least 16 wisdom or charisma."
+      - "at least 16 constitution."
+    "description": >-
+      You may spend 1 rest dice as a free action when made unconscious, paralyzed, shocked, compelled, or under a fear effect to delaye the condition for 1 round.
+      
+      (A delayed effect, unless tied to another ongoing source in the world, is ignored but does not have its duration reduced while ignored.)
+
+  "Adrenaline rush":
+    "requirements":
+      - "14 constitution"
+    "description": >-
+      Once per combat, when reduced to 1/2 HP, gain an extra attack and a +1 bonus to AC on your next 1 turn. 
+      you may extend this abilities duration by 1 round, as a free action once during their turn, by loudly screaming.
+      At the end of this effect, take 1 damage to fatigue per every round spent under the effect past the first.,mmmmmmmmmk
+
+  "Bloody talons":
+    "requirements":
+      - "griphir"
+    "description": >-
+      Your claw and unarmed attacks apply bleed on a critical strike.
+
+  "Rapid reload":
+    "requirements":
+      - "13 dexterity"
+    "description": >-
+      Reduce the reload property of ranged weapons by I. This feat can be taken multiple times.
+
+      dexterity +1.
+
+  "Resolve":
+    "requirements":
+      - "12 wisdom"
+    "description": >-
+      When using up your last rest dice, you may make a wisdom or constitution save vs 14. 
+      If you do so, you instead remain at 1 rest dice and take 1 damage to fatigue.
+      Per times that this effect triggers since last rest, the DC is increased by 3.
+
+  "Retrain":
+    "requirements":
+      - "none"
+    "description": >-
+      Shift a +1 bonus from one ability score to another. Then gain a +1 bonus to a different ability score of choice.
+
+      Gain proficiency with a skill, tool, language, weapon group, or instrument of choice.
+
+  "Shield proficiency":
+    "requirements":
+      - "none"
+    "description": >-
+      Gain proficiency with light shields, or heavy shields if already proficient.
+      If already proficient with heavy shields, gain a +2 bonus to block checks while wielding a shield.
+
+      If you are wielding a shield while having to make a dexterity save, you can choose to expend 1 block to gain advantage on the save. 
+      Also applies to saves made against ray, blast, and cone area effects that require a physical saving throw.
+
+  "Elemental sigils":
+    "requirements":
+      - "ginasi or ability to cast arcane, mystic, or occult spells."
+    "description": >-
+      Inscribe elemental runes uppon your arms and body. Choose an element from: lightning, fire, or cold.
+      
+      Your melee weapon attacks deal 1 extra damage of the chosen type.
+      
+      Once per long rest you may invoke the runes as an action to force a creature within 15ft to make a dexterity save vs a DC of 8 + your arcana bonus.
+      The target takes 1d6 damage of your chosen element per character level on a failure, and half as much on a success.
+
+  "Skilled":
+    "requirements":
+      - "none"
+    "description": >-
+      Gain proficiency with two skills of your choice.
+      +1 to one attribute of choice.
+
+  "Swift":
+    "requirements":
+      - "12 dexterity"
+    "description": >-
+      Gain a +3 bonus to initiative checks and Increase movement speed by 5 feet. 
+      
+      +1 to dexterity.
+  
+  "Symbiosis":
+    "requirements":
+      - "shadowling"
+    "description": >-
+      Pick three ability scores. You gain a +1 bonus which can be shifted to one of the three ability scores as an action.
+      (You may switch between a +1 bonus to either of the three ability scores as an action)
+      Using the adaptation grants a -2 penalty to disguise checks while active, and my be hidden as an action(no bonus.)
+
+  "Tough":
+    "requirements":
+      - "13 strength"
+      - "13 constitution"
+    "description": >-
+      You can spend 1 rest dice or take 1d4 fatigue damage as a reaction to being attacked to immediately gain 1 block.
+
+      +8 max HP.
+
+  "Twitch reflexes":
+    "requirements":
+      - "13 dexterity"
+    "description": >-
+      Gain an extra reaction.
+
+      +1 dexterity.
+
+  "Sprint":
+    "requirements":
+      - "16 dexterity"
+      - "10 constitution"
+    "description": >-
+      "You may spend 1 rest dice to increase your movement speed by 20ft for 5 rounds. Afterwards, you take 1 damage to fatigue."
+
+  "Warcry":
+    "requirements":
+      - "12 constitution"
+      - "proficiency with intimidation"
+    "description": >-
+      Once per rest, you can spend 1 rest dice to perform an intimidating shout. 
+      All enemy creatures within hearing must make a wisdom save vs a DC of 10 + your intimidation bonus. 
+      On a failure, they become demoralized(disadvantage on block checks) for 1d4 rounds per constitution bonus above 2(min 1d4.)
+
+  "weapon proficiency":
+    "requirements":
+      - "none"
+    "description": >-
+      Choose two weapon groups to gain proficiency with. 
+      +1 to a physical attribute.
+
+  "Wildspeech":
+    "requirements":
+      - "gnome"
+    "description": >-
+      Gain proficiency with handle animal. If already proficient, gain expertise. If already expert, gain a +1 bonus to wisdom.
+      You can speak with elementals and beasts. 
+      Gain a +1 bonus to checks made to interact with magical plants and fungi.
+  
+  "Waeld-soul":
+    "requirements":
+      - "firbolg, half-elf, half-orc, or shadowling"
+      - "lvl 3"
+    "description": >-
+      Learn two lvl 2 mystic or oath spell. You may spend 2 rest dice, or 1 rest dice and 2 points of damage to fatigue to cast it.
+      Use wisdom as the casting attribute.
+
+      The first such spell cast during midnight/a storm/full moon/an eclipse has its level increased by 1/2/3/4, respectively.
+      The spell level increase can only occur once per rest.
+
+  "Tiny frenzy":
+    "requirements": 
+      - "goblin or kobold"
+    "description": >-
+      You may spend 1 rest dice as a free action to enter a tiny frenzy state, which lasts for 1d3+1 rounds.
+      During a tiny frenzy, goblins have 2 extra bonus actions and 1 extra reaction.
+      During a tiny frenzy, kobolds have 2 extra reactions and 1 extra bonus action. 
+      During a tiny frenzy, if you have not attacked at the end of the round, you suffer 1d4+1 nonlethal psychic damage.
+
+  "Goblin mode":
+    "requirements": 
+      - "goblin"
+    "description": >-
+      You gain 1 temporary rest dice whenever you rest, which is lost uppon exiting a rest.
+      
+      If you start combat and are first in initiative, your excitement is so great that you restore 1 rest dice, heal 1 failed death save,
+      and restore 1 damage to fatigue.
+
+  "Zeal":
+    "requirements":
+      - "proficiency with religion or history"
+    "description": >-
+      Increase damage dealt to undead, aberrations, and monstrosities by 1d4, so long as you are aware of their nature. Subject to GM.
+
+  "Shield-brother":
+    "requirements":
+      - "light or heavy shield proficiency"
+    "description": >-
+      You gain a +1 bonus to AC while wielding a shield, and a further +1 if adjacent to an ally with a shield.
+      Allies adjacent to you benefit from this bonus as well. 
+      Multiple adjacent creatures with this feat cannot gain more than +2 to AC from it.
+
+  "Combat dice":
+    "requirements":
+      - "proficiency with a martial weapon group"
+      - "12 dexterity"
+      - "12 strength"
+    "description": >-
+      Each rest, regain 3 combat dice. They are 1d8 rest dice which cannot be used outside of combat.
+      Combat dice cannot be spent to cast spells.
+  
+  "Rhetoric":
+    "requirements":
+      - "13 charisma"
+      - "bard or has the agent, charmer, diplomat, lesser heir, noble, philosopher, or tactician background"
+    "description": >-
+      +1 to charisma.
+      +2 to deception, persuasion, and intimidation checks.
+      Once per rest, you may reroll a verbal social interaction check.
+
+  "Battle scars":
+    "requirements":
+      - "arena fighter, champion, errant knight, guard, mercenary, raider, renegade, veteran, or warrior background."
+    "description": >-
+      +1 constitution.
+      After every battle where you are reduced to 3 or less HP, increase maximum HP by 1, up to a max of +20.
+
+  "Odd bloodtype":
+    "requirements":
+      - "shadowling or has the arcane experiment, mutant, sorcerers child, or test subject background."
+    "description": >-
+      Your blood is rare. Creatures that can consume it heal 1 extra HP, and spell components and magical effects that have
+      an HP cost have it reduced by 3(min 1.)
+
+      +1 constitution.
+
+  "Righteousness":
+    "requirements":
+      - "has slain a murderous vampire, fae, or sentient aberration or undead."
+      - "human, fetchling, dwarf, or half-orc"
+    "description":
+      +1 to death saves.
+      You gain a +1 bonus to weapon attack, damage rolls, and block checks vs undead, aberrations, and fae.
+      
+  "Weapon prowess":
+    "requirements":
+      - proficiency with a martial weapon group
+    "description":
+      Choose a martial weapon group you are proficient with. Attacks and damage with those weapons is increased by 1.
+      You may perform 1 maneuver with the chosen weapon group free of any action or rest dice cost, up to 3 times per combat.
+
+  "Power attack":
+    "requirements":
+      - "15 strength"
+    "description": >-
+      All melee non-agile wepons you wield have the following new maneuver:
+
+        Power attack - Attack with block- and dice+.
+
+      +1 strength.
+
+  "Self-modification":
+    "requirements":
+      - "17 intelligence"
+      - "remnant"
+    "description": >-
+      You may spend 1 rest dice during a rest to do one of the following:
+      
+      * self-repair - Restore 3d6 health to yourself.
+      
+      * reconstitution - Gain a +1 bonus to a physical attribute and a -1 penalty to another physical attribute. May not reduce an attribute below 7.
+      
+      * weapon-integration - Sacrifice a melee weapon, applying one of its maneuvers to your unarmed attacks. Up to two such maneuvers may be stored 
+        in your unarmed attacks at a time. You may swap old ones out for new ones, but doing so requires new weapons.
+      
+      * crossbow-integration - Sacrifice a crossbow or launcher weapon, storing it in your wrist slot(bracer, arm-band) and either granting it or 
+        increasing its ammo capacity by 4. You may spend a bonus action to fire the weapon, or an action to use one of the weapons maneuvers. It must 
+        otherwise still be reloaded as normal, but you gain advantage on any "bolt DC" related checks (strength checks needed to reload the weapon.)
+        The stored weapon applies 1 bulk if it is not light. 
+
+  "Living metal":
+    "requirements":
+      - "remnant"
+      - "18 constitution"
+    "description":
+      You can be healed by healing spells like normal.
+      You restore 1 HP at the start of your turn if below 10 HP.
+
+  ""

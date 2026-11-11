@@ -1,0 +1,101 @@
+Attacks are constructed by forming a core word with modifiers and actions. 
+
+modifiers can be <weapon properties> which are not maneuvers. All this syntax describes weapon manvuers. In this example: "Attack with reach" or "Attack with cleave."
+modifiers can be chained with commas or "and": "Attack with block⇈, cleave, reach." or "Attack⇊ with cleave and crit range+".
+Modifiers can be chained with either "and" or "or": "Attack. If crit or clutch > apply stun."
+All actions and modifiers must only apply to the last core word(attack) in the sentence. Example: 
+"Attack⇈ with Block⇈. If exploit > attack with crit range+." - in this example, the first attack has advantage and the block check the enemy makes has advantage, but if either of the enemy block rolls result in a nat 1, you can make another attack with a crit range increased by 1, but the crit range increase does not apply to the initial attack.
+"Attack. if clutch > attack⇊ with block⇊ and nonlethal. If unlucky or exploit > crit" - Make an attack. if it fails, make another with disadvantage, nonlethality, and disadvantage on the targets block check, but if either you or the target roll a nat 1 on any d20(effectively) it crits. The crit is still nonlethal.
+
+
+the process of an attack is as follows
+# Attack roll vs AC. 
+# if fail: miss. end. "clutch" can occur. "unlucky" can occur.
+# else if success: hit. "crit" can occur. "lucky" can occur.
+# target makes block check vs attack block DC. "exploit" can occur here.
+# if success: blocked. end. "exploit" can occur here.
+# else if fail: lands. Roll damage dice.
+
+if an action precedes a core word, but requires a target("move up", "STR save"), then the target of the action and the core word must be shared. 
+# If action.pos < coreword.first.pos: action.target == coreword.first.target
+# The range at which a target is considered within reach is only made when the attack itself is made.
+
+# Core words
+Attack      - Make an attack.
+Attack⇈     - Make an attack with advantage.
+Attack⇊     - Make an attack with disadvantage.
+
+# modifiers
+Block⊗      - The attacks block check phase is automatically failed.
+Block⇈      - Target has advantage on block checks
+Block⇊      - Target has disadvantage on block checks
+nonlethal   - Attack is nonlethal.
+# weapon properties can also modifiers
+# special case for cleave, as cleaves base rules dont seem to be a maneuver("You may make an attack with disadvantage vs 2 adjacent targets within range, applying to both") so effectively you roll with disadvantage and target two. For effect and triggers, it means that "per-target" the rules apply.
+
+
+# on miss, on hit, and on block types should be differentiable between "attack. on block" which means you make an attack and if it is blocked, and "on block", which means that if a regular non-maneuver attack fails, it can be the beginning of this maneuver. This could be either allowing "attack" before the "on" properties, but it could also be done by making the standalone "on" groups use "after" instead, so "after miss" and "after block" and "after hit". This makes more design space possible. Should be self explanatory.
+# Trigger words
+if miss:                - if the attack misses
+if hit                  - if the attack roll succeeds (before block check)
+if block:               - if the attack is blocked
+if lands:               - if the attack is not blocked (damage is dealt)
+if clutch:              - if the attack roll result is a critical failure.
+if lucky                - If the attack roll has advantage or disadvantage and either dice rolls a natural 20.
+if unlucky              - If the attack roll has advantage or disadvantage and either dice rolls a natural 1.
+if exploit              - If the target rolls a nat 1 on their block check, or if a nat 1 is present in case of advantage.
+If near                 - If the target is within 5ft.
+If far                  - If the target is beyond 5ft away but still within weapon range.
+if space                - If there is at least 5ft of free space between you and the target.
+If hefty                - If the target does not spend a reaction to move 5ft(anywhere out of their current position)
+if <Attribute> save():  - Target must make a save of the stated kind vs the block DC of the weapon.
+if <Attribute> vs DMG:  - If the target fails a save of the stated kind VS a DC equal to the damage received. Is only triggered after damage is dealt by the previous attack or effect.
+if prone                - If the target is prone.
+
+# action words
+move <dir> <dist>               - move self in direction. Directions are [Back, Up, Any] meaning, away from target, towards target, in direction of choice. If dist is provided, thats the distance of the movement
+dash <dir> <dist>               - same as move but no attacks of opportunity.
+push <dir> <dist>               - same, but move target in direction.
+apply <condition>               - apply a given condition to a target(if previous word is satisfied) 
+# conditions that can be applied are: bleed, daze, stun, prone, disarm, exposed
+slashing/piercing/bludgeoning X - apply x amount(slashing 2, bludgeoning 1d4) damage
+land                            - set the outcome of the linked core attack to a hit, but not not yet blocked(if applicable.)
+strike                          - set the outcome of the last attack to hit and not be blocked.
+crit                            - set the outcome of the linked core attack to be a critical hit.  
+crit [range/multi]+             - The crit range/multiplier of the linked core attack is increased by 1(or more in case of more "+" symbols)
+reach                           - the linked core attackon the stack has 5ft extra reach(or 5ft more per "+" symbol)
+nonlethal                       - The attack damage of the linked core attack is nonlethal
+dmg X                           - The attack damage of the linked core attack is increased by X(+1,+1d4, etc)
+dmg⇈                            - The attack damage dice of the linked core attack are increased by 1 dice size category(1d4 > 1d6. 2d6 > 2d8)
+no X                            - X Property is ignored. Examples: "no crit", "no block", "no damage"
+ram                             - Apply a +1 bonus to associated damage and block DC of the linked core attackper 5ft traveled since start of turn or last attack.
+
+# special words
+may      - Indicates that the following action, or core word is optional. Wielders choice.
+can be   - Indicates that the following property or modifier is optional. Wielders choice.
+
+# examples
+"Attack⇊ with block⇊" - disadvantage on attack but the block check has disadvantage too.
+"Attack with Block⊗. If clutch > lands. If lands > STR save > crit." - Make an attack that cannot be blocked. If you nat 1, it lands. If the target fails a STR save vs the block DC on a hit(no block so its a land this time) then it also crits. Obv this one is op but its an example.
+"Attack. If exploit > dmg 1d8." - Make an attack. if the enemy rolls a nat 1 on the block check, it crits.
+"Attack with crit range+" - make an attack which has its crit range expanded by 1.
+"Attack. If exploit > crit multi+. If lucky: crit range/multi+" - Make an attack. If the target rolls a nat 1 on their block check the crit multiplier is increased by 1. If there are two dice(disadv/adv) involved in an attack roll and either rolls a nat 1, the  crit range and multiplier are increased by 1. This means, if I roll a 18/20 with disadvantage, and the enemy rolls a nat 1, the attack is now a critical hit for x4.
+"Attack. If miss > attack." - Make an attack, if it... this one is pretty self explanatory.
+"Attack. If crit > CON vs DMG > apply stun and bleed" - make an attack. on a critical strike, the target must make a con save vs the damage, becoming stunned and gaining a stack of bleed on a failure.
+
+#further attempts at moves:
+wild strikes            - "Attack⇊. Attack⇊. Same target." 
+# in this case it uses a helper explanation. Im on the fence if these should be allowed. You wouldnt want to disallow all cases where "this must be against the same target" doesnt apply.
+Follow-up strike        - "Attack⇊. If hit: Attack"
+Lunge                   - "Dash up. Attack dmg⇈."
+Called shot             - "DEX save > apply exposed. Attack."
+Spear lunge             - "Attack. If space: dmg⇈ and may dash up."
+Trip                    - "Attack with nonlethal. If hit > STR vs DMG > apply prone."
+katana slash            - "Attack with dmg⇈. Dash non-back" 
+# attempt at using exclusion. So if theres back, up, any. then presumably theres non-back, non-up, non-any, meaning not back, not towards, not sideways(must change distance. idk. rare.)
+Battering ram strike    - "Attack with ram. If crit > STR vs DMG > apply stun."
+Big slam                - "Attack⇊ with Block⇊. If land or blocked > push and dash up." 
+Staff monkey strike     - "Attack with reach. If far or exploit > dash any 10ft."
+Cunning strike          - "Attack. If hit > DEX save > Block⇊." 
+CON vs DMG > Or if fail > 
+

@@ -277,7 +277,7 @@
     description: "
     Description...  
     ",
-    attribute_bonuses:[a +2 bonus to DEX and a +1 bonus to one other ability score of choice],
+    attribute_bonuses:[a +2 bonus to DEX","+1 bonus to a non-DEX ability score of choice],
     size: "small",
     speed: "25ft",
     traits: [
@@ -342,7 +342,7 @@
     description: "
     Description...  
     ",
-    attribute_bonuses:["+2 to one of DEX/CON/INT/WIS"],
+    attribute_bonuses: ["+2 to one of DEX/CON/INT/WIS"],
     size: "small",
     speed: "30ft",
     traits: [
@@ -368,6 +368,55 @@
     ],
     proficiencies: ["1 skill of choice.", "simple light weapons"],
   },
+  {
+    name: "Relic",
+    types: ["construct","humanoid"],
+    description: "Description...",
+    attribute_bonuses: ["+2 CON"],
+    size: "medium",
+    speed: "25ft",
+    traits: [
+      {
+        name: "Relic traits",
+        description: "
+        You are immune from poison, bleed, sleep effects, paralysis, disease, and necromancy effects.
+        You have resistance to cold, and psychic damage.
+        You do not eat, sleep, or breathe. 
+        You cannot be raised or resurrected.
+        +13 max HP, +1 max HP per level, including at lvl 1.
+        Cannot be healed by magic, unless it specifically heals constructs or objects.
+        Immune to potion effects, unless they specifically interact with constructs.
+        "
+      },
+      {
+        name: "Relic downside",
+        description: "You must pick 1 downside.",
+        minitrait_list: [
+          "fading spark": "You must now sleep and exhaust from sleeplessness as normal. You are not immune to sleep. -1 to mental saves.",
+          "extensive wear": "-1 to physical saves. -8 max HP.",
+          "air-dependance": "You must breathe like normal, can hold your breath like normal, and become paralyzed while without air. You lose resistance to cold damage.",
+          "cracked core": "You gain a -1 penalty to wisdom and charisma based skill checks. Your rest dice maximum is reduced by 1.",
+          "heavy frame": "You gain 3 bulk.",
+          "interference": "You lose resistance to psychic damage. You may spend a rest dice to speak in a local language of choice for up to 1 minute."
+        ]
+      },
+      {
+        name: "Relic aspect",
+        description: "You must pick 1 upgrade from the list below:",
+        minitrait_list: [
+          "Armored core": "You gain a +2 bonus to AC and gain 1 remporary block at the start of combat, which lasts until end of combat.",
+          "Arcane augmentation": "Learn an arcane or occult cantrip. It uses your constitution as the casting modifier. Spells that heal elementals also heal you.",
+          "Runic failsafes": "You may maintain up to 3 emergency runes every long rest. An emergency rune can be spent as a reaction to taking damage to heal 4d4+4 HP.",
+          "Golemancy shell": "Your movement speed is reduced by 5ft. You gain a +2 bonus to STR and CON.",
+          "Alchemical engine": "You may consume alchemical beneficial potions that do not deal damage, healing 1d4 HP per potion and restoring 1 fatigue.",
+          "Submariner": "Your movement speed is reduced by 5ft. You gain a +2 bonus to INT and WIS, having had a long time to think.",
+          "Entombed soul": "You gain a +2 bonus to CHA. Your rest dice maximum is increased by 1.",
+        ]
+      }
+    ],
+    proficiencies: ["1 skill, tool, or weapon group of choice", "1 of mechanics, golemancers, smiths, or artificers tools."]
+
+  }
 ]
 
 

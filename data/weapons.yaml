@@ -1,0 +1,1976 @@
+"properties":
+  name: "General properties"
+  description: "General properties apply to weapons at all times."
+  list:
+    - "Agile": "The weapon scales with DEX instead of STR"
+    - "Balanced": "The weapon can scale with either STR or DEX"
+    - "Light": "The weapon can be used for off-hand attacks without incuring disadvantage on its attacks."
+    - "Effort": "The weapon applies the wielders CON bonus to damage and block DC."
+    - "Glove": >-
+        The weapon leaves the hand free to grasp, but cannot be used while wielding or holding another
+        object or creature.
+    - "Ignite": >-
+        The weapon can be ignited as an action, burning for the next half hour if two-handed, or 10 minutes
+        if one-handed. An ignited weapon provides mild light and applies extra fire damage to attacks,
+        as indicated next to the ability. Each attack reduces the duration the weapon remains ignited
+        by 1 minute.
+    - "Inaccurate": "The weapons attacks incur disadvantage if the wielder has moved since the start of their turn."
+    - "Very Inaccurate": >-
+        The weapons attacks incur disadvantage if the wielder has moved since the start of their previous
+        turn.
+    - "Reach I/II/III": "The weapons melee range is increased by 5/10/15ft, respectively."
+    - "Swift": >-
+        You can perform a single attack with this weapon as a bonus action. For versatile weapons, requires
+        wielding the weapon in both hands.
+    - "Throw": >-
+        The weapon can be thrown at the associated range as a ranged attack. Unlike baseline ranged weapon
+        attacks, a thrown weapon attack does not incur disadvantage in melee range.
+    - "Tool": >-
+        The weapon provides a +1 bonus to non-combat checks made that include using the weapon appropriately
+        for its purpose(Subject to GM.)
+    - "Two-handed": >-
+        The weapon requires 2 hands to wield. Most 2 handed weapons can be set aside while still holding
+        them in order to interact with nearby objects with 1 hand.
+    - "Unwieldy": >-
+        This weapon treats a natural 2 as a critical failure. Follows mono '+' notation, indicating a
+        further critical failure range increase by 1 per '+'.
+    - "Versatile": "This weapon has a two-handed version."
+    - "Breach": >-
+        Requires an extra instance of block to negate this weapons attacks (or more, if + or ++ are present
+        afterwards.)
+    - "Cleave": >-
+        This weapons attack can be made to target two adjacent creatures within range. In such cases,
+        the attack targets both characters AC, and permits both to block. This is treated as a single
+        attack.
+    - "Impale": >-
+        This weapons attacks, like cleave, can be made to two adjacent targets, up to the weapons reach.
+        The targets must be in a straight outgoing line.
+    - "DC": >-
+        This weapons block DC is altered. Follows "+"/"-" notation, increasing/decreasing the block DC
+        of the weapon.
+
+"ranged properties":
+  "Arc": "This weapons attacks can ignore half-cover."
+  "Reload": >-
+    Once this weapon is fired, it must be reloaded. The amount it takes depends on the severity of the
+    reload: I   - any action(bonus, move, or action.) II  - action, OR bonus + move action. III - action.
+    IV  - 2 of any action(action, bonus action, or move action.) V   - full round action.
+  "Capacity": >-
+    Indicates that the weapon uses a capacity ammo system. The weapon has a maximum ammo, as indicated
+    after the keyword(ex: 'capacity 3') and each ammunition is loaded individually. May be preceded by
+    cartridge (ex: 'cartridge capacity') meaning that the weapons ammo is reloaded all at once instead,
+    but thus requires a prepared cartridge(or similar) item for it.
+  "Bolt DC": >-
+    Reloading the weapon requires making a STR check vs a given DC. +1 weapons and higher reduce the DC
+    by their bonus. Failing the bolt DC check results in wasting the reload actions.
+  "Launcher": >-
+    The weapon can be used to fire potions and minor objects, roughly equivalent to a potion or slingstone,
+    instead of standard ammunition. If a range is given, then it overrides the ranged weapons range for
+    this action.
+  "Overdraw": "The weapons attacks apply STR to the damage dealt."
+
+# CORE WORDS
+"core words:":
+  description: >-
+    A core word describes the core `Attack` used as a maneuver, and is the 'bound attack' that the following
+    conditional sequences, properties, and modifiers apply to. If by some means, a property is applied
+    before a bound attack, that property is stored and applies to the next core word in the maneuver.
+    Core words that are chained by a preceeding '>' means that they must target the same target as the
+    previous core word.
+  list:
+    - "Attack": >-
+        Make an attack. May be followed by properties and modifiers which alter it. Obeys "+"/"-" notation,
+        indicating advantage/disadvantage on the attack roll. If followed by "other" ("attack other")
+        then that means that the attack must target another creature.
+    - "Throw": >-
+        Make a thrown attack with the weapon. Otherwises treated the same as any other attack If followed
+        by range indicator then it overrides previous throw property. (ex: "throw 15ft" for single range,
+        or "throw 20/40ft" for a range indicator with a disadvantage range.) Also overrides not having
+        a throw property, meaning that if a weapon does not have a default throw range, then it can only
+        feasibly be thrown with the given maneuver.
+    - "Maneuver": >-
+        Make an attack which does not deal damage or requires a block check, only includes an attack roll(Ignores
+        "if block", "exploit", "if land", etc.) May be followed by modifiers and properties. Follows "+"/"-"
+        notation, indicating advantage/disadvantage on the attack roll.
+
+# CONDITIONALS
+"conditionals":
+  Description: >-
+    A conditional is a single ruleset that, when and if it completes, is followed by ">" and either another
+    conditional, an action verb, or modifier. Conditionals can be either combined with "and"(ex: "if strike
+    and unshielded > ...") meaning that they must ALL complete in order to complete the segment. Conditionals
+    can also be chained with "or"(ex: "if crit or clutch > ...") meaning that if at least one conditional
+    completes, segment completes. If a conditional appears with an "on" prefix at the start of a maneuver,
+    it means that it can be applied mid-action when another attack with the weapon completes the conditional.
+    If a conditional appears with an "if" prefix at the start of a maneuver, it means that it must be
+    immediately completable("if unshielded") to a valid target within the range, or within reach of the
+    next core word in the sentence.
+
+    A special case exists for a string of conditionals in a sentence or segment that starts with "Per". These
+    indicate that the following is executed per conditional that completes. These trigger whenever the conditional does.
+  list:
+    - "miss": 'Completes when the bound attack misses.'
+    - "hit": 'Completes when the bound attack succeeds(attack roll exceeds AC, regardless of block.)'
+    - "blocked": 'Completes when the bound attack is blocked.'
+    - "strike": >-
+        Completes when the bound attack deals damage to a target(even if somehow 0 damage is dealt. This
+        means when the block check either fails or is foregone).
+    - "crit": 'Completes when the bound attack critically strikes.'
+    - "clutch": 'Completes when the bound attack roll results in a nat 1.'
+    - "lucky": >-
+        Completes when the bound attack has either advantage or disadvantage, and at least one dice results
+        in a natural 20.
+    - "unlucky": >-
+        Completes when the bound attack has either advantage or disadvantage, and at least one dice results
+        in a natural 1.
+    - "exploit": 'Completes if the target of the bound attack rolls a natural 1 on their block check.'
+    - "near": >-
+        Completes if the target is within 5ft. Obeys mono "+" notation, increasing distance by 5ft per
+        stack.
+    - "far": >-
+        Completes if the target is beyond 5ft but still within range/reach. Obeys mono "+" notation, increasing
+        distance by 5ft per stack.
+    - "space": 'Completes if there is at least 5ft of clear empty space between wielder and target.'
+    - "heft": >-
+        Completes if the target of the maneuver does not choose to spend a reaction to move 5ft in a direction
+        of their choice.
+    - "unshielded": 'Completes if the target does not possess a shield'
+    - "two-handed": 'Completes if the weapon is wielded two-handed.'
+    - "one-handed": 'Completes if the weapon is wielded one-handed.'
+    - "save": >-
+        Completes if the target fails on an associated save(given after the keyword, example: "save DEX")
+        vs the weapons block DC. The associated save precedes the save
+    - "vs DMG": >-
+        Completes if the target fails on an associated save vs the weapons damage dealt. Only triggers
+        if "strike" would trigger.
+    - "prone": 'Completes if the target is prone.'
+    - "advantaged": 'Completes if the attack has advantage.'
+    - "disadvantaged": 'Completes if the attack has disadvantage.'
+    - "twinned": 'Two weapons of the same kind are wielded.'
+    - "free-handed": 'The wielder is holding the weapon in one hand and has the other hand free.'
+    - "exposed": 'The target has the "exposed" condition.'
+    - "ammo": >-
+        Only for "capacity" property weapons. Completes if the capacity is at least equal to the amount
+        given after the conditional (ex: "If ammo 2 > Attack > Attack.")
+    - "ignited": 'Completes if the weapon is on fire/is ignited, as per the "ignite" property.'
+
+# ACTION VERBS
+"action_verbs":
+  description: >-
+    Action verbs apply to the last core word provided. If none are, or if one appears later in a sequence,
+    then it must share the same target as the action verb.
+  list:
+    - "move": >-
+        move self in direction. Directions are [Back, Up, Any] meaning, away from target, towards target,
+        in direction of choice. follows mono "+" notation, gaining 5ft of distance per stack.
+    - "dash": 'same as move, but no attacks of opportunity.'
+    - "push": >-
+        same, but move target in outward direction. Requires target size to be equal or smaller to wielder
+        in size.
+    - "swap": 'swap tiles with the target. Requires target size to be equal or smaller to wielder size.'
+    - "pull": 'move target forward. If followed by distance indicator, the distance is overridden by it.'
+    - "disarm": 'disarm target of a wielded or held item. The item is dropped.'
+    - "apply": 'apply a given condition to the target.'
+    # conditions that can be applied are: bleed, dazed, stun, prone, disarm, exposed, on-fire, off-balance, hobbled.
+    # (<i><b>Bleed</b>: Stacks up to 6 times, the creature takes 1d3 bleed damage. Amount is increased by 1 dice size category per stack of bleed, up to a max of 1d12</i>)",
+    - "dmg": >-
+        apply x amount(2s, 1d4b, etc) damage if written with no "+". If written as "dmg +1d6" then it
+        increases the damage of the bound attack by the amount, but its delivery still relies on the bound
+        attacks seqence (attack roll > block check > dmg.) Damage added or applied by this is not multiplied
+        on a critical hit.
+    - "miss": 'automatically fail the attack and end the maneuver.'
+    - "force-hit": 'set the outcome of the bound attack to be a hit, but not yet blocked(if applicable.)'
+    - "force-strike": 'set the outcome of the last attack to hit and not be blocked.'
+    - "force-crit": 'set the outcome of the last attack to hit, not be blocked, and be a crit.'
+    - "force-reload": 'automatically reload the weapon.'
+
+# MODIFIERS
+"modifiers":
+  description: ""
+  list:
+    - "crit range/multi": >-
+        The crit range/multiplier of the bound attack is increased by 1(or more, as it follows mono "+"
+        notation.)
+    - "dice": >-
+        The bound attacks damage dice are increased/decreased by 1 dice size category or more. Obeys "+"/"-"
+        notation.
+    - "ram": >-
+        The bound attack gains a +1 bonus to damage and block DC per 5ft traveled since the start of turn
+        or last attack(shortest.)
+    - "no X": 'negates a property'
+    - "block+": 'The bound attacks target has advantage on the block check.'
+    - "block-": 'The bound attacks target has disadvantage on the block check.'
+    - "block-X": 'The bound attack cannot be blocked.'
+    - "nonlethal": 'The bound attacks damage is nonlethal.'
+    - "no-reload": 'For ranged attacks. Means the attack has no reload.'
+    - "bludgeoning": 'Damage is changed to bludgeoning.'
+    - "slashing": 'Damage is changed slashing.'
+    - "piercing": 'Damage is changed to piercing.'
+
+#SPECIAL MANEUVERS
+"special maneuver operators":
+  "To all": >-
+    Like a conditional, appears only if multiple attacks are present. Indicates that the following modifiers,
+    properties, or actions apply to all previous attacks (ex: "Attack- > if miss > attack > to all > crit
+    range+")
+  "Self": >-
+    Means that the following segment chain applies to the wielder as though they were the target. It applies
+    to special constructions such as "Self save STR > heft > attack with block-X"
+  "May": 'Indicates that the following segment is optional.'
+  "Else": >-
+    If it starts a statement(Is the first word) it indicates that it completes the following sentence
+    IF the first conditional in the last sentence did not complete. Ex: "attack > If heft > block-. Else
+    > block+"
+  "OR": >-
+    if OR appears at the beginning of a sentence, it indicates that the previous modifier, action, or
+    weapon property chain can with the following chain. Ex: "attack > If strike > hook OR disarm"
+  "Other": >-
+    Only used for starting conditional, meaning that it only triggers when the -other- hand weapons attack
+    would complete the conditional. ex: 'If other crIt > attack' means that when the other hands weapon
+    crits, this can trigger.
+  "Per": >-
+    Indicates that the following segment is completed PER conditional. 
+    For example "Per crit, exposed, or exploit > dmg +1d4." Would mean that the attack gains a +1d4 bonus to damage 
+    when it crits, the defender rolls a nat 1 on a block check, or if the target has the exposed condition. 
+
+"weapons":
+  - "daggers & knives":
+      - "Dagger":
+          type: "simple"
+          group: "daggers & knives"
+          damage: "1d4p"
+          properties:
+            - "agile"
+            - "light"
+            - "throw 20/40"
+            - "swift"
+          maneuvers:
+            - "pierce": "attack > If Exploit > force-crit."
+            - "stab": "attack > If unshielded > crit range+."
+
+      - "Hunters knife":
+          type: "simple"
+          group: "daggers & knives"
+          damage: "1d4s"
+          properties:
+            - "agile"
+            - "light"
+            - "swift"
+            - "tool"
+          maneuvers:
+            - "slash": "Attack with block+. If strike or exploit > apply bleed."
+
+      - "Curved dagger":
+          type: "simple"
+          group: "daggers & knives"
+          damage: "1d6s"
+          properties:
+            - "agile"
+            - "light"
+          maneuvers:
+            - "slice": "attack > If crit or lucky > apply bleed"
+            - "slice & dice": "Attack- > Attack-. To all > crit range++."
+
+      - "Butchers cleaver":
+          type: "simple"
+          group: "daggers & knives"
+          damage: "1d4s"
+          properties:
+            - "unwieldy"
+            - "inaccurate"
+            - "tool"
+          maneuvers:
+            - "butchers chop": "Attack- with block-. If strike > DEX vs DMG > dmg 1d6s."
+            - "sharp edge": "On crit > crit multi+."
+
+      - "Skean dagger":
+          type: "simple"
+          group: "daggers & knives"
+          damage: "1d3p"
+          properties:
+            - "balanced"
+            - "light"
+            - "swift"
+            - "crit range+"
+          maneuvers:
+            - "stab": "attack > If unshielded > crit range+."
+            - "takedown": "dash up, attack with dice+."
+
+      - "Arming knife":
+          type: "simple"
+          group: "daggers & knives"
+          damage: "1d3p"
+          properties:
+            - "agile"
+            - "light"
+          maneuvers:
+            - "mailbreaker": "Attack- with block- > If lucky or exploit > dmg 1d6p, breach."
+
+      - "Dirk":
+          type: "simple"
+          group: "daggers & knives"
+          damage: "1d4p"
+          properties:
+            - "balanced"
+            - "light"
+            - "swift"
+            - "versatile 1d6"
+          maneuvers:
+            - "lunge": "Dash up. Attack with dice+"
+            - "Slash": "Attack- > If strike or clutch > May dash back. May move back."
+            - "stab": "Attack > If unshielded > If crit or lucky or exploit > dice+."
+
+      - "Dwarven wide-dagger":
+          type: "simple"
+          group: "daggers & knives"
+          damage: "1d4s"
+          properties:
+            - "balanced"
+            - "swift"
+            - "tool"
+            - "versatile 1d6"
+          maneuvers:
+            - "Drive the blade": "On crit > if two-handed and STR/DEX vs DMG > dmg +2d4s."
+            - "Weighted stab": "Attack- with block- and breach."
+
+      - "Pin-needle dagger":
+          type: "simple"
+          group: "daggers & knives"
+          damage: "1d4p"
+          properties:
+            - "agile"
+            - "light"
+            - "swift"
+          maneuvers:
+            - "poke": "attack > If miss > attack."
+            - "pincushion pokes": "Attack- > Attack- > Attack-."
+
+      - "Serrated dagger":
+          type: "simple"
+          group: "daggers & knives"
+          damage: "1d4s"
+          properties:
+            - "agile"
+            - "light"
+          maneuvers:
+            - "carve": "On strike > STR save > apply bleed."
+            - "rip": "Attack with block+ and dice+. If crit > Apply bleed. If exploit > apply bleed."
+
+  - "light arms":
+      - "Machete":
+          type: "simple"
+          group: "light arms"
+          damage: "1d6s"
+          properties:
+            - "tool"
+            - "versatile 1d8"
+            - "light"
+            - "agile"
+          maneuvers:
+            - "slash": "Attack. If crit or exploit or exposed > apply bleed."
+            - "chop": "If two-handed > Attack with crit range+."
+
+      - "Billhook":
+          type: "simple"
+          group: "light arms"
+          damage: "1d4s"
+          properties:
+            - "tool"
+            - "light"
+          maneuvers:
+            - "slash": "Attack. If crit or lucky > apply bleed."
+            - "hooked edge": "On lucky > pull."
+            - "wrist slash": "On crit > STR/DEX/CON save > apply bleed. STR/DEX/CON save > disarm."
+
+      - "Sickle":
+          type: "simple"
+          group: "light arms"
+          damage: "1d4s"
+          properties:
+            - "tool"
+            - "light"
+            - "agile"
+          maneuvers:
+            - "talon cut": "On hit > If twinned > STR/DEX save > swap and apply bleed."
+            - "slash": "Attack. If crit or exploit > apply bleed."
+            - "rending critical": "On crit > apply bleed."
+
+      - "hand-axe":
+          type: "simple"
+          group: "light arms"
+          damage: "1d6s"
+          properties:
+            - "tool"
+            - "light"
+            - "throw 20/40"
+          maneuvers:
+            - "chop": "Attack with crit-range+."
+            - "axe throw": "Throw > If self STR save > dmg +1d3. If self DEX save > range 35/70."
+            - "combo-throw": "On strike or block > Throw other with range 10/20."
+
+      - "torch":
+          type: "simple"
+          group: "light arms"
+          damage: "1d3b"
+          properties:
+            - "tool"
+            - "light"
+            - "ignite 1d3"
+          maneuvers:
+            - "singe": "If heft and ignited > Attack > If strike > dmg 1d3 fire."
+
+  - "medium arms":
+      - "club":
+          type: "simple"
+          group: "medium arms"
+          damage: "1d4b"
+          properties:
+            - "versatile 1d6"
+            - "light"
+            - "DC-"
+          maneuvers:
+            - "skullcracker": "Attack with block+. On crit > apply stun."
+            - "wild swings": "Attack- > If miss > Attack- > If two-handed > Attack-"
+        
+      - "smiths hammer":
+          type: "simple"
+          group: "medium arms"
+          damage: "1d4b"
+          properties:
+            - "unwieldy"
+          maneuvers:
+            - "stunning critical": "On crit > If CON save > apply stun."
+            - "jawbreaker": "Attack with block- > If unshielded or exploit > push and apply dazed."
+
+      - "spiked club":
+          type: "simple"
+          group: "medium arms"
+          damage: "2d3p"
+          properties:
+            - "unwieldy"
+            - "versatile 2d4"
+          maneuvers:
+            - "gore critical": "On crit > If CON save > dmg+, apply bleed, apply dazed."
+            - "spike": "On exploit or lucky > dmg 1d4p."
+
+      - "pick":
+          type: "simple"
+          group: "medium arms"
+          damage: "1d4p"
+          properties:
+            - "unwieldy"
+            - "tool"
+            - "versatile 2d4"
+            - "inaccurate"
+            - "crit multi+"
+          maneuvers:
+            - "piercing swing": "Attack with breach."
+            - "overhead swing": "On miss > If two-handed > STR save > Attack."
+            - "strike the earth": "If two-handed > Self apply exploit > Attack > If heft > dmg +1d8."
+
+      - "woodsmans axe":
+          type: "simple"
+          group: "medium arms"
+          damage: "1d6s"
+          properties:
+            - "two-handed"
+            - "tool"
+            - "unwieldy"
+          maneuvers:
+            - "chop": "Attack with crit range+."
+            - "cleave": "Attack with cleave."
+            - "overhead chop": "Self apply exposed > Attack with dmg +1d8."
+
+
+  - "heavy arms":
+      - "cudgel":
+          type: "simple"
+          group: "heavy arms"
+          damage: "1d6b"
+          properties:
+            - "versatile 1d8"
+            - "unwieldy"
+            - "DC-"
+          maneuvers:
+            - "heavy swing": "Attack with ram or effort > If two-handed and crit > apply dazed."
+            - "jawbreaker": "Attack with block+. On crit > apply dazed. On exploit > apply dazed."
+
+      - "two-handed pickaxe":
+          type: "simple"
+          group: "heavy arms"
+          damage: "1d8p"
+          properties:
+            - "unwieldy"
+            - "tool"
+            - "inaccurate"
+            - "crit multi+"
+          maneuvers:
+            - "pierce": "Attack with breach+."
+            - "flat-sided ram": "Attack with no inaccurate, bludgeoning, and ram."
+            - "strike the earth": "Self apply exploit > Attack > If heft > dmg +1d6. If DEX save > dmg + 1d6"
+
+      - "mallet":
+          type: "simple"
+          group: "heavy arms"
+          damage: "2d4b"
+          properties:
+            - "unwieldy"
+            - "inaccurate"
+            - "two-handed"
+          maneuvers:
+            - "slam": "Attack with nonlethal and dice+."
+            - "overhead slam": "Attack with block-. If self STR save > dmg+1d4. Else > self apply exposed. "
+      
+      - "Great-club":
+          type: "simple"
+          group: "heavy arms"
+          damage: "4d3"
+          properties:
+            - "unwieldy"
+            - "inaccurate"
+            - "two-handed"
+          maneuvers:
+            - "crush": "Attack with dice+ > If heft > breach+. Else > self apply off-balance."
+            - "dragged slam": "Self STR save > Attack with effort and ram > if miss > self apply off-balance."
+            - "overwhelming critical": "On crit > dice+."
+
+
+  - "simple polearms":
+      - "Pitchfork":
+          type: "simple"
+          group: "polearms"
+          damage: "1d4p"
+          properties:
+            - "tool"
+            - "versatile 1d6"
+            - "unwieldy"
+          maneuvers:
+            - "poke": "If two-handed and far > Attack with reach I > If miss > Attack-."
+            - "prod": "Attack with reach I. If crit > may push."
+            - "slam": "Attack with bludgeoning. If crit > apply dazed."
+
+      - "Spear":
+          type: "simple"
+          group: "polearms"
+          damage: "1d6"
+          properties:
+            - "versatile 1d8"
+            - "balanced"
+          maneuvers:
+            - "stab": "Attack with reach I > If unshielded > crit range+."
+            - "poke": "Attack with reach I > If miss > Attack-."
+            - "spear throw": "move 10ft > throw 30/60 with block-."
+            - "heavy stab": "If two-handed > attack with dice+ and reach > if unshielded > DC++."
+
+      - "Quarterstaff":
+          type: "simple"
+          group: "polearms"
+          damage: "1d3b"
+          properties:
+            - "two-handed"
+            - "balanced"
+          maneuvers:
+            - "slam": "Attack. If crit > apply dazed."
+            - "back-to-back": "Attack > if hit > Attack other."
+            - "counterweight": "On exploit > DEX/STR save > apply prone OR push."
+
+      - "Lantern staff":
+          type: "simple"
+          group: "polearms"
+          damage: "1d4b"
+          properties:
+            - "two-handed"
+            - "unwieldy"
+            - "ignite 1d4"
+          maneuvers:
+            - "poke": "Attack with reach I > if unshielded and ignited > apply on-fire."
+            - "slam": "Attack with reach I > if far > dice++"
+
+      - "Longspear":
+          type: "simple"
+          group: "polearms"
+          damage: "1d8p"
+          properties:
+            - "two-handed"
+            - "reach I"
+          maneuvers:
+            - "stab": "If far > Attack with crit range+ > If unshielded > crit range+."
+            - "skewer": "move up > Attack- with ram, block-, and DC++."
+
+      - "Scythe":
+          type: "simple"
+          group: "polearms"
+          damage: "1d4s"
+          properties:
+            - "very inaccurate"
+            - "unwieldy+"
+            - "two-handed"
+          maneuvers:
+            - "controlled strike": "Attack with piercing, no unwieldy+, and inaccurate."
+            - "reap": "If far > Attack with reach I and cleave."
+            - "scythes edge": "On crit or lucky > DEX save > apply bleed or prone."
+
+      - "Bladed staff":
+          type: "simple"
+          group: "polearms"
+          damage: "1d6s"
+          properties:
+            - "versatile 1d8"
+            - "balanced"
+          maneuvers:
+            - "chop": "Attack with crit range+."
+            - "skewer": "May move > Attack with ram and DC+."
+            - "slash": "Attack with block+. If strike or exploit > apply bleed or exposed."
+
+      - "Iron rod":
+          type: "simple"
+          group: "polearms"
+          damage: "1d8b"
+          properties:
+            - "two-handed"
+            - "unwieldy"
+            - "DC+"
+          maneuvers:
+            - "overhead slam": "Attack with reach I and block-. If self STR save > dmg+1d4. "
+            - "stunning critical": "On crit > If CON vs DMG > apply stun."
+            - "leg trip": "On exploit or lucky > STR/DEX save > apply prone."
+
+  - "thrown & other":
+      - "Sling":
+          type: "simple"
+          group: "thrown & other"
+          damage: "1d4b"
+          properties:
+            - "agile"
+            - "range 40/80"
+            - "reload I"
+          maneuvers:
+            - "stunning critical": "On crit > If CON vs DMG > apply stun."
+            - "windup shot": "If self DEX save > Attack with block-. If heft > dice+."
+
+      - "Sling staff":
+          type: "simple"
+          group: "thrown & other"
+          damage: "1d6b"
+          properties:
+            - "agile"
+            - "versatile 2d3"
+            - "range 50/100"
+            - "inaccurate"
+            - "reload II"
+          maneuvers:
+            - "stunning critical": "On crit > If CON vs DMG > apply stun."
+            - "windup shot": "If self DEX save > Attack with block- and dice+."
+
+      - "slingshot":
+          type: "simple"
+          group: "thrown & other"
+          damage: "1d3b"
+          properties:
+            - "agile"
+            - "two-handed"
+            - "range 30/60"
+            - "launcher"
+            - "reload I"
+          maneuvers:
+            - "pot-shot": "Attack with range 40/100, arc, and crit range+"
+            - "eye-shot": "Attack with crit multi+ > If crit > dice+"
+            - "heel-shot": "Attack with crit multi+ > If crit > apply hobbled."
+
+      - "blowgun":
+          type: "simple"
+          group: "thrown & other"
+          damage: "1d3p"
+          properties:
+            - "balanced"
+            - "effort"
+            - "two-handed"
+            - "range 40/80"
+            - "reload III"
+            - "very-inaccurate"
+          maneuvers:
+            - "rushed-shot": "Attack with block+ > If self DEX save > force-reload."
+
+      - "spring-sling":
+          type: "simple"
+          group: "thrown & other"
+          damage: "1d4b"
+          properties:
+            - "agile"
+            - "two-handed"
+            - "bolt DC 11"
+            - "range 30/60"
+            - "reload I"
+            - "unwieldy"
+            - "inaccurate"
+            - "launcher"
+            - "arc"
+          maneuvers:
+            - "rushed-shot": "Attack with very inaccurate > If self STR save > force-reload."
+            - "far-draw shot": "Self STR save > attack with range 40/80 and dice+. Else > Attack with block+."
+            - "very-far-draw shot": "Self STR save > Attack with range 50/100 and overdraw and dice+. Else > self apply exposed."
+      
+      - "net":
+          type: "simple"
+          group: "thrown & other"
+          damage: "-"
+          properties:
+            - "agile"
+            - "throw 15/30"
+          maneuvers:
+            - "net throw": "On hit > If DEX save > apply entangled 1d3."
+
+      - "javelin":
+          type: "simple"
+          group: "thrown & other"
+          damage: "1d4p"
+          properties:
+            - "balanced"
+            - "throw 30/60"
+          maneuvers:
+            - "guided throw": "Move > Attack with dice+."
+            - "charged throw": "Move > Attack with ram."
+
+  - "axes":
+      - "Battle axe":
+          type: "martial"
+          group: "axes"
+          damage: "1d6s"
+          properties:
+            - "versatile 1d10"
+          maneuvers:
+            - "skullsplitter": "Attack with block+ and crit range+."
+            - "cleave": "Attack with cleave."
+
+      - "Two-handed battle axe":
+          type: "martial"
+          group: "axes"
+          damage: "1d10s"
+          properties:
+            - "two-handed"
+            - "unwieldy"
+          maneuvers:
+            - "cleave": "Attack with cleave and block+ > If exploit > force-crit."
+            - "chop": "Attack with crit range+ and reach and inaccurate > if heft > dice+"
+            - "Hefty ram": "Attack with bludgeoning and ram."
+
+      - "War cleaver":
+          type: "martial"
+          group: "axes"
+          damage: "2d4"
+          properties:
+            - "two-handed"
+            - "unwieldy"
+            - "inaccurate"
+          maneuvers:
+            - "chop strike": "Self STR save > heft > Attack with very inaccurate and reach and crit range+ and dice+++."
+            - "cleaver bash": "Attack with dice-. If strike and heft and STR save > apply dazed."
+
+      - "Long axe":
+          type: "martial"
+          group: "axes"
+          damage: "1d6"
+          properties:
+            - "balanced"
+            - "two-handed"
+          maneuvers:
+            - "chop": "Attack with crit range+ and reach."
+            - "cleave": "Attack with cleave and reach."
+            - "pummel swing": "attack with bludgeoning and DC+."
+
+      - "Bearded axe":
+          type: "martial"
+          group: "axes"
+          damage: "1d6s"
+          properties:
+            - "versatile 1d8"
+          maneuvers:
+            - "chop": "Attack with crit range+. If two-handed > block-."
+            - "slice": "attack > If crit or lucky > apply bleed"
+            - "hook": "On crit > pull OR disarm"
+
+      - "Boarding axe":
+          type: "martial"
+          group: "axes"
+          damage: "1d4s"
+          properties:
+            - "balanced"
+            - "light"
+            - "throw 15/30"
+            - "tool"
+          maneuvers:
+            - "chop": 'Attack with crit range+. If strike > dmg 1d4s.'
+            - "wild swings": 'Attack-. Attack-.'
+            - "Grab and chop": 'DEX save > attack+.'
+
+      - "Raiders axe":
+          type: "martial"
+          group: "axes"
+          damage: "1d6s"
+          properties:
+            - "light"
+            - "versatile 2d4"
+          maneuvers:
+            - "mad swings": 'if twinned > Attack > attack > attack > To all > unwieldy and very inaccurate.'
+            - "chop": 'Attack with block-.'
+            - "overhead throw": 'If two-handed > throw 20/40ft with unwieldy and inaccurate.'
+
+      - "Serrated axe":
+          type: "martial"
+          group: "axes"
+          damage: "1d4s"
+          properties:
+            - "two-handed"
+            - "unwieldy"
+          maneuvers:
+            - "chop": 'Attack with crit range+. If crit > apply bleed.'
+            - "Bloody cleave": 'Attack with cleave. If strike > CON vs DMG > apply bleed.'
+            - "cruelty": >-
+                Attack with block+. If prone > apply bleed. If crit > apply bleed. If lucky or exploit
+                > apply bleed.
+
+      - "Greataxe":
+          type: "martial"
+          group: "axes"
+          damage: "1d12s"
+          properties:
+            - "two-handed"
+            - "very inaccurate"
+            - "DC+"
+          maneuvers:
+            - "heavy cleave": "Attack- with cleave."
+            - "felling chop": 'Attack- with reach I > If far > dmg +1d6s. If strike and DEX save > dmg +1d6'
+            #The second conditional applies the attack before it in the maneuver. After the sequence before it completes, before final damage is complete. 
+            #Far as a conditional is basically calculated first as its immediately determinable.
+            #perhaps this might work: "felling chop": 'Attack- with reach I > If far > dmg +1d6s. Also If DEX save > dmg +1d6s.', with "Also" as a special binding word, but that kinda lengthens it.
+            - "execute": 'Attack- with block- and DC+++ > If prone > dmg +3d6.'
+
+      - "Splitter":
+          type: "martial"
+          group: "axes"
+          damage: "1d6p"
+          properties:
+            - "versatile 1d8"
+            - "breach"
+          maneuvers:
+            - "chop": "Attack with crit multi+. If two-handed > breach."
+            - "double-slice": 'Attack- > If miss > attack-. To all > crit range+.'
+            - "Spun throw": 'If two-handed > Throw- 15/30 with very inaccurate and block-.'
+
+      - "Dwarven battle-axe":
+          type: "martial"
+          group: "axes"
+          damage: "1d8s"
+          properties:
+            - "versatile 1d10s"
+          maneuvers:
+            - "rip and tear": "On crit > if Self STR vs DMG > attack."
+            - "power strike": "Attack with effort. If exploit > force-crit."
+            - "chop": "Attack with crit range/multi+."
+
+  - "Hammers & cudgels":
+      - "morningstar":
+          type: "martial"
+          group: "hammers & cudgels"
+          damage: 1d6b
+          properties:
+            - "versatile 1d8"
+          maneuvers:
+            - "piercing bludgeon": "Attack- > if two-handed > dmg +1d6p. Else > dmg +1d4p."
+            - "morningstar critical": "On crit > STR save > apply bleed. CON save > apply stun."
+
+      - "mace":
+          type: "martial"
+          group: "hammers & cudgels"
+          damage: 1d6b
+          properties:
+            - "versatile 2d4"
+            - "reach I"
+          maneuvers:
+            - "pummel": "If one-handed > Attack- > Attack-."
+            - "Heavy critical": "On crit > If one-handed > apply dazed. Else > apply stun."
+            - "slam": "Attack with dice+ > If heft > effort."
+
+      - "war hammer":
+          type: "martial"
+          group: "hammers & cudgels"
+          damage: 1d4b
+          properties:
+            - "versatile 1d6"
+            - "unwieldy"
+          maneuvers:
+            - "slam": "Attack with DC++."
+            - "power slam": "Attack with ram and effort."
+            - "stunning critical": "On crit > CON save > apply stun."
+            - "hammer throw": "self STR save > throw 20/40. If crit or exploit > apply stun."
+
+      - "two-handed war hammer":
+          type: "martial"
+          group: "hammers & cudgels"
+          damage: 1d8b
+          properties:
+            - "two-handed"
+            - "inaccurate"
+            - "unwieldy"
+          maneuvers:
+            - "anvil slam": "If heft > attack with DC+++ and dice++. On crit > STR-/CON- save > apply stun+."
+            - "innertia": "On strike > STR save > push."
+            - "firm strike": "Attack with no unwieldy and dice+."
+
+      - "war pick":
+          type: "martial"
+          group: "hammers & cudgels"
+          damage: 1d4p
+          properties:
+            - "versatile 1d8"
+            - "light"
+            - "crit multi+"
+          maneuvers:
+            - "spike": "Attack with pierce and block-. If two-handed, exploit, and heft > force-crit."
+            - "backswing": "On miss > attack with dice-."
+
+      - "battle mace":
+          type: "martial"
+          group: "hammers & cudgels"
+          damage: 1d4b
+          properties:
+            - "versatile 1d6b"
+            - "unwieldy"
+          maneuvers:
+            - "weighted slam": "Attack with ram or block- or effort."
+            - "skullcracker": 'Attack > If strike and STR save > apply stun.'
+
+      - "flail":
+          type: "martial"
+          group: "hammers & cudgels"
+          damage: 1d4b
+          properties:
+            - "versatile 2d3b"
+            - "unwieldy"
+            - "inaccurate"
+          maneuvers:
+            - "windup slam": "Attack- with block+ and unwieldy+ > If heft > dice+++ and crit range+."
+            - "redirect": 'On miss > if two-handed > attack OR attack other.'
+            - "dragged slam": 'Attack with block- and dice+ > If self STR save > no inaccurate. Else > self apply off-balance.'
+
+      - "two-handed flail":
+          type: "martial"
+          group: "hammers & cudgels"
+          damage: 3d3b
+          properties:
+            - "two-handed"
+            - "unwieldy+"
+            - "very inaccurate"
+          maneuvers:
+            - "windup slam": "Attack- with block+ and unwieldy+ > If heft > block-x and dice+++ and crit range+."
+            - "crush": "Self STR save > Attack with block-X and dice+. If crit or clutch > If heft > apply prone."
+            - "innertia": "On crit > STR save > push."
+
+      - "Dwarven war hammer":
+          type: "martial"
+          group: "hammers & cudgels"
+          damage: 2d3b
+          properties:
+            - "versatile 2d4"
+            - "unwieldy"
+            - "inaccurate"
+          maneuvers:
+            - "power slam": "Attack with ram or pierce or effort."
+            - "stunning critical": "On crit > CON vs DMG > apply stun."
+            - "skullcracker": "If two-handed > attack with block+. If crit or blocked > CON save > apply stun."
+            - "firm strike": "Attack with no inaccurate and no unwieldy."
+
+      - "War Maul":
+          type: "martial"
+          group: "hammers & cudgels"
+          damage: 3d3b
+          properties:
+            - "two-handed"
+            - "unwieldy"
+            - "inaccurate"
+          maneuvers:
+            - "crush": "Attack > If heft > dice+. If self STR save > dice+ > Else > self apply off-balance."
+            - "bludgeoning forge": "On crit or exploit > apply off-balance."
+            - "cleave": "Attack- with cleave."
+
+
+  - "martial polearms":
+      - "glaive":
+          type: "martial"
+          group: "polearms"
+          damage: 1d8s
+          properties:
+            - "versatile 2d4"
+            - "reach I"
+          maneuvers:
+            - "slash": "Attack with block+. If exploit or crit > apply bleed."
+            - "cleave": "Attack- with block+ and cleave."
+            - "lunging thrust": "Dash > Attack with ram > If near > dice+"
+
+      - "pike":
+          type: "martial"
+          group: "polearms"
+          damage: 2d4p
+          properties:
+            - "two-handed"
+            - "unwieldy"
+            - "reach I"
+          maneuvers:
+            - "stab": "If far > Attack with no unwieldy > If unshielded or exploit > crit range+"
+            - "far stab": "Attack with reach II"
+            - "impale": "self STR save > Attack with impale. Else > Attack with block-."
+
+      - "halberd":
+          type: "martial"
+          group: "polearms"
+          damage: 1d12s
+          properties:
+            - "two-handed"
+            - "inaccurate"
+          maneuvers:
+            - "pierce": "Attack with breach and reach I"
+            - "shove and slice": "If near > maneuver > If hit > push > Attack with reach."
+            - "dismount": "On crit > apply prone."
+
+      - "trident":
+          type: "martial"
+          group: "polearms"
+          damage: 1d6p
+          properties:
+            - "versatile 2d4"
+            - "throw 20/40"
+          maneuvers:
+            - "lunge": "Dash > Attack with reach I > If far > may throw."
+            - "prod": "Attack with reach I. If crit > may push."
+            - "trident skewer": "Attack. If two-handed > dmg +1d4. If crit > apply prone."
+
+      - "twin-blade":
+          type: "martial"
+          group: "polearms"
+          damage: 1d6s
+          properties:
+            - "agile"
+            - "two-handed"
+            - "swift"
+          maneuvers:
+            - "pierce": "Attack with block-."
+            - "whirling critical": "On crit > Attack other."
+            - "sidestep": "On exploit or lucky > dash."
+            - "whirlwind strikes": "Attack- > Attack- > Attack-. To all > If hit > dice+ to all."
+            #odd edge  case of all. Interpretation is to allow three hits, all disadvantage, and per hit that doesnt miss, the dice dmg increases by 1 size category.
+
+      - "sworded-staff":
+          type: "martial"
+          group: "polearms"
+          damage: 1d10s
+          properties:
+            - "two-handed"
+            - "reach I"
+          maneuvers:
+            - "poke": "Attack- > If strike > Attack."
+            - "lunge": "Attack with pierce. May dash > crit range+."
+            - "drive blade": "On blocked > if self DEX/STR save > attack."
+            - "crashing strike": "Attack with DC++ > If far > crit range+."
+
+      - "cross-bladed staff":
+          type: "martial"
+          group: "polearms"
+          damage: 1d8s
+          properties:
+            - "versatile 2d4"
+          maneuvers:
+            - "piercing stab": "Attack with DC+ and breach. If two-handed > DC+ and reach I"
+            - "drive blade": "On blocked > if self DEX/STR save > attack."
+            - "slash": "Attack with block- and cleave. If two-handed > reach I."
+
+      - "harpoon":
+          type: "martial"
+          group: "polearms"
+          damage: 1d6s
+          properties:
+            - "versatile 2d4"
+            - "throw 30/60ft"
+          maneuvers:
+            - "lunge": "Dash > Attack with dice+ and breach."
+            - "harpoon throw": "If self STR save > throw 50/100ft. Else throw with block+."
+
+      - "hook-spear staff":
+          type: "martial"
+          group: "polearms"
+          damage: 1d6p
+          properties:
+            - "versatile 1d8p"
+          maneuvers:
+            - "pierce": "Attack with breach. If two-handed > reach I."
+            - "hooked strike": "Attack with slashing. If two-handed > reach I. If lucky or exploit > hook."
+            - "sweep": "If two-handed > attack- with cleave and reach I."
+
+      - "hammer-pike":
+          type: "martial"
+          group: "polearms"
+          damage: 2d3b
+          properties:
+            - "two-handed"
+            - "reach I"
+            - "inaccurate"
+          maneuvers:
+            - "thrust": "Attack with breach, piercing, no inaccurate, and dice+. If miss > self apply off-balance."
+            - "slam": "Attack. If far > dice+. If crit > apply off-balance."
+            - "cut down": "Attack with slashing. very inaccurate and block+ > If crit > dice++."
+
+  - "light blades":
+      - "Short sword":
+          type: "martial"
+          group: "light blades"
+          damage: "1d6p"
+          properties:
+            - "swift"
+            - "light"
+            - "balanced"
+            - "versatile 1d8"
+          maneuvers:
+            - "stab": "attack > If unshielded > crit range+."
+            - "fast stabs": "Attack with block+. Attack with block+."
+
+      - "Elven short sword":
+          type: "martial"
+          group: "light blades"
+          damage: "1d4s"
+          properties:
+            - "swift"
+            - "light"
+            - "balanced"
+            - "versatile 2d4s"
+          maneuvers:
+            - "stab": "Attack with breach. If unshielded > crit range+."
+            - "swift critical": 'On crit > If unshielded > Attack > Attack-'
+            - "cull": "If twinned and prone OR exposed > Attack+ with block-X and crit range+++."
+
+      - "Hooked short sword":
+          type: "martial"
+          group: "light blades"
+          damage: "1d4s"
+          properties:
+            - "balanced"
+            - "unwieldy"
+            - "light"
+          maneuvers:
+            - "trick slash": "Attack with block+ > If exploit or lucky or crit > disarm OR apply prone."
+            - "hook": "On crit or exploit > pull OR dash."
+            - "lock blades": "On block > If unshielded > STR/DEX save > apply exposed or disarm."
+            # "<attr> save" always means vs block DC. 
+            # perhaps a system could be used where "STR- save++" means "strength save with disadvantage vs block DC +2" as a shorthand. unclear.
+
+
+      - "Curved light sword":
+          type: "martial"
+          group: "light blades"
+          damage: "1d6s"
+          properties:
+            - "balanced"
+            - "light"
+          maneuvers:
+            - "slash": "Attack with block+. If strike or exploit > apply bleed."
+            - "cleave": "Attack with cleave"
+            - "double slash": "Attack > Attack."
+            - "tripple slash": "If twinned > Attack > Attack > attack > To all > block+."
+
+      - "Needle sword":
+          type: "martial"
+          group: "light blades"
+          damage: "1d4p"
+          properties:
+            - "agile"
+            - "light"
+          maneuvers:
+            - "poke": "attack > If miss > Attack-"
+            - "go for the wrist": 'Attack > If free-handed > if hit > STR/DEX save > disarm.'
+            - "entrypoint": 'On other block > Attack- with block-X.'
+
+      - "Dwarven wide dagger":
+          type: "martial"
+          group: "light blades"
+          damage: "1d4s"
+          properties:
+            - "light"
+            - "versatile 1d6"
+          maneuvers:
+            - "wide stab": "Attack with DC++. If exploit or crit > dmg 1d6p."
+            - "heavy slice": "Attack with effort. If exploit or crit > apply dazed."
+
+      - "Hooked dagger":
+          type: "martial"
+          group: "light blades"
+          damage: "1d4s"
+          properties:
+            - "agile"
+            - "light"
+            - "unwieldy"
+          maneuvers:
+            - "hookslash": 'Attack- with block-. If lucky or exploit > STR/DEX save > disarm.'
+            - "cut": "attack > If strike > CON save > apply bleed"
+            - "talon grab": "On crit > if twinned > may swap or push or pull."
+            - "scorpion cut": "On other crit > attack > If crit or clutch > apply bleed or exposed or prone."
+
+      - "Rapier":
+          type: "martial"
+          group: "light blades"
+          damage: "1d6p"
+          properties:
+            - "agile"
+            - "swift"
+          maneuvers:
+            - "lunge": "If space > dash up > attack with crit range+"
+            - "leading strike": "Attack with block+. If blocked > apply exposed."
+            - "opportune strike": "If exposed or unshielded > attack with block- and crit range+."
+            - "excellent critical": "On crit > If DEX/INT vs DMG > apply disarm OR exposed"
+            - "sidestep": "If free-handed > dash."
+
+      - "Dueling blade":
+          type: "martial"
+          group: "light blades"
+          damage: "1d4p"
+          properties:
+            - "agile"
+            - "swift"
+            - "light"
+          maneuvers:
+            - "lunge": "If space > dash up > attack with crit range+"
+            - "double-down": "On blocked > attack > Self apply exposed."
+            - "sidestep": "If free-handed > dash."
+
+  - "medium blades":
+      - "Hook-sword":
+          type: "martial"
+          group: "medium blades"
+          damage: "1d6s"
+          properties:
+            - "light"
+            - "versatile 1d8"
+          maneuvers:
+            - "trick slash": "Attack with block+ > If exploit or lucky or crit > disarm OR apply prone."
+            - "hook": "On crit or exploit > pull OR swap OR disarm."
+            - "hook blades": "On block > STR/DEX save > apply exposed > may push OR pull."
+
+      - "Scimitar":
+          type: "martial"
+          group: "medium blades"
+          damage: "1d6s"
+          properties:
+            - "balanced"
+            - "versatile 2d4"
+          maneuvers:
+            - "slash": "Attack with block+. If strike or exploit > apply bleed."
+            - "cleave": "Attack with cleave."
+            - "chop": "Attack with dice+."
+            - "deadly critical": "On crit > dice+."
+
+      - "Katana":
+          type: "martial"
+          group: "medium blades"
+          damage: "1d6s"
+          properties:
+            - "swift"
+            - "agile"
+            - "versatile 1d10"
+          maneuvers:
+            - "lunge": "If space > dash up > Attack with crit range+."
+            - "Slash": "Attack- > If strike or clutch > May dash back."
+            - "sidestep": "If free-handed > dash."
+            - "lethal critical": "On crit > dmg 2d4s"
+
+      - "Long katana":
+          type: "martial"
+          group: "medium blades"
+          damage: "1d8s"
+          properties:
+            - "agile"
+            - "inaccurate"
+            - "versatile 2d4"
+          maneuvers:
+            - "slashing dash": "May dash up > Attack with dice+ and no inaccurate > if strike > may dash"
+            - "thrust": "Attack with block-. If exposed or unshielded > dice+."
+            - "wide swing": "If two-handed > Attack with cleave and dice+."
+            - "lethal critical": "On crit > dmg +1d8."
+
+      - "Straight-sword":
+          type: "martial"
+          group: "medium blades"
+          damage: "1d8s"
+          properties:
+            - "versatile 1d10"
+          maneuvers:
+            - "thrust": "Attack with breach > If unshielded > crit range+."
+            - "lunge": "If space > dash up > Attack with dice+."
+            - "follow-up": "On hit > Attack-."
+
+      - "Cutlass":
+          type: "martial"
+          group: "medium blades"
+          damage: "1d4s"
+          properties:
+            - "balanced"
+            - "light"
+            - "versatile 1d8"
+            - "crit multi+"
+          maneuvers:
+            - "lunge": "Dash up > Attack with dice+."
+            - "chop": "if two-handed > Attack with crit range+."
+            - "guiling slash": "Attack > if crit > Attack > Attack-."
+
+      - "Sabre":
+          type: "martial"
+          group: "medium blades"
+          damage: "1d6s"
+          properties:
+            - "balanced"
+            - "versatile 1d8"
+          maneuvers:
+            - "wide slash": "If two-handed > Attack with block- > If crit > apply bleed."
+            - "rend": "Attack > If strike > apply bleed."
+            - "whirling critical": "On crit > cleave."
+            - "backhand hook": "On crit > DEX save > disarm OR apply prone."
+
+      - "Fanged-sword":
+          type: "martial"
+          group: "medium blades"
+          damage: "1d6s"
+          properties:
+            - "versatile 1d10"
+          maneuvers:
+            - "thrust": "If two-handed > Attack with breach."
+            - "exposing strike": "Attack with block+. If blocked > apply exposed."
+            - "rip": "On crit > apply bleed > If STR save > dice+."
+
+  - "heavy blades":
+      - "Longsword":
+          type: "martial"
+          group: "heavy blades"
+          damage: "1d8s"
+          properties:
+            - "versatile 1d10"
+          maneuvers:
+            - "thrust": "Attack with breach and reach I."
+            - "swing": "Attack with block+ and crit range+."
+            - "flatsided pummel": "Attack with dice-, bludgeoning, and block+ > If strike and two-handed > attack."
+
+      - "Broadsword":
+          type: "martial"
+          group: "heavy blades"
+          damage: "2d4s"
+          properties:
+            - "versatile 2d6"
+            - "unwieldy"
+          maneuvers:
+            - "chop": "Attack with crit range+ and no unwieldy."
+            - "slam": "Attack with bludgeoning and block- > If crit or clutch > dice+."
+            - "slice": "Attack with no unwieldy > If crit > apply bleed."
+
+      - "Greatsword":
+          type: "martial"
+          group: "heavy blades"
+          damage: "2d6s"
+          properties:
+            - "two-handed"
+            - "unwieldy"
+            - "DC+++"
+          maneuvers:
+            - "heavy slash": "Attack with ram and breach. If self STR save > dmg +1d6 > Else > self apply off-balance."
+            - "heavy thrust": "Attack > if crit or exploit > dmg +1d6. If self STR save > dmg +1d6 > Else > self apply off-balance."
+            - "slam": "Attack with bludgeoning > If strike or heft or clutch > apply dazed."
+            - "greatcrit": "On crit > If self STR save > dmg +1d6 > If self STR save > dmg +1d6."
+
+      - "Falx":
+          type: "martial"
+          group: "heavy blades"
+          damage: "1d8s"
+          properties:
+            - "versatile 1d10"
+          maneuvers:
+            - "chop": "Attack with crit range+."
+            - "pummel": "Attack with bludgeoning > If strike > may apply dazed."
+            - "hook": "On crit or exploit > pull OR apply prone."
+            - "combo": "Attack > If hit > Attack-."
+
+      - "Curved longsword":
+          type: "martial"
+          group: "heavy blades"
+          damage: "2d4s"
+          properties:
+            - "versatile 1d10"
+            - "unwieldy"
+          maneuvers:
+            - "chop": "Attack with crit range+."
+            - "cleave": "Attack with cleave. If clutch > force-strike."
+            - "slash": "Attack with block+. If strike or exploit > apply bleed."
+
+      - "Claymore":
+          type: "martial"
+          group: "heavy blades"
+          damage: "3d4s"
+          properties:
+            - "two-handed"
+            - "unwieldy"
+            - "inaccurate"
+          maneuvers:
+            - "pierce": "Attack with breach and reach I."
+            - "cleave": "Attack- with cleave and reach I."
+            - "strikethrough": "Attack with impale and reach I"
+            - "double-down": "Attack > If blocked > Attack-."
+            - "lethal critical": "On crit > dmg +2d4."
+
+      - "Two-handed sabre":
+          type: "martial"
+          group: "heavy blades"
+          damage: "1d10s"
+          properties:
+            - "two-handed"
+            - "balanced"
+            - "unwieldy"
+          maneuvers:
+            - "overhead slash": "Self DEX/STR save > Attack with DC++ and dmg +1d6. Else > Attack."
+            - "wild swings": "Attack- > If self DEX/STR save > Attack-."
+            - "sabre critical": "On clutch > self DEX save > force-crit."
+            #remember, the "on" effects are still maneuvers and as such require a reaction to trigger.
+            #AND clutch triggers on a nat 1, whereas the two-handed sabre has unwieldy, which ALSO critically fails on a 2, so you can still critically fail.
+
+
+  - "simple bows":
+      - "Hunting bow":
+          type: "simple"
+          group: "bows"
+          damage: "1d6p"
+          properties:
+            - "range 80/160"
+            - "two-handed"
+            - "reload II"
+          maneuvers:
+            - "snipe": "Attack with inaccurate. If heft > crit range++."
+            - "heart-shot": "Attack with inaccurate. If unshielded or exposed > DEX save > dmg +1d6."
+            - "far shot": "Attack with inaccurate, arc, and range 100/200."
+
+      - "Short bow":
+          type: "simple"
+          group: "bows"
+          damage: "1d4p"
+          properties:
+            - "range 60/180"
+            - "two-handed"
+            - "reload I"
+            - "crit range+"
+          maneuvers:
+            - "angled shot": "Attack with arc, range 60/120."
+            - "volley": "Attack > Attack-. To all > very inaccurate."
+
+      - "Skirmisher bow":
+          type: "simple"
+          group: "bows"
+          damage: "1d6p"
+          properties:
+            - "range 50/100"
+            - "two-handed"
+            - "swift"
+          maneuvers:
+            - "volley": "Attack- > Attack- > Attack-. To all > inaccurate"
+            - "skirmish shot": "Attack with block-. If crit or exposed or near > dash."
+            - "focused shot": "attack > If exposed > dice++."
+
+      - "Reed bow":
+          type: "simple"
+          group: "bows"
+          damage: "1d8p"
+          properties:
+            - "range 60/180"
+            - "two-handed"
+            - "reload II"
+          maneuvers:
+            - "far shot": "Attack with very inaccurate, arc, and range 120/180."
+            - "steady draw": "STR/DEX save > Attack with dice+."
+
+      - "Ambushers bow":
+          type: "simple"
+          group: "bows"
+          damage: "1d4p"
+          properties:
+            - "range 40/80"
+            - "two-handed"
+            - "reload I"
+          maneuvers:
+            - "steady draw": "STR save > Attack with dice+."
+            - "Double shot": "STR save > Attack with no-reload > attack."
+            - "focused shot": "Attack > If exposed or exploit > dice+."
+
+  - "simple crossbows":
+      - "Light crossbow":
+          type: "simple"
+          group: "crossbows"
+          damage: "1d6p"
+          properties:
+            - "range 100/200"
+            - "light"
+            - "reload III"
+            - "bolt DC 10"
+          maneuvers:
+            - "snipe": "Attack with inaccurate. If heft > crit range+."
+            - "point-blank": "Attack with inaccurate. If near > block-X."
+
+      - "Heavy crossbow":
+          type: "simple"
+          group: "crossbows"
+          damage: "1d10"
+          properties:
+            - "range 150/300"
+            - "two-handed"
+            - "reload IV"
+            - "bolt DC 12"
+          maneuvers:
+            - "snipe": "Attack with very inaccurate. If heft > crit range++."
+            - "fire and load": "Attack with inaccurate > self STR save- > force-reload."
+
+      - "Crank crossbow":
+          type: "simple"
+          group: "crossbows"
+          damage: "1d12p"
+          properties:
+            - "range 100/400"
+            - "two-handed"
+            - "unwieldy+"
+            - "reload V"
+          maneuvers:
+            - "snipe": "Attack with very inaccurate. If heft > crit range++ and breach."
+            - "pierce": "Attack with breach. If exploit or exposed > force-crit."
+
+      - "Stonebow":
+          type: "simple"
+          group: "crossbows"
+          damage: "1d6b"
+          properties:
+            - "range 80/160"
+            - "two-handed"
+            - "inaccurate"
+            - "launcher"
+            - "reload I"
+          maneuvers:
+            - "angled shot": "Attack with arc and range 60/120"
+            - "skullcracker": 'Attack with very inaccurate > If strike and STR save > apply stun.'
+
+      - "Hunting crossbow":
+          type: "simple"
+          group: "crossbows"
+          damage: "2d4p"
+          properties:
+            - "range 120/240"
+            - "two-handed"
+            - "reload III"
+          maneuvers:
+            - "heart-shot": "Attack with inaccurate. If unshielded or exposed > dice+. If heft > dice+."
+            - "angled shot": "Attack with unwieldy and inaccurate and arc and block-."
+            - "point-blank": "attack > If near > block- and crit range+."
+
+  - "martial crossbows":
+      - "Hand crossbow":
+          type: "martial"
+          group: "crossbows"
+          damage: "1d4p"
+          properties:
+            - "range 30/60"
+            - "reload II"
+            - "light"
+            - "swift"
+          maneuvers:
+            - "quickfire": "If free-handed > Attack with bolt DC 7 > force-reload > Attack."
+            - "point-blank assist": "On other crit > If near > Attack"
+
+      - "Arch-bow":
+          type: "martial"
+          group: "crossbows"
+          damage: "1d6p"
+          properties:
+            - "range 90/180"
+            - "reload II"
+            - "bolt DC 9"
+            - "capacity 2"
+            - "unwieldy"
+          maneuvers:
+            - "unload": "If ammo 2 > Attack > Attack."
+            - "quickfire": "If ammo 2 > Attack. Attack-"
+            - "double-tag-critical": "On crit > if ammo 1 > attack - > if hit > force-crit."
+
+      - "Heavy crank crossbow":
+          type: "martial"
+          group: "crossbows"
+          damage: "1d12"
+          properties:
+            - "range 120/360"
+            - "two-handed"
+            - "reload V"
+            - "very inaccurate"
+          maneuvers:
+            - "snipe": "Attack. If heft > crit range++ and breach."
+            - "pierce": "Attack with breach. If exploit or exposed > force-crit."
+            - "hurried shot": "Attack- with unwieldy and reload IV."
+
+      - "Shoulder ballista":
+          type: "martial"
+          group: "crossbows"
+          damage: "3d4"
+          properties:
+            - "range 200/500"
+            - "two-handed"
+            - "reload V"
+            - "DC+"
+            - "bolt DC 17"
+            - "unwieldy+"
+            - "inaccurate"
+            - "breach"
+          maneuvers:
+            - "pierce": "Attack with block- and breach."
+            - "calculated shot": "If heft or unshielded > Attack with block+++++ and dice++."
+            - "Shoulder aim": "Attack with effort."
+
+      - "Repeating crossbow":
+          type: "martial"
+          group: "crossbows"
+          damage: "1d6p"
+          properties:
+            - "range 60/120"
+            - "two-handed"
+            - "reload IV"
+            - "unwieldy+"
+            - "cartridge capacity 6"
+          maneuvers:
+            - "rapidfire shots": "Attack- > Attack- > Attack- > Attack-"
+            #Theoretically it has no "if ammo" part because you should just be unable to complete the sequence without ammo anyway. idk
+            - "leading shots": "Attack with inaccurate > If hit and heft > Attack > Attack."
+
+      - "Spring bow":
+          type: "martial"
+          group: "crossbows"
+          damage: "1d8p"
+          properties:
+            - "range 90/180"
+            - "two-handed"
+            - "reload III"
+            - "bolt DC 13"
+            - "launcher 60/120"
+          maneuvers:
+            - "calculated shot": "If heft or exposed > Attack with dice+ and very inaccurate > If strike > apply dazed."
+            - "hurried shot": "Attack with unwieldy and reload II."
+            - "aimed shot": "Attack with arc > If crit > apply dazed > if CON save > apply stun."
+
+      - "Dwarven heavy crossbow":
+          type: "martial"
+          group: "crossbows"
+          damage: "1d8"
+          properties:
+            - "range 100/200"
+            - "two-handed"
+            - "reload IV"
+            - "bolt DC 11"
+            - "capacity 3"
+          maneuvers:
+            - "double-tap": "Attack > attack."
+            - "double-tap critical": "On crit > Attack."
+            - "pierce": "Attack with block-."
+            - "fire and load": "Attack with inaccurate > self STR save > force-reload."
+
+      - "Dwarven light crossbow":
+          type: "martial"
+          group: "crossbows"
+          damage: "1d6p"
+          properties:
+            - "range 60/120"
+            - "light"
+            - "reload I"
+            - "capacity 3"
+          maneuvers:
+            - "angled shot": "Attack with arc and range 40/80."
+            - "unload": "If ammo 3 > Attack > Attack > Attack. To all > unwieldy."
+
+  - "light bows":
+      - "Compound bow":
+          type: "martial"
+          group: "light bows"
+          damage: "1d6p"
+          properties:
+            - "range 90/180"
+            - "reload I"
+            - "two-handed"
+          maneuvers:
+            - "pierce": "Attack with range 60/90 and breach."
+            - "power draw": "Attack with dice+ > If heft > block-."
+            - "focused shot": "Attack > If exposed or unshielded > dice+."
+
+      - "Gearbow":
+          type: "martial"
+          group: "light bows"
+          damage: "1d6p"
+          properties:
+            - "range 90/180"
+            - "reload II"
+            - "two-handed"
+            - "unwieldy"
+          maneuvers:
+            - "windup shot": "Self STR save > Attack with dice++ and crit range+."
+            - "efficient reload": "On crit or lucky > force-reload."
+
+      - "Recurve bow":
+          type: "martial"
+          group: "light bows"
+          damage: "1d6p"
+          properties:
+            - "range 90/180"
+            - "two-handed"
+            - "swift"
+            - "inaccurate"
+          maneuvers:
+            - "arc shot": "Attack with range 60/120 and arc."
+            - "power draw": "If self STR save > Attack with dice+. Else > Attack-."
+
+      - "War bow":
+          type: "martial"
+          group: "light bows"
+          damage: "1d8p"
+          properties:
+            - "range 120/240"
+            - "reload I"
+            - "balanced"
+            - "two-handed"
+          maneuvers:
+            - "angled shot": "Attack with arc and range 100/200 > If unshielded > block-."
+            - "pierce": "Attack with block- > If strike > force-reload."
+            - "culling shot": "Attack with range 60. If crit or exploit or exposed > dice+."
+            - "snipe": "Attack with inaccurate. If heft > crit range+."
+
+      - "Raiders bow":
+          type: "martial"
+          group: "light bows"
+          damage: "1d8p"
+          properties:
+            - "range 60/160"
+            - "two-handed"
+          maneuvers:
+            - "arc shot": "Attack with arc."
+            - "arrow volley": "If self DEX save > Attack > Attack. Else > Attack- > Attack-."
+            - "harassing fire": "Attack with unwieldy and block+ > May dash."
+
+  - "heavy bows":
+      - "Longbow":
+          type: "martial"
+          group: "heavy bows"
+          damage: "1d10p"
+          properties:
+            - "range 180/340"
+            - "reload I"
+            - "two-handed"
+            - "overdraw"
+          maneuvers:
+            - "arc shot": "Attack with arc."
+            - "snipe": "Attack with inaccurate > If heft > crit range++."
+
+      - "Ironwood bow":
+          type: "martial"
+          group: "heavy bows"
+          damage: "1d10p"
+          properties:
+            - "range 120/240"
+            - "reload II"
+            - "two-handed"
+            - "overdraw"
+            - "unwieldy"
+          maneuvers:
+            - "heavy overdraw": "Self STR- save > Attack with block- and effort. Else > Attack-."
+            - "crushing bolt": "Attack > If hit > If STR save > push."
+
+      - "Arched bow":
+          type: "martial"
+          group: "heavy bows"
+          damage: "1d12p"
+          properties:
+            - "range 100/200"
+            - "reload I"
+            - "two-handed"
+            - "inaccurate"
+          maneuvers:
+            - "spike": "Attack with breach and overdraw."
+            - "sure shot": "If self DEX save > If unshielded or exposed > Attack+. Else > Attack- with range 50/100."
+
+      - "Great-bow":
+          type: "martial"
+          group: "heavy bows"
+          damage: "2d6p"
+          properties:
+            - "range 200/400"
+            - "reload III"
+            - "arc"
+            - "two-handed"
+            - "very inaccurate"
+          maneuvers:
+            - "takedown": "On crit > apply prone."
+            - "devastating draw": "If STR- save > Attack with breach and dice++ > If heft > block-."
+
+  - "whips":
+      - "whip":
+          type: "martial"
+          group: "whips"
+          damage: "1d3b"
+          properties:
+            - "light"
+            - "agile"
+            - "unwieldy"
+            - "reach II"
+          maneuvers:
+            - "go for the wrist": 'Attack- > if strike > STR/DEX save > disarm.'
+            - "whiplash": 'On crit > If STR-/DEX- save > disarm.'
+            - "lash": "Attack with block+ and dice+ and dmg +1d4."
+            - "redirect": "On clutch > if near > Attack other."
+
+      - "Barbed whip":
+          type: "martial"
+          group: "whips"
+          damage: "1d4s"
+          properties:
+            - "light"
+            - "agile"
+            - "reach II"
+            - "unwieldy"
+          maneuvers:
+            - "lash": "Attack with block+ and dice+ and dmg +1d4. If strike > apply bleed."
+            - "barbed sweep": "If far > Attack- with block+ and cleave. If exploit, lucky, or exposed > apply bleed. "
+            - "barbed critical": "On crit > apply bleed > if DEX+/STR+ save > disarm OR apply prone."
+
+      - "Studded whip":
+          type: "martial"
+          group: "whips"
+          damage: "1d6b"
+          properties:
+            - "light"
+            - "agile"
+            - "reach I"
+            - "unwieldy"
+          maneuvers:
+            - "lash": "Attack with block+ and crit range+."
+            - "whiplash": "On crit > if CON save > apply dazed."
+            - "quicklash": "Attack- > Attack-. To ALL > block+ > if crit or lucky > Attack-."
+
+      - "Braided whip":
+          type: "martial"
+          group: "whips"
+          damage: "1d4b"
+          properties:
+            - "balanced"
+            - "reach III"
+            - "unwieldy+"
+            - "inaccurate"
+          maneuvers:
+            - "lash": "Attack with block+. If crit or exploit > apply pull or dazed or disarm."
+            - "coiled lash": "Attack- with block+, dice+, crit range++, and very inaccurate."
+            - "redirect": "On clutch > attack other with block-."
+            - "sweep": "If far > attack with block+ and cleave."
+
+      - "Hook and chain":
+          type: "martial"
+          group: "whips"
+          damage: "1d4s"
+          properties:
+            - "unwieldy+"
+            - "versatile 1d6s"
+            - "inaccurate"
+            - "reach I"
+          maneuvers:
+            - "lash": "Attack with block+. If crit > may apply prone."
+            - "far strike": "If two-handed > Attack with reach III. Else > Attack with reach II."
+            - "hook critical": "On crit or exploit > pull or dash up 10ft."
+
+      - "meteor hammer":
+          type: "martial"
+          group: "whips"
+          damage: "1d6p"
+          properties:
+            - "agile"
+            - "unwieldy+"
+            - "versatile 1d8"
+            - "reach II"
+          maneuvers:
+            - "piercing lash": "Attack > If DEX save > reach III."
+            - "woven critical": "On crit > Attack- other > if strike > Attack- other."
+            - "redirect": "On clutch > If Self DEX save > Attack- other."
+            - "quicklash": "Attack- with block- > Attack- with block-."
+
+  - "fist weapons":
+      - "push blade":
+          type: "martial"
+          group: "fist-weapons"
+          damage: "1d4p"
+          properties:
+            - "balanced"
+            - "light"
+          maneuvers:
+            - "pierce": "Attack > with block-. If unshielded > dice+"
+            - "double-pierce": "If twinned and self DEX save > Attack+. Else > Attack > self apply exposed."
+            - "side-stab": "On other strike > attack with block-."
+
+      - "iron talons":
+          type: "martial"
+          group: "fist-weapons"
+          damage: "1d4s"
+          properties:
+            - "agile"
+            - "light"
+            - "glove"
+            - "swift"
+          maneuvers:
+            - "clawed slash": "Attack with block+. If crit, exposed, prone, or exploit > apply bleed."
+            - "tiger-slash": "If twinned > attack > attack- > attack. To all > inaccurate."
+            - "dashing slash": "Dash > Attack with cleave > Move."
+            - "clawed critical": "On crit > apply bleed OR > If twinned > may swap."
+
+      - "spiked bracer":
+          type: "martial"
+          group: "fist-weapons"
+          damage: "1d3p"
+          properties:
+            - "balanced"
+            - "light"
+            - "glove"
+            - "swift"
+          maneuvers:
+            - "dueling interrupt": "On other blocked or self blocked > Attack with block-."
+            - "tenderize": "If twinned > attack- > attack- > attack- > attack-. To all > no critical."
+
+      - "mantis bracer":
+          type: "martial"
+          group: "fist-weapons"
+          damage: "1d4p"
+          properties:
+            - "balanced"
+            - "light"
+            - "glove"
+          maneuvers:
+            - "dueling stab": "On other blocked > attack."
+            - "mantis stab": "On self exploit > attack."
+            - "mantis slash": "Attack with block- and slashing. If twinned and strike > Attack+ with slashing."
+
+      - "clawed gauntlet":
+          type: "martial"
+          group: "fist-weapons"
+          damage: "1d3s"
+          properties:
+            - "glove"
+          maneuvers:
+            - "dueling interrupt": "On other blocked > Attack > If crit > apply bleed or stun."
+            - "gauntlet slam": "Attack with effort and bludgeoning."
+            - "gauntlet slash": "Attack with unwieldy > If crit > If STR save > apply prone or disarm."
+
+      - "metal knuckles":
+          type: "martial"
+          group: "fist-weapons"
+          damage: "1d3b"
+          properties:
+            - "glove"
+            - "light"
+          maneuvers:
+            - "quick punches": "Attack > Attack. If twinned > Attack > Attack. To all > no critical."
+            - "rapid punch": "Attack with block-. If strike > apply exposed"
+            - "uppercut punch": "Attack with unwieldy > If crit > If CON save > apply stun."
+            
