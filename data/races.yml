@@ -277,7 +277,7 @@
     description: "
     Description...  
     ",
-    attribute_bonuses:[a +2 bonus to DEX","+1 bonus to a non-DEX ability score of choice],
+    attribute_bonuses: ["a +2 bonus to DEX","+1 bonus to a non-DEX ability score of choice"],s
     size: "small",
     speed: "25ft",
     traits: [
